@@ -9,6 +9,7 @@
   FOTÓK: másold a képeket az images/ mappába az alábbi neveken —
   amíg egy kép hiányzik, elegáns placeholder látszik helyette.
     images/hero.jpg          — nyitókép (nappali, tájkép álló mobilon is jó)
+    images/exterior-1.jpg    — az épület kívülről (Ybl-sarok, álló)
     images/living-1..3.jpg   — nappali (1: nagy fekvő, 2-3: részletek)
     images/kitchen-1..2.jpg  — konyha
     images/gallery-1..2.jpg  — galéria-hálószoba (éjszakai fotók)
@@ -34,7 +35,6 @@
 <meta property="og:url" content="https://urbanflipstudio.com/">
 <meta property="og:image" content="https://urbanflipstudio.com/images/hero.jpg">
 <meta property="og:locale" content="hu_HU">
-<meta property="og:locale:alternate" content="en_US">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%233B4A32'/%3E%3Cellipse cx='16' cy='17' rx='6' ry='8' fill='%23C7CFB7'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +124,7 @@ img{max-width:100%;display:block}
 a{color:var(--olive-deep)}
 h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:var(--lh-heading);letter-spacing:var(--ls-display);margin:0}
 p{margin:0 0 1em}
-:focus-visible{outline:2px solid var(--olive-deep);outline-offset:3px;border-radius:2px}
+:focus-visible{outline:2px solid var(--bg-warm-white);outline-offset:3px;border-radius:2px;box-shadow:0 0 0 3px var(--olive-deep)}
 
 .skip-link{
   position:absolute;left:-9999px;top:0;z-index:100;
@@ -216,11 +216,11 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
 }
 .lang button{
   appearance:none;background:transparent;border:0;color:inherit;
-  padding:0.4rem 0.75rem;cursor:pointer;line-height:1;font:inherit;
+  padding:0.75rem 0.85rem;cursor:pointer;font:inherit;
 }
 .lang button[aria-pressed="true"]{background:var(--olive-deep);color:var(--bg-warm-white)}
 .lang .sep{width:1px;align-self:stretch;background:currentColor;opacity:0.35}
-.lang button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.lang button:focus-visible{outline:2px solid var(--bg-warm-white);outline-offset:-4px;box-shadow:inset 0 0 0 2px var(--olive-deep)}
 
 .nav__cta{
   font-weight:500;font-size:0.9rem;
@@ -235,9 +235,38 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
 .nav.is-solid .nav__cta{background:var(--olive-deep);color:var(--bg-warm-white);border-color:var(--olive-deep)}
 .nav.is-solid .nav__cta:hover{background:var(--ink);border-color:var(--ink)}
 
+.nav__toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:44px;min-height:44px;
+  background:none;border:0;color:inherit;cursor:pointer;
+  font-size:1.15rem;line-height:1;padding:0;
+}
+@media (min-width:900px){
+  .nav__toggle{display:none}
+  .nav__link--contact{display:none}
+}
+@media (max-width:899.98px){
+  .nav.nav--open{background:rgba(250,248,243,0.97);color:var(--ink);border-bottom-color:var(--line)}
+  .nav.nav--open .nav__links{
+    display:flex;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;align-items:stretch;gap:0;
+    padding:0 var(--section-inline) var(--sp-md);
+    background:rgba(250,248,243,0.97);border-bottom:1px solid var(--line);
+  }
+  .nav.nav--open .nav__link{padding:0.9rem 0;border-bottom:1px solid var(--line);opacity:1}
+  .nav.nav--open .nav__link:last-child{border-bottom:0}
+}
+@media (max-width:480px){
+  .nav{gap:var(--sp-sm)}
+  .nav__right{gap:var(--sp-2xs)}
+  .nav__wordmark{font-size:1.05rem}
+  .lang button{padding:0.75rem 0.55rem}
+  .nav__cta{display:none}
+}
+
 /* ===================== HERO ===================== */
 .hero{
-  position:relative;min-height:100svh;min-height:100vh;
+  position:relative;min-height:100vh;min-height:100svh;
   display:flex;flex-direction:column;justify-content:flex-end;
   color:var(--bg-warm-white);overflow:hidden;
 }
@@ -249,7 +278,7 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
 .hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero::after{
   content:'';position:absolute;inset:0;z-index:1;
-  background:linear-gradient(to top,var(--scrim) 0%,rgba(20,22,17,0.12) 45%,rgba(20,22,17,0.25) 100%);
+  background:linear-gradient(to top,var(--scrim) 0%,rgba(20,22,17,0.12) 45%,rgba(20,22,17,0.45) 100%);
   pointer-events:none;
 }
 .hero__content{
@@ -333,7 +362,8 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
   font-weight:500;font-size:var(--fs-small);
   text-transform:uppercase;letter-spacing:0.16em;
   color:var(--bg-warm-white);
-  text-shadow:0 1px 14px rgba(20,22,17,0.35);
+  background:rgba(20,22,17,0.55);
+  padding:0.4rem 0.9rem;border-radius:var(--r-pill);
 }
 .ph__caption b{
   font-family:var(--font-display);font-weight:400;text-transform:none;
@@ -344,6 +374,15 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
 .media--full{aspect-ratio:16/10}
 @media (max-width:680px){
   .media--wide,.media--full{aspect-ratio:4/5}
+}
+@supports not (aspect-ratio:1/1){
+  .media--wide{padding-top:66.67%}
+  .media--tall{padding-top:125%}
+  .media--full{padding-top:62.5%}
+  .ba,.video-frame.is-empty{padding-top:56.25%}
+  @media (max-width:680px){
+    .media--wide,.media--full,.ba{padding-top:125%}
+  }
 }
 .bleed{max-width:none;padding-inline:0}
 
@@ -374,6 +413,7 @@ blockquote{
 blockquote p{margin:0}
 blockquote p::before{content:open-quote}
 blockquote p::after{content:close-quote}
+html[lang="en"] blockquote{quotes:'\201C' '\201D'}
 
 /* ===================== FACTS ===================== */
 .facts{
@@ -399,14 +439,14 @@ blockquote p::after{content:close-quote}
 }
 .chips{
   list-style:none;display:flex;flex-wrap:wrap;gap:var(--sp-2xs) 0;
-  padding:0;margin:var(--sp-lg) 0 0;
+  padding:0;margin:var(--sp-lg) 0 0;overflow:hidden;
 }
 .chips li{
   font-weight:500;font-size:var(--fs-small);letter-spacing:0.1em;
   text-transform:uppercase;color:var(--ink-soft);
   padding:0.35rem 1rem;
 }
-.chips li + li{border-left:1px solid var(--line)}
+.chips li{border-left:1px solid var(--line);margin-left:-1px}
 
 /* ===================== CARDS ===================== */
 .cards{
@@ -557,22 +597,25 @@ footer a:hover{color:var(--olive-deep)}
 .center{text-align:center}
 .center h2,.center .copy{margin-inline:auto}
 </style>
+<noscript><style>[data-reveal],[data-reveal="media"] img{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
 <body>
-<a class="skip-link" href="#lakas" data-en="Skip to content">Ugrás a tartalomhoz</a>
+<a class="skip-link" href="#top" data-en="Skip to content">Ugrás a tartalomhoz</a>
 
 <!-- ===================== NAV ===================== -->
-<div id="nav-sentinel" style="position:absolute;top:0;height:calc(100svh - 80px);width:1px;pointer-events:none" aria-hidden="true"></div>
+<div id="nav-sentinel" style="position:absolute;top:0;height:calc(100vh - 80px);height:calc(100svh - 80px);width:1px;pointer-events:none" aria-hidden="true"></div>
 <header class="nav" id="nav">
   <a class="nav__wordmark" href="#top" aria-label="Project Olive — vissza a tetejére" data-en-aria="Project Olive — back to top">Project&nbsp;Olive</a>
-  <nav class="nav__links" aria-label="Fő navigáció" data-en-aria="Main navigation">
+  <nav class="nav__links" id="nav-links" aria-label="Fő navigáció" data-en-aria="Main navigation">
     <a class="nav__link" href="#lakas" data-en="The apartment">A lakás</a>
     <a class="nav__link" href="#nappali" data-en="The spaces">A terek</a>
     <a class="nav__link" href="#tortenet" data-en="The story">A történet</a>
     <a class="nav__link" href="#elhelyezkedes" data-en="Location">Elhelyezkedés</a>
     <a class="nav__link" href="#specifikacio" data-en="Specification">Specifikáció</a>
+    <a class="nav__link nav__link--contact" href="#kapcsolat" data-en="Contact">Kapcsolat</a>
   </nav>
   <div class="nav__right">
+    <button class="nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menü" data-en-aria="Menu"><span aria-hidden="true">☰</span></button>
     <div class="lang" role="group" aria-label="Nyelvválasztó" data-en-aria="Language selector">
       <button type="button" id="lang-hu" aria-pressed="true" lang="hu">HU</button>
       <span class="sep" aria-hidden="true"></span>
@@ -582,7 +625,7 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" aria-label="Project Olive">
@@ -592,7 +635,7 @@ footer a:hover{color:var(--olive-deep)}
   <div class="hero__content">
     <span class="hero__eyebrow">Vámház körút&nbsp;·&nbsp;Budapest</span>
     <h1>Project Olive</h1>
-    <p class="hero__sub" data-en="Possibly one of Budapest's most unique apartments.">Talán Budapest egyik legkülönlegesebb lakása.</p>
+    <p class="hero__sub" data-en="Possibly one of Budapest's most distinctive apartments.">Talán Budapest egyik legkülönlegesebb lakása.</p>
     <div class="hero__ctas">
       <a class="btn btn--solid" href="#lakas" data-en="Explore the apartment">Fedezze fel a lakást</a>
       <a class="btn btn--ghost" href="#kapcsolat" data-en="Contact us">Kapcsolat</a>
@@ -625,6 +668,21 @@ footer a:hover{color:var(--olive-deep)}
       <li data-en="Ready to move in">Azonnal költözhető</li>
       <li data-en="Everything included">Minden benne van</li>
     </ul>
+  </div>
+</section>
+
+<!-- ===================== ÉRKEZÉS ===================== -->
+<section class="section" id="erkezes">
+  <div class="wrap split">
+    <div>
+      <span class="kicker" data-reveal="soft" data-en="00 — Arrival">00 — Érkezés</span>
+      <h2 data-reveal data-en="It begins at the corner">A saroknál kezdődik</h2>
+      <p class="copy" data-reveal data-en="A listed corner building designed by Miklós Ybl, a few steps from Kálvin Square. The story starts before you even step through the gate.">Ybl Miklós tervezte műemléki saroképület, néhány lépésre a Kálvin tértől. A történet már azelőtt elkezdődik, hogy belépne a kapun.</p>
+    </div>
+    <figure class="ph ph--location media--tall" data-reveal="media">
+      <img src="images/exterior-1.jpg" alt="Az Ybl Miklós tervezte saroképület kívülről" data-en-alt="The Ybl-designed corner building from outside" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><b>00</b><span data-en="The building">Az épület</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -680,7 +738,7 @@ footer a:hover{color:var(--olive-deep)}
     <div>
       <span class="kicker" data-reveal="soft" data-en="03 — Gallery bedroom">03 — Galéria-hálószoba</span>
       <h2 data-reveal data-en="Another world, upstairs">Egy másik világ, odafent</h2>
-      <p class="copy" data-reveal data-en="Behind the glass wall and the curtains hides a private retreat with a boutique-hotel feel: freestanding bathtub, private WC and washbasin — under an intimate 210 cm ceiling.">Az üvegfal és a függönyök mögött privát búvóhely rejtőzik, boutique hotelek hangulatával: szabadon álló kád, saját WC és mosdó — meghitt, 210 cm-es belmagassággal.</p>
+      <p class="copy" data-reveal data-en="Behind the glass wall and the curtains hides a private retreat with a boutique-hotel feel: freestanding bathtub, private WC and washbasin — under an intimate 210&nbsp;cm ceiling.">Az üvegfal és a függönyök mögött privát búvóhely rejtőzik, boutique hotelek hangulatával: szabadon álló kád, saját WC és mosdó — meghitt, 210&nbsp;cm-es belmagassággal.</p>
       <p class="copy" data-reveal style="--i:1" data-en="At night, with the city lights below, it becomes the most atmospheric corner of the home.">Éjszaka, a város fényeivel odalent, ez a lakás leghangulatosabb szeglete.</p>
     </div>
     <figure class="ph ph--gallery media--tall" data-reveal="media">
@@ -748,7 +806,7 @@ footer a:hover{color:var(--olive-deep)}
       </div>
       <div class="card" data-reveal style="--i:2">
         <h3 data-en="Technical backbone">Műszaki háttér</h3>
-        <p data-en="3×20 A electrical service, individual utility meters and a central kill-switch by the front door.">3×20 A-es elektromos hálózat, egyedi mérőórák és központi lekapcsoló a bejáratnál.</p>
+        <p data-en="3×20&nbsp;A electrical supply, individual utility meters and a master shut-off switch by the front door.">3×20&nbsp;A-es elektromos hálózat, egyedi mérőórák és központi lekapcsoló a bejáratnál.</p>
       </div>
       <div class="card" data-reveal>
         <h3 data-en="Storage">Tárolás</h3>
@@ -756,7 +814,7 @@ footer a:hover{color:var(--olive-deep)}
       </div>
       <div class="card" data-reveal style="--i:1">
         <h3 data-en="The building">Az épület</h3>
-        <p data-en="A listed historic house designed by Miklós Ybl. Second floor, no elevator — and stairs worth every step.">Ybl Miklós tervezte műemléki ház. Második emelet, lift nélkül — és egy lépcsőház, ami megér minden lépcsőfokot.</p>
+        <p data-en="A listed historic house designed by Miklós Ybl. Second floor (two flights up), no lift — and stairs worth every step.">Ybl Miklós tervezte műemléki ház. Második emelet, lift nélkül — és egy lépcsőház, ami megér minden lépcsőfokot.</p>
       </div>
       <div class="card" data-reveal style="--i:2">
         <h3 data-en="Ownership">Tulajdon</h3>
@@ -782,12 +840,12 @@ footer a:hover{color:var(--olive-deep)}
       </ul>
     </div>
     <figure class="ph ph--location media--tall" data-reveal="media" style="position:relative">
-      <img src="images/location-1.jpg" alt="A Vámház körút és környéke" data-en-alt="Vámház Boulevard and its surroundings" loading="lazy" decoding="async" onerror="this.remove()">
+      <img src="images/location-1.jpg" alt="A Vámház körút és környéke" data-en-alt="Vámház körút and its surroundings" loading="lazy" decoding="async" onerror="this.remove()">
       <a class="map-pin" href="https://maps.google.com/?q=Vámház+körút,+Budapest" target="_blank" rel="noopener">
         <span class="map-pin__dot" aria-hidden="true"></span>
         <span class="map-pin__label" data-en="Open in Maps">Megnyitás térképen</span>
       </a>
-      <figcaption class="ph__caption"><b>07</b><span data-en="Vámház Boulevard">Vámház körút</span></figcaption>
+      <figcaption class="ph__caption"><b>07</b><span>Vámház körút</span></figcaption>
     </figure>
   </div>
 </section>
@@ -832,7 +890,7 @@ footer a:hover{color:var(--olive-deep)}
   <div class="wrap split split--flip">
     <div>
       <span class="kicker" data-reveal="soft" data-en="The creators">Az alkotók</span>
-      <h2 data-reveal data-en="“We built the home we felt should already exist.”">„Megépítettük az otthont, amiről úgy éreztük, léteznie kellene."</h2>
+      <h2 data-reveal data-en="“We built the home we felt should already exist.”">„Megépítettük az otthont, amiről úgy éreztük, léteznie kellene.”</h2>
       <p class="copy" data-reveal data-en="Two of us stand behind Project Olive: a designer and a builder. Two years, hundreds of decisions, one goal — a home whose story is worth continuing.">Ketten állunk a Project Olive mögött: egy tervező és egy megvalósító. Két év, több száz döntés, egyetlen cél — egy otthon, aminek a történetét érdemes folytatni.</p>
     </div>
     <figure class="ph ph--bedroom media--tall" data-reveal="media">
@@ -857,7 +915,7 @@ footer a:hover{color:var(--olive-deep)}
       <div class="ba__after ph">
         <img src="images/after-1.jpg" alt="A lakás a felújítás után" data-en-alt="The apartment after renovation" loading="lazy" decoding="async" onerror="this.remove()">
       </div>
-      <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Előtte és utána csúszka" data-en-aria="Before and after slider">
+      <input class="ba__range" type="range" min="0" max="100" value="50" autocomplete="off" aria-label="Előtte és utána csúszka" data-en-aria="Before and after slider">
       <span class="ba__handle" aria-hidden="true"></span>
       <span class="ba__label ba__label--before" data-en="Before">Előtte</span>
       <span class="ba__label ba__label--after" data-en="After">Utána</span>
@@ -873,15 +931,15 @@ footer a:hover{color:var(--olive-deep)}
       <h2 data-reveal data-en="The facts, in one place">A tények, egy helyen</h2>
     </div>
     <dl class="spec mt-xl" data-reveal>
-      <div><dt data-en="Floor area">Alapterület</dt><dd>79 m²</dd></div>
+      <div><dt data-en="Floor area">Alapterület</dt><dd>79&nbsp;m²</dd></div>
       <div><dt data-en="Bedrooms">Hálószobák</dt><dd>2</dd></div>
       <div><dt data-en="Bathrooms">Fürdőszobák</dt><dd>2</dd></div>
       <div><dt>WC</dt><dd>2</dd></div>
       <div><dt data-en="Building">Épület</dt><dd data-en="Listed historic building">Műemléki ház</dd></div>
-      <div><dt data-en="Architect">Tervező</dt><dd>Ybl Miklós</dd></div>
+      <div><dt data-en="Architect">Tervező</dt><dd data-en="Miklós Ybl">Ybl Miklós</dd></div>
       <div><dt data-en="Position">Fekvés</dt><dd data-en="Corner apartment">Sarki lakás</dd></div>
-      <div><dt data-en="District">Környék</dt><dd data-en="Kálvin Square">Kálvin tér</dd></div>
-      <div><dt data-en="Floor">Emelet</dt><dd data-en="2nd floor, no elevator">2. emelet, lift nélkül</dd></div>
+      <div><dt data-en="Neighbourhood">Környék</dt><dd data-en="Kálvin Square">Kálvin tér</dd></div>
+      <div><dt data-en="Floor">Emelet</dt><dd data-en="2nd floor, no lift">2.&nbsp;emelet, lift nélkül</dd></div>
       <div><dt data-en="Ownership">Tulajdon</dt><dd>1/1</dd></div>
       <div><dt data-en="Possession">Birtokbavétel</dt><dd data-en="Immediate">Azonnali</dd></div>
       <div><dt data-en="Furnishing">Berendezés</dt><dd data-en="Everything included">Minden benne van</dd></div>
@@ -892,11 +950,11 @@ footer a:hover{color:var(--olive-deep)}
 <!-- ===================== ZÁRÓ CTA ===================== -->
 <section class="section section--alt contact" id="kapcsolat">
   <div class="wrap">
-    <span class="kicker" data-reveal="soft" style="justify-content:center" data-en="Contact">Kapcsolat</span>
+    <span class="kicker" data-reveal="soft" data-en="Contact">Kapcsolat</span>
     <h2 data-reveal data-en="It is even more beautiful in person.">Élőben még szebb.</h2>
     <p class="copy" data-reveal data-en="Come and walk through it — and we will tell you the rest of the story.">Jöjjön el, sétálja végig — mi pedig elmeséljük a történet többi részét.</p>
     <div class="contact__actions" data-reveal>
-      <a class="btn btn--olive" href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20megtekint%C3%A9s" data-en="Schedule a viewing">Időpont egyeztetése</a>
+      <a class="btn btn--olive" href="mailto:martindobos123@gmail.com?subject=Project%20Olive" data-en="Schedule a viewing">Időpont egyeztetése</a>
       <a class="btn btn--outline" href="https://wa.me/36706043807" target="_blank" rel="noopener">WhatsApp</a>
       <a class="btn btn--outline" href="tel:+36706043807" data-en="Call us">Telefon</a>
     </div>
@@ -951,6 +1009,9 @@ footer a:hover{color:var(--olive-deep)}
     if (metaDesc) metaDesc.setAttribute('content', en ? META_EN.desc : META_HU.desc);
     document.getElementById('lang-hu').setAttribute('aria-pressed', String(!en));
     document.getElementById('lang-en').setAttribute('aria-pressed', String(en));
+    document.querySelectorAll('.ba__range').forEach(function(r){
+      r.dispatchEvent(new Event('input'));
+    });
     try { localStorage.setItem('olive-lang', lang); } catch(e){}
   }
   document.getElementById('lang-hu').addEventListener('click', function(){ setLang('hu'); });
@@ -984,11 +1045,38 @@ footer a:hover{color:var(--olive-deep)}
     nav.classList.add('is-solid');
   }
 
+  /* ---------- mobil menü ---------- */
+  var toggle = document.getElementById('nav-toggle');
+  var links = document.getElementById('nav-links');
+  if (toggle && links) {
+    var closeMenu = function(){
+      nav.classList.remove('nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('nav--open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.addEventListener('click', function(e){
+      if (e.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && nav.classList.contains('nav--open')) closeMenu();
+    });
+  }
+
   /* ---------- előtte/utána csúszka ---------- */
   document.querySelectorAll('.ba').forEach(function(ba){
     var range = ba.querySelector('.ba__range');
-    var set = function(v){ ba.style.setProperty('--pos', v + '%'); };
+    var set = function(v){
+      ba.style.setProperty('--pos', v + '%');
+      range.setAttribute('aria-valuetext',
+        document.documentElement.lang === 'en'
+          ? v + '% of the after photo shown'
+          : 'az utána fotó ' + v + '%-a látszik');
+    };
     range.addEventListener('input', function(){ set(range.value); });
+    window.addEventListener('pageshow', function(){ set(range.value || 50); });
     set(range.value || 50);
   });
 
@@ -997,12 +1085,13 @@ footer a:hover{color:var(--olive-deep)}
   if (!reduce && !coarse) {
     var items = Array.prototype.slice.call(document.querySelectorAll('[data-parallax] img'));
     if (items.length) {
-      items.forEach(function(img){ img.style.willChange = 'transform'; });
+      items.forEach(function(img){ img.style.willChange = 'transform'; img.style.transition = 'none'; });
       var ticking = false;
       var update = function(){
         ticking = false;
         var vh = window.innerHeight;
         items.forEach(function(img){
+          if (!img.parentElement) return;
           var r = img.parentElement.getBoundingClientRect();
           if (r.bottom < 0 || r.top > vh) return;
           var progress = (r.top + r.height/2 - vh/2) / vh; /* -0.5 … 0.5 körül */
@@ -1029,6 +1118,7 @@ footer a:hover{color:var(--olive-deep)}
     };
     if (source) source.addEventListener('error', markEmpty);
     video.addEventListener('error', markEmpty);
+    if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) markEmpty();
   }
 
   /* ---------- évszám ---------- */

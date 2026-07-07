@@ -11,6 +11,7 @@ elegáns placeholder látszik a helyén — a kép bemásolása után azonnal me
 | Fájlnév | Mi kerüljön bele |
 |---|---|
 | `hero.jpg` | nyitókép (legszebb nappali-fotó, fekvő) |
+| `exterior-1.jpg` | az épület kívülről (Ybl-sarok), álló |
 | `living-1.jpg` | nappali, nagy fekvő kép |
 | `living-2.jpg` | nappali, panorámás sarok |
 | `living-3.jpg` | nappali, álló formátumú részlet |
