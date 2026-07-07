@@ -7,9 +7,6 @@
   Kapcsolat: +36 70 604 3807 · martindobos123@gmail.com
   Domain: urbanflipstudio.com
   FOTÓK: a helyükön (images/*.webp) + videó (olive-video.mp4).
-  MÉG HIÁNYZIK: images/before-1.jpg és images/after-1.jpg —
-  a felújítás előtti/utáni pár az Előtte-utána csúszkához;
-  amíg nincsenek meg, elegáns placeholder látszik ott.
 ============================================================ -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -375,9 +372,9 @@ h2{font-size:var(--fs-h2);max-width:22ch;margin-bottom:var(--sp-md)}
   .media--wide{padding-top:66.67%}
   .media--tall{padding-top:125%}
   .media--full{padding-top:62.5%}
-  .ba,.video-frame.is-empty{padding-top:56.25%}
+  .video-frame.is-empty{padding-top:56.25%}
   @media (max-width:680px){
-    .media--wide,.media--full,.ba{padding-top:125%}
+    .media--wide,.media--full{padding-top:125%}
   }
 }
 .bleed{max-width:none;padding-inline:0}
@@ -512,50 +509,6 @@ html[lang="en"] blockquote{quotes:'\201C' '\201D'}
 .video-frame video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover}
 .video-frame.is-empty video{display:none}
 .video-frame.is-empty{aspect-ratio:16/9}
-
-/* ===================== BEFORE / AFTER ===================== */
-.ba{
-  position:relative;aspect-ratio:3/2;overflow:hidden;
-  border-radius:var(--r-md);
-  touch-action:pan-y;user-select:none;-webkit-user-select:none;
-  max-width:var(--max-w);margin-inline:auto;
-  --pos:50%;
-}
-@media (max-width:680px){.ba{aspect-ratio:4/5}}
-.ba__base,.ba__after{position:absolute;inset:0}
-.ba__base{--ph-a:#B4AA98;--ph-b:#4F5347}
-.ba__after{--ph-a:#C7CFB7;--ph-b:#5E6E42;clip-path:inset(0 0 0 var(--pos))}
-.ba__base img,.ba__after img{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;
-}
-.ba__range{
-  position:absolute;inset:0;width:100%;height:100%;margin:0;
-  opacity:0;cursor:ew-resize;z-index:3;appearance:none;
-}
-.ba__handle{
-  position:absolute;top:0;bottom:0;left:var(--pos);
-  width:2px;background:var(--bg-warm-white);
-  transform:translateX(-1px);z-index:2;pointer-events:none;
-}
-.ba__handle::after{
-  content:'\2039\00a0\203A';
-  position:absolute;top:50%;left:50%;translate:-50% -50%;
-  width:44px;height:44px;border-radius:var(--r-pill);
-  background:var(--bg-warm-white);border:1px solid var(--line);
-  display:grid;place-items:center;
-  font-family:var(--font-display);color:var(--olive-deep);letter-spacing:2px;
-  box-shadow:0 1px 3px rgba(35,39,31,0.14);
-}
-.ba__range:focus-visible ~ .ba__handle::after{outline:2px solid var(--olive-deep);outline-offset:3px}
-.ba__label{
-  position:absolute;bottom:14px;z-index:2;pointer-events:none;
-  padding:4px 12px;border-radius:var(--r-pill);
-  font-weight:500;font-size:var(--fs-small);
-  text-transform:uppercase;letter-spacing:0.1em;
-  background:rgba(250,248,243,0.9);color:var(--ink);
-}
-.ba__label--before{left:14px}
-.ba__label--after{right:14px}
 
 /* ===================== CONTACT ===================== */
 .contact{
@@ -949,29 +902,6 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
-<!-- ===================== 12 · ELŐTTE / UTÁNA ===================== -->
-<section class="section section--alt" id="elotte-utana">
-  <div class="wrap center">
-    <span class="kicker" data-reveal="soft" data-en="Before &amp; after">Előtte és utána</span>
-    <h2 data-reveal data-en="The same space — two years of work later">Ugyanaz a tér — két évnyi munkával később</h2>
-    <p class="copy" data-reveal data-en="Drag the slider and see what the apartment has been through.">Húzza el a csúszkát, és nézze meg, min ment keresztül a lakás.</p>
-  </div>
-  <div class="wrap mt-xl">
-    <div class="ba" data-reveal>
-      <div class="ba__base ph">
-        <img src="images/before-1.jpg" alt="A lakás a felújítás előtt" data-en-alt="The apartment before renovation" loading="lazy" decoding="async" onerror="this.remove()">
-      </div>
-      <div class="ba__after ph">
-        <img src="images/after-1.jpg" alt="A lakás a felújítás után" data-en-alt="The apartment after renovation" loading="lazy" decoding="async" onerror="this.remove()">
-      </div>
-      <input class="ba__range" type="range" min="0" max="100" value="50" autocomplete="off" aria-label="Előtte és utána csúszka" data-en-aria="Before and after slider">
-      <span class="ba__handle" aria-hidden="true"></span>
-      <span class="ba__label ba__label--before" data-en="Before">Előtte</span>
-      <span class="ba__label ba__label--after" data-en="After">Utána</span>
-    </div>
-  </div>
-</section>
-
 <!-- ===================== 13 · SPECIFIKÁCIÓ ===================== -->
 <section class="section" id="specifikacio">
   <div class="wrap">
@@ -1083,9 +1013,6 @@ footer a:hover{color:var(--olive-deep)}
     if (metaDesc) metaDesc.setAttribute('content', en ? META_EN.desc : META_HU.desc);
     document.getElementById('lang-hu').setAttribute('aria-pressed', String(!en));
     document.getElementById('lang-en').setAttribute('aria-pressed', String(en));
-    document.querySelectorAll('.ba__range').forEach(function(r){
-      r.dispatchEvent(new Event('input'));
-    });
     try { localStorage.setItem('olive-lang', lang); } catch(e){}
   }
   document.getElementById('lang-hu').addEventListener('click', function(){ setLang('hu'); });
@@ -1149,31 +1076,6 @@ footer a:hover{color:var(--olive-deep)}
     new IntersectionObserver(function(es){ heroGone = !es[0].isIntersecting; barUpdate(); }).observe(sentinel);
     var kapcsolatSec = document.getElementById('kapcsolat');
     if (kapcsolatSec) new IntersectionObserver(function(es){ contactSeen = es[0].isIntersecting; barUpdate(); }).observe(kapcsolatSec);
-  }
-
-  /* ---------- előtte/utána csúszka ---------- */
-  document.querySelectorAll('.ba').forEach(function(ba){
-    var range = ba.querySelector('.ba__range');
-    var set = function(v){
-      ba.style.setProperty('--pos', v + '%');
-      range.setAttribute('aria-valuetext',
-        document.documentElement.lang === 'en'
-          ? v + '% of the after photo shown'
-          : 'az utána fotó ' + v + '%-a látszik');
-    };
-    range.addEventListener('input', function(){ set(range.value); });
-    window.addEventListener('pageshow', function(){ set(range.value || 50); });
-    set(range.value || 50);
-  });
-
-  /* ---------- előtte/utána: rejtve, amíg nincsenek meg a fotók ---------- */
-  var baSection = document.getElementById('elotte-utana');
-  if (baSection) {
-    ['images/before-1.jpg', 'images/after-1.jpg'].forEach(function(src){
-      var probe = new Image();
-      probe.onerror = function(){ baSection.hidden = true; };
-      probe.src = src;
-    });
   }
 
   /* ---------- finom parallax (csak egér + engedélyezett mozgás) ---------- */
