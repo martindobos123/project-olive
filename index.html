@@ -510,10 +510,10 @@ html[lang="en"] blockquote{quotes:'\201C' '\201D'}
 
 /* ===================== VIDEO ===================== */
 .video-frame{
-  position:relative;max-width:var(--max-w);margin-inline:auto;
+  position:relative;max-width:min(440px,100%);margin-inline:auto;
   border-radius:var(--r-md);overflow:hidden;background:var(--ink);
 }
-.video-frame video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.video-frame video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover}
 .video-frame.is-empty video{display:none}
 .video-frame.is-empty{aspect-ratio:16/9}
 
@@ -591,6 +591,17 @@ footer .wordmark{font-family:var(--font-display);font-size:1.05rem;color:var(--i
 footer a{color:var(--ink-soft);text-decoration:none}
 footer a:hover{color:var(--olive-deep)}
 
+/* ===================== ALAPRAJZOK ===================== */
+.plans{display:grid;gap:var(--sp-sm);align-items:start}
+@media (min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plans figure{margin:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:#fff}
+.plans img{width:100%;height:auto;display:block}
+.plans figcaption{
+  padding:0.75rem 1.1rem;font-weight:500;font-size:var(--fs-small);
+  letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-soft);
+  border-top:1px solid var(--line);
+}
+
 /* apró segédek */
 .mt-lg{margin-top:var(--sp-lg)}
 .mt-xl{margin-top:var(--sp-xl)}
@@ -630,7 +641,7 @@ footer a:hover{color:var(--olive-deep)}
 <!-- ===================== HERO ===================== -->
 <section class="hero" aria-label="Project Olive">
   <div class="hero__media ph ph--hero">
-    <img src="images/hero.jpg" alt="A Project Olive nappalija — négy hatalmas ablak, közel négyméteres belmagasság" data-en-alt="The Project Olive living room — four large windows, nearly four-metre ceilings" fetchpriority="high" decoding="async" onerror="this.remove()">
+    <img src="images/hero.jpg" alt="A Project Olive nappalija este — a galéria, a konyha és a közel négyméteres tér" data-en-alt="The Project Olive living space at dusk — the gallery, the kitchen and the nearly four-metre volume" fetchpriority="high" decoding="async" onerror="this.remove()">
   </div>
   <div class="hero__content">
     <span class="hero__eyebrow">Vámház körút&nbsp;·&nbsp;Budapest</span>
@@ -679,9 +690,19 @@ footer a:hover{color:var(--olive-deep)}
       <h2 data-reveal data-en="It begins at the corner">A saroknál kezdődik</h2>
       <p class="copy" data-reveal data-en="A listed corner building designed by Miklós Ybl, a few steps from Kálvin Square. The story starts before you even step through the gate.">Ybl Miklós tervezte műemléki saroképület, néhány lépésre a Kálvin tértől. A történet már azelőtt elkezdődik, hogy belépne a kapun.</p>
     </div>
-    <figure class="ph ph--location media--tall" data-reveal="media">
-      <img src="images/exterior-1.jpg" alt="Az Ybl Miklós tervezte saroképület kívülről" data-en-alt="The Ybl-designed corner building from outside" loading="lazy" decoding="async" onerror="this.remove()">
+    <figure class="ph ph--location media--wide" data-reveal="media">
+      <img src="images/exterior-1.jpg" alt="Az Ybl Miklós tervezte saroképület a Vámház körúton" data-en-alt="The Ybl-designed corner building on Vámház Boulevard" loading="lazy" decoding="async" onerror="this.remove()">
       <figcaption class="ph__caption"><b>00</b><span data-en="The building">Az épület</span></figcaption>
+    </figure>
+  </div>
+  <div class="mosaic" style="margin-top:var(--sp-sm)">
+    <figure class="ph ph--story media--wide" data-reveal="media">
+      <img src="images/exterior-2.jpg" alt="Az épület kovácsoltvas korlátos csigalépcsője" data-en-alt="The building's wrought-iron spiral staircase" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The staircase">A lépcsőház</span></figcaption>
+    </figure>
+    <figure class="ph ph--kitchen media--tall" data-reveal="media" style="--i:1">
+      <img src="images/exterior-3.jpg" alt="Az épület eredeti tervei és archív fotói bekeretezve a lakás falán" data-en-alt="The building's original drawings and archive photos framed on the apartment wall" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The original drawings">Az eredeti tervek</span></figcaption>
     </figure>
   </div>
 </section>
@@ -701,12 +722,12 @@ footer a:hover{color:var(--olive-deep)}
   </figure>
   <div class="mosaic" style="padding-block:var(--sp-sm) var(--section-block)">
     <figure class="ph ph--living media--wide" data-reveal="media">
-      <img src="images/living-2.jpg" alt="A nappali panorámás sarka" data-en-alt="The panoramic corner of the living room" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="City view">Városi panoráma</span></figcaption>
+      <img src="images/living-2.jpg" alt="A nappali a galériáról nézve" data-en-alt="The living room seen from the gallery" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="Seen from the gallery">A galériáról nézve</span></figcaption>
     </figure>
     <figure class="ph ph--living media--tall" data-reveal="media" style="--i:1">
-      <img src="images/living-3.jpg" alt="Természetes fény a nappaliban" data-en-alt="Natural light in the living room" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="Natural light">Természetes fény</span></figcaption>
+      <img src="images/living-3.jpg" alt="A Kálvin téri református templom tornya a nappali ablakából" data-en-alt="The Kálvin Square church tower from the living room window" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The view">Kilátás</span></figcaption>
     </figure>
   </div>
 </section>
@@ -742,14 +763,14 @@ footer a:hover{color:var(--olive-deep)}
       <p class="copy" data-reveal style="--i:1" data-en="At night, with the city lights below, it becomes the most atmospheric corner of the home.">Éjszaka, a város fényeivel odalent, ez a lakás leghangulatosabb szeglete.</p>
     </div>
     <figure class="ph ph--gallery media--tall" data-reveal="media">
-      <img src="images/gallery-1.jpg" alt="A galéria-hálószoba éjszakai hangulatban" data-en-alt="The gallery bedroom at night" loading="lazy" decoding="async" onerror="this.remove()">
+      <img src="images/gallery-1.jpg" alt="Szabadon álló kád arany csapteleppel a galérián" data-en-alt="Freestanding bathtub with a brass tap on the gallery" loading="lazy" decoding="async" onerror="this.remove()">
       <figcaption class="ph__caption"><b>03</b><span data-en="Gallery bedroom">Galéria-hálószoba</span></figcaption>
     </figure>
   </div>
   <div class="wrap mt-lg">
     <figure class="ph ph--gallery media--full" data-reveal="media">
-      <img src="images/gallery-2.jpg" alt="Szabadon álló kád a galérián" data-en-alt="Freestanding bathtub on the gallery" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="Freestanding bathtub">Szabadon álló kád</span></figcaption>
+      <img src="images/gallery-2.jpg" alt="A galéria-hálószoba — ágy, kád és a nappali felé nyíló tér" data-en-alt="The gallery bedroom — bed, bathtub and the space opening over the living room" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The gallery">A galéria</span></figcaption>
     </figure>
   </div>
 </section>
@@ -768,6 +789,12 @@ footer a:hover{color:var(--olive-deep)}
     <figure class="ph ph--shaft media--tall" data-reveal="media" data-parallax>
       <img src="images/shaft-1.jpg" alt="A fényakna zöld falakkal és természetes fénnyel" data-en-alt="The light shaft with green walls and natural light" loading="lazy" decoding="async" onerror="this.remove()">
       <figcaption class="ph__caption"><b>04</b><span data-en="The light shaft">A fényakna</span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap mt-lg">
+    <figure class="ph ph--shaft media--full" data-reveal="media">
+      <img src="images/shaft-2.jpg" alt="A fényakna zöld mohafala alulról, a tetőablakkal" data-en-alt="The light shaft's green moss wall from below, with the skylight" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The moss wall from below">A mohafal alulról</span></figcaption>
     </figure>
   </div>
 </section>
@@ -821,6 +848,10 @@ footer a:hover{color:var(--olive-deep)}
         <p data-en="1/1 ownership, immediate possession. Everything you see in the photos is part of the apartment.">1/1 tulajdoni hányad, azonnali birtokbavétel. Minden, amit a fotókon lát, a lakás része.</p>
       </div>
     </div>
+    <figure class="ph ph--gallery media--full mt-lg" data-reveal="media">
+      <img src="images/bathroom-1.jpg" alt="Fürdőszoba zöld art deco csempével, dió bútorokkal és réz csaptelepekkel" data-en-alt="Bathroom with green art deco tiles, walnut cabinetry and brass taps" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><b>06</b><span data-en="Bathroom · green art deco">Fürdőszoba · zöld art deco</span></figcaption>
+    </figure>
   </div>
 </section>
 
@@ -840,7 +871,7 @@ footer a:hover{color:var(--olive-deep)}
       </ul>
     </div>
     <figure class="ph ph--location media--tall" data-reveal="media" style="position:relative">
-      <img src="images/location-1.jpg" alt="A Vámház körút és környéke" data-en-alt="Vámház körút and its surroundings" loading="lazy" decoding="async" onerror="this.remove()">
+      <img src="images/location-1.jpg" alt="Kilátás az ablakból a Kálvin tér villamosaira" data-en-alt="View from the window to the trams at Kálvin Square" loading="lazy" decoding="async" onerror="this.remove()">
       <a class="map-pin" href="https://maps.google.com/?q=Vámház+körút,+Budapest" target="_blank" rel="noopener">
         <span class="map-pin__dot" aria-hidden="true"></span>
         <span class="map-pin__label" data-en="Open in Maps">Megnyitás térképen</span>
@@ -879,8 +910,8 @@ footer a:hover{color:var(--olive-deep)}
       </blockquote>
     </div>
     <figure class="ph ph--story media--tall" data-reveal="media">
-      <img src="images/story-1.jpg" alt="Részlet a felújítás hónapjaiból" data-en-alt="A moment from the months of renovation" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="The making of">Werkfotó</span></figcaption>
+      <img src="images/story-1.jpg" alt="Az olajfa a nappaliban" data-en-alt="The olive tree in the living room" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The olive tree">Az olajfa</span></figcaption>
     </figure>
   </div>
 </section>
@@ -944,6 +975,16 @@ footer a:hover{color:var(--olive-deep)}
       <div><dt data-en="Possession">Birtokbavétel</dt><dd data-en="Immediate">Azonnali</dd></div>
       <div><dt data-en="Furnishing">Berendezés</dt><dd data-en="Everything included">Minden benne van</dd></div>
     </dl>
+    <div class="plans mt-xl" data-reveal>
+      <figure>
+        <img src="images/plan-1.jpg" alt="A lakás fő szintjének alaprajza" data-en-alt="Floor plan of the apartment's main level" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption data-en="Main level">Fő szint</figcaption>
+      </figure>
+      <figure>
+        <img src="images/plan-2.jpg" alt="A galéria szint alaprajza" data-en-alt="Floor plan of the gallery level" loading="lazy" decoding="async" onerror="this.closest('figure').style.display='none'">
+        <figcaption data-en="Gallery level">Galéria szint</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
