@@ -21,8 +21,16 @@
 <meta property="og:title" content="Project Olive — Különleges otthon Budapest szívében">
 <meta property="og:description" content="Talán Budapest egyik legkülönlegesebb lakása. 79 m², Ybl-épület, Kálvin tér.">
 <meta property="og:url" content="https://urbanflipstudio.com/">
-<meta property="og:image" content="https://urbanflipstudio.com/images/hero.jpg">
+<meta property="og:site_name" content="Project Olive">
+<meta property="og:image" content="https://urbanflipstudio.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A Project Olive nappalija — zöld kanapé, olajfa és hatalmas ablakok">
 <meta property="og:locale" content="hu_HU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Project Olive — Különleges otthon Budapest szívében">
+<meta name="twitter:description" content="Talán Budapest egyik legkülönlegesebb lakása. 79 m², Ybl-épület, Kálvin tér.">
+<meta name="twitter:image" content="https://urbanflipstudio.com/images/og.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%233B4A32'/%3E%3Cellipse cx='16' cy='17' rx='6' ry='8' fill='%23C7CFB7'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -566,6 +574,20 @@ html[lang="en"] blockquote{quotes:'\201C' '\201D'}
 .contact__meta a{color:var(--olive-deep);text-decoration:none;border-bottom:1px solid var(--sage-soft)}
 .contact__meta a:hover{border-bottom-color:var(--olive-deep)}
 
+/* ===================== STICKY MOBIL CTA ===================== */
+.ctabar{
+  position:fixed;left:0;right:0;bottom:0;z-index:40;
+  display:none;gap:var(--sp-2xs);
+  padding:0.6rem var(--section-inline) calc(0.6rem + env(safe-area-inset-bottom,0px));
+  background:rgba(250,248,243,0.92);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);
+}
+.ctabar .btn{flex:1;text-align:center;padding:0.85rem 0.5rem;font-size:0.95rem;white-space:nowrap}
+@media (max-width:720px){
+  .ctabar.is-on{display:flex}
+}
+
 /* ===================== FOOTER ===================== */
 footer{
   border-top:1px solid var(--line);
@@ -637,7 +659,7 @@ footer a:hover{color:var(--olive-deep)}
     <p class="hero__sub" data-en="Possibly one of Budapest's most distinctive apartments.">Talán Budapest egyik legkülönlegesebb lakása.</p>
     <div class="hero__ctas">
       <a class="btn btn--solid" href="#lakas" data-en="Explore the apartment">Fedezze fel a lakást</a>
-      <a class="btn btn--ghost" href="#kapcsolat" data-en="Contact us">Kapcsolat</a>
+      <a class="btn btn--ghost" href="#kapcsolat" data-en="Book a viewing">Megtekintést foglalok</a>
     </div>
   </div>
   <div class="hero__scroll" aria-hidden="true"></div>
@@ -883,6 +905,10 @@ footer a:hover{color:var(--olive-deep)}
       <span class="ph__caption" id="video-caption" hidden data-en="The apartment video is coming soon">A lakásvideó hamarosan érkezik</span>
     </div>
   </div>
+  <div class="wrap center mt-xl" data-reveal>
+    <p class="copy" data-en="The video is just a taste. It is even better in person.">A videó csak ízelítő. Élőben még szebb.</p>
+    <a class="btn btn--olive" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en="Book a viewing" data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">Megtekintést foglalok</a>
+  </div>
 </section>
 
 <!-- ===================== 10 · A TÖRTÉNET ===================== -->
@@ -916,6 +942,10 @@ footer a:hover{color:var(--olive-deep)}
       <img src="images/creators-1.webp" alt="Az alkotók portréja" data-en-alt="Portrait of the creators" loading="lazy" decoding="async" onerror="this.remove()">
       <figcaption class="ph__caption"><span data-en="The creators">Az alkotók</span></figcaption>
     </figure>
+  </div>
+  <div class="wrap center mt-xl" data-reveal>
+    <p class="copy" data-en="Would you like to see it in person? We would be happy to show you around.">Szeretné élőben látni? Szívesen megmutatjuk.</p>
+    <a class="btn btn--outline" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en="Message us on WhatsApp" data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">Írjon nekünk WhatsAppon</a>
   </div>
 </section>
 
@@ -983,9 +1013,9 @@ footer a:hover{color:var(--olive-deep)}
     <h2 data-reveal data-en="It is even more beautiful in person.">Élőben még szebb.</h2>
     <p class="copy" data-reveal data-en="Come and walk through it — and we will tell you the rest of the story.">Jöjjön el, sétálja végig — mi pedig elmeséljük a történet többi részét.</p>
     <div class="contact__actions" data-reveal>
-      <a class="btn btn--olive" href="mailto:martindobos123@gmail.com?subject=Project%20Olive" data-en="Schedule a viewing">Időpont egyeztetése</a>
-      <a class="btn btn--outline" href="https://wa.me/36706043807" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn--olive" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en="Viewing via WhatsApp" data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">Megtekintés WhatsAppon</a>
       <a class="btn btn--outline" href="tel:+36706043807" data-en="Call us">Telefon</a>
+      <a class="btn btn--outline" href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20megtekint%C3%A9s&amp;body=Nevem%3A%20%0AEl%C3%A9rhet%C5%91s%C3%A9gem%3A%20%0AMikor%20%C3%A9rn%C3%A9k%20r%C3%A1%3A%20" data-en="Write an email" data-en-href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20viewing&amp;body=Name%3A%20%0APhone%3A%20%0APreferred%20time%3A%20">E-mailt írok</a>
     </div>
     <div class="contact__meta" data-reveal>
       <a href="tel:+36706043807">+36 70 604 3807</a>
@@ -996,6 +1026,12 @@ footer a:hover{color:var(--olive-deep)}
 </section>
 
 </main>
+
+<!-- ===================== STICKY MOBIL CTA ===================== -->
+<div class="ctabar" id="ctabar">
+  <a class="btn btn--olive" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn--outline" href="tel:+36706043807" data-en="Call">Hívás</a>
+</div>
 
 <!-- ===================== FOOTER ===================== -->
 <footer>
@@ -1034,6 +1070,15 @@ footer a:hover{color:var(--olive-deep)}
       if (el.dataset.huAria === undefined) el.dataset.huAria = el.getAttribute('aria-label') || '';
       el.setAttribute('aria-label', en ? el.dataset.enAria : el.dataset.huAria);
     });
+    document.querySelectorAll('[data-en-href]').forEach(function(el){
+      if (el.dataset.huHref === undefined) el.dataset.huHref = el.getAttribute('href') || '';
+      el.setAttribute('href', en ? el.dataset.enHref : el.dataset.huHref);
+    });
+    try {
+      var u = new URL(location.href);
+      if (en) u.searchParams.set('lang', 'en'); else u.searchParams.delete('lang');
+      history.replaceState(null, '', u);
+    } catch(e){}
     document.title = en ? META_EN.title : META_HU.title;
     if (metaDesc) metaDesc.setAttribute('content', en ? META_EN.desc : META_HU.desc);
     document.getElementById('lang-hu').setAttribute('aria-pressed', String(!en));
@@ -1045,9 +1090,11 @@ footer a:hover{color:var(--olive-deep)}
   }
   document.getElementById('lang-hu').addEventListener('click', function(){ setLang('hu'); });
   document.getElementById('lang-en').addEventListener('click', function(){ setLang('en'); });
+  var urlLang = null;
+  try { urlLang = new URLSearchParams(location.search).get('lang'); } catch(e){}
   var saved = null;
   try { saved = localStorage.getItem('olive-lang'); } catch(e){}
-  if (saved === 'en') setLang('en');
+  if (urlLang === 'en' || (urlLang !== 'hu' && saved === 'en')) setLang('en');
 
   /* ---------- reveal ---------- */
   var reveals = document.querySelectorAll('[data-reveal]');
@@ -1094,6 +1141,16 @@ footer a:hover{color:var(--olive-deep)}
     });
   }
 
+  /* ---------- sticky mobil CTA-sáv ---------- */
+  var ctabar = document.getElementById('ctabar');
+  if (ctabar && 'IntersectionObserver' in window) {
+    var heroGone = false, contactSeen = false;
+    var barUpdate = function(){ ctabar.classList.toggle('is-on', heroGone && !contactSeen); };
+    new IntersectionObserver(function(es){ heroGone = !es[0].isIntersecting; barUpdate(); }).observe(sentinel);
+    var kapcsolatSec = document.getElementById('kapcsolat');
+    if (kapcsolatSec) new IntersectionObserver(function(es){ contactSeen = es[0].isIntersecting; barUpdate(); }).observe(kapcsolatSec);
+  }
+
   /* ---------- előtte/utána csúszka ---------- */
   document.querySelectorAll('.ba').forEach(function(ba){
     var range = ba.querySelector('.ba__range');
@@ -1108,6 +1165,16 @@ footer a:hover{color:var(--olive-deep)}
     window.addEventListener('pageshow', function(){ set(range.value || 50); });
     set(range.value || 50);
   });
+
+  /* ---------- előtte/utána: rejtve, amíg nincsenek meg a fotók ---------- */
+  var baSection = document.getElementById('elotte-utana');
+  if (baSection) {
+    ['images/before-1.jpg', 'images/after-1.jpg'].forEach(function(src){
+      var probe = new Image();
+      probe.onerror = function(){ baSection.hidden = true; };
+      probe.src = src;
+    });
+  }
 
   /* ---------- finom parallax (csak egér + engedélyezett mozgás) ---------- */
   var coarse = window.matchMedia('(pointer: coarse)').matches;
@@ -1148,6 +1215,24 @@ footer a:hover{color:var(--olive-deep)}
     if (source) source.addEventListener('error', markEmpty);
     video.addEventListener('error', markEmpty);
     if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) markEmpty();
+  }
+
+  /* ---------- látogatásmérés (GoatCounter — süti nélkül, GDPR-tiszta) ----------
+     Aktiválás: regisztráció a goatcounter.com-on (ingyenes), majd a kapott
+     kódot (pl. 'projectolive') írd a GC_CODE értékébe. Üresen inaktív. */
+  var GC_CODE = '';
+  if (GC_CODE) {
+    var gc = document.createElement('script');
+    gc.async = true;
+    gc.src = 'https://gc.zgo.at/count.js';
+    gc.setAttribute('data-goatcounter', 'https://' + GC_CODE + '.goatcounter.com/count');
+    document.head.appendChild(gc);
+    document.addEventListener('click', function(e){
+      var a = e.target.closest ? e.target.closest('a[href^="tel:"],a[href^="mailto:"],a[href*="wa.me"]') : null;
+      if (!a || !window.goatcounter || !window.goatcounter.count) return;
+      var ch = a.href.indexOf('wa.me') >= 0 ? 'whatsapp' : (a.href.indexOf('tel:') === 0 ? 'telefon' : 'email');
+      window.goatcounter.count({ path: 'cta-' + ch, title: 'CTA: ' + ch, event: true });
+    });
   }
 
   /* ---------- évszám ---------- */
