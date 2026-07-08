@@ -41,6 +41,12 @@
   "floorSize": { "@type": "QuantitativeValue", "value": 79, "unitCode": "MTK" },
   "numberOfBedrooms": 2,
   "numberOfBathroomsTotal": 2,
+  "offers": {
+    "@type": "Offer",
+    "price": "179000000",
+    "priceCurrency": "HUF",
+    "availability": "https://schema.org/InStock"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Vámház körút",
@@ -570,6 +576,91 @@ footer a:hover{color:var(--olive-deep)}
 .mt-xl{margin-top:var(--sp-xl)}
 .center{text-align:center}
 .center h2,.center .copy{margin-inline:auto}
+
+/* ===================== ADDONS v2 (ELADÓ · kulcsszámok · ár · CTA-k · galéria · sajtó) ===================== */
+/* ELADÓ jelvény a hero-ban */
+.hero__badge{
+  display:inline-flex;align-items:center;gap:0.55rem;
+  font-family:var(--font-body);font-weight:600;font-size:var(--fs-eyebrow);
+  text-transform:uppercase;letter-spacing:0.16em;color:var(--bg-warm-white);
+  background:rgba(59,74,50,0.5);border:1px solid rgba(250,248,243,0.55);
+  padding:0.4rem 0.95rem;border-radius:var(--r-pill);margin-bottom:var(--sp-md);
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+}
+.hero__badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--sage-soft);box-shadow:0 0 0 3px rgba(199,207,183,0.28)}
+
+/* hero — 4 kulcsszám */
+.hero__stats{display:flex;flex-wrap:wrap;gap:var(--sp-md) 0;margin:var(--sp-lg) 0 0;padding:0;list-style:none}
+.hero__stat{flex:0 0 auto;display:flex;flex-direction:column;gap:0.2rem;border-right:1px solid rgba(250,248,243,0.28);padding-right:clamp(1rem,3vw,2rem);margin-right:clamp(1rem,3vw,2rem)}
+.hero__stat:last-child{border-right:0;padding-right:0;margin-right:0}
+.hero__stat b{font-family:var(--font-display);font-weight:400;font-size:clamp(1.5rem,1.1rem + 1.5vw,2.3rem);line-height:1;letter-spacing:-0.01em;color:var(--bg-warm-white)}
+.hero__stat b sup{font-size:0.5em;vertical-align:0.7em;color:var(--sage-soft)}
+.hero__stat span{font-weight:600;font-size:0.68rem;text-transform:uppercase;letter-spacing:0.13em;color:var(--sage-soft)}
+@media (max-width:560px){.hero__stat{flex:0 0 42%;border-right:0;padding-right:0;margin-right:0}}
+
+/* hero CTA-minicopy */
+.hero__minicopy{margin:var(--sp-sm) 0 0;font-size:var(--fs-small);color:rgba(250,248,243,0.88);display:flex;align-items:center;gap:0.55rem}
+.hero__minicopy::before{content:'';width:1.4rem;height:1px;background:var(--sage-soft);flex:0 0 auto}
+
+/* ár */
+.price{display:flex;flex-wrap:wrap;align-items:baseline;gap:0.4rem 1.1rem;margin-top:var(--sp-lg);padding-top:var(--sp-lg);border-top:1px solid var(--line)}
+.price__label{font-weight:600;font-size:var(--fs-small);text-transform:uppercase;letter-spacing:0.14em;color:var(--ink-soft)}
+.price__value{font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,1.3rem + 2.2vw,2.8rem);line-height:1;color:var(--olive-deep);letter-spacing:-0.01em}
+.price__note{width:100%;font-size:var(--fs-small);color:var(--ink-soft);margin:0.3rem 0 0}
+
+/* CTA-sáv (elszórva) */
+.cta-band{text-align:center}
+.cta-band .wrap{max-width:var(--narrow)}
+.cta-band__title{font-family:var(--font-display);font-weight:400;font-size:var(--fs-h3);line-height:1.2;margin:0 auto var(--sp-sm);max-width:26ch}
+.cta-band__sub{color:var(--ink-soft);max-width:48ch;margin:0 auto var(--sp-lg)}
+.cta-band__actions{display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-sm)}
+.cta-band--olive{background:var(--olive-deep);color:var(--bg-warm-white)}
+.cta-band--olive .cta-band__title{color:var(--bg-warm-white)}
+.cta-band--olive .cta-band__sub{color:rgba(250,248,243,0.85)}
+.cta-band--olive .btn--olive{background:var(--bg-warm-white);color:var(--olive-deep);border-color:var(--bg-warm-white)}
+.cta-band--olive .btn--olive:hover{background:var(--sage-soft);border-color:var(--sage-soft)}
+.cta-band--olive .btn--outline{border-color:rgba(250,248,243,0.6);color:var(--bg-warm-white)}
+.cta-band--olive .btn--outline:hover{background:rgba(250,248,243,0.12)}
+
+/* kiemelt callout (pl. csend) */
+.callout{margin-top:var(--sp-lg);padding:clamp(1.25rem,3vw,1.75rem) clamp(1.25rem,3vw,1.9rem);background:var(--bg-alt);border:1px solid var(--line);border-left:3px solid var(--olive);border-radius:var(--r-md)}
+.section--alt .callout{background:var(--bg-warm-white)}
+.callout__title{font-family:var(--font-display);font-weight:400;font-size:var(--fs-h3);line-height:1.15;color:var(--olive-deep);margin:0 0 0.45rem}
+.callout p{margin:0;color:var(--ink-soft)}
+
+/* fotó-carousel (lapozható) */
+.carousel{position:relative;margin-top:var(--sp-xl)}
+.carousel__track{display:flex;gap:clamp(0.6rem,1.5vw,1rem);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-inline:max(var(--section-inline),calc((100vw - min(1040px,86vw)) / 2))}
+.carousel__track::-webkit-scrollbar{display:none}
+.carousel__slide{scroll-snap-align:center;flex:0 0 auto;width:min(1040px,86vw);margin:0;position:relative;border-radius:var(--r-md);overflow:hidden;background:var(--bg-alt)}
+.carousel__slide img{width:100%;height:min(66vh,620px);object-fit:cover;display:block;background:var(--stone)}
+.carousel__slide--contain img{object-fit:contain;background:var(--bg-alt);padding:clamp(0.5rem,2vw,1.5rem)}
+.carousel__cap{position:absolute;left:clamp(0.75rem,2vw,1.25rem);bottom:clamp(0.75rem,2vw,1.25rem);font-weight:500;font-size:var(--fs-small);text-transform:uppercase;letter-spacing:0.14em;color:var(--bg-warm-white);background:rgba(20,22,17,0.55);padding:0.35rem 0.9rem;border-radius:var(--r-pill)}
+.carousel__btn{position:absolute;top:calc(min(66vh,620px) / 2);transform:translateY(-50%);z-index:3;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(250,248,243,0.9);color:var(--ink);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;line-height:1;transition:background var(--dur-fast) var(--ease-standard)}
+.carousel__btn:hover{background:var(--bg-warm-white)}
+.carousel__btn:disabled{opacity:0;pointer-events:none}
+.carousel__btn--prev{left:clamp(0.5rem,2vw,1.5rem)}
+.carousel__btn--next{right:clamp(0.5rem,2vw,1.5rem)}
+@media (max-width:680px){.carousel__btn{width:40px;height:40px;font-size:1.25rem}}
+.carousel__counter{text-align:center;margin-top:var(--sp-md);font-weight:500;font-size:var(--fs-small);letter-spacing:0.1em;color:var(--ink-soft)}
+
+/* sajtó-sáv */
+.press{background:var(--olive-deep);color:var(--bg-warm-white);text-align:center}
+.press .wrap{max-width:780px}
+.press .kicker{color:var(--sage-soft)}
+.press .kicker::before{background:var(--sage-soft)}
+.press__statement{font-family:var(--font-display);font-weight:300;font-size:var(--fs-h2);line-height:1.2;color:var(--bg-warm-white);margin:0 auto var(--sp-md);max-width:22ch}
+.press__name{font-weight:500;color:var(--sage-soft)}
+.press__sub{color:rgba(250,248,243,0.85);max-width:54ch;margin:0 auto}
+
+/* nagy kép (2. háló) */
+.media--xl{aspect-ratio:16/9}
+@media (max-width:680px){.media--xl{aspect-ratio:4/5}}
+
+/* spec — ár-kiemelés */
+.spec > .is-price{grid-column:1 / -1;border-top:2px solid var(--olive-deep)}
+.spec > .is-price dt{color:var(--ink)}
+.spec > .is-price dd{font-family:var(--font-display);font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);color:var(--olive-deep)}
 </style>
 <noscript><style>[data-reveal],[data-reveal="media"] img{opacity:1 !important;transform:none !important}</style></noscript>
 </head>
@@ -583,7 +674,7 @@ footer a:hover{color:var(--olive-deep)}
   <nav class="nav__links" id="nav-links" aria-label="Fő navigáció" data-en-aria="Main navigation">
     <a class="nav__link" href="#lakas" data-en="The apartment">A lakás</a>
     <a class="nav__link" href="#nappali" data-en="The spaces">A terek</a>
-    <a class="nav__link" href="#tortenet" data-en="The story">A történet</a>
+    <a class="nav__link" href="#galeria" data-en="Gallery">Galéria</a>
     <a class="nav__link" href="#elhelyezkedes" data-en="Location">Elhelyezkedés</a>
     <a class="nav__link" href="#specifikacio" data-en="Specification">Specifikáció</a>
     <a class="nav__link nav__link--contact" href="#kapcsolat" data-en="Contact">Kapcsolat</a>
@@ -607,13 +698,21 @@ footer a:hover{color:var(--olive-deep)}
     <img src="images/hero.webp" alt="A Project Olive nappalija — zöld kanapé, olajfa és a hatalmas ablakokon beáradó természetes fény" data-en-alt="The Project Olive living room — green sofa, olive tree and natural light pouring through the tall windows" fetchpriority="high" decoding="async" onerror="this.remove()">
   </div>
   <div class="hero__content">
-    <span class="hero__eyebrow">Vámház körút&nbsp;·&nbsp;Budapest</span>
+    <span class="hero__badge" data-en="For sale · Downtown Budapest">Eladó · Budapest belváros</span>
+    <span class="hero__eyebrow">Vámház körút</span>
     <h1>Project Olive</h1>
-    <p class="hero__sub" data-en="Possibly one of Budapest's most distinctive apartments.">Talán Budapest egyik legkülönlegesebb lakása.</p>
+    <p class="hero__sub" data-en="An exceptional apartment for sale in the heart of Budapest.">Talán Budapest egyik legkülönlegesebb lakása — most eladó.</p>
+    <ul class="hero__stats" aria-label="A lakás fő adatai" data-en-aria="Key facts of the apartment">
+      <li class="hero__stat"><b>Kálvin&nbsp;tér</b><span data-en="Location">Lokáció</span></li>
+      <li class="hero__stat"><b>79&nbsp;m<sup>2</sup></b><span data-en="Floor area">Terület</span></li>
+      <li class="hero__stat"><b>2</b><span data-en="Bedrooms">Hálószoba</span></li>
+      <li class="hero__stat"><b>2</b><span data-en="Bathrooms">Fürdőszoba</span></li>
+    </ul>
     <div class="hero__ctas">
-      <a class="btn btn--solid" href="#lakas" data-en="Explore the apartment">Fedezze fel a lakást</a>
-      <a class="btn btn--ghost" href="#kapcsolat" data-en="Book a viewing">Megtekintést foglalok</a>
+      <a class="btn btn--solid" href="tel:+36706043807" data-en="Call Now to Book a Viewing">Hívjon Most Időpontért</a>
+      <a class="btn btn--ghost" href="#lakas" data-en="Explore the apartment">Fedezze fel a lakást</a>
     </div>
+    <p class="hero__minicopy" data-en="We can show it flexibly, at a time that suits you.">Rugalmasan tudjuk mutatni.</p>
   </div>
   <div class="hero__scroll" aria-hidden="true"></div>
 </section>
@@ -642,31 +741,11 @@ footer a:hover{color:var(--olive-deep)}
       <li data-en="Ready to move in">Azonnal költözhető</li>
       <li data-en="Everything included">Minden benne van</li>
     </ul>
-  </div>
-</section>
-
-<!-- ===================== ÉRKEZÉS ===================== -->
-<section class="section" id="erkezes">
-  <div class="wrap split">
-    <div>
-      <span class="kicker" data-reveal="soft" data-en="00 — Arrival">00 — Érkezés</span>
-      <h2 data-reveal data-en="It begins at the corner">A saroknál kezdődik</h2>
-      <p class="copy" data-reveal data-en="A listed corner building designed by Miklós Ybl, a few steps from Kálvin Square. The story starts before you even step through the gate.">Ybl Miklós tervezte műemléki saroképület, néhány lépésre a Kálvin tértől. A történet már azelőtt elkezdődik, hogy belépne a kapun.</p>
+    <div class="price" data-reveal>
+      <span class="price__label" data-en="Guide price">Irányár</span>
+      <span class="price__value">179&nbsp;000&nbsp;000&nbsp;Ft</span>
+      <p class="price__note" data-en="1/1 ownership, immediate possession — everything you see stays in the apartment.">1/1 tulajdon, azonnali birtokbavétel — minden, amit lát, a lakásban marad.</p>
     </div>
-    <figure class="ph ph--location media--wide" data-reveal="media">
-      <img src="images/exterior-1.webp" alt="Az Ybl Miklós tervezte saroképület a Vámház körúton" data-en-alt="The Ybl-designed corner building on Vámház Boulevard" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><b>00</b><span data-en="The building">Az épület</span></figcaption>
-    </figure>
-  </div>
-  <div class="mosaic" style="margin-top:var(--sp-sm)">
-    <figure class="ph ph--story media--wide" data-reveal="media">
-      <img src="images/exterior-2.webp" alt="Az épület kovácsoltvas korlátos csigalépcsője" data-en-alt="The building's wrought-iron spiral staircase" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="The staircase">A lépcsőház</span></figcaption>
-    </figure>
-    <figure class="ph ph--kitchen media--tall" data-reveal="media" style="--i:1">
-      <img src="images/exterior-3.webp" alt="Az épület eredeti tervei és archív fotói bekeretezve a lakás falán" data-en-alt="The building's original drawings and archive photos framed on the apartment wall" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="The original drawings">Az eredeti tervek</span></figcaption>
-    </figure>
   </div>
 </section>
 
@@ -676,7 +755,11 @@ footer a:hover{color:var(--olive-deep)}
     <div class="narrow">
       <span class="kicker" data-reveal="soft" data-en="01 — Living room">01 — Nappali</span>
       <h2 data-reveal data-en="Where the light lives">Ahol a fény lakik</h2>
-      <p class="copy" data-reveal data-en="Nearly four-metre ceilings. Four massive windows with a panoramic view of the city. Triple glazing keeps the noise outside — only the light comes in.">Közel négy méter belmagasság. Négy hatalmas ablak, panorámával a városra. A háromrétegű üvegezés kint tartja a zajt — csak a fény jön be.</p>
+      <p class="copy" data-reveal data-en="Nearly four-metre ceilings. Four massive windows with a panoramic view of the city.">Közel négy méter belmagasság. Négy hatalmas ablak, panorámával a városra.</p>
+      <div class="callout" data-reveal>
+        <p class="callout__title" data-en="A loud avenue outside. Silence within.">Odakint nagyváros. Idebent csend.</p>
+        <p data-en="The building stands on a busy, noisy boulevard — yet inside, the apartment is remarkably quiet. The new triple-glazed, soundproof windows keep the traffic out; inside, only calm and light remain.">Az épület forgalmas, zajos körúton áll — a lakás mégis meglepően csendes. Az új, háromrétegű hangszigetelt ablakok kint tartják a forgalom zaját; bent csak a nyugalom és a fény marad.</p>
+      </div>
     </div>
   </div>
   <figure class="ph ph--living media--full mt-xl" data-reveal="media" style="margin-top:var(--sp-xl)">
@@ -701,7 +784,7 @@ footer a:hover{color:var(--olive-deep)}
     <div>
       <span class="kicker" data-reveal="soft" data-en="02 — Kitchen">02 — Konyha</span>
       <h2 data-reveal data-en="Made for slow mornings">Lassú reggelekre tervezve</h2>
-      <p class="copy" data-reveal data-en="An open kitchen with custom cabinetry and premium appliances. Everything you see stays with the apartment — down to the last detail.">Nyitott konyha, egyedi bútorokkal és prémium gépekkel. Minden, amit lát, a lakással marad — az utolsó részletig.</p>
+      <p class="copy" data-reveal data-en="An open kitchen with custom cabinetry and premium appliances. Everything you see stays with the apartment — down to the last detail.">Nyitott konyha, egyedi bútorokkal és prémium gépekkel. Minden, amit lát, a lakásban marad — az utolsó részletig.</p>
     </div>
     <figure class="ph ph--kitchen media--tall" data-reveal="media">
       <img src="images/kitchen-1.webp" alt="Egyedi konyhabútor prémium gépekkel" data-en-alt="Custom kitchen cabinetry with premium appliances" loading="lazy" decoding="async" onerror="this.remove()">
@@ -716,24 +799,25 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
-<!-- ===================== 4 · GALÉRIA-HÁLÓSZOBA ===================== -->
-<section class="section section--alt" id="galeria">
+<!-- ===================== 4 · GALÉRIASZINT (belső 2. emelet) ===================== -->
+<section class="section section--alt" id="galeria-szint">
   <div class="wrap split split--flip">
     <div>
-      <span class="kicker" data-reveal="soft" data-en="03 — Gallery bedroom">03 — Galéria-hálószoba</span>
-      <h2 data-reveal data-en="Another world, upstairs">Egy másik világ, odafent</h2>
-      <p class="copy" data-reveal data-en="Behind the glass wall and the curtains hides a private retreat with a boutique-hotel feel: freestanding bathtub, private WC and washbasin — under an intimate 210&nbsp;cm ceiling.">Az üvegfal és a függönyök mögött privát búvóhely rejtőzik, boutique hotelek hangulatával: szabadon álló kád, saját WC és mosdó — meghitt, 210&nbsp;cm-es belmagassággal.</p>
-      <p class="copy" data-reveal style="--i:1" data-en="At night, with the city lights below, it becomes the most atmospheric corner of the home.">Éjszaka, a város fényeivel odalent, ez a lakás leghangulatosabb szeglete.</p>
+      <span class="kicker" data-reveal="soft" data-en="03 — Inner second floor">03 — Belső második emelet</span>
+      <h2 data-reveal data-en="Not a gallery — an inner second floor">Nem galéria — belső második emelet</h2>
+      <p class="copy" data-reveal data-en="What we'd call a gallery is in fact a fully separate, livable level: a lockable, soundproofed bedroom with its own washbasin and WC. Its own little world, upstairs.">Amit galériának hívnánk, valójában egy teljesen különálló, élhető szint: zárható, hangszigetelt hálószoba, saját mosdóval és WC-vel. Külön kis világ, odafent.</p>
+      <p class="copy" data-reveal style="--i:1" data-en="Behind the glass wall and the curtains, a private retreat in a boutique-hotel mood: a freestanding bathtub — under an intimate 210&nbsp;cm ceiling.">Az üvegfal és a függönyök mögött privát búvóhely, boutique hotel hangulatban: szabadon álló kád — meghitt, 210&nbsp;cm-es belmagassággal.</p>
+      <p class="copy" data-reveal style="--i:2" data-en="At night, with the city lights below, it becomes the most atmospheric corner of the home.">Éjszaka, a város fényeivel odalent, ez a lakás leghangulatosabb szeglete.</p>
     </div>
     <figure class="ph ph--gallery media--tall" data-reveal="media">
-      <img src="images/gallery-1.webp" alt="Szabadon álló kád arany csapteleppel a galérián" data-en-alt="Freestanding bathtub with a brass tap on the gallery" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><b>03</b><span data-en="Gallery bedroom">Galéria-hálószoba</span></figcaption>
+      <img src="images/gallery-1.webp" alt="Szabadon álló kád arany csapteleppel a galériaszinten" data-en-alt="Freestanding bathtub with a brass tap on the gallery level" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><b>03</b><span data-en="Gallery level">Galériaszint</span></figcaption>
     </figure>
   </div>
   <div class="wrap mt-lg">
     <figure class="ph ph--gallery media--full" data-reveal="media">
-      <img src="images/gallery-2.webp" alt="A galéria-hálószoba — ágy, kád és a nappali felé nyíló tér" data-en-alt="The gallery bedroom — bed, bathtub and the space opening over the living room" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="The gallery">A galéria</span></figcaption>
+      <img src="images/gallery-2.webp" alt="A galériaszint — ágy és a nappali felé nyíló tér" data-en-alt="The gallery level — bed and the space opening over the living room" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="A separate living level">Külön élettér</span></figcaption>
     </figure>
   </div>
 </section>
@@ -762,19 +846,68 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
+<!-- ===================== CTA-sáv (mid) ===================== -->
+<section class="section cta-band cta-band--olive" data-reveal>
+  <div class="wrap">
+    <p class="cta-band__title" data-en="The photos are only a taste — in person it's breathtaking.">A fotók csak ízelítő — élőben lélegzetelállító.</p>
+    <p class="cta-band__sub" data-en="Call now and we'll show you around. We arrange viewings flexibly, at a time that suits you.">Hívjon most, és megmutatjuk. Rugalmasan, az Önnek megfelelő időpontban egyeztetünk.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
+      <a class="btn btn--outline" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOTÓGALÉRIA (lapozható, minden kép) ===================== -->
+<section class="section" id="galeria">
+  <div class="wrap center">
+    <span class="kicker" data-reveal="soft" data-en="Gallery">Galéria</span>
+    <h2 data-reveal data-en="See it from every angle">Nézze meg minden szögből</h2>
+    <p class="copy" data-reveal data-en="Swipe through the whole apartment. Lovely in photos — but it truly comes alive in person.">Húzza végig az egész lakást. Fotón is szép — de igazán élőben mutatja meg magát.</p>
+  </div>
+  <div class="carousel" data-reveal>
+    <div class="carousel__track" id="carousel-track" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Fotógaléria — húzással vagy a nyilakkal lapozható" data-en-aria="Photo gallery — swipe or use the arrows">
+      <figure class="carousel__slide"><img src="images/bathroom-1.webp" alt="Fürdőszoba zöld art deco csempével, dió bútorokkal és réz csaptelepekkel" data-en-alt="Bathroom with green art deco tiles, walnut cabinetry and brass taps" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Bathroom">Fürdőszoba</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/bedroom-1.webp" alt="A második hálószoba nyugodt hangulata" data-en-alt="The calm second bedroom" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Second bedroom">Második hálószoba</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/creators-1.webp" alt="Az alkotók portréja" data-en-alt="Portrait of the creators" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="The creators">Az alkotók</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/exterior-1.webp" alt="Az Ybl Miklós tervezte saroképület a Vámház körúton" data-en-alt="The Ybl-designed corner building on Vámház Boulevard" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="The building">Az épület</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/exterior-2.webp" alt="Az épület kovácsoltvas korlátos csigalépcsője" data-en-alt="The building's wrought-iron spiral staircase" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="The staircase">A lépcsőház</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/exterior-3.webp" alt="Az épület eredeti tervei és archív fotói bekeretezve" data-en-alt="The building's original drawings and archive photos framed" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Original drawings">Eredeti tervek</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/gallery-1.webp" alt="Szabadon álló kád arany csapteleppel a galériaszinten" data-en-alt="Freestanding bathtub with a brass tap on the gallery level" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Gallery level · bathtub">Galériaszint · kád</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/gallery-2.webp" alt="A galériaszint — ágy és a nappali felé nyíló tér" data-en-alt="The gallery level — bed and the space opening over the living room" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Gallery level">Galériaszint</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/hero.webp" alt="A nappali zöld kanapéval, olajfával és a hatalmas ablakokkal" data-en-alt="The living room with a green sofa, olive tree and tall windows" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Living room">Nappali</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/kitchen-1.webp" alt="Egyedi konyhabútor prémium gépekkel" data-en-alt="Custom kitchen cabinetry with premium appliances" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Kitchen">Konyha</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/kitchen-2.webp" alt="Konyhai részlet közelről" data-en-alt="Kitchen detail close-up" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Kitchen · detail">Konyha · részlet</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/living-1.webp" alt="A nappali négy nagy ablakkal és magas belmagassággal" data-en-alt="The living room with four large windows and high ceilings" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Living · four windows">Nappali · négy ablak</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/living-2.webp" alt="A nappali a galériáról nézve" data-en-alt="The living room seen from the gallery" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="From the gallery">A galériáról</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/living-3.webp" alt="A Kálvin téri református templom tornya a nappali ablakából" data-en-alt="The Kálvin Square church tower from the living room window" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="The view">Kilátás</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/location-1.webp" alt="Kilátás az ablakból a Kálvin tér villamosaira" data-en-alt="View from the window to the trams at Kálvin Square" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="View to the square">Kilátás a térre</figcaption></figure>
+      <figure class="carousel__slide carousel__slide--contain"><img src="images/plan-1.webp" alt="A lakás fő szintjének alaprajza" data-en-alt="Floor plan of the apartment's main level" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Floor plan · main">Alaprajz · fő szint</figcaption></figure>
+      <figure class="carousel__slide carousel__slide--contain"><img src="images/plan-2.webp" alt="A galéria szint alaprajza" data-en-alt="Floor plan of the gallery level" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Floor plan · gallery">Alaprajz · galériaszint</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/shaft-1.webp" alt="A fényakna zöld falakkal és természetes fénnyel" data-en-alt="The light shaft with green walls and natural light" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Light shaft">Fényakna</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/shaft-2.webp" alt="A fényakna zöld mohafala alulról, a tetőablakkal" data-en-alt="The light shaft's green moss wall from below, with the skylight" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="Light shaft · moss wall">Fényakna · mohafal</figcaption></figure>
+      <figure class="carousel__slide"><img src="images/story-1.webp" alt="Az olajfa a nappaliban" data-en-alt="The olive tree in the living room" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"><figcaption class="carousel__cap" data-en="The olive tree">Az olajfa</figcaption></figure>
+    </div>
+    <button class="carousel__btn carousel__btn--prev" id="carousel-prev" type="button" aria-label="Előző kép" data-en-aria="Previous image">‹</button>
+    <button class="carousel__btn carousel__btn--next" id="carousel-next" type="button" aria-label="Következő kép" data-en-aria="Next image">›</button>
+  </div>
+  <p class="carousel__counter"><span id="carousel-idx">1</span> / <span id="carousel-total">20</span></p>
+</section>
+
 <!-- ===================== 6 · MÁSODIK HÁLÓSZOBA ===================== -->
-<section class="section section--alt" id="haloszoba">
-  <div class="wrap split split--flip">
-    <div>
+<section class="section section--alt" id="haloszoba" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="narrow">
       <span class="kicker" data-reveal="soft" data-en="05 — Second bedroom">05 — Második hálószoba</span>
       <h2 data-reveal data-en="Calm and possibility">Csend és lehetőség</h2>
       <p class="copy" data-reveal data-en="Smaller, calmer, adaptable. Guest room today, office tomorrow — it follows the rhythm of your life.">Kisebb, csendesebb, alakítható. Ma vendégszoba, holnap dolgozószoba — az élet ritmusát követi.</p>
     </div>
-    <figure class="ph ph--bedroom media--wide" data-reveal="media">
-      <img src="images/bedroom-1.webp" alt="A második hálószoba nyugodt hangulata" data-en-alt="The calm second bedroom" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><b>05</b><span data-en="Second bedroom">Második hálószoba</span></figcaption>
-    </figure>
   </div>
+  <figure class="ph ph--bedroom media--full" data-reveal="media" style="margin-top:var(--sp-xl)">
+    <img src="images/bedroom-1.webp" alt="A második hálószoba nyugodt hangulata" data-en-alt="The calm second bedroom" loading="lazy" decoding="async" onerror="this.remove()">
+    <figcaption class="ph__caption"><b>05</b><span data-en="Second bedroom">Második hálószoba</span></figcaption>
+  </figure>
+  <div style="height:var(--section-block)" aria-hidden="true"></div>
 </section>
 
 <!-- ===================== 7 · RÉSZLETEK ===================== -->
@@ -818,6 +951,31 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
+<!-- ===================== AZ ÉPÜLET (áthelyezve: előbb a lakás szépsége) ===================== -->
+<section class="section" id="erkezes">
+  <div class="wrap split">
+    <div>
+      <span class="kicker" data-reveal="soft" data-en="The building">Az épület</span>
+      <h2 data-reveal data-en="It begins at the corner">A saroknál kezdődik</h2>
+      <p class="copy" data-reveal data-en="A listed corner building designed by Miklós Ybl, a few steps from Kálvin Square. The story starts before you even step through the gate.">Ybl Miklós tervezte műemléki saroképület, néhány lépésre a Kálvin tértől. A történet már azelőtt elkezdődik, hogy belépne a kapun.</p>
+    </div>
+    <figure class="ph ph--location media--wide" data-reveal="media">
+      <img src="images/exterior-1.webp" alt="Az Ybl Miklós tervezte saroképület a Vámház körúton" data-en-alt="The Ybl-designed corner building on Vámház Boulevard" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The building">Az épület</span></figcaption>
+    </figure>
+  </div>
+  <div class="mosaic" style="margin-top:var(--sp-sm)">
+    <figure class="ph ph--story media--wide" data-reveal="media">
+      <img src="images/exterior-2.webp" alt="Az épület kovácsoltvas korlátos csigalépcsője" data-en-alt="The building's wrought-iron spiral staircase" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The staircase">A lépcsőház</span></figcaption>
+    </figure>
+    <figure class="ph ph--kitchen media--tall" data-reveal="media" style="--i:1">
+      <img src="images/exterior-3.webp" alt="Az épület eredeti tervei és archív fotói bekeretezve a lakás falán" data-en-alt="The building's original drawings and archive photos framed on the apartment wall" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The original drawings">Az eredeti tervek</span></figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- ===================== 8 · ELHELYEZKEDÉS ===================== -->
 <section class="section section--alt" id="elhelyezkedes">
   <div class="wrap split">
@@ -844,6 +1002,18 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
+<!-- ===================== CTA-sáv (kapcsolat) ===================== -->
+<section class="section cta-band" data-reveal>
+  <div class="wrap">
+    <p class="cta-band__title" data-en="Get in touch">Lépjen velünk kapcsolatba</p>
+    <p class="cta-band__sub" data-en="Write or call — whatever suits you best. What matters most is that you come and see it in person.">Írjon, vagy hívjon — ahogy Önnek a legkényelmesebb. A legfontosabb, hogy eljöjjön, és élőben lássa.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
+      <a class="btn btn--outline" href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20megtekint%C3%A9s&amp;body=Nevem%3A%20%0AEl%C3%A9rhet%C5%91s%C3%A9gem%3A%20%0AMikor%20%C3%A9rn%C3%A9k%20r%C3%A1%3A%20" data-en="Write to us" data-en-href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20viewing&amp;body=Name%3A%20%0APhone%3A%20%0APreferred%20time%3A%20">Írjon nekünk</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== 9 · VIDEÓ ===================== -->
 <section class="section" id="video">
   <div class="wrap center">
@@ -864,41 +1034,38 @@ footer a:hover{color:var(--olive-deep)}
   </div>
 </section>
 
-<!-- ===================== 10 · A TÖRTÉNET ===================== -->
-<section class="section section--alt" id="tortenet">
-  <div class="wrap split">
-    <div>
-      <span class="kicker" data-reveal="soft">Project Olive</span>
-      <h2 data-reveal data-en="Why “Olive”?">Miért éppen „Olive”?</h2>
-      <p class="copy" data-reveal data-en="This was not just another renovation. It became the biggest project of our lives. My wife designed the interiors; I led the construction. Every important decision was made personally — we spent months choosing the tiles, the lights, the handles, the colours, the artwork.">Ez nem egy újabb felújítás volt. Életünk eddigi legnagyobb projektje lett. A feleségem álmodta meg a tereket, én vezettem a kivitelezést. Minden fontos döntést személyesen hoztunk meg — hónapokig kerestük a burkolatokat, a lámpákat, a kilincseket, a színeket, a képeket.</p>
-      <p class="copy" data-reveal style="--i:1" data-en="The olive tree grows slowly. It lives for centuries, and grows more beautiful with every year. It is never in a hurry — yet it outlasts everything. That is the home we wanted to build: timeless, natural, made not for trends but for life. That is why this became Project Olive.">Az olajfa lassan nő. Évszázadokig él, és minden évvel szebb lesz. Sosem siet — mégis mindent túlél. Ilyen otthont akartunk építeni: időtállót, természeteset, olyat, ami nem a divatnak készült, hanem az életnek. Ezért lett a neve Project Olive.</p>
-      <blockquote data-reveal style="margin:var(--sp-lg) 0 0;text-align:left;max-width:22ch">
-        <p data-en="Nothing here was made quickly. Everything was made properly.">Itt semmi sem készült gyorsan. Minden úgy készült, ahogy kell.</p>
-      </blockquote>
-    </div>
-    <figure class="ph ph--story media--tall" data-reveal="media">
-      <img src="images/story-1.webp" alt="Az olajfa a nappaliban" data-en-alt="The olive tree in the living room" loading="lazy" decoding="async" onerror="this.remove()">
-      <figcaption class="ph__caption"><span data-en="The olive tree">Az olajfa</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ===================== 11 · AZ ALKOTÓK ===================== -->
-<section class="section" id="alkotok">
+<!-- ===================== AZ ALKOTÓK + a történetünk ===================== -->
+<section class="section section--alt" id="alkotok">
   <div class="wrap split split--flip">
     <div>
       <span class="kicker" data-reveal="soft" data-en="The creators">Az alkotók</span>
       <h2 data-reveal data-en="“We built the home we felt should already exist.”">„Megépítettük az otthont, amiről úgy éreztük, léteznie kellene.”</h2>
-      <p class="copy" data-reveal data-en="Two of us stand behind Project Olive: a designer and a builder. Two years, hundreds of decisions, one goal — a home whose story is worth continuing.">Ketten állunk a Project Olive mögött: egy tervező és egy megvalósító. Két év, több száz döntés, egyetlen cél — egy otthon, aminek a történetét érdemes folytatni.</p>
+      <p class="copy" data-reveal data-en="Two of us stand behind Project Olive — a designer and a builder, a couple in life too. My wife dreamed up the spaces; I led the build. We made every important decision ourselves, and spent months choosing the tiles, the lamps, the handles, the colours.">Ketten állunk a Project Olive mögött — egy tervező és egy megvalósító, a magánéletben házaspár. A feleségem álmodta meg a tereket, én vezettem a kivitelezést. Minden fontos döntést mi magunk hoztunk meg, és hónapokig kerestük a burkolatokat, a lámpákat, a kilincseket, a színeket.</p>
+      <p class="copy" data-reveal style="--i:1" data-en="It became the biggest project of our lives. The olive tree grows slowly, lives for centuries and is never in a hurry — that is the home we wanted: timeless, natural, made not for trends but for living. That is why it became Project Olive.">Életünk eddigi legnagyobb projektje lett. Az olajfa lassan nő, évszázadokig él, és sosem siet — ilyen otthont akartunk: időtállót, természeteset, olyat, ami nem a divatnak készült, hanem az életnek. Ezért lett a neve Project Olive.</p>
+      <blockquote data-reveal style="margin:var(--sp-lg) 0 0;text-align:left;max-width:24ch">
+        <p data-en="Nothing here was made quickly. Everything was made properly.">Itt semmi sem készült gyorsan. Minden úgy készült, ahogy kell.</p>
+      </blockquote>
     </div>
     <figure class="ph ph--bedroom media--tall" data-reveal="media">
-      <img src="images/creators-1.webp" alt="Az alkotók portréja" data-en-alt="Portrait of the creators" loading="lazy" decoding="async" onerror="this.remove()">
+      <img src="images/creators-1.webp" alt="Az alkotók portréja — a tervező és a megvalósító" data-en-alt="Portrait of the creators — the designer and the builder" loading="lazy" decoding="async" onerror="this.remove()">
       <figcaption class="ph__caption"><span data-en="The creators">Az alkotók</span></figcaption>
     </figure>
   </div>
   <div class="wrap center mt-xl" data-reveal>
-    <p class="copy" data-en="Would you like to see it in person? We would be happy to show you around.">Szeretné élőben látni? Szívesen megmutatjuk.</p>
-    <a class="btn btn--outline" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en="Message us on WhatsApp" data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">Írjon nekünk WhatsAppon</a>
+    <p class="copy" data-en="Would you like to see it in person? We would be happy to show you around — call us anytime.">Szeretné élőben látni? Szívesen megmutatjuk — hívjon minket bármikor.</p>
+    <div class="cta-band__actions">
+      <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
+      <a class="btn btn--outline" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en="Message us on WhatsApp" data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">Írjon nekünk WhatsAppon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SAJTÓ — Lakáskultúra ===================== -->
+<section class="section press" data-reveal>
+  <div class="wrap">
+    <span class="kicker" data-reveal="soft" data-en="Press">Sajtó</span>
+    <p class="press__statement" data-reveal data-en="Featured in the autumn special issue of Lakáskultúra.">Bekerült a Lakáskultúra őszi kiemelt számába.</p>
+    <p class="press__sub" data-reveal data-en="One of Hungary's most respected home &amp; interior-design magazines invited the apartment in — this autumn, Project Olive appears in its printed special issue.">Az ország egyik legrangosabb lakberendezési és belsőépítészeti magazinja, a <span class="press__name">Lakáskultúra</span> hívta be a lakást — ősszel a Project Olive a nyomtatott kiemelt lapszámban is megjelenik.</p>
   </div>
 </section>
 
@@ -910,6 +1077,7 @@ footer a:hover{color:var(--olive-deep)}
       <h2 data-reveal data-en="The facts, in one place">A tények, egy helyen</h2>
     </div>
     <dl class="spec mt-xl" data-reveal>
+      <div class="is-price"><dt data-en="Guide price">Irányár</dt><dd>179&nbsp;000&nbsp;000&nbsp;Ft</dd></div>
       <div><dt data-en="Floor area">Alapterület</dt><dd>79&nbsp;m²</dd></div>
       <div><dt data-en="Bedrooms">Hálószobák</dt><dd>2</dd></div>
       <div><dt data-en="Bathrooms">Fürdőszobák</dt><dd>2</dd></div>
@@ -959,8 +1127,8 @@ footer a:hover{color:var(--olive-deep)}
 
 <!-- ===================== STICKY MOBIL CTA ===================== -->
 <div class="ctabar" id="ctabar">
-  <a class="btn btn--olive" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">WhatsApp</a>
-  <a class="btn btn--outline" href="tel:+36706043807" data-en="Call">Hívás</a>
+  <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
+  <a class="btn btn--outline" href="https://wa.me/36706043807?text=%C3%9Cdv%C3%B6zl%C3%B6m%21%20A%20Project%20Olive%20lak%C3%A1s%20%C3%A9rdekel%2C%20szeretn%C3%A9k%20id%C5%91pontot%20egyeztetni%20megtekint%C3%A9sre." data-en-href="https://wa.me/36706043807?text=Hello%21%20I%20am%20interested%20in%20the%20Project%20Olive%20apartment%20and%20would%20like%20to%20arrange%20a%20viewing." target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
 <!-- ===================== FOOTER ===================== -->
@@ -1135,6 +1303,67 @@ footer a:hover{color:var(--olive-deep)}
       var ch = a.href.indexOf('wa.me') >= 0 ? 'whatsapp' : (a.href.indexOf('tel:') === 0 ? 'telefon' : 'email');
       window.goatcounter.count({ path: 'cta-' + ch, title: 'CTA: ' + ch, event: true });
     });
+  }
+
+  /* ---------- fotó-carousel (lapozható) ---------- */
+  var cTrack = document.getElementById('carousel-track');
+  if (cTrack) {
+    var cSlides = Array.prototype.slice.call(cTrack.querySelectorAll('.carousel__slide'));
+    var cIdx = document.getElementById('carousel-idx');
+    var cTotal = document.getElementById('carousel-total');
+    var cPrev = document.getElementById('carousel-prev');
+    var cNext = document.getElementById('carousel-next');
+    var cCur = 0;
+    if (cTotal) cTotal.textContent = String(cSlides.length);
+    var cClamp = function(i){ return Math.max(0, Math.min(cSlides.length - 1, i)); };
+    var cSetActive = function(i){
+      cCur = cClamp(i);
+      if (cIdx) cIdx.textContent = String(cCur + 1);
+      if (cPrev) cPrev.disabled = cCur === 0;
+      if (cNext) cNext.disabled = cCur === cSlides.length - 1;
+    };
+    var cGoTo = function(i){
+      var t = cSlides[cClamp(i)];
+      if (!t) return;
+      var tr = cTrack.getBoundingClientRect();
+      var sr = t.getBoundingClientRect();
+      var delta = (sr.left + sr.width / 2) - (tr.left + tr.width / 2);
+      cTrack.scrollBy({ left: delta, behavior: reduce ? 'auto' : 'smooth' });
+      cSetActive(i);
+    };
+    if (cPrev) cPrev.addEventListener('click', function(){ cGoTo(cCur - 1); });
+    if (cNext) cNext.addEventListener('click', function(){ cGoTo(cCur + 1); });
+    cTrack.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight'){ e.preventDefault(); cGoTo(cCur + 1); }
+      else if (e.key === 'ArrowLeft'){ e.preventDefault(); cGoTo(cCur - 1); }
+    });
+    if ('IntersectionObserver' in window){
+      var cio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting && en.intersectionRatio >= 0.5){
+            var i = cSlides.indexOf(en.target);
+            if (i >= 0) cSetActive(i);
+          }
+        });
+      }, { root: cTrack, threshold: [0.5, 0.75] });
+      cSlides.forEach(function(s){ cio.observe(s); });
+    } else {
+      var cst;
+      cTrack.addEventListener('scroll', function(){
+        clearTimeout(cst);
+        cst = setTimeout(function(){
+          var center = cTrack.scrollLeft + cTrack.clientWidth / 2;
+          var best = 0, bestD = Infinity;
+          cSlides.forEach(function(s, i){
+            var c = s.offsetLeft + s.clientWidth / 2;
+            var d = Math.abs(c - center);
+            if (d < bestD){ bestD = d; best = i; }
+          });
+          cSetActive(best);
+        }, 90);
+      }, { passive: true });
+    }
+    cSetActive(0);
   }
 
   /* ---------- évszám ---------- */
