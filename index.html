@@ -655,6 +655,13 @@ footer a:hover{color:var(--olive-deep)}
 .press__name{font-weight:500;color:var(--sage-soft)}
 .press__sub{color:rgba(250,248,243,0.85);max-width:54ch;margin:0 auto}
 
+/* fotó-háttér sáv — a tömör zöld sávok footer-hatásának megszüntetése */
+.band-photo{position:relative;overflow:hidden}
+.band-photo>.band-photo__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.band-photo::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(160deg,rgba(35,39,31,0.70) 0%,rgba(59,74,50,0.85) 100%)}
+.band-photo>.wrap{position:relative;z-index:2}
+.press.band-photo::after{background:linear-gradient(160deg,rgba(20,22,17,0.74) 0%,rgba(35,39,31,0.86) 100%)}
+
 /* nagy kép (2. háló) */
 .media--xl{aspect-ratio:16/9}
 @media (max-width:680px){.media--xl{aspect-ratio:4/5}}
@@ -721,13 +728,17 @@ footer a:hover{color:var(--olive-deep)}
 
 <!-- ===================== 1 · MITŐL KÜLÖNLEGES ===================== -->
 <section class="section" id="lakas">
-  <div class="wrap">
-    <div class="narrow">
+  <div class="wrap split">
+    <div>
       <span class="kicker" data-reveal="soft" data-en="The apartment">A lakás</span>
       <h2 data-reveal data-en="What makes it special?">Mitől különleges?</h2>
       <p class="lead" data-reveal data-en="There is a moment when you step inside and everything goes quiet. Light pours in through four huge windows, the nearly four-metre ceilings lend a sense of freedom, and the hundred-and-fifty-year-old walls bring calm.">Van egy pillanat, amikor az ember belép, és elcsendesedik. A fény négy hatalmas ablakon árad be, a közel négyméteres belmagasság szabadságot ad, a másfél évszázados falak nyugalmat.</p>
       <p class="copy" data-reveal data-en="Project Olive is not simply a renovated apartment. It is a carefully composed home in the heart of Budapest, on the corner of a listed building designed by Miklós Ybl — a few steps from Kálvin Square.">A Project Olive nem egyszerűen egy felújított lakás. Gondosan megkomponált otthon Budapest szívében, egy Ybl Miklós tervezte műemléki ház sarkán — néhány lépésre a Kálvin tértől.</p>
     </div>
+    <figure class="ph ph--living media--wide" data-reveal="media">
+      <img src="images/living-2.webp" alt="A nappali a galériáról nézve, olajfával és a zöld kanapéval" data-en-alt="The living room seen from the gallery, with the olive tree and green sofa" loading="lazy" decoding="async" onerror="this.remove()">
+      <figcaption class="ph__caption"><span data-en="The living space">A nappali</span></figcaption>
+    </figure>
   </div>
   <div class="wrap mt-xl" data-reveal>
     <dl class="facts" style="margin:0">
@@ -849,7 +860,8 @@ footer a:hover{color:var(--olive-deep)}
 </section>
 
 <!-- ===================== CTA-sáv (mid) ===================== -->
-<section class="section cta-band cta-band--olive" data-reveal>
+<section class="section cta-band cta-band--olive band-photo" data-reveal>
+  <img class="band-photo__img" src="images/living-1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.remove()">
   <div class="wrap">
     <p class="cta-band__title" data-en="The photos are only a taste — in person it's breathtaking.">A fotók csak ízelítő — élőben lélegzetelállító.</p>
     <p class="cta-band__sub" data-en="Call now and we'll show you around. We arrange viewings flexibly, at a time that suits you.">Hívjon most, és megmutatjuk. Rugalmasan, az Önnek megfelelő időpontban egyeztetünk.</p>
@@ -1005,14 +1017,19 @@ footer a:hover{color:var(--olive-deep)}
 </section>
 
 <!-- ===================== CTA-sáv (kapcsolat) ===================== -->
-<section class="section cta-band" data-reveal>
-  <div class="wrap">
-    <p class="cta-band__title" data-en="Get in touch">Lépjen velünk kapcsolatba</p>
-    <p class="cta-band__sub" data-en="Write or call — whatever suits you best. What matters most is that you come and see it in person.">Írjon, vagy hívjon — ahogy Önnek a legkényelmesebb. A legfontosabb, hogy eljöjjön, és élőben lássa.</p>
-    <div class="cta-band__actions">
-      <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
-      <a class="btn btn--outline" href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20megtekint%C3%A9s&amp;body=Nevem%3A%20%0AEl%C3%A9rhet%C5%91s%C3%A9gem%3A%20%0AMikor%20%C3%A9rn%C3%A9k%20r%C3%A1%3A%20" data-en="Write to us" data-en-href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20viewing&amp;body=Name%3A%20%0APhone%3A%20%0APreferred%20time%3A%20">Írjon nekünk</a>
+<section class="section" data-reveal>
+  <div class="wrap split">
+    <div>
+      <h2 data-reveal data-en="Get in touch">Lépjen velünk kapcsolatba</h2>
+      <p class="copy" data-reveal data-en="Write or call — whatever suits you best. What matters most is that you come and see it in person.">Írjon, vagy hívjon — ahogy Önnek a legkényelmesebb. A legfontosabb, hogy eljöjjön, és élőben lássa.</p>
+      <div class="cta-band__actions" style="justify-content:flex-start" data-reveal>
+        <a class="btn btn--olive" href="tel:+36706043807" data-en="Call now">Hívjon most</a>
+        <a class="btn btn--outline" href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20megtekint%C3%A9s&amp;body=Nevem%3A%20%0AEl%C3%A9rhet%C5%91s%C3%A9gem%3A%20%0AMikor%20%C3%A9rn%C3%A9k%20r%C3%A1%3A%20" data-en="Write to us" data-en-href="mailto:martindobos123@gmail.com?subject=Project%20Olive%20%E2%80%94%20viewing&amp;body=Name%3A%20%0APhone%3A%20%0APreferred%20time%3A%20">Írjon nekünk</a>
+      </div>
     </div>
+    <figure class="ph ph--kitchen media--wide" data-reveal="media">
+      <img src="images/kitchen-1.webp" alt="Egyedi konyhabútor prémium gépekkel" data-en-alt="Custom kitchen cabinetry with premium appliances" loading="lazy" decoding="async" onerror="this.remove()">
+    </figure>
   </div>
 </section>
 
@@ -1063,7 +1080,8 @@ footer a:hover{color:var(--olive-deep)}
 </section>
 
 <!-- ===================== SAJTÓ — Lakáskultúra ===================== -->
-<section class="section press" data-reveal>
+<section class="section press band-photo" data-reveal>
+  <img class="band-photo__img" src="images/gallery-2.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.remove()">
   <div class="wrap">
     <span class="kicker" data-reveal="soft" data-en="Press">Sajtó</span>
     <p class="press__statement" data-reveal data-en="Featured in the autumn special issue of Lakáskultúra.">Bekerült a Lakáskultúra őszi kiemelt számába.</p>
@@ -1108,6 +1126,10 @@ footer a:hover{color:var(--olive-deep)}
 
 <!-- ===================== ZÁRÓ CTA ===================== -->
 <section class="section section--alt contact" id="kapcsolat">
+  <figure class="ph ph--story media--full" data-reveal="media" style="margin-bottom:var(--sp-xl)">
+    <img src="images/story-1.webp" alt="Az olajfa a nappaliban" data-en-alt="The olive tree in the living room" loading="lazy" decoding="async" onerror="this.remove()">
+    <figcaption class="ph__caption"><span data-en="The olive tree">Az olajfa</span></figcaption>
+  </figure>
   <div class="wrap">
     <span class="kicker" data-reveal="soft" data-en="Contact">Kapcsolat</span>
     <h2 data-reveal data-en="It is even more beautiful in person.">Élőben még szebb.</h2>
