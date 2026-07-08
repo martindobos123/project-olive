@@ -1,21 +1,29 @@
-# Security Policy
+# Biztonsági irányelv / Security Policy
 
-## Supported Versions
+**Project Olive** — [urbanflipstudio.com](https://urbanflipstudio.com)
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+A weboldal egy **statikus, egyoldalas ingatlan-bemutató** (GitHub Pages).
+Nincs felhasználói fiók, bejelentkezés, backend vagy adatbázis, így a támadási
+felület minimális.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+## Sérülékenység jelentése
 
-## Reporting a Vulnerability
+Ha biztonsági problémát talál (pl. a weboldallal, a domainnel vagy a tárhellyel
+kapcsolatban), kérjük, **privát csatornán** jelezze:
 
-Use this section to tell people how to report a vulnerability.
+- ✉️ **martindobos123@gmail.com**
+- ☎️ **+36 70 604 3807**
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Igyekszünk **5 munkanapon belül** visszajelezni. Kérjük, ne hozza nyilvánosságra
+a problémát, amíg közösen nem orvosoltuk. Köszönjük a felelős bejelentést!
+
+---
+
+## Reporting a Vulnerability (EN)
+
+This site is a **static, single-page property listing** hosted on GitHub Pages —
+no user accounts, backend, or database.
+
+If you discover a security issue, please report it **privately** to
+**martindobos123@gmail.com**. We aim to respond within **5 business days**;
+please do not disclose the issue publicly until it has been resolved. Thank you.
