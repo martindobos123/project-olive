@@ -1,0 +1,273 @@
+// Projektek — a referencia-oldalak, a kezdőlap kártyái és a sitemap is ebből épül.
+//
+// Szabály: ismeretlen adatot NEM találunk ki. Ami nincs ellenőrizve, az `null` / TODO,
+// és a sablon nem jeleníti meg (lásd ProjectFacts). Az album-dátumokat szándékosan nem
+// használjuk projektidőként.
+//
+// beforeAfter párosítás (képmanifest):
+//   displayMode 'slider'      — csak ha a két kép ugyanabból a nézőpontból készült
+//   displayMode 'side-by-side' — ugyanaz a helyiség, de eltérő kameraállás
+//   A két kép soha nincs tükrözve, torzítva vagy AI-val módosítva.
+
+export const projects = [
+  {
+    slug: 'vamhaz-korut',
+    title: 'Vámház körút',
+    subtitle: 'Project Olive',
+    location: 'Vámház körút, Kálvin tér környéke, Budapest',
+    shortLocation: 'Budapest, Kálvin tér környéke',
+    summary: 'Egy 79 m²-es, különleges adottságú belvárosi lakás teljes újragondolása. A közel négyméteres belmagasságot, a nagy ablakokat és a műemléki környezet karakterét kortárs, természetes és részletgazdag enteriőrrel egészítettük ki.',
+    cardText: '79 m²-es belvárosi lakás egy Ybl Miklós tervezte műemléki épületben — belső második szinttel és fényaknával.',
+    tags: ['Teljes körű felújítás', 'Enteriőrtervezés', 'Egyedi bútorok'],
+    serviceSlugs: ['felujitas', 'tervezes', 'lakberendezes'],
+    hero: 'vamhaz-korut/gallery/nappali-galeria',
+    heroAlt: 'A Vámház körúti lakás világos nappalija a galériaszinttel, gömblámpákkal és a magas ablakokkal',
+    facts: [
+      { label: 'Helyszín', value: 'Vámház körút, Budapest' },
+      { label: 'Alapterület', value: '79 m²' },
+      { label: 'Hálószobák', value: '2' },
+      { label: 'Fürdőszobák', value: '2' },
+      { label: 'Belmagasság', value: 'közel 4 m' },
+      { label: 'Épület', value: 'Ybl Miklós tervezte műemléki ház' },
+      { label: 'Munka', value: 'Teljes enteriőrtervezés és felújítás' },
+      { label: 'Projektidő', value: null }, // TODO: tényleges kivitelezési időtartam a tulajdonostól
+    ],
+    starting: [
+      'A lakás egy Ybl Miklós tervezte, műemléki saroképületben található, a Kálvin tér közelében. Az adottságok különlegesek voltak: közel négyméteres belmagasság, nagy, osztott ablakok és egy felülvilágítós fényakna.',
+      'A felújítás előtt a lakás elhanyagolt állapotban volt: elavult gépészet és villamos hálózat, régi konyha és fürdőszoba, valamint egy rögtönzött, létrával megközelíthető galéria.',
+    ],
+    goal: 'A cél az volt, hogy a belmagasságot valódi élettérré alakítsuk, a műemléki környezet karakterét megtartsuk, és egy természetes anyagokra épülő, nyugodt, kortárs otthon szülessen — korszerű műszaki háttérrel.',
+    solutions: [
+      { title: 'Belső második szint', text: 'A belmagasságot kihasználva egy különálló, zárható galériaszint készült hálószobával, saját mosdóval és WC-vel, valamint szabadon álló káddal; a szintet csigalépcső köti össze a nappalival.' },
+      { title: 'Fényakna', text: 'A korábban elhanyagolt felülvilágító a lakás egyik legkülönlegesebb pontja lett: zöld növényfal, felülről érkező természetes fény és célzott megvilágítás.' },
+      { title: 'Térszervezés', text: 'A nappali, az étkező és a konyha egy nyitott, sarokablakos térbe került, a hálószoba és a fürdőszobák külön zónát kaptak.' },
+      { title: 'Anyaghasználat', text: 'Világos halszálkás padló, meleg fa felületek, zöld csempe és márvány hatású részletek — visszafogott, természetes paletta.' },
+      { title: 'Egyedi bútorok', text: 'A konyha és a beépített bútorok a lakáshoz készültek, a térhez és a belmagassághoz igazítva.' },
+      { title: 'Műszaki korszerűsítés', text: 'Háromrétegű, hangszigetelt ablakok, klimatizálás, gépi szellőztetés, megújult elektromos hálózat egyedi mérőórákkal.' },
+    ],
+    beforeAfter: [
+      {
+        pairId: 'living-room-01', room: 'Nappali', displayMode: 'side-by-side',
+        before: 'vamhaz-korut/before/nappali', after: 'vamhaz-korut/gallery/nappali-galeria',
+        altBefore: 'A sarokszoba a felújítás előtt: kopott halszálkás parketta, régi radiátorok, két falon magas ablakok',
+        altAfter: 'Ugyanez a sarokszoba nappaliként: világos padló, kanapé, étkezőasztal és a galériaszint',
+        objectPositionBefore: '50% 60%', objectPositionAfter: '50% 50%',
+        note: 'Eltérő nézőpontból: az alaprajz szerint ugyanaz a sarokhelyiség.', // TODO: tulajdonos erősítse meg
+      },
+      {
+        pairId: 'light-shaft-01', room: 'Fényakna', displayMode: 'side-by-side',
+        before: 'vamhaz-korut/before/fenyakna', after: 'vamhaz-korut/after/fenyakna-alulrol',
+        altBefore: 'A fényakna alulról a felújítás előtt: foltos, drótüveges felülvilágító',
+        altAfter: 'A fényakna alulról a felújítás után: zöld növényfal és a tetőablak, spotlámpákkal',
+        objectPositionBefore: '50% 40%', objectPositionAfter: '50% 50%',
+      },
+    ],
+    beforeGallery: [
+      { image: 'vamhaz-korut/before/nappali-bontas', alt: 'A nappali a bontás idején, törmelékes zsákokkal', caption: 'Bontás a sarokszobában' },
+      { image: 'vamhaz-korut/before/konyha', alt: 'A régi konyha a felújítás előtt', caption: 'A régi konyha' },
+      { image: 'vamhaz-korut/before/furdo', alt: 'A régi fürdőszoba sárgult káddal', caption: 'A régi fürdőszoba' },
+      { image: 'vamhaz-korut/before/galeria', alt: 'A korábbi, létrával megközelíthető galéria', caption: 'A korábbi galéria' },
+    ],
+    gallery: [
+      { image: 'vamhaz-korut/gallery/nappali-galeria', alt: 'Nappali a galériaszinttel, gömblámpákkal és a nagy ablakokkal' },
+      { image: 'vamhaz-korut/gallery/nappali-konyha', alt: 'Nyitott nappali és konyha, csigalépcső a galériaszintre' },
+      { image: 'vamhaz-korut/gallery/nappali-ablakok', alt: 'A nappali az ablakok felől, olajfával és fotelekkel' },
+      { image: 'vamhaz-korut/gallery/konyha', alt: 'Fehér, egyedi konyhabútor márvány hatású hátfallal, kerek étkezőasztal' },
+      { image: 'vamhaz-korut/gallery/galeria-haloszoba', alt: 'A galériaszinti hálószoba üvegfalon át, előtérben a gömblámpák' },
+      { image: 'vamhaz-korut/gallery/galeria-ago', alt: 'Hálószoba a galériaszinten, franciaággyal és klímával' },
+      { image: 'vamhaz-korut/gallery/galeria-kad', alt: 'Szabadon álló kád az ágy mellett a galériaszinten' },
+      { image: 'vamhaz-korut/gallery/haloszoba', alt: 'A második hálószoba kárpitozott ággyal és íróasztallal' },
+      { image: 'vamhaz-korut/gallery/furdo-mosdo', alt: 'Dupla pultos mosdó zöld csempével és diófa szekrénnyel' },
+      { image: 'vamhaz-korut/gallery/furdo-zuhany', alt: 'Zuhany zöld halpikkely-csempével és márvány hatású mosdó' },
+      { image: 'vamhaz-korut/gallery/eloszoba', alt: 'Előszoba beépített gardróbbal és padkával' },
+      { image: 'vamhaz-korut/gallery/fenyakna', alt: 'A fényakna alja konzolasztallal és festménnyel' },
+      { image: 'vamhaz-korut/gallery/kilatas', alt: 'Kilátás az ablakból a Kálvin tér felé' },
+      { image: 'vamhaz-korut/gallery/uvegfolyoso', alt: 'Az épület színes üvegablakos függőfolyosója' },
+      { image: 'vamhaz-korut/gallery/epulet', alt: 'Az Ybl Miklós tervezte épület homlokzata a Vámház körúton' },
+    ],
+    floorplans: [
+      { image: 'vamhaz-korut/floorplans/fo-szint', alt: 'A lakás fő szintjének alaprajza: nappali, étkező, konyha, hálószoba, fürdő, bevilágító', caption: 'Fő szint' },
+      { image: 'vamhaz-korut/floorplans/galeria-szint', alt: 'A galériaszint alaprajza: hálószoba, készülődő, WC', caption: 'Galériaszint' },
+    ],
+    video: { src: '/images/projects/vamhaz-korut/video/olive-video.mp4', poster: 'vamhaz-korut/gallery/video-poster', title: 'Videós séta a kész lakásban' },
+    press: 'A projektet a Lakáskultúra magazin is bemutatta.', // TODO: lapszám pontosítása a tulajdonostól
+    story: 'A Project Olive nevet az olajfáról kapta: lassan nő, sokáig él, és nem siet. Ilyen otthont akartunk — időtállót és természeteset, amely nem a divatnak, hanem az életnek készül.',
+  },
+  {
+    slug: 'gozmozdony-utca',
+    title: 'Gőzmozdony utca',
+    subtitle: null,
+    location: 'Gőzmozdony utca, Budapest',
+    shortLocation: 'Budapest',
+    summary: 'Komplett lakásfelújítás és enteriőrkialakítás a Gőzmozdony utcában.',
+    cardText: 'Komplett lakásfelújítás és enteriőrkialakítás a Gőzmozdony utcában.',
+    tags: ['Teljes körű felújítás', 'Enteriőr'],
+    serviceSlugs: ['felujitas', 'lakberendezes'],
+    hero: 'gozmozdony-utca/gallery/nappali',
+    heroAlt: 'A Gőzmozdony utcai lakás nappalija világos kanapéval, puffal és a tükrös gardróbbal elválasztott hálórésszel',
+    facts: [
+      { label: 'Helyszín', value: 'Gőzmozdony utca, Budapest' },
+      { label: 'Munka', value: 'Komplett felújítás és enteriőrkialakítás' },
+      { label: 'Alapterület', value: null }, // TODO
+      { label: 'Projektidő', value: null }, // TODO
+    ],
+    starting: [
+      'A felújítás előtt a lakás teljesen kiürített, megbontott állapotban volt: régi burkolatok és csempék, szabadon álló gépészeti strangok, elhasznált nyílászárók.',
+    ],
+    goal: 'Egy világos, egységes és könnyen használható otthon kialakítása — új konyhával, fürdőszobával és WC-vel, nyugodt, meleg színvilággal.',
+    solutions: [
+      { title: 'Új konyha', text: 'Világos frontok, fa munkalap, beépített gépek — az ablakos konyhafal teljes hosszában.' },
+      { title: 'Fürdőszoba és WC', text: 'Új burkolat, kád, mosdópult és a gépészeti strang eltakarása a WC-ben.' },
+      { title: 'Lakóterek', text: 'Egységes padló, friss falfelületek és visszafogott, meleg tónusú berendezés.' },
+    ],
+    beforeAfter: [
+      {
+        pairId: 'kitchen-01', room: 'Konyha', displayMode: 'slider',
+        before: 'gozmozdony-utca/before/konyha', after: 'gozmozdony-utca/after/konyha',
+        altBefore: 'A konyha a felújítás előtt: lebontott csempe, üres falak, régi radiátor az ablak alatt',
+        altAfter: 'A konyha a felújítás után: világos konyhabútor, fa munkalap, beépített sütő',
+        objectPositionBefore: '50% 55%', objectPositionAfter: '50% 55%', aspect: '4 / 3',
+      },
+      {
+        pairId: 'wc-01', room: 'WC', displayMode: 'slider',
+        before: 'gozmozdony-utca/before/wc', after: 'gozmozdony-utca/after/wc',
+        altBefore: 'A WC a felújítás előtt: szabadon álló, rozsdás gépészeti csövek',
+        altAfter: 'A WC a felújítás után: burkolt fal, eltakart strang, polc',
+        objectPositionBefore: '50% 55%', objectPositionAfter: '50% 55%', aspect: '3 / 4',
+      },
+      {
+        pairId: 'living-room-01', room: 'Nappali', displayMode: 'side-by-side',
+        before: 'gozmozdony-utca/before/nappali', after: 'gozmozdony-utca/after/nappali',
+        altBefore: 'A nappali a felújítás előtt: üres szoba fóliázott padlóval, hármas ablak',
+        altAfter: 'A nappali a felújítás után: kanapé, puff, szőnyeg a hármas ablak előtt',
+        objectPositionBefore: '50% 40%', objectPositionAfter: '50% 50%',
+      },
+      {
+        pairId: 'bedroom-01', room: 'Hálószoba', displayMode: 'side-by-side',
+        before: 'gozmozdony-utca/before/haloszoba', after: 'gozmozdony-utca/after/haloszoba',
+        altBefore: 'A hálószoba a felújítás előtt: régi erkélyajtó, klíma, csupasz falak',
+        altAfter: 'A hálószoba a felújítás után: ágy, komód, függönyök az erkélyajtó előtt',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+      {
+        pairId: 'bathroom-01', room: 'Fürdőszoba', displayMode: 'side-by-side',
+        before: 'gozmozdony-utca/before/furdo', after: 'gozmozdony-utca/after/furdo',
+        altBefore: 'A fürdőszoba a bontás után: leszedett csempe, csupasz falak',
+        altAfter: 'A fürdőszoba a felújítás után: új burkolat, kád, mosdópult és mosógép',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+    ],
+    beforeGallery: [],
+    gallery: [
+      { image: 'gozmozdony-utca/gallery/nappali', alt: 'Nappali kanapéval és puffal, a háttérben tükrös gardróbbal elválasztott hálórész' },
+      { image: 'gozmozdony-utca/gallery/nappali-ablakok', alt: 'A nappali az ablakok felől, kanapé és tévéállvány' },
+      { image: 'gozmozdony-utca/after/nappali', alt: 'Nappali a hármas ablakkal, szőnyeggel és puffal' },
+      { image: 'gozmozdony-utca/gallery/haloszoba-uvegfal', alt: 'Hálórész üvegfallal és függönnyel' },
+      { image: 'gozmozdony-utca/after/haloszoba', alt: 'Hálószoba komóddal és erkélyajtóval' },
+      { image: 'gozmozdony-utca/gallery/haloszoba-iroasztal', alt: 'Hálószoba íróasztallal és székkel' },
+      { image: 'gozmozdony-utca/after/konyha', alt: 'Hosszú, ablakos konyha világos frontokkal' },
+      { image: 'gozmozdony-utca/gallery/konyha-bejarat', alt: 'A konyha a bejárati ajtó felől' },
+      { image: 'gozmozdony-utca/gallery/konyha-reszlet', alt: 'Konyhapult fekete csapteleppel és fa munkalappal' },
+      { image: 'gozmozdony-utca/gallery/etkezo', alt: 'Étkezősarok kis asztallal és székekkel' },
+      { image: 'gozmozdony-utca/gallery/eloszoba', alt: 'Előszoba szekrénnyel és fehér beltéri ajtókkal' },
+      { image: 'gozmozdony-utca/after/furdo', alt: 'Fürdőszoba kerámia mosdóval, káddal és mosógéppel' },
+      { image: 'gozmozdony-utca/after/wc', alt: 'Burkolt WC fali polccal' },
+      { image: 'gozmozdony-utca/gallery/erkely', alt: 'Erkély kisasztallal és kilátással a város felé' },
+    ],
+    floorplans: [], // TODO: alaprajz, ha van
+    video: null,
+    press: null,
+    story: null,
+  },
+  {
+    slug: 'balazs-bela-utca',
+    title: 'Balázs Béla utca',
+    subtitle: null,
+    location: 'Balázs Béla utca, Budapest',
+    shortLocation: 'Budapest',
+    summary: 'Teljes körű lakásfelújítás és enteriőrtervezés a Balázs Béla utcában.',
+    cardText: 'Teljes körű lakásfelújítás és enteriőrtervezés a Balázs Béla utcában.',
+    tags: ['Teljes körű felújítás', 'Enteriőrtervezés'],
+    serviceSlugs: ['felujitas', 'tervezes', 'lakberendezes'],
+    hero: 'balazs-bela-utca/gallery/nappali',
+    heroAlt: 'A Balázs Béla utcai lakás nappalija bouclé kanapéval, mintás szőnyeggel és falpanelekkel',
+    facts: [
+      { label: 'Helyszín', value: 'Balázs Béla utca, Budapest' },
+      { label: 'Munka', value: 'Teljes körű felújítás és enteriőrtervezés' },
+      { label: 'Alapterület', value: null }, // TODO
+      { label: 'Projektidő', value: null }, // TODO
+    ],
+    starting: [
+      'A kiindulási állapot egy berendezett, de sötét tónusú lakás volt: fekete konyhabútor, sötétszürke falak, narancssárga csempés fürdőszoba.',
+    ],
+    goal: 'Világosabb, melegebb és egységesebb terek — a meglévő alaprajzra építve, új konyhával, fürdőszobával, burkolatokkal és teljes berendezéssel.',
+    solutions: [
+      { title: 'Világos alapok', text: 'Világos falak, dekoratív falpanelek és fa hatású padló adják az új alapot.' },
+      { title: 'Konyha és étkező', text: 'Krémszínű, fogantyús konyhabútor, fa munkalap és egy kerek étkezőasztal a nappali és a konyha határán.' },
+      { title: 'Fürdőszoba', text: 'Natúr tónusú burkolat, cementlap hatású padló, fa mosdópult és arany színű szerelvények.' },
+      { title: 'Loggia', text: 'A loggia étkezősarokkal és függőfotellel a lakás kültéri szobája lett.' },
+    ],
+    beforeAfter: [
+      {
+        pairId: 'bedroom-01', room: 'Hálószoba', displayMode: 'slider',
+        before: 'balazs-bela-utca/before/haloszoba', after: 'balazs-bela-utca/after/haloszoba',
+        altBefore: 'A hálószoba a felújítás előtt: sötétszürke fal, sötét fa ágy, ablak jobbra',
+        altAfter: 'A hálószoba a felújítás után: világos fal, kárpitozott ágy, képek az ágy fölött',
+        objectPositionBefore: '50% 62%', objectPositionAfter: '50% 55%', aspect: '4 / 3',
+      },
+      {
+        pairId: 'living-room-01', room: 'Nappali', displayMode: 'side-by-side',
+        before: 'balazs-bela-utca/before/nappali', after: 'balazs-bela-utca/after/nappali',
+        altBefore: 'A nappali a felújítás előtt: zöld kanapé, szürke szőnyeg, sötét bútorok',
+        altAfter: 'A nappali a felújítás után: bouclé kanapé, falpanelek, fotel és állólámpa',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+      {
+        pairId: 'kitchen-01', room: 'Konyha', displayMode: 'side-by-side',
+        before: 'balazs-bela-utca/before/konyha', after: 'balazs-bela-utca/after/konyha',
+        altBefore: 'A konyha a felújítás előtt: fekete konyhabútor és hűtő',
+        altAfter: 'A konyha a felújítás után: krémszínű konyhabútor, fa munkalap',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+      {
+        pairId: 'bathroom-01', room: 'Fürdőszoba', displayMode: 'side-by-side',
+        before: 'balazs-bela-utca/before/furdo', after: 'balazs-bela-utca/after/furdo',
+        altBefore: 'A fürdőszoba a felújítás előtt: narancssárga csíkos csempe, régi mosdó',
+        altAfter: 'A fürdőszoba a felújítás után: natúr burkolat, fa mosdópult, kerek tükör',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+      {
+        pairId: 'loggia-01', room: 'Loggia', displayMode: 'side-by-side',
+        before: 'balazs-bela-utca/before/loggia', after: 'balazs-bela-utca/after/loggia',
+        altBefore: 'A loggia korábban: műfű, sötét asztal és székek',
+        altAfter: 'A loggia most: étkezőasztal fa székekkel, függőfotel, szőnyeg',
+        objectPositionBefore: '50% 50%', objectPositionAfter: '50% 50%',
+      },
+    ],
+    beforeGallery: [],
+    gallery: [
+      { image: 'balazs-bela-utca/gallery/nappali', alt: 'Nappali bouclé kanapéval, mintás szőnyeggel és gömblámpával' },
+      { image: 'balazs-bela-utca/after/nappali', alt: 'A nappali az étkező felől, fotellel és állólámpával' },
+      { image: 'balazs-bela-utca/gallery/nappali-kanape', alt: 'Bouclé kanapé falpanelek előtt' },
+      { image: 'balazs-bela-utca/gallery/nappali-ablak', alt: 'Nappali a loggiára nyíló ablakkal, tévéállvánnyal' },
+      { image: 'balazs-bela-utca/gallery/olvasosarok', alt: 'Olvasósarok barna fotellel és állólámpával' },
+      { image: 'balazs-bela-utca/gallery/etkezo', alt: 'Étkező kerek asztallal, rálátással a konyhára és a hálóra' },
+      { image: 'balazs-bela-utca/gallery/etkezo-konyha', alt: 'Étkezőasztal függőlámpával a konyha mellett' },
+      { image: 'balazs-bela-utca/after/konyha', alt: 'Krémszínű konyhabútor beépített sütővel' },
+      { image: 'balazs-bela-utca/gallery/konyha-reszlet', alt: 'Konyhapult arany csapteleppel és fa munkalappal' },
+      { image: 'balazs-bela-utca/after/haloszoba', alt: 'Hálószoba kárpitozott ággyal, képekkel az ágy fölött' },
+      { image: 'balazs-bela-utca/gallery/haloszoba', alt: 'A hálószoba az ajtó felől' },
+      { image: 'balazs-bela-utca/after/furdo', alt: 'Fürdőszoba fa mosdópulttal, kerek tükörrel és WC-vel' },
+      { image: 'balazs-bela-utca/gallery/furdo-kad', alt: 'Kád arany színű csapteleppel, cementlap hatású padló' },
+      { image: 'balazs-bela-utca/gallery/eloszoba', alt: 'Előszoba fa gardróbszekrénnyel' },
+      { image: 'balazs-bela-utca/after/loggia', alt: 'Loggia étkezőasztallal és függőfotellel' },
+      { image: 'balazs-bela-utca/gallery/loggia', alt: 'Loggia a szomszédos házak felé' },
+    ],
+    floorplans: [
+      { image: 'balazs-bela-utca/floorplans/alaprajz', alt: 'A lakás alaprajza: loggia, hálószoba, nappali, étkező, konyha, gardrób, fürdőszoba, előtér', caption: 'Alaprajz' },
+    ],
+    video: null,
+    press: null,
+    story: null,
+  },
+];

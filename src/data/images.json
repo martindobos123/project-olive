@@ -1,0 +1,746 @@
+{
+ "vamhaz-korut/gallery/nappali-galeria": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "fallback": 960,
+  "source": "A/vam/va06.jpg",
+  "og": true
+ },
+ "vamhaz-korut/gallery/nappali-konyha": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va04.jpg",
+  "og": true
+ },
+ "vamhaz-korut/gallery/nappali-ablakok": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va10.jpg"
+ },
+ "vamhaz-korut/gallery/konyha": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va09.jpg"
+ },
+ "vamhaz-korut/gallery/galeria-haloszoba": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va08.jpg"
+ },
+ "vamhaz-korut/gallery/galeria-ago": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va02.jpg"
+ },
+ "vamhaz-korut/gallery/galeria-kad": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va03.jpg"
+ },
+ "vamhaz-korut/gallery/haloszoba": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va14.jpg"
+ },
+ "vamhaz-korut/gallery/furdo-mosdo": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va01.jpg"
+ },
+ "vamhaz-korut/gallery/furdo-zuhany": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va13.jpg"
+ },
+ "vamhaz-korut/gallery/eloszoba": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va15.jpg"
+ },
+ "vamhaz-korut/gallery/fenyakna": {
+  "width": 933,
+  "height": 1400,
+  "widths": [
+   640,
+   933
+  ],
+  "fallback": 933,
+  "source": "legacy/shaft-1.webp"
+ },
+ "vamhaz-korut/after/fenyakna-alulrol": {
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "legacy/shaft-2.webp"
+ },
+ "vamhaz-korut/gallery/kilatas": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va05.jpg"
+ },
+ "vamhaz-korut/gallery/epulet": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va17.jpg"
+ },
+ "vamhaz-korut/gallery/uvegfolyoso": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/vam/va16.jpg"
+ },
+ "vamhaz-korut/before/nappali": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/100.jpg"
+ },
+ "vamhaz-korut/before/fenyakna": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/013.jpg"
+ },
+ "vamhaz-korut/before/nappali-bontas": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/113.jpg"
+ },
+ "vamhaz-korut/before/konyha": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/006.jpg"
+ },
+ "vamhaz-korut/before/furdo": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/050.jpg"
+ },
+ "vamhaz-korut/before/galeria": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/vam/045.jpg"
+ },
+ "vamhaz-korut/floorplans/fo-szint": {
+  "width": 1600,
+  "height": 1146,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "legacy/plan-1.webp",
+  "floorplan": true
+ },
+ "vamhaz-korut/floorplans/galeria-szint": {
+  "width": 1600,
+  "height": 1267,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "legacy/plan-2.webp",
+  "floorplan": true
+ },
+ "vamhaz-korut/gallery/video-poster": {
+  "width": 608,
+  "height": 1080,
+  "widths": [
+   608
+  ],
+  "fallback": 608,
+  "source": "legacy/video-poster.webp"
+ },
+ "site/rolunk": {
+  "width": 933,
+  "height": 1400,
+  "widths": [
+   640,
+   933
+  ],
+  "fallback": 933,
+  "source": "legacy/creators-1.webp"
+ },
+ "gozmozdony-utca/gallery/nappali": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "fallback": 960,
+  "source": "A/goz/6-_DSC1014.jpg",
+  "og": true
+ },
+ "gozmozdony-utca/gallery/nappali-ablakok": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/5-_DSC1015.jpg"
+ },
+ "gozmozdony-utca/after/nappali": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/8-_DSC1009.jpg"
+ },
+ "gozmozdony-utca/after/haloszoba": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/10-_DSC1005.jpg"
+ },
+ "gozmozdony-utca/gallery/haloszoba-iroasztal": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/11-_DSC1003.jpg"
+ },
+ "gozmozdony-utca/gallery/haloszoba-uvegfal": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/7-_DSC1011.jpg"
+ },
+ "gozmozdony-utca/after/konyha": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/17-_DSC0985.jpg"
+ },
+ "gozmozdony-utca/gallery/konyha-bejarat": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/16-_DSC0987.jpg"
+ },
+ "gozmozdony-utca/gallery/konyha-reszlet": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/4-_DSC1017.jpg"
+ },
+ "gozmozdony-utca/gallery/etkezo": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/15-_DSC0992.jpg"
+ },
+ "gozmozdony-utca/gallery/eloszoba": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/14-_DSC0994.jpg"
+ },
+ "gozmozdony-utca/after/furdo": {
+  "width": 4000,
+  "height": 6000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/13-_DSC0998.jpg"
+ },
+ "gozmozdony-utca/after/wc": {
+  "width": 4000,
+  "height": 6000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/12-_DSC1001.jpg"
+ },
+ "gozmozdony-utca/gallery/erkely": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/goz/9-_DSC1007.jpg"
+ },
+ "gozmozdony-utca/before/konyha": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/goz/031.jpg"
+ },
+ "gozmozdony-utca/before/wc": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/goz/026.jpg"
+ },
+ "gozmozdony-utca/before/nappali": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/goz/040.jpg"
+ },
+ "gozmozdony-utca/before/haloszoba": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/goz/079.jpg"
+ },
+ "gozmozdony-utca/before/furdo": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/goz/021.jpg"
+ },
+ "balazs-bela-utca/gallery/nappali": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "fallback": 960,
+  "source": "A/bal/27-_DSC4374.jpg",
+  "og": true
+ },
+ "balazs-bela-utca/after/nappali": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/26-_DSC4377.jpg"
+ },
+ "balazs-bela-utca/gallery/nappali-kanape": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/29-_DSC4371.jpg"
+ },
+ "balazs-bela-utca/gallery/nappali-ablak": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/10-_DSC4428.jpg"
+ },
+ "balazs-bela-utca/gallery/olvasosarok": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/7-_DSC4434.jpg"
+ },
+ "balazs-bela-utca/gallery/etkezo": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/18-_DSC4400.jpg"
+ },
+ "balazs-bela-utca/gallery/etkezo-konyha": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/16-_DSC4412.jpg"
+ },
+ "balazs-bela-utca/after/konyha": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/17-_DSC4409.jpg",
+  "og": true
+ },
+ "balazs-bela-utca/gallery/konyha-reszlet": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/8-_DSC4431.jpg"
+ },
+ "balazs-bela-utca/after/haloszoba": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/12-_DSC4424.jpg"
+ },
+ "balazs-bela-utca/gallery/haloszoba": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/13-_DSC4423.jpg"
+ },
+ "balazs-bela-utca/after/furdo": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/25-_DSC4388.jpg"
+ },
+ "balazs-bela-utca/gallery/furdo-kad": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/23-_DSC4391.jpg"
+ },
+ "balazs-bela-utca/gallery/eloszoba": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/22-_DSC4394.jpg"
+ },
+ "balazs-bela-utca/after/loggia": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/30-_DSC4369.jpg"
+ },
+ "balazs-bela-utca/gallery/loggia": {
+  "width": 6000,
+  "height": 4000,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/20-_DSC4396.jpg"
+ },
+ "balazs-bela-utca/before/nappali": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/bal/IMG_1641.JPG"
+ },
+ "balazs-bela-utca/before/haloszoba": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/bal/IMG_1717.JPG"
+ },
+ "balazs-bela-utca/before/loggia": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/bal/IMG_1622.JPG"
+ },
+ "balazs-bela-utca/before/konyha": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/bal/IMG_1278_2.JPG"
+ },
+ "balazs-bela-utca/before/furdo": {
+  "width": 1536,
+  "height": 2048,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "B/bal/att.Somcw-XRg3DeewiF-mq_qB4SCmkVyq3lb5oPNkyS5Sg.jpg"
+ },
+ "balazs-bela-utca/floorplans/alaprajz": {
+  "width": 3200,
+  "height": 3708,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "A/bal/BBnew_alaprajz.ingatlan.com.png",
+  "floorplan": true
+ }
+}

@@ -1,8 +1,8 @@
 # Biztonsági irányelv / Security Policy
 
-**Project Olive** — [urbanflipstudio.com](https://urbanflipstudio.com)
+**Urban Flip Studio** — [urbanflipstudio.com](https://urbanflipstudio.com)
 
-A weboldal egy **statikus, egyoldalas ingatlan-bemutató** (GitHub Pages).
+A weboldal egy **statikus szolgáltatói és referenciaoldal** (GitHub Pages).
 Nincs felhasználói fiók, bejelentkezés, backend vagy adatbázis, így a támadási
 felület minimális.
 
@@ -21,7 +21,7 @@ a problémát, amíg közösen nem orvosoltuk. Köszönjük a felelős bejelent�
 
 ## Reporting a Vulnerability (EN)
 
-This site is a **static, single-page property listing** hosted on GitHub Pages —
+This site is a **static service and portfolio website** hosted on GitHub Pages —
 no user accounts, backend, or database.
 
 If you discover a security issue, please report it **privately** to
