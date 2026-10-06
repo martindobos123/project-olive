@@ -19,6 +19,7 @@ src/components.mjs       Header, MobileNavigation, Hero, SectionHeading, Service
                          ProjectFacts, BeforeAfterSlider, ProjectGallery, AccessibleLightbox,
                          ProcessTimeline, ContactCTA, ContactForm, Footer, Picture
 src/pages.mjs            oldalsablonok (a 3 projektoldal EGY sablonból, adatból épül)
+src/i18n.mjs             nyelvek (hu, en), t() szövegválasztó, útvonal-térkép (/szolgaltatasok/ ↔ /en/services/)
 src/assets/              site.css (design tokenek), site.js, fonts.css + fonts/ (önhosztolt woff2)
 scripts/build.mjs        HTML + sitemap.xml + robots.txt + site.webmanifest + 404 + átirányítás
 scripts/build_images.py  képoptimalizálás (Pillow): EXIF-forgatás, metaadat-törlés, AVIF/WebP/JPEG
@@ -27,6 +28,13 @@ scripts/image-sources.json  melyik forrásfájlból melyik webes kép készül
 
 A gyökérben lévő `index.html`, `*/index.html`, `assets/`, `images/projects/`, `sitemap.xml` stb.
 **generált kimenet** — ne kézzel szerkeszd, hanem a `src/`-t, majd buildelj.
+## Kétnyelvűség
+
+Magyar az alap (gyökér), angol a `/en/` alatt. Minden nyelvfüggő szöveg `{ hu, en }` objektum az
+adat- és sablonfájlokban; a build nyelvenként egyszer rendereli az összes oldalt, hreflang-párokkal,
+nyelvváltóval és kétnyelvű sitemappel. Új szövegnél MINDKÉT nyelvet add meg (hiányzó `en` → a magyar
+jelenik meg az angol oldalon). A 404 csak a gyökérben van (a Pages egyetlen 404.html-t szolgál ki).
+
 
 ## Build
 

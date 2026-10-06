@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { site } from '../src/data/site.mjs';
 import { allPages } from '../src/pages.mjs';
 import { Header, Footer, esc, img } from '../src/components.mjs';
+import { LANGS, setLang, href, t } from '../src/i18n.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const out = (rel, content) => {
@@ -40,13 +41,17 @@ const CSP = [
   "media-src 'self'", "object-src 'none'", "frame-src 'none'", "form-action 'self'", 'upgrade-insecure-requests',
 ].join('; ');
 
-function layout(page) {
+function layout(page, lang) {
   const url = site.url + (page.path === '/404.html' ? '/' : page.path);
+  const alternates = page.key ? Object.fromEntries(LANGS.map((l) => [l, href(page.key, l)])) : null;
+  const hreflang = alternates
+    ? [...LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${site.url}${alternates[l]}">`), `<link rel="alternate" hreflang="x-default" href="${site.url}${alternates.hu}">`].join('\n')
+    : '';
   const og = img(page.ogImage);
   if (!og.og) throw new Error(`${page.path}: az OG-képnek (${page.ogImage}) nincs -og.jpg változata (image-sources.json: "og": true)`);
   const ogUrl = `${site.url}/images/projects/${page.ogImage}-og.jpg`;
   return `<!DOCTYPE html>
-<html lang="hu"${site.goatcounter ? ` data-gc="${esc(site.goatcounter)}"` : ''}>
+<html lang="${lang}"${site.goatcounter ? ` data-gc="${esc(site.goatcounter)}"` : ''}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,10 +60,12 @@ function layout(page) {
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
 ${page.noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
+${hreflang}
 <meta name="theme-color" content="#FAF8F3">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(site.name)}">
-<meta property="og:locale" content="${site.locale}">
+<meta property="og:locale" content="${t(site.locale)}">
+${alternates ? LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${site.locale[l]}">`).join('\n') : ''}
 <meta property="og:title" content="${esc(page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${url}">
@@ -75,8 +82,8 @@ ${PRELOAD_FONTS.map((f) => `<link rel="preload" href="/assets/fonts/${f}" as="fo
 ${page.jsonLd.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body>
-<a class="skip-link" href="#tartalom">Ugrás a tartalomhoz</a>
-${Header({ path: page.path, overlay: !!page.overlayHeader })}
+<a class="skip-link" href="#tartalom">${t({ hu: 'Ugrás a tartalomhoz', en: 'Skip to content' })}</a>
+${Header({ path: page.path, overlay: !!page.overlayHeader, alternates })}
 ${page.body}
 ${Footer()}
 </body>
@@ -84,11 +91,16 @@ ${Footer()}
 `;
 }
 
-const pages = allPages();
-for (const p of pages) {
-  const file = p.path === '/404.html' ? '404.html' : join(p.path, 'index.html');
-  out(file, layout(p));
+const pages = [];
+for (const lang of LANGS) {
+  setLang(lang);
+  for (const p of allPages()) {
+    const file = p.path === '/404.html' ? '404.html' : join(p.path, 'index.html');
+    out(file, layout(p, lang));
+    pages.push(p);
+  }
 }
+setLang('hu');
 
 // régi útvonal → új projektoldal (a GitHub Pages nem tud szerveroldali 301-et)
 const target = '/projektek/vamhaz-korut/';
@@ -102,8 +114,8 @@ out('project-olive/index.html', `<!DOCTYPE html>
 
 const today = new Date().toISOString().slice(0, 10);
 out('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.filter((p) => !p.noindex).map((p) => `  <url><loc>${site.url}${p.path}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${pages.filter((p) => !p.noindex).map((p) => `  <url><loc>${site.url}${p.path}</loc>${LANGS.map((l) => `<xhtml:link rel="alternate" hreflang="${l}" href="${site.url}${href(p.key, l)}"/>`).join('')}<lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>
 `);
 out('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);

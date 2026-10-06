@@ -730,17 +730,5 @@
   ],
   "fallback": 960,
   "source": "B/bal/att.Somcw-XRg3DeewiF-mq_qB4SCmkVyq3lb5oPNkyS5Sg.jpg"
- },
- "balazs-bela-utca/floorplans/alaprajz": {
-  "width": 3200,
-  "height": 3708,
-  "widths": [
-   640,
-   960,
-   1440
-  ],
-  "fallback": 960,
-  "source": "A/bal/BBnew_alaprajz.ingatlan.com.png",
-  "floorplan": true
  }
 }

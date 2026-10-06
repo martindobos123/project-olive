@@ -2,6 +2,28 @@
 (function () {
   'use strict';
   var doc = document;
+  var EN = doc.documentElement.lang === 'en';
+  var T = EN ? {
+    contact: '/en/contact/',
+    compare: 'Before and after comparison', compareHint: 'Higher values show more of the “before” photo.',
+    before: 'Before', after: 'after',
+    sending: 'Sending…',
+    sent: 'Thank you, your message has arrived. We will be in touch soon.',
+    failed: 'We could not send your message right now. Please email or call us — you will find our details below.',
+    labels: { nev: 'Name', email: 'Email', telefon: 'Phone', helyszin: 'Property location', szolgaltatas: 'Service', kezdes: 'Planned start', keret: 'Estimated budget', leiras: 'Description' },
+    subject: 'Project enquiry — ',
+    mailto: function (to) { return 'We opened your email app with a pre-filled message — press send to deliver it. If it did not open, write to us directly at ' + to + '.'; },
+  } : {
+    contact: '/kapcsolat/',
+    compare: 'Előtte–utána összehasonlítás', compareHint: 'Nagyobb értéknél több látszik az „előtte” képből.',
+    before: 'Előtte', after: 'utána',
+    sending: 'Küldés…',
+    sent: 'Köszönjük, az üzenet megérkezett. Hamarosan jelentkezünk.',
+    failed: 'Az üzenetet most nem sikerült elküldeni. Kérjük, írjon e-mailt vagy hívjon minket — az elérhetőségeket lent találja.',
+    labels: { nev: 'Név', email: 'E-mail', telefon: 'Telefon', helyszin: 'Ingatlan helye', szolgaltatas: 'Érdekelt szolgáltatás', kezdes: 'Tervezett kezdés', keret: 'Becsült keret', leiras: 'Leírás' },
+    subject: 'Projekt-megkeresés — ',
+    mailto: function (to) { return 'Megnyitottuk a levelezőprogramját egy előre kitöltött üzenettel — a küldés gombbal juttathatja el hozzánk. Ha nem nyílt meg, írjon közvetlenül a ' + to + ' címre.'; },
+  };
 
   /* ---------- Fejléc: a kezdőlapon a hero fölött átlátszó, görgetéskor visszafogott sticky ---------- */
   var header = doc.querySelector('.header--overlay');
@@ -30,7 +52,7 @@
     });
     window.addEventListener('resize', function () { if (window.innerWidth >= 1000 && mnav.open) mnav.close(); });
   } else if (menuBtn) {
-    menuBtn.addEventListener('click', function () { window.location.href = '/kapcsolat/'; });
+    menuBtn.addEventListener('click', function () { window.location.href = T.contact; });
   }
 
   /* ---------- Before–after slider (csak data-mode="slider" esetén) ---------- */
@@ -41,13 +63,13 @@
     input.type = 'range';
     input.min = '0'; input.max = '100'; input.step = '1'; input.value = '50';
     input.className = 'ba__range';
-    input.setAttribute('aria-label', 'Előtte–utána összehasonlítás' + (room ? ' – ' + room : '') + '. Nagyobb értéknél több látszik az „előtte” képből.');
+    input.setAttribute('aria-label', T.compare + (room ? ' – ' + room : '') + '. ' + T.compareHint);
     var handle = doc.createElement('span');
     handle.className = 'ba__handle';
     handle.setAttribute('aria-hidden', 'true');
     var set = function () {
       pair.style.setProperty('--pos', input.value + '%');
-      input.setAttribute('aria-valuetext', 'Előtte ' + input.value + '%, utána ' + (100 - input.value) + '%');
+      input.setAttribute('aria-valuetext', T.before + ' ' + input.value + '%, ' + T.after + ' ' + (100 - input.value) + '%');
     };
     input.addEventListener('input', set);
     // egér + érintés: pointer-események (a touch-action: pan-y miatt a függőleges görgetés megmarad)
@@ -141,27 +163,27 @@
       var data = new FormData(form);
       var endpoint = form.getAttribute('data-endpoint');
       if (endpoint) {
-        status.textContent = 'Küldés…';
+        status.textContent = T.sending;
         fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
           .then(function (r) {
             if (!r.ok) throw new Error(String(r.status));
-            status.textContent = 'Köszönjük, az üzenet megérkezett. Hamarosan jelentkezünk.';
+            status.textContent = T.sent;
             form.reset();
           })
           .catch(function () {
-            status.textContent = 'Az üzenetet most nem sikerült elküldeni. Kérjük, írjon e-mailt vagy hívjon minket — az elérhetőségeket lent találja.';
+            status.textContent = T.failed;
           });
         return;
       }
       var lines = [];
-      var labels = { nev: 'Név', email: 'E-mail', telefon: 'Telefon', helyszin: 'Ingatlan helye', szolgaltatas: 'Érdekelt szolgáltatás', kezdes: 'Tervezett kezdés', keret: 'Becsült keret', leiras: 'Leírás' };
+      var labels = T.labels;
       Object.keys(labels).forEach(function (k) {
         var v = (data.get(k) || '').toString().trim();
         if (v) lines.push(labels[k] + ': ' + v);
       });
       var to = form.getAttribute('data-mailto');
-      var href = 'mailto:' + to + '?subject=' + encodeURIComponent('Projekt-megkeresés — ' + (data.get('helyszin') || '')) + '&body=' + encodeURIComponent(lines.join('\n'));
-      status.textContent = 'Megnyitottuk a levelezőprogramját egy előre kitöltött üzenettel — a küldés gombbal juttathatja el hozzánk. Ha nem nyílt meg, írjon közvetlenül a ' + to + ' címre.';
+      var href = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subject + (data.get('helyszin') || '')) + '&body=' + encodeURIComponent(lines.join('\n'));
+      status.textContent = T.mailto(to);
       window.location.href = href;
     });
   }
