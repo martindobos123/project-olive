@@ -365,3 +365,60 @@ ul,ol{margin:0;padding:0}
 .stack>*+*{margin-top:var(--sp-md)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 @media print{.header,.footer,.cta,.menu-btn{display:none}}
+
+/* ===================== 2026-10 BŐVÍTÉSEK: közbenső CTA, tervlapozó, részprojektek, profilok, hozzájárulás ===================== */
+.split--top{align-items:start}
+.mb-md{margin-bottom:var(--sp-md)}
+.media--169{aspect-ratio:16/9}
+.team-photo{max-height:min(70vh,640px)}
+.team-photo img{height:100%}
+
+.mid-cta{margin-top:var(--sp-xl);padding:var(--sp-lg);background:var(--surface);border-left:3px solid var(--olive);display:grid;gap:var(--sp-md)}
+.mid-cta p{margin:0;font-family:var(--font-display);font-size:var(--fs-h3);line-height:1.3;max-width:34ch;text-wrap:balance}
+@media (min-width:800px){.mid-cta{grid-template-columns:1fr auto;align-items:center;gap:var(--sp-lg)}}
+
+.plans-carousel{display:grid;gap:var(--sp-sm)}
+.plans-carousel__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--sp-xs) var(--sp-md)}
+.plans-carousel__tabs{display:flex;flex-wrap:wrap;gap:.25rem .5rem;list-style:none}
+.plans-carousel__tabs button{min-height:var(--tap);padding:0 .25rem;background:none;border:0;border-bottom:2px solid transparent;color:var(--ink-soft);font:inherit;font-size:var(--fs-small);cursor:pointer}
+.plans-carousel__tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--olive)}
+.plans-carousel__nav{display:flex;align-items:center;gap:var(--sp-xs);font-size:var(--fs-small);color:var(--ink-soft)}
+.plans-carousel__btn{width:var(--tap);height:var(--tap);border:var(--border-strong);border-radius:50%;background:var(--surface);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer}
+.plans-carousel__btn:hover{background:var(--ink);color:var(--on-dark)}
+.plans-carousel__nav,.plans-carousel__tabs button{display:none}
+.plans-carousel__track{display:flex;gap:var(--sp-sm);list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;padding-bottom:.25rem}
+.plans-carousel__track li{flex:0 0 100%;scroll-snap-align:start;scroll-snap-stop:always}
+.plans-carousel__track figure{margin:0;background:var(--surface);border:var(--border);padding:var(--sp-sm)}
+.plans-carousel__track img{width:100%;height:auto}
+.plans-carousel__track figcaption{margin-top:var(--sp-xs);font-size:var(--fs-small);color:var(--ink-soft)}
+.plans-carousel.is-ready .plans-carousel__nav,.plans-carousel.is-ready .plans-carousel__tabs button{display:inline-flex;align-items:center;justify-content:center}
+.plans-carousel.is-ready .plans-carousel__track{scrollbar-width:none}
+.plans-carousel.is-ready .plans-carousel__track::-webkit-scrollbar{display:none}
+
+.subprojects{display:grid;gap:clamp(2.5rem,5vw,4rem);list-style:none}
+.subproject article{display:grid;gap:var(--sp-md)}
+.subproject__media{display:grid;gap:4px}
+.subproject__media>.media{aspect-ratio:4/3}
+.subproject__thumbs{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.subproject__thumbs .media{aspect-ratio:4/3}
+.subproject h3{font-size:var(--fs-h3);margin-bottom:var(--sp-xs)}
+@media (min-width:900px){.subproject article{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:var(--sp-lg);align-items:start}}
+
+.profiles{display:grid;gap:var(--sp-lg);list-style:none}
+.profile{border-top:var(--border-strong);padding-top:var(--sp-md)}
+.profile h3{font-size:var(--fs-h2);margin:.25rem 0 var(--sp-sm)}
+@media (min-width:800px){.profiles{grid-template-columns:1fr 1fr;gap:var(--sp-xl)}}
+
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:70;background:var(--ink);color:var(--on-dark);padding:var(--sp-md) var(--gutter);display:grid;gap:var(--sp-sm);box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+.consent[hidden]{display:none}
+.consent p{margin:0;font-size:var(--fs-small);max-width:70ch}
+.consent a{color:var(--on-dark)}
+.consent .btn--line{border-color:rgba(250,248,243,.7);color:var(--on-dark)}
+.consent .btn--line:hover{background:var(--on-dark);color:var(--ink)}
+.consent .btn--solid{background:var(--on-dark);color:var(--ink)}
+@media (min-width:800px){.consent{grid-template-columns:1fr auto;align-items:center;gap:var(--sp-lg)}}
+
+.legal h2{font-size:var(--fs-h3);margin:var(--sp-lg) 0 var(--sp-xs)}
+.legal ul{padding-left:1.2rem;margin-bottom:1em}
+.legal code{font-size:.9em;background:var(--bg-alt);padding:.05em .3em}
+.subproject__thumbs>:only-child{grid-column:1/-1;aspect-ratio:16/9}

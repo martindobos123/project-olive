@@ -6,7 +6,8 @@ export const services = [
     title: { hu: 'Teljes körű lakásfelújítás', en: 'Full-scope apartment renovation' },
     short: { hu: 'Teljes körű felújítás', en: 'Full renovation' },
     teaser: { hu: 'A bontástól az átadásig egy kézben a kivitelezés.', en: 'From demolition to handover, the build in one pair of hands.' },
-    image: 'gozmozdony-utca/after/konyha',
+    image: 'site/felujitas-parketta', // a tulajdonos választotta (2026-10-06): a csapat halszálkás parkettát fektet
+    imagePosition: '50% 40%',
     text: {
       hu: 'A bontástól a kész lakás átadásáig megszervezzük és összefogjuk a teljes kivitelezést. Koordináljuk a szakágakat, követjük az ütemezést, és gondoskodunk arról, hogy a műszaki megoldások összhangban legyenek a tervekkel.',
       en: 'From demolition to the handover of the finished apartment, we organise and manage the entire build. We coordinate the trades, keep track of the schedule and make sure the technical solutions match the design.',
@@ -35,6 +36,8 @@ export const services = [
     short: { hu: 'Tervezés', en: 'Design' },
     teaser: { hu: 'Alaprajz, funkciók, fények és anyagok — még a kivitelezés előtt.', en: 'Layout, functions, light and materials — before construction starts.' },
     image: 'vamhaz-korut/floorplans/fo-szint',
+    // a /szolgaltatasok oldalon a kép helyett lapozható tervsorozat (PlanCarousel) — a Vámház körúti projekt tervei
+    plans: 'vamhaz-korut',
     text: {
       hu: 'A jó döntések az alaprajznál kezdődnek. Felmérjük a lakást, rendszerezzük az igényeket, és olyan tervet készítünk, amelyben a funkciók, a fények és az anyagok együtt működnek.',
       en: 'Good decisions start with the floor plan. We survey the apartment, organise your requirements and create a plan in which functions, light and materials work together.',

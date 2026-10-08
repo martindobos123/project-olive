@@ -4,11 +4,15 @@
 import { site, process, why } from './data/site.mjs';
 import { services, featuredServiceSlugs, formServices } from './data/services.mjs';
 import { projects } from './data/projects.mjs';
+import { subprojects, subprojectsIntro } from './data/subprojects.mjs';
 import { lang, t, href, anchors } from './i18n.mjs';
 import {
   esc, Picture, Hero, PageHead, SectionHeading, ServiceBlock, ProjectCard, ProjectFacts, BeforeAfterSlider,
-  ProjectGallery, AccessibleLightbox, ProcessTimeline, ContactCTA, ContactForm, serviceBySlug, imgUrl, Breadcrumb, Tags,
+  ProjectGallery, AccessibleLightbox, ProcessTimeline, ContactCTA, MidCta, resetMidCta, ContactForm, serviceBySlug, imgUrl, Breadcrumb, Tags,
+  PlanCarousel, SubprojectCard,
 } from './components.mjs';
+
+const projectBySlug = Object.fromEntries(projects.map((p) => [p.slug, p]));
 
 const abs = (p) => site.url + p;
 const BRAND = ` | ${site.name}`;
@@ -27,6 +31,7 @@ const orgLd = () => ({
     en: 'Full-scope apartment renovation, general contracting, interior design, furnishing and home staging in Budapest.',
   }),
   areaServed: { '@type': 'City', name: 'Budapest' },
+  sameAs: [site.instagram],
   inLanguage: lang,
 });
 
@@ -70,18 +75,18 @@ function home() {
 ${Hero({
   image: 'vamhaz-korut/gallery/nappali-galeria',
   alt: { hu: 'Világos, tágas nappali a Vámház körúti projektben: galériaszint, gömblámpák, magas ablakok', en: 'Bright, spacious living room in the Vámház körút project: gallery level, globe pendants, tall windows' },
-  eyebrow: t({ hu: 'Generálkivitelezés · Enteriőrtervezés · Home staging', en: 'General contracting · Interior design · Home staging' }),
-  title: t({ hu: 'Lakásból otthon. Tervtől az utolsó részletig.', en: 'From apartment to home. From the plan to the last detail.' }),
+  eyebrow: t({ hu: 'Generálkivitelezés · Enteriőrtervezés · Lakberendezés', en: 'General contracting · Interior design · Furnishing' }),
+  title: t({ hu: 'Lakásfelújítás A–Z-ig, a tervezéstől a lakberendezésig.', en: 'Apartment renovation from A to Z, from design to furnishing.' }),
   lead: t({
     hu: 'Teljes körű lakásfelújítást és enteriőrtervezést vállalunk Budapesten – a műszaki tervezéstől és kivitelezéstől a berendezésen át az átadásig.',
     en: 'We take on full-scope apartment renovation and interior design in Budapest – from technical planning and construction through furnishing to handover.',
   }),
   ctas: [
     { label: t({ hu: 'Kérek konzultációt', en: 'Book a consultation' }), href: href('contact') },
-    { label: t({ hu: 'Megnézem a munkáinkat', en: 'See our work' }), href: href('projects') },
+    { label: t({ hu: 'Elkészült projektek', en: 'Completed projects' }), href: href('projects') },
   ],
 })}
-<section class="section" aria-labelledby="intro-title"><div class="wrap split">
+<section class="section" aria-labelledby="intro-title"><div class="wrap split split--top">
   <div>
     <span class="eyebrow">Urban Flip Studio</span>
     <h2 id="intro-title">${t({ hu: 'Egy kézben a teljes átalakulás', en: 'The whole transformation in one pair of hands' })}</h2>
@@ -89,8 +94,9 @@ ${Hero({
       hu: 'Az Urban Flip Studio a felújítás műszaki és esztétikai oldalát fogja össze. Megtervezzük a tereket, megszervezzük és vezetjük a kivitelezést, majd a berendezést és az utolsó részleteket is a helyükre tesszük. Így az ötlet, a költségek és a megvalósítás nem külön utakon haladnak.',
       en: 'Urban Flip Studio brings together the technical and the aesthetic side of a renovation. We design the spaces, organise and run the build, then put the furnishings and the last details in place. That way the idea, the costs and the execution never drift apart.',
     })}</p>
+    <p class="mt-md"><a class="link-arrow" href="${href('contact')}">${t({ hu: 'Kérjen konzultációt', en: 'Request a consultation' })}</a></p>
   </div>
-  <figure class="media media--45">${Picture('vamhaz-korut/gallery/konyha', { alt: { hu: 'Egyedi fehér konyhabútor márvány hatású hátfallal a Vámház körúti lakásban', en: 'Custom white kitchen with a marble-effect splashback in the Vámház körút apartment' }, sizes: '(min-width: 900px) 45vw, 100vw' })}</figure>
+  <div class="ba-list ba-list--single">${BeforeAfterSlider({ ...projectBySlug['vamhaz-korut'].beforeAfter[0], room: { hu: 'Vámház körút — bontás közben és készen', en: 'Vámház körút — mid-demolition and finished' } })}</div>
 </div></section>
 
 <section class="section section--alt" aria-labelledby="szolg-title"><div class="wrap">
@@ -103,11 +109,19 @@ ${Hero({
   })}
   <ul class="services">${featured.map(ServiceBlock).join('')}</ul>
   <p class="mt-xl"><a class="link-arrow" href="${href('services')}">${t({ hu: 'Minden szolgáltatás', en: 'All services' })}</a></p>
+  ${MidCta({
+    text: t({ hu: 'Nem tudja, melyik szolgáltatásra van szüksége? Egy rövid egyeztetésen segítünk eldönteni.', en: 'Not sure which service you need? A short conversation will help us work it out together.' }),
+    label: t({ hu: 'Kérek egy egyeztetést', en: 'Ask for a conversation' }),
+  })}
 </div></section>
 
 <section class="section" aria-labelledby="proj-title"><div class="wrap">
   ${SectionHeading({ eyebrow: t({ hu: 'Projektek', en: 'Projects' }), title: t({ hu: 'Válogatott munkáink', en: 'Selected work' }), id: 'proj-title' })}
   <ul class="projects">${projects.map((p) => ProjectCard(p)).join('')}</ul>
+  ${MidCta({
+    text: t({ hu: 'Tetszik, amit lát? Meséljen a saját lakásáról — megnézzük, mit lehet belőle kihozni.', en: 'Like what you see? Tell us about your own apartment — we’ll look at what it could become.' }),
+    label: t({ hu: 'Mesélek a lakásomról', en: 'Tell us about my apartment' }), phone: true,
+  })}
 </div></section>
 
 <section class="section section--alt" id="${processId}" aria-labelledby="folyamat-title"><div class="wrap">
@@ -117,6 +131,7 @@ ${Hero({
     hu: 'Az árat és az ütemezést mindig az adott lakás állapota és a közösen meghozott döntések alapján határozzuk meg.',
     en: 'Price and schedule are always based on the condition of the apartment and the decisions we make together.',
   })}</p>
+  <p class="mt-md"><a class="btn btn--line" href="${href('contact')}">${t({ hu: 'Kezdjük az első lépéssel', en: 'Start with step one' })}</a></p>
 </div></section>
 
 <section class="section" aria-labelledby="miert-title"><div class="wrap">
@@ -134,7 +149,7 @@ ${Hero({
     })}</p>
     <p class="mt-md"><a class="link-arrow" href="${href('about')}">${t({ hu: 'Ismerjen meg minket', en: 'Get to know us' })}</a></p>
   </div>
-  <figure class="media media--43">${Picture('vamhaz-korut/gallery/galeria-haloszoba', { alt: { hu: 'A Vámház körúti galériaszinti hálószoba üvegfalon át, gömblámpákkal', en: 'The gallery-level bedroom of the Vámház körút apartment through a glass wall, with globe pendants' }, sizes: '(min-width: 900px) 45vw, 100vw' })}</figure>
+  <figure class="media media--45" style="max-width:30rem">${Picture('site/rolunk', { alt: { hu: 'Az Urban Flip Studio két alapítója, házaspárként', en: 'The two founders of Urban Flip Studio, a married couple' }, sizes: '(min-width: 900px) 30rem, 100vw' })}</figure>
 </div></section>
 
 ${closingCta()}
@@ -175,10 +190,15 @@ ${PageHead({
       ${s.note ? `<p class="sblock__note">${esc(t(s.note))}</p>` : ''}
     </div>
     <div class="sblock__aside">
-      ${s.image ? `<figure class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 900px) 55vw, 100vw' })}</figure>` : ''}
+      ${s.plans ? PlanCarousel(projectBySlug[s.plans].plans, { id: `plans-${s.slug}`, sizes: '(min-width: 900px) 55vw, 100vw' }) : s.image ? `<figure class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 900px) 55vw, 100vw', objectPosition: s.imagePosition })}</figure>` : ''}
+      ${s.plans ? `<p class="caption">${t({ hu: 'A Vámház körúti projekt saját tervlapjai: koncepció, falak, galéria, világítás, elszívás, fűtés és víz.', en: 'Our own plan sheets for the Vámház körút project: concept, walls, gallery, lighting, ventilation, heating and plumbing.' })}</p>` : ''}
       ${s.list ? `<h3 class="visually-hidden">${esc(t(s.listTitle))}</h3><ul class="sblock__list" aria-label="${esc(t(s.listTitle))}">${t(s.list).map((l) => `<li>${esc(l)}</li>`).join('')}</ul>` : ''}
     </div>
   </article>`).join('')}
+  ${MidCta({
+    text: t({ hu: 'Teljes felújítás vagy csak egy részfeladat? Írja meg, mire van szüksége, és javaslunk egy utat.', en: 'A full renovation or just one part of it? Tell us what you need and we’ll suggest a way forward.' }),
+    label: t({ hu: 'Megírom, mire van szükségem', en: 'Tell us what you need' }), phone: true,
+  })}
 </div></section>
 <section class="section section--alt" aria-labelledby="folyamat-title"><div class="wrap">
   ${SectionHeading({ eyebrow: t({ hu: 'Folyamat', en: 'Process' }), title: t({ hu: 'Hogyan dolgozunk', en: 'How we work' }), id: 'folyamat-title', split: true, intro: t(process.intro) })}
@@ -209,6 +229,14 @@ ${PageHead({
 })}
 <section class="section" style="padding-top:0"><div class="wrap">
   <ul class="projects">${projects.map((p) => ProjectCard(p, { headingLevel: 2 })).join('')}</ul>
+</div></section>
+<section class="section section--alt" aria-labelledby="reszprojektek"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Részprojektek', en: 'Partial projects' }), title: t({ hu: 'Nem csak A-tól Z-ig', en: 'Not only from A to Z' }), id: 'reszprojektek', split: true, intro: t(subprojectsIntro) })}
+  <ul class="subprojects">${subprojects.map(SubprojectCard).join('')}</ul>
+  ${MidCta({
+    text: t({ hu: 'Egy konkrét részfeladatra keres kivitelezőt? Írja meg röviden, mit szeretne.', en: 'Looking for a contractor for one specific job? Tell us briefly what you need.' }),
+    label: t({ hu: 'Részmunkát kérek', en: 'Ask about a partial job' }),
+  })}
 </div></section>
 ${closingCta()}
 </main>`,
@@ -246,9 +274,9 @@ function projectPage(p, i) {
   </div>
 </div></section>
 
-<section class="section section--alt" aria-labelledby="megoldasok"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Megoldások', en: 'Solutions' }), title: t({ hu: 'Mit és hogyan alakítottunk át', en: 'What we changed and how' }), id: 'megoldasok' })}
-  <ul class="solutions">${p.solutions.map((s) => `<li><h3>${esc(t(s.title))}</h3><p>${esc(t(s.text))}</p></li>`).join('')}</ul>
+<section class="section section--alt" aria-labelledby="galeria"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Galéria', en: 'Gallery' }), title: t({ hu: 'A kész lakás', en: 'The finished apartment' }), id: 'galeria' })}
+  ${ProjectGallery(p.gallery, { id: `g-${p.slug}` })}
 </div></section>
 
 <section class="section" aria-labelledby="elotte-utana"><div class="wrap">
@@ -262,19 +290,26 @@ function projectPage(p, i) {
   <div class="ba-list">${p.beforeAfter.map(BeforeAfterSlider).join('')}</div>
   ${p.beforeGallery.length ? `<h3 class="mt-xl" style="font-size:var(--fs-h3)">${t({ hu: 'A kiindulási állapotról', en: 'More of the starting point' })}</h3>
   <ul class="gallery mt-md" data-gallery aria-label="${t({ hu: 'Felújítás előtti képek', en: 'Photos before the renovation' })}">${p.beforeGallery.map((b) => `<li><button type="button" data-full="${imgUrl(b.image, 960)}" data-alt="${esc(t(b.alt))}" aria-label="${t({ hu: 'Nagyítás', en: 'Enlarge' })}: ${esc(t(b.alt))}">${Picture(b.image, { alt: b.alt, sizes: '(min-width: 800px) 33vw, 50vw' })}</button></li>`).join('')}</ul>` : ''}
+  ${MidCta({
+    text: t({ hu: 'Hasonló változást szeretne a saját lakásában? Küldjön néhány fotót és pár mondatot — a többit megbeszéljük.', en: 'Would you like a similar change in your own apartment? Send a few photos and a few lines — we’ll discuss the rest.' }),
+    label: t({ hu: 'Hasonlót szeretnék', en: 'I’d like something similar' }), phone: true,
+  })}
 </div></section>
 
-<section class="section section--alt" aria-labelledby="galeria"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Galéria', en: 'Gallery' }), title: t({ hu: 'A kész lakás', en: 'The finished apartment' }), id: 'galeria' })}
-  ${ProjectGallery(p.gallery, { id: `g-${p.slug}` })}
+<section class="section section--alt" aria-labelledby="megoldasok"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Megoldások', en: 'Solutions' }), title: t({ hu: 'Mit és hogyan alakítottunk át', en: 'What we changed and how' }), id: 'megoldasok' })}
+  <ul class="solutions">${p.solutions.map((s) => `<li><h3>${esc(t(s.title))}</h3><p>${esc(t(s.text))}</p></li>`).join('')}</ul>
 </div></section>
 
-${p.floorplans.length ? `<section class="section" aria-labelledby="alaprajz"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Alaprajz', en: 'Floor plan' }), title: p.floorplans.length > 1 ? t({ hu: 'Alaprajzok', en: 'Floor plans' }) : t({ hu: 'Alaprajz', en: 'Floor plan' }), id: 'alaprajz' })}
+${p.floorplans.length || p.plans?.length ? `<section class="section" aria-labelledby="alaprajz"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Alaprajz és tervek', en: 'Floor plan and drawings' }), title: p.floorplans.length > 1 ? t({ hu: 'Alaprajzok', en: 'Floor plans' }) : t({ hu: 'Alaprajz', en: 'Floor plan' }), id: 'alaprajz' })}
   <div class="plans">${p.floorplans.map((f) => `<figure>${Picture(f.image, { alt: f.alt, sizes: '(min-width: 800px) 45vw, 100vw' })}<figcaption>${esc(t(f.caption))}</figcaption></figure>`).join('')}</div>
+  ${p.plans?.length ? `<h3 class="mt-xl" style="font-size:var(--fs-h3)">${t({ hu: 'A műszaki tervek', en: 'The technical drawings' })}</h3>
+  <p class="copy mt-sm">${t({ hu: 'Minden szakágra saját tervlap készült, még a kivitelezés előtt — így a döntések nem a helyszínen, rögtönözve születtek.', en: 'Every trade got its own plan sheet before construction started — so decisions were not improvised on site.' })}</p>
+  ${PlanCarousel(p.plans, { id: `plans-${p.slug}` })}` : ''}
 </div></section>` : ''}
 
-${p.video || p.press || p.story ? `<section class="section${p.floorplans.length ? ' section--alt' : ''}" aria-labelledby="tortenet"><div class="wrap split" style="align-items:start">
+${p.video || p.press || p.story ? `<section class="section${p.floorplans.length || p.plans?.length ? ' section--alt' : ''}" aria-labelledby="tortenet"><div class="wrap split" style="align-items:start">
   <div>
     <span class="eyebrow">${t({ hu: 'A projekt története', en: 'The story of the project' })}</span>
     <h2 id="tortenet">${esc(p.subtitle || title)}</h2>
@@ -342,9 +377,62 @@ ${PageHead({
   </div>
   <figure class="media media--45" style="max-width:30rem">${Picture('site/rolunk', { alt: { hu: 'Az Urban Flip Studio két alapítója', en: 'The two founders of Urban Flip Studio' }, sizes: '(min-width: 900px) 30rem, 100vw' })}</figure>
 </div></section>
-<section class="section section--alt" aria-labelledby="miert-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Ahogy dolgozunk', en: 'How we work' }), title: t({ hu: 'Ami a munkánkat összetartja', en: 'What holds our work together' }), id: 'miert-title' })}
+
+<section class="section section--alt" aria-labelledby="kik-title"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Kik vagyunk', en: 'Who we are' }), title: t({ hu: 'Ketten, két oldalról', en: 'Two of us, from two sides' }), id: 'kik-title', split: true,
+    intro: t({ hu: 'Egyikünk a szerkezetet és a kivitelezést, a másikunk a tereket és az enteriőrt viszi — a döntések mégis közösek, a tervezőasztaltól a kulcsátadásig.', en: 'One of us runs the structure and the build, the other the spaces and the interior — yet the decisions are shared, from the drawing board to the handover of the keys.' }) })}
+  <ul class="profiles">
+    <li class="profile">
+      <span class="eyebrow">${t({ hu: 'Szerkezet és kivitelezés', en: 'Structure and construction' })}</span>
+      <h3>Martin</h3>
+      <p class="copy">${t({
+        hu: 'A felújítás műszaki oldala: felmérés, bontási és falazási tervek, gépészet, villamosság, statikailag kényes megoldások — mint a Vámház körúti acélszerkezetű galéria. Ő szervezi és vezeti a kivitelezést, és tartja a kapcsolatot a szakágakkal.',
+        en: 'The technical side of the renovation: surveys, demolition and wall plans, mechanical and electrical systems, structurally demanding solutions — such as the steel-framed gallery on Vámház körút. He organises and runs the build and keeps in touch with the trades.',
+      })}</p>
+    </li>
+    <li class="profile">
+      <span class="eyebrow">${t({ hu: 'Enteriőr és lakberendezés', en: 'Interior and furnishing' })}</span>
+      <h3>Sugi</h3>
+      <p class="copy">${t({
+        hu: 'A terek, a fények és az anyagok: térszervezés, színvilág, burkolatok, világítás, bútorok és textilek. Ő gondolja végig, hogyan lesz a felújított lakásból lakható, személyes otthon — és végigkíséri a berendezést az utolsó részletig.',
+        en: 'The spaces, the light and the materials: layout, colour palette, finishes, lighting, furniture and textiles. She thinks through how the renovated apartment becomes a liveable, personal home — and follows the furnishing through to the last detail.',
+      })}</p>
+    </li>
+  </ul>
+</div></section>
+
+<section class="section" aria-labelledby="helyszin-title"><div class="wrap split split--top">
+  <figure class="media media--45" style="max-width:30rem">${Picture('site/munka-kozben', { alt: { hu: 'Festékárnyalatok próbája a felújítás alatt álló lakásban, a padlóra terített mintalapokon', en: 'Testing paint shades in the apartment under renovation, on sample boards laid out on the floor' }, sizes: '(min-width: 900px) 30rem, 100vw', objectPosition: '50% 40%' })}</figure>
+  <div>
+    <span class="eyebrow">${t({ hu: 'Ahogy dolgozunk', en: 'How we work' })}</span>
+    <h2 id="helyszin-title">${t({ hu: 'Végig ott vagyunk.', en: 'We are there throughout.' })}</h2>
+    <p class="copy">${t({
+      hu: 'Nem sablonterméket gyártunk. A burkolatokat, a lámpákat, a kilincseket és a színeket kézzel válogatjuk össze — a festékárnyalatokat is a helyszínen, a lakás saját fényében próbáljuk ki, mint a képen. A kivitelezés alatt rendszeresen a helyszínen vagyunk, így a tervezőasztalnál született döntések a falakon is úgy jelennek meg, ahogy elképzeltük.',
+      en: 'We don’t make off-the-shelf products. We hand-pick the tiles, the lamps, the door handles and the colours — and we test the paint shades on site, in the apartment’s own light, as in the photo. During construction we are on site regularly, so the decisions made at the drawing board end up on the walls the way we imagined them.',
+    })}</p>
+    <p class="copy">${t({
+      hu: 'A fizikai munkát egy állandó, megbízható csapat végzi, akikkel projektről projektre együtt dolgozunk — bontástól a parkettázásig.',
+      en: 'The physical work is done by a steady, reliable team we work with from project to project — from demolition to laying the parquet.',
+    })}</p>
+    <p class="mt-md"><a class="link-arrow" href="${href('contact')}">${t({ hu: 'Beszéljünk a lakásáról', en: 'Let’s talk about your apartment' })}</a></p>
+  </div>
+</div></section>
+
+<section class="section section--alt" aria-labelledby="csapat-title"><div class="wrap">
+  <span class="eyebrow">${t({ hu: 'A csapat', en: 'The team' })}</span>
+  <h2 id="csapat-title" class="mb-md">${t({ hu: 'Megbízható kezek minden szakágban', en: 'Reliable hands in every trade' })}</h2>
+  <figure class="media media--169 team-photo">${Picture('site/csapat', { alt: { hu: 'A csapat egy kerti munkaterületen: alapot ásnak és mérnek ki', en: 'The team on a garden site: digging and setting out a foundation' }, sizes: '(min-width: 1280px) 1180px, 100vw' })}</figure>
+  <p class="caption">${t({ hu: 'Állandó csapattal dolgozunk — így a minőség nem a véletlenen múlik.', en: 'We work with a steady team — so quality does not depend on luck.' })}</p>
+  ${MidCta({
+    text: t({ hu: 'Megismerne minket személyesen? Egy első egyeztetés nem kötelez semmire.', en: 'Would you like to meet us in person? A first conversation commits you to nothing.' }),
+    label: t({ hu: 'Időpontot kérek', en: 'Ask for an appointment' }), phone: true,
+  })}
+</div></section>
+
+<section class="section" aria-labelledby="miert-title"><div class="wrap">
+  ${SectionHeading({ eyebrow: t({ hu: 'Alapelvek', en: 'Principles' }), title: t({ hu: 'Ami a munkánkat összetartja', en: 'What holds our work together' }), id: 'miert-title' })}
   ${whyList()}
+  <p class="copy mt-lg">${t({ hu: 'A műhely mindennapjai az', en: 'Everyday life in the studio is also on' })} <a href="${site.instagram}" rel="noopener" target="_blank">${t({ hu: 'Instagramon', en: 'Instagram' })}</a>${t({ hu: ' is követhetők.', en: '.' })}</p>
 </div></section>
 ${closingCta()}
 </main>`,
@@ -380,10 +468,67 @@ ${PageHead({
       <li><span>${t({ hu: 'Telefon', en: 'Phone' })}</span><a href="${site.phoneHref}">${esc(site.phone)}</a></li>
       <li><span>${t({ hu: 'E-mail', en: 'Email' })}</span><a href="mailto:${site.email}">${esc(site.email)}</a></li>
       <li><span>WhatsApp</span><a href="${site.whatsapp}" target="_blank" rel="noopener">${t({ hu: 'Üzenet WhatsAppon', en: 'Message on WhatsApp' })}<span class="visually-hidden"> (${t({ hu: 'új lapon nyílik', en: 'opens in a new tab' })})</span></a></li>
+      <li><span>Instagram</span><a href="${site.instagram}" target="_blank" rel="noopener">@urbanflipstudio<span class="visually-hidden"> (${t({ hu: 'új lapon nyílik', en: 'opens in a new tab' })})</span></a></li>
     </ul>
     <p class="copy mt-md" style="font-size:var(--fs-small)">${t({ hu: 'Budapesti lakásokkal dolgozunk.', en: 'We work on apartments in Budapest.' })}</p>
   </aside>
 </div></section>
+</main>`,
+  };
+}
+
+/* ===================== ADATKEZELÉSI TÁJÉKOZTATÓ ===================== */
+// A tulajdonos kérésére linkelve (2026-10-06). Az adatkezelő cégszerű adatait (cégnév, székhely,
+// adószám/nyilvántartási szám) a tulajdonos adja meg — addig a vállalkozás neve és elérhetőségei szerepelnek.
+function privacy() {
+  const crumbs = [crumb('home', HOME), crumb('privacy', { hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' })];
+  const H = (hu, en) => `<h2>${t({ hu, en })}</h2>`;
+  const P = (hu, en) => `<p>${t({ hu, en })}</p>`;
+  const UL = (items) => `<ul>${items.map(([hu, en]) => `<li>${t({ hu, en })}</li>`).join('')}</ul>`;
+  return {
+    key: 'privacy',
+    noindex: false,
+    title: t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' }) + BRAND,
+    description: t({
+      hu: 'Az Urban Flip Studio adatkezelési tájékoztatója: milyen adatokat, milyen célból és meddig kezelünk a kapcsolatfelvétel és a weboldal használata során.',
+      en: 'Urban Flip Studio privacy notice: what data we process, for what purpose and for how long when you contact us or use the website.',
+    }),
+    ogImage: site.defaultOgImage,
+    jsonLd: [breadcrumbLd(crumbs)],
+    body: `<main id="tartalom" tabindex="-1">
+${PageHead({ crumbs, eyebrow: t({ hu: 'Jogi tájékoztató', en: 'Legal' }), title: t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' }), intro: t({ hu: 'Hatályos: 2026. október 8-tól.', en: 'Effective from 8 October 2026.' }) })}
+<section class="section legal" style="padding-top:0"><div class="wrap"><div class="copy">
+${H('1. Az adatkezelő', '1. Data controller')}
+${P(`Urban Flip Studio (a továbbiakban: Adatkezelő). Elérhetőségek: e-mail: <a href="mailto:${site.email}">${site.email}</a>, telefon: <a href="${site.phoneHref}">${site.phone}</a>, Budapest.`,
+    `Urban Flip Studio (the “Controller”). Contact: email <a href="mailto:${site.email}">${site.email}</a>, phone <a href="${site.phoneHref}">${site.phone}</a>, Budapest, Hungary.`)}
+${H('2. Milyen adatokat kezelünk és miért', '2. What data we process and why')}
+${P('<strong>Kapcsolatfelvétel</strong> (űrlap, e-mail, telefon, WhatsApp): név, e-mail-cím, telefonszám (ha megadja), az ingatlan helye vagy kerülete, az érdeklődés tárgya, tervezett kezdés és keret (ha megadja), valamint az üzenet tartalma.',
+    '<strong>Contact</strong> (form, email, phone, WhatsApp): name, email address, phone number (if given), the location or district of the property, the subject of your enquiry, planned start and budget (if given), and the content of your message.')}
+${UL([
+  ['Cél: a megkeresés megválaszolása, egyeztetés, ajánlatadás.', 'Purpose: to answer your enquiry, arrange a meeting and prepare a quote.'],
+  ['Jogalap: az Ön hozzájárulása (GDPR 6. cikk (1) a) pont), illetve szerződés megkötését megelőző lépések (GDPR 6. cikk (1) b) pont).', 'Legal basis: your consent (Art. 6(1)(a) GDPR) and steps prior to entering into a contract (Art. 6(1)(b) GDPR).'],
+  ['Megőrzés: a megkeresés lezárásától számított 1 évig; szerződéskötés esetén a szerződéses és számviteli iratok megőrzésére vonatkozó jogszabályi ideig (számviteli bizonylat: 8 év).', 'Retention: 1 year after the enquiry is closed; if a contract is concluded, for the statutory retention period of contractual and accounting records (accounting documents: 8 years).'],
+])}
+${P('A weboldal űrlapja a látogató saját levelezőprogramjában nyit meg egy előre kitöltött e-mailt; az adatok így közvetlenül az Adatkezelő e-mail-fiókjába érkeznek, a weboldal szervere nem tárolja őket.',
+    'The website form opens a pre-filled email in your own email application; the data therefore arrives directly in the Controller’s mailbox and is not stored by the website’s server.')}
+${H('3. Sütik és mérés', '3. Cookies and measurement')}
+${P('A weboldal működéséhez sütit nem használunk, és látogatottsági statisztikát sem gyűjtünk.',
+    'The website does not use cookies to function and we do not collect visitor statistics.')}
+${P('<strong>Hirdetésmérés (csak hozzájárulással):</strong> ChatGPT-hirdetéseink eredményességének méréséhez az OpenAI mérőkódját (Measurement Pixel) használhatjuk. A mérőkód csak akkor kapcsol be, ha Ön a weboldalon megjelenő sávban az „Elfogadom” gombra kattint. Ekkor két első féltől származó süti kerülhet a böngészőjébe: <code>__oppref</code> (hirdetés-azonosító, 30 nap) és <code>__obref</code> (böngésző-azonosító, 365 nap), és a kapcsolatfelvételi gombok (telefon, e-mail, WhatsApp) megnyomásának ténye — személyes adat nélkül — továbbításra kerül az OpenAI felé. A hozzájárulás bármikor visszavonható a sáv „Elutasítom” gombjával vagy a böngésző sütijeinek törlésével; elutasításkor a sütik törlődnek. Az OpenAI adatkezeléséről: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.',
+    '<strong>Ad measurement (only with consent):</strong> to measure the results of our ChatGPT ads we may use OpenAI’s Measurement Pixel. It is only enabled if you click “Accept” in the bar shown on the website. Two first-party cookies may then be set: <code>__oppref</code> (ad attribution identifier, 30 days) and <code>__obref</code> (browser identifier, 365 days), and the fact that a contact button (phone, email, WhatsApp) was activated — without personal data — is sent to OpenAI. You can withdraw consent at any time with the “Decline” button or by deleting your browser cookies; on decline the cookies are removed. OpenAI’s privacy policy: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.')}
+${H('4. Címzettek, adatfeldolgozók', '4. Recipients and processors')}
+${P('Az adatokat harmadik félnek nem adjuk át. Technikai szolgáltatóink: a weboldalt a GitHub, Inc. (GitHub Pages) szolgálja ki; az e-mailezéshez a Google LLC (Gmail) szolgáltatását használjuk; a WhatsApp-üzeneteket a WhatsApp Ireland Ltd. továbbítja. Ezek a szolgáltatók saját adatvédelmi feltételeik szerint járnak el.',
+    'We do not pass your data to third parties. Our technical providers: the website is served by GitHub, Inc. (GitHub Pages); for email we use Google LLC (Gmail); WhatsApp messages are transmitted by WhatsApp Ireland Ltd. These providers act under their own privacy terms.')}
+${H('5. Az Ön jogai', '5. Your rights')}
+${P('Kérheti a személyes adataihoz való hozzáférést, azok helyesbítését, törlését, kezelésük korlátozását, tiltakozhat az adatkezelés ellen, és élhet az adathordozhatósághoz való jogával. Hozzájárulását bármikor visszavonhatja; ez nem érinti a visszavonás előtti adatkezelés jogszerűségét. Kérelmét a fenti elérhetőségeken nyújthatja be; legkésőbb egy hónapon belül válaszolunk.',
+    'You may request access to your personal data, its rectification or erasure, restriction of processing, object to processing, and exercise your right to data portability. You may withdraw your consent at any time; this does not affect the lawfulness of processing before the withdrawal. Please send requests to the contact details above; we reply within one month at the latest.')}
+${H('6. Jogorvoslat', '6. Remedies')}
+${P('Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatósághoz fordulhat (1055 Budapest, Falk Miksa utca 9–11.; <a href="https://naih.hu" rel="noopener" target="_blank">naih.hu</a>; ugyfelszolgalat@naih.hu), vagy bírósághoz fordulhat.',
+    'You may lodge a complaint with the Hungarian National Authority for Data Protection and Freedom of Information (NAIH, 1055 Budapest, Falk Miksa utca 9–11; <a href="https://naih.hu" rel="noopener" target="_blank">naih.hu</a>; ugyfelszolgalat@naih.hu) or bring the matter before a court.')}
+${H('7. A tájékoztató módosítása', '7. Changes to this notice')}
+${P('A tájékoztatót időről időre frissíthetjük; a mindenkor hatályos változat ezen az oldalon érhető el.',
+    'We may update this notice from time to time; the current version is always available on this page.')}
+</div></div></section>
 </main>`,
   };
 }
@@ -409,7 +554,8 @@ ${PageHead({ eyebrow: '404', title: 'Ezt az oldalt nem találjuk', intro: 'Lehet
 }
 
 export function allPages() {
-  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact()];
+  resetMidCta();
+  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy()];
   for (const p of pages) p.path = href(p.key);
   if (lang === 'hu') pages.push(notFound());
   return pages;

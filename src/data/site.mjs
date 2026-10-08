@@ -9,15 +9,20 @@ export const site = {
   phoneHref: 'tel:+36706043807',
   email: 'martindobos123@gmail.com',
   whatsapp: 'https://wa.me/36706043807',
+  instagram: 'https://www.instagram.com/urbanflipstudio/',
+  // ChatGPT Ads Manager — OpenAI Measurement Pixel azonosító (Ads Manager → Conversions → Pixel).
+  // Üresen a Pixel NEM települ és a CSP sem bővül; a kapcsolat-kattintás mérés kódja (site.js) készen
+  // várja. Helyőrzőt NEM írunk ide — csak a valódi ID-t (a tulajdonostól).
+  oaiPixelId: '',
   // TODO: valódi űrlap-fogadó végpont (pl. Formspree / saját backend). Amíg üres, az űrlap
   // a látogató levelezőprogramjában nyit egy előre kitöltött e-mailt — nem jelez hamis sikert.
   // Ha megadod, a Content-Security-Policy form-action / connect-src listájába is fel kell venni.
   formEndpoint: '',
   // GoatCounter kód (süti nélküli látogatásmérés). Üresen inaktív.
   goatcounter: '',
-  // TODO: adatkezelési tájékoztató — jogi ellenőrzés után külön oldalra; addig nincs link.
-  privacyUrl: '',
-  defaultOgImage: 'vamhaz-korut/gallery/nappali-galeria',
+  // Adatkezelési tájékoztató: saját oldal (src/i18n.mjs 'privacy' útvonal, src/pages.mjs privacy()).
+  // Az adatkezelő cégszerű adatait (cégnév/székhely/adószám) a tulajdonos pótolja — lásd privacy().
+  defaultOgImage: 'vamhaz-korut/after/nappali-szemben',
   tagline: {
     hu: 'Teljes körű lakásfelújítás, enteriőrtervezés és home staging Budapesten.',
     en: 'Full-scope apartment renovation, interior design and home staging in Budapest.',

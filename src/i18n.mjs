@@ -13,6 +13,7 @@ const ROUTES = {
   projects: { hu: '/projektek/', en: '/en/projects/' },
   about: { hu: '/rolunk/', en: '/en/about/' },
   contact: { hu: '/kapcsolat/', en: '/en/contact/' },
+  privacy: { hu: '/adatkezeles/', en: '/en/privacy/' },
 };
 
 // href('services') / href('project:vamhaz-korut') — az aktuális (vagy megadott) nyelv útvonala

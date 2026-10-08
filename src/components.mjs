@@ -122,7 +122,7 @@ export function Tags(tags, cls = 'tags') {
 
 export function ServiceBlock(s, i) {
   return `<li class="service"><a class="service__link" href="${href('services')}#${s.slug}">
-  ${s.image ? `<div class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 760px) 45vw, 100vw' })}</div>` : ''}
+  ${s.image ? `<div class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 760px) 45vw, 100vw', objectPosition: s.imagePosition })}</div>` : ''}
   <span class="service__num">${String(i + 1).padStart(2, '0')}</span>
   <h3>${esc(t(s.short))}</h3>
   <p>${esc(t(s.teaser))}</p>
@@ -193,6 +193,33 @@ export function AccessibleLightbox() {
 </dialog>`;
 }
 
+// Lapozható tervsorozat: natív scroll-snap sor (JS nélkül is görgethető), a site.js nyilakat és
+// aktív-címke-követést ad hozzá. A címkék (data-label) mutatják, épp melyik terv látszik.
+export function PlanCarousel(plans, { id, sizes = '(min-width: 1280px) 1180px, 100vw' }) {
+  return `<div class="plans-carousel" id="${id}" data-plan-carousel>
+  <div class="plans-carousel__head">
+    <ul class="plans-carousel__tabs" role="tablist" aria-label="${t({ hu: 'Tervlapok', en: 'Plan sheets' })}">${plans.map((p, i) => `<li><button type="button" role="tab" aria-selected="${i === 0}" aria-controls="${id}-${i}" data-index="${i}">${esc(t(p.label))}</button></li>`).join('')}</ul>
+    <div class="plans-carousel__nav"><button type="button" class="plans-carousel__btn" data-dir="-1" aria-label="${t({ hu: 'Előző terv', en: 'Previous plan' })}">‹</button><span class="plans-carousel__count" aria-live="polite">1 / ${plans.length}</span><button type="button" class="plans-carousel__btn" data-dir="1" aria-label="${t({ hu: 'Következő terv', en: 'Next plan' })}">›</button></div>
+  </div>
+  <ul class="plans-carousel__track">${plans.map((p, i) => `<li id="${id}-${i}" role="tabpanel" aria-label="${esc(t(p.label))}"><figure>${Picture(p.image, { alt: p.alt, sizes })}<figcaption>${esc(t(p.label))}</figcaption></figure></li>`).join('')}</ul>
+</div>`;
+}
+
+export function SubprojectCard(sp) {
+  const [first, ...rest] = sp.images;
+  return `<li class="subproject" id="${sp.slug}"><article aria-labelledby="sp-${sp.slug}">
+  <div class="subproject__media">
+    <figure class="media">${Picture(first.image, { alt: first.alt, sizes: '(min-width: 900px) 40vw, 100vw' })}</figure>
+    ${rest.length ? `<div class="subproject__thumbs">${rest.map((g) => `<figure class="media">${Picture(g.image, { alt: g.alt, sizes: '(min-width: 900px) 20vw, 50vw' })}</figure>`).join('')}</div>` : ''}
+  </div>
+  <div class="subproject__text">
+    <h3 id="sp-${sp.slug}">${esc(t(sp.title))}</h3>
+    ${sp.where ? `<p class="pcard__meta">${esc(t(sp.where))}</p>` : ''}
+    <p class="copy">${esc(t(sp.text))}</p>
+  </div>
+</article></li>`;
+}
+
 export function ProcessTimeline(steps) {
   return `<ol class="timeline">${steps.map((s) => `<li><div><h3>${esc(t(s.title))}</h3><p>${esc(t(s.text))}</p></div></li>`).join('')}</ol>`;
 }
@@ -203,6 +230,29 @@ export function ContactCTA({ title, text, label = t({ hu: 'Beszéljünk a projek
   <p>${esc(text)}</p>
   <div class="btn-row"><a class="btn btn--light" href="${to}">${esc(label)}</a><a class="btn btn--ghost-light" href="${site.phoneHref}">${esc(site.phone)}</a></div>
 </div></section>`;
+}
+
+// Közbenső, kisebb kapcsolat-felhívás egy szakasz végére (a témához illő szöveggel). Egy sorban: szöveg + gomb.
+let midCtaN = 0;
+export function MidCta({ text, label, to = href('contact'), phone = false }) {
+  const id = `mid-cta-${++midCtaN}`;
+  return `<aside class="mid-cta" aria-labelledby="${id}">
+  <p id="${id}">${esc(text)}</p>
+  <div class="btn-row"><a class="btn btn--solid" href="${to}">${esc(label)}</a>${phone ? `<a class="btn btn--line" href="${site.phoneHref}">${esc(site.phone)}</a>` : ''}</div>
+</aside>`;
+}
+export const resetMidCta = () => { midCtaN = 0; };
+
+// Süti-/mérés-hozzájárulás (CSAK ha az OpenAI Pixel be van állítva — a build akkor teszi be).
+// A döntést a site.js tárolja (localStorage) és a dokumentált oaiq("consent", …) hívással adja át a Pixelnek.
+export function ConsentBanner() {
+  return `<div class="consent" id="consent" role="region" aria-label="${t({ hu: 'Mérési hozzájárulás', en: 'Measurement consent' })}" hidden>
+  <p>${t({
+    hu: 'Hirdetéseink eredményességének méréséhez a ChatGPT Ads mérőkódját használjuk, amely sütit helyez el. Csak akkor kapcsoljuk be, ha hozzájárul.',
+    en: 'To measure the results of our ads we use the ChatGPT Ads measurement pixel, which sets a cookie. We only enable it if you agree.',
+  })} <a href="${href('privacy')}">${t({ hu: 'Részletek', en: 'Details' })}</a></p>
+  <div class="btn-row"><button type="button" class="btn btn--solid" data-consent="granted">${t({ hu: 'Elfogadom', en: 'Accept' })}</button><button type="button" class="btn btn--line" data-consent="denied">${t({ hu: 'Elutasítom', en: 'Decline' })}</button></div>
+</div>`;
 }
 
 export function ContactForm({ services: opts }) {
@@ -218,8 +268,7 @@ export function ContactForm({ services: opts }) {
   </div>
   <div class="form__row">${field('keret', { hu: 'Becsült keret', en: 'Estimated budget' }, { optional: true })}<div></div></div>
   <div class="field"><label for="f-leiras">${t({ hu: 'Rövid leírás', en: 'Short description' })}</label><textarea id="f-leiras" name="leiras" required></textarea></div>
-  <div class="field field--check"><input id="f-consent" name="hozzajarulas" type="checkbox" required><label for="f-consent">${t({ hu: 'Hozzájárulok, hogy az Urban Flip Studio a megadott adataimat a megkeresésem megválaszolása céljából kezelje.', en: 'I agree that Urban Flip Studio may process the data I provide in order to respond to my enquiry.' })}</label></div>
-  <!-- TODO: adatkezelési tájékoztató linkje ide, jogi ellenőrzés után (site.privacyUrl). -->
+  <div class="field field--check"><input id="f-consent" name="hozzajarulas" type="checkbox" required><label for="f-consent">${t({ hu: 'Hozzájárulok, hogy az Urban Flip Studio a megadott adataimat a megkeresésem megválaszolása céljából kezelje. Elolvastam az', en: 'I agree that Urban Flip Studio may process the data I provide in order to respond to my enquiry. I have read the' })} <a href="${href('privacy')}" target="_blank" rel="noopener">${t({ hu: 'adatkezelési tájékoztatót', en: 'privacy notice' })}</a>.</label></div>
   <div><button class="btn btn--solid" type="submit">${t({ hu: 'Üzenet küldése', en: 'Send message' })}</button></div>
   <p class="form__status" role="status" aria-live="polite"></p>
   <p class="form__alt" id="form-note">${site.formEndpoint ? '' : t({ hu: 'A küldés gomb a levelezőprogramjában nyit egy előre kitöltött üzenetet. ', en: 'The send button opens a pre-filled message in your email app. ' })}${t({ hu: 'Ha egyszerűbb: hívjon a', en: 'If it’s easier, call' })} <a href="${site.phoneHref}">${esc(site.phone)}</a>${t({ hu: ' számon, írjon a', en: ', email' })} <a href="mailto:${site.email}">${esc(site.email)}</a>${t({ hu: ' címre, vagy üzenjen', en: ', or message us' })} <a href="${site.whatsapp}" rel="noopener" target="_blank">${wa}</a>.</p>
@@ -232,9 +281,9 @@ export function Footer() {
   <div class="footer__grid">
     <div><p class="footer__brand">${esc(site.name)}</p><p>${esc(t(site.tagline))}</p></div>
     <nav aria-label="${t({ hu: 'Lábléc navigáció', en: 'Footer navigation' })}"><h2>${t({ hu: 'Oldalak', en: 'Pages' })}</h2><ul>${site.nav.filter((n) => !n.hash).map((n) => `<li><a href="${navHref(n)}">${esc(t(n.label))}</a></li>`).join('')}</ul></nav>
-    <div><h2>${t({ hu: 'Kapcsolat', en: 'Contact' })}</h2><ul><li><a href="${site.phoneHref}">${esc(site.phone)}</a></li><li><a href="mailto:${site.email}">${esc(site.email)}</a></li><li><a href="${site.whatsapp}" rel="noopener" target="_blank">WhatsApp</a></li></ul></div>
+    <div><h2>${t({ hu: 'Kapcsolat', en: 'Contact' })}</h2><ul><li><a href="${site.phoneHref}">${esc(site.phone)}</a></li><li><a href="mailto:${site.email}">${esc(site.email)}</a></li><li><a href="${site.whatsapp}" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="${site.instagram}" rel="noopener" target="_blank">Instagram</a></li></ul></div>
   </div>
-  <div class="footer__bottom"><span>© ${year} ${esc(site.name)}</span><span>Budapest</span></div>
+  <div class="footer__bottom"><span>© ${year} ${esc(site.name)}</span><a href="${href('privacy')}">${t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' })}</a>${site.oaiPixelId ? `<a href="#consent" data-consent-open>${t({ hu: 'Mérési beállítások', en: 'Measurement settings' })}</a>` : ''}<span>Budapest</span></div>
 </div></footer>`;
 }
 

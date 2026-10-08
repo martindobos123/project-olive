@@ -730,5 +730,233 @@
   ],
   "fallback": 960,
   "source": "B/bal/att.Somcw-XRg3DeewiF-mq_qB4SCmkVyq3lb5oPNkyS5Sg.jpg"
+ },
+ "vamhaz-korut/before/nappali-szemben": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/drive_ba_home/IMG_0502.jpg"
+ },
+ "vamhaz-korut/after/nappali-szemben": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "fallback": 960,
+  "source": "r3/drive_ba_home/vamhaz-4-after.jpg",
+  "og": true
+ },
+ "vamhaz-korut/before/galeria-acelszerkezet": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/vamhaz_nappali_before/005.jpg"
+ },
+ "vamhaz-korut/plans/koncepcio": {
+  "width": 2400,
+  "height": 1697,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/koncepcio.png",
+  "floorplan": true
+ },
+ "vamhaz-korut/plans/falak": {
+  "width": 2400,
+  "height": 1697,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/falak.png",
+  "floorplan": true
+ },
+ "vamhaz-korut/plans/galeria": {
+  "width": 2400,
+  "height": 1697,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/galeria.png",
+  "floorplan": true
+ },
+ "vamhaz-korut/plans/vilagitas": {
+  "width": 2400,
+  "height": 1698,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/vilagitas.png",
+  "floorplan": true
+ },
+ "vamhaz-korut/plans/legtechnika": {
+  "width": 2400,
+  "height": 1698,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/legtechnika.png",
+  "floorplan": true
+ },
+ "vamhaz-korut/plans/gepeszet": {
+  "width": 2400,
+  "height": 1698,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/tervek_png/gepeszet.png",
+  "floorplan": true
+ },
+ "site/felujitas-parketta": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/felujitas_kep/001.jpg"
+ },
+ "site/munka-kozben": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/drive_rolunk/IMG_8737.JPG"
+ },
+ "site/csapat": {
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/118.jpg"
+ },
+ "reszprojektek/szerkezet-1": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/003.jpg"
+ },
+ "reszprojektek/szerkezet-2": {
+  "width": 4032,
+  "height": 3024,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/047.jpg"
+ },
+ "reszprojektek/szerkezet-3": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/041.jpg"
+ },
+ "reszprojektek/szigeteles-1": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/116.jpg"
+ },
+ "reszprojektek/szigeteles-2": {
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/122.jpg"
+ },
+ "reszprojektek/valaszfal-1": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/146.jpg"
+ },
+ "reszprojektek/valaszfal-2": {
+  "width": 3024,
+  "height": 4032,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/168.jpg"
+ },
+ "reszprojektek/valaszfal-3": {
+  "width": 4284,
+  "height": 5712,
+  "widths": [
+   640,
+   960,
+   1440
+  ],
+  "fallback": 960,
+  "source": "r3/reszprojektek/174.jpg"
  }
 }

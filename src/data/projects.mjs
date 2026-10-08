@@ -41,7 +41,8 @@ export const projects = [
     },
     facts: [
       { label: { hu: 'Helyszín', en: 'Location' }, value: { hu: 'Vámház körút, Budapest', en: 'Vámház körút, Budapest' } },
-      { label: { hu: 'Alapterület', en: 'Floor area' }, value: '79 m²' },
+      // 58 m²-es lakásból egyedi acélszerkezetű második szinttel 79 m² lett (tulajdonos, 2026-10-06)
+      { label: { hu: 'Alapterület', en: 'Floor area' }, value: { hu: '79 m² (eredetileg 58 m²)', en: '79 m² (originally 58 m²)' } },
       { label: { hu: 'Hálószobák', en: 'Bedrooms' }, value: '2' },
       { label: { hu: 'Fürdőszobák', en: 'Bathrooms' }, value: '2' },
       { label: { hu: 'Belmagasság', en: 'Ceiling height' }, value: { hu: 'közel 4 m', en: 'almost 4 m' } },
@@ -65,10 +66,10 @@ export const projects = [
     },
     solutions: [
       {
-        title: { hu: 'Belső második szint', en: 'Internal second level' },
+        title: { hu: 'Belső második szint: 58 m²-ből 79 m²', en: 'Internal second level: from 58 m² to 79 m²' },
         text: {
-          hu: 'A belmagasságot kihasználva az új konyha fölé egy különálló, zárható galériaszint épült hálószobával, saját mosdóval és WC-vel, valamint szabadon álló káddal; a szintet csigalépcső köti össze a nappalival.',
-          en: 'Making use of the ceiling height, a separate, lockable gallery level was built above the new kitchen, with a bedroom, its own washbasin and WC and a freestanding bathtub; a spiral staircase connects it to the living room.',
+          hu: 'A belmagasságot kihasználva egy teljesen egyedi, acélszerkezetű második szint épült az új konyha fölé — így a lakás 58 m²-ről 79 m²-es, kéthálós otthonná nőtt. A zárható galériaszinten hálószoba, saját mosdó és WC, valamint szabadon álló kád kapott helyet; a szintet csigalépcső köti össze a nappalival.',
+          en: 'Making use of the ceiling height, a fully bespoke steel-framed second level was built above the new kitchen — growing the apartment from 58 m² into a 79 m² two-bedroom home. The lockable gallery level holds a bedroom, its own washbasin and WC and a freestanding bathtub; a spiral staircase connects it to the living room.',
         },
       },
       {
@@ -109,7 +110,19 @@ export const projects = [
     ],
     beforeAfter: [
       {
-        pairId: 'living-room-01', room: { hu: 'Nappali', en: 'Living room' }, displayMode: 'side-by-side',
+        // a tulajdonos által kiválasztott pár (2026-10-07): ugyanaz a nézőpont, bontás közben ↔ készen
+        pairId: 'living-room-00', room: { hu: 'Nappali és konyha', en: 'Living room and kitchen' }, displayMode: 'slider',
+        before: 'vamhaz-korut/before/nappali-szemben', after: 'vamhaz-korut/after/nappali-szemben',
+        altBefore: { hu: 'A nappali a bontás idején: csupasz falak, létrák, törmelékes zsákok, a régi ajtónyílás a folyosó felé', en: 'The living room during demolition: bare walls, ladders, rubble sacks, the old doorway to the hallway' },
+        altAfter: { hu: 'Ugyanez a nézet készen: fehér konyha a márvány hatású hátfallal, kerek étkezőasztal, fölötte a galériaszint és a csigalépcső', en: 'The same view finished: white kitchen with a marble-effect splashback, round dining table, the gallery level and spiral staircase above' },
+        objectPositionBefore: '50% 58%', objectPositionAfter: '50% 50%', aspect: '4 / 3',
+        note: {
+          hu: 'A két kép ugyanabból a pontból készült. A régi ajtó helyén ma a konyha áll, fölötte az egyedi acélszerkezetű galéria.',
+          en: 'Both photos were taken from the same spot. Where the old door was, the kitchen now stands, with the bespoke steel gallery above it.',
+        },
+      },
+      {
+        pairId: 'living-room-01', room: { hu: 'Sarokszoba', en: 'Corner room' }, displayMode: 'side-by-side',
         before: 'vamhaz-korut/before/nappali', after: 'vamhaz-korut/gallery/nappali-galeria',
         altBefore: { hu: 'A sarokszoba a felújítás előtt: kopott halszálkás parketta, régi radiátorok, két falon magas ablakok', en: 'The corner room before the renovation: worn herringbone parquet, old radiators, tall windows on two walls' },
         altAfter: { hu: 'Ugyanez a sarokszoba nappaliként: világos padló, kanapé, étkezőasztal és a galériaszint', en: 'The same corner room as the living room: light flooring, sofa, dining table and the gallery level' },
@@ -128,6 +141,7 @@ export const projects = [
       },
     ],
     beforeGallery: [
+      { image: 'vamhaz-korut/before/galeria-acelszerkezet', alt: { hu: 'Épül a galéria acélszerkezete: a tartógerendák már állnak a nappali fölött', en: 'The steel structure of the gallery under construction: the beams are already in place above the living room' } },
       { image: 'vamhaz-korut/before/nappali-bontas', alt: { hu: 'A nappali a bontás idején, törmelékes zsákokkal', en: 'The living room during demolition, with rubble sacks' } },
       { image: 'vamhaz-korut/before/konyha', alt: { hu: 'A régi konyha a felújítás előtt', en: 'The old kitchen before the renovation' } },
       { image: 'vamhaz-korut/before/furdo', alt: { hu: 'A régi fürdőszoba sárgult káddal', en: 'The old bathroom with a yellowed bathtub' } },
@@ -153,6 +167,15 @@ export const projects = [
     floorplans: [
       { image: 'vamhaz-korut/floorplans/fo-szint', alt: { hu: 'A lakás fő szintjének alaprajza: nappali, étkező, konyha, hálószoba, fürdő, bevilágító', en: 'Floor plan of the main level: living room, dining area, kitchen, bedroom, bathroom, light well' }, caption: { hu: 'Fő szint', en: 'Main level' } },
       { image: 'vamhaz-korut/floorplans/galeria-szint', alt: { hu: 'A galériaszint alaprajza: hálószoba, készülődő, WC', en: 'Floor plan of the gallery level: bedroom, dressing area, WC' }, caption: { hu: 'Galériaszint', en: 'Gallery level' } },
+    ],
+    // Műszaki tervsorozat (a tulajdonos saját tervei, 2025. 11.) — lapozható a projektoldalon és a /szolgaltatasok tervezés-blokkjában
+    plans: [
+      { image: 'vamhaz-korut/plans/koncepcio', label: { hu: 'Koncepció', en: 'Concept' }, alt: { hu: 'Koncepcióterv: a fő szint berendezett alaprajza nappalival, konyhával, hálószobával és fürdővel', en: 'Concept plan: the furnished layout of the main level with living room, kitchen, bedroom and bathroom' } },
+      { image: 'vamhaz-korut/plans/falak', label: { hu: 'Falak', en: 'Walls' }, alt: { hu: 'Falazási terv: az új pórusbeton és szerelt falak, dobozolások, 3D-s részletekkel', en: 'Wall plan: the new aerated-concrete and stud walls and boxing, with 3D details' } },
+      { image: 'vamhaz-korut/plans/galeria', label: { hu: 'Galéria', en: 'Gallery' }, alt: { hu: 'Galériaterv: a második szint hálószobával, káddal és csigalépcsővel', en: 'Gallery plan: the second level with bedroom, bathtub and spiral staircase' } },
+      { image: 'vamhaz-korut/plans/vilagitas', label: { hu: 'Világítás', en: 'Lighting' }, alt: { hu: 'Világítási és elektromos terv: spotok, falikarok, LED-csíkok, kapcsolók és dugaljak helye', en: 'Lighting and electrical plan: positions of spots, wall lights, LED strips, switches and sockets' } },
+      { image: 'vamhaz-korut/plans/legtechnika', label: { hu: 'Elszívás és klíma', en: 'Ventilation and A/C' }, alt: { hu: 'Légtechnikai terv: elszívó csövek és klímavezetékek nyomvonala, magasságokkal', en: 'Ventilation plan: routes of extraction ducts and air-conditioning lines, with heights' } },
+      { image: 'vamhaz-korut/plans/gepeszet', label: { hu: 'Fűtés és víz', en: 'Heating and plumbing' }, alt: { hu: 'Gépészeti terv: víz- és fűtésvezetékek, radiátorok, kazán és boiler helye', en: 'Mechanical plan: water and heating pipes, radiators, boiler and water-heater positions' } },
     ],
     video: { src: '/images/projects/vamhaz-korut/video/olive-video.mp4', poster: 'vamhaz-korut/gallery/video-poster', title: { hu: 'Videós séta a kész lakásban', en: 'Video walkthrough of the finished apartment' } },
     // a lapszám 2026 decemberében jelenik meg — megjelenés után múlt időre írható
@@ -183,7 +206,7 @@ export const projects = [
     facts: [
       { label: { hu: 'Helyszín', en: 'Location' }, value: { hu: 'Gőzmozdony utca, Budapest', en: 'Gőzmozdony utca, Budapest' } },
       { label: { hu: 'Munka', en: 'Scope' }, value: { hu: 'Komplett felújítás és enteriőrkialakítás', en: 'Complete renovation and interior fit-out' } },
-      { label: { hu: 'Alapterület', en: 'Floor area' }, value: null }, // TODO: a tulajdonostól
+      { label: { hu: 'Alapterület', en: 'Floor area' }, value: { hu: '55 m² + 2 m² erkély', en: '55 m² + 2 m² balcony' } }, // tulajdonos, 2026-10-06
       BUILD_TIME,
     ],
     starting: [
@@ -278,7 +301,7 @@ export const projects = [
     facts: [
       { label: { hu: 'Helyszín', en: 'Location' }, value: { hu: 'Balázs Béla utca, Budapest', en: 'Balázs Béla utca, Budapest' } },
       { label: { hu: 'Munka', en: 'Scope' }, value: { hu: 'Teljes körű felújítás és enteriőrtervezés', en: 'Full renovation and interior design' } },
-      { label: { hu: 'Alapterület', en: 'Floor area' }, value: null }, // TODO: a tulajdonostól
+      { label: { hu: 'Alapterület', en: 'Floor area' }, value: { hu: '60 m² + 15 m² loggia', en: '60 m² + 15 m² loggia' } }, // tulajdonos, 2026-10-06
       BUILD_TIME,
     ],
     starting: [

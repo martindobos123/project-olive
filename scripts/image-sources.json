@@ -1,73 +1,363 @@
 {
-  "_comment": "Forrás → weboldal-kép leképezés. A src a nyers forrásmappához (OLIVE_RAW, alapból ../olive-assets-raw) relatív. Az eredeti fájlok ott maradnak érintetlenül; a repóba csak az optimalizált változatok kerülnek. Futtatás: python scripts/build_images.py",
-  "images": [
-    {"id": "vamhaz-korut/gallery/nappali-galeria",   "src": "A/vam/va06.jpg", "hero": true},
-    {"id": "vamhaz-korut/gallery/nappali-konyha",    "src": "A/vam/va04.jpg", "og": true},
-    {"id": "vamhaz-korut/gallery/nappali-ablakok",   "src": "A/vam/va10.jpg"},
-    {"id": "vamhaz-korut/gallery/konyha",            "src": "A/vam/va09.jpg"},
-    {"id": "vamhaz-korut/gallery/galeria-haloszoba", "src": "A/vam/va08.jpg"},
-    {"id": "vamhaz-korut/gallery/galeria-ago",       "src": "A/vam/va02.jpg"},
-    {"id": "vamhaz-korut/gallery/galeria-kad",       "src": "A/vam/va03.jpg"},
-    {"id": "vamhaz-korut/gallery/haloszoba",         "src": "A/vam/va14.jpg"},
-    {"id": "vamhaz-korut/gallery/furdo-mosdo",       "src": "A/vam/va01.jpg"},
-    {"id": "vamhaz-korut/gallery/furdo-zuhany",      "src": "A/vam/va13.jpg"},
-    {"id": "vamhaz-korut/gallery/eloszoba",          "src": "A/vam/va15.jpg"},
-    {"id": "vamhaz-korut/gallery/fenyakna",          "src": "legacy/shaft-1.webp"},
-    {"id": "vamhaz-korut/after/fenyakna-alulrol",    "src": "legacy/shaft-2.webp"},
-    {"id": "vamhaz-korut/gallery/kilatas",           "src": "A/vam/va05.jpg"},
-    {"id": "vamhaz-korut/gallery/epulet",            "src": "A/vam/va17.jpg"},
-    {"id": "vamhaz-korut/gallery/uvegfolyoso",       "src": "A/vam/va16.jpg"},
-    {"id": "vamhaz-korut/before/nappali",            "src": "B/vam/100.jpg"},
-    {"id": "vamhaz-korut/before/fenyakna",           "src": "B/vam/013.jpg"},
-    {"id": "vamhaz-korut/before/nappali-bontas",     "src": "B/vam/113.jpg"},
-    {"id": "vamhaz-korut/before/konyha",             "src": "B/vam/006.jpg"},
-    {"id": "vamhaz-korut/before/furdo",              "src": "B/vam/050.jpg"},
-    {"id": "vamhaz-korut/before/galeria",            "src": "B/vam/045.jpg"},
-    {"id": "vamhaz-korut/floorplans/fo-szint",       "src": "legacy/plan-1.webp", "floorplan": true},
-    {"id": "vamhaz-korut/floorplans/galeria-szint",  "src": "legacy/plan-2.webp", "floorplan": true},
-    {"id": "vamhaz-korut/gallery/video-poster",      "src": "legacy/video-poster.webp"},
-    {"id": "site/rolunk",                            "src": "legacy/creators-1.webp"},
-
-    {"id": "gozmozdony-utca/gallery/nappali",          "src": "A/goz/6-_DSC1014.jpg", "hero": true},
-    {"id": "gozmozdony-utca/gallery/nappali-ablakok",  "src": "A/goz/5-_DSC1015.jpg"},
-    {"id": "gozmozdony-utca/after/nappali",            "src": "A/goz/8-_DSC1009.jpg"},
-    {"id": "gozmozdony-utca/after/haloszoba",          "src": "A/goz/10-_DSC1005.jpg"},
-    {"id": "gozmozdony-utca/gallery/haloszoba-iroasztal", "src": "A/goz/11-_DSC1003.jpg"},
-    {"id": "gozmozdony-utca/gallery/haloszoba-uvegfal",   "src": "A/goz/7-_DSC1011.jpg"},
-    {"id": "gozmozdony-utca/after/konyha",             "src": "A/goz/17-_DSC0985.jpg"},
-    {"id": "gozmozdony-utca/gallery/konyha-bejarat",   "src": "A/goz/16-_DSC0987.jpg"},
-    {"id": "gozmozdony-utca/gallery/konyha-reszlet",   "src": "A/goz/4-_DSC1017.jpg"},
-    {"id": "gozmozdony-utca/gallery/etkezo",           "src": "A/goz/15-_DSC0992.jpg"},
-    {"id": "gozmozdony-utca/gallery/eloszoba",         "src": "A/goz/14-_DSC0994.jpg"},
-    {"id": "gozmozdony-utca/after/furdo",              "src": "A/goz/13-_DSC0998.jpg"},
-    {"id": "gozmozdony-utca/after/wc",                 "src": "A/goz/12-_DSC1001.jpg"},
-    {"id": "gozmozdony-utca/gallery/erkely",           "src": "A/goz/9-_DSC1007.jpg"},
-    {"id": "gozmozdony-utca/before/konyha",            "src": "B/goz/031.jpg"},
-    {"id": "gozmozdony-utca/before/wc",                "src": "B/goz/026.jpg"},
-    {"id": "gozmozdony-utca/before/nappali",           "src": "B/goz/040.jpg"},
-    {"id": "gozmozdony-utca/before/haloszoba",         "src": "B/goz/079.jpg"},
-    {"id": "gozmozdony-utca/before/furdo",             "src": "B/goz/021.jpg"},
-
-    {"id": "balazs-bela-utca/gallery/nappali",          "src": "A/bal/27-_DSC4374.jpg", "hero": true},
-    {"id": "balazs-bela-utca/after/nappali",            "src": "A/bal/26-_DSC4377.jpg"},
-    {"id": "balazs-bela-utca/gallery/nappali-kanape",   "src": "A/bal/29-_DSC4371.jpg"},
-    {"id": "balazs-bela-utca/gallery/nappali-ablak",    "src": "A/bal/10-_DSC4428.jpg"},
-    {"id": "balazs-bela-utca/gallery/olvasosarok",      "src": "A/bal/7-_DSC4434.jpg"},
-    {"id": "balazs-bela-utca/gallery/etkezo",           "src": "A/bal/18-_DSC4400.jpg"},
-    {"id": "balazs-bela-utca/gallery/etkezo-konyha",    "src": "A/bal/16-_DSC4412.jpg"},
-    {"id": "balazs-bela-utca/after/konyha",             "src": "A/bal/17-_DSC4409.jpg", "og": true},
-    {"id": "balazs-bela-utca/gallery/konyha-reszlet",   "src": "A/bal/8-_DSC4431.jpg"},
-    {"id": "balazs-bela-utca/after/haloszoba",          "src": "A/bal/12-_DSC4424.jpg"},
-    {"id": "balazs-bela-utca/gallery/haloszoba",        "src": "A/bal/13-_DSC4423.jpg"},
-    {"id": "balazs-bela-utca/after/furdo",              "src": "A/bal/25-_DSC4388.jpg"},
-    {"id": "balazs-bela-utca/gallery/furdo-kad",        "src": "A/bal/23-_DSC4391.jpg"},
-    {"id": "balazs-bela-utca/gallery/eloszoba",         "src": "A/bal/22-_DSC4394.jpg"},
-    {"id": "balazs-bela-utca/after/loggia",             "src": "A/bal/30-_DSC4369.jpg"},
-    {"id": "balazs-bela-utca/gallery/loggia",           "src": "A/bal/20-_DSC4396.jpg"},
-    {"id": "balazs-bela-utca/before/nappali",           "src": "B/bal/IMG_1641.JPG"},
-    {"id": "balazs-bela-utca/before/haloszoba",         "src": "B/bal/IMG_1717.JPG"},
-    {"id": "balazs-bela-utca/before/loggia",            "src": "B/bal/IMG_1622.JPG"},
-    {"id": "balazs-bela-utca/before/konyha",            "src": "B/bal/IMG_1278_2.JPG"},
-    {"id": "balazs-bela-utca/before/furdo",             "src": "B/bal/att.Somcw-XRg3DeewiF-mq_qB4SCmkVyq3lb5oPNkyS5Sg.jpg"}
-  ]
+ "_comment": "Forrás → weboldal-kép leképezés. A src a nyers forrásmappához (OLIVE_RAW, alapból ../olive-assets-raw) relatív. Az eredeti fájlok ott maradnak érintetlenül; a repóba csak az optimalizált változatok kerülnek. Futtatás: python scripts/build_images.py",
+ "images": [
+  {
+   "id": "vamhaz-korut/gallery/nappali-galeria",
+   "src": "A/vam/va06.jpg",
+   "hero": true
+  },
+  {
+   "id": "vamhaz-korut/gallery/nappali-konyha",
+   "src": "A/vam/va04.jpg",
+   "og": true
+  },
+  {
+   "id": "vamhaz-korut/gallery/nappali-ablakok",
+   "src": "A/vam/va10.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/konyha",
+   "src": "A/vam/va09.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/galeria-haloszoba",
+   "src": "A/vam/va08.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/galeria-ago",
+   "src": "A/vam/va02.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/galeria-kad",
+   "src": "A/vam/va03.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/haloszoba",
+   "src": "A/vam/va14.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/furdo-mosdo",
+   "src": "A/vam/va01.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/furdo-zuhany",
+   "src": "A/vam/va13.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/eloszoba",
+   "src": "A/vam/va15.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/fenyakna",
+   "src": "legacy/shaft-1.webp"
+  },
+  {
+   "id": "vamhaz-korut/after/fenyakna-alulrol",
+   "src": "legacy/shaft-2.webp"
+  },
+  {
+   "id": "vamhaz-korut/gallery/kilatas",
+   "src": "A/vam/va05.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/epulet",
+   "src": "A/vam/va17.jpg"
+  },
+  {
+   "id": "vamhaz-korut/gallery/uvegfolyoso",
+   "src": "A/vam/va16.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/nappali",
+   "src": "B/vam/100.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/fenyakna",
+   "src": "B/vam/013.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/nappali-bontas",
+   "src": "B/vam/113.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/konyha",
+   "src": "B/vam/006.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/furdo",
+   "src": "B/vam/050.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/galeria",
+   "src": "B/vam/045.jpg"
+  },
+  {
+   "id": "vamhaz-korut/floorplans/fo-szint",
+   "src": "legacy/plan-1.webp",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/floorplans/galeria-szint",
+   "src": "legacy/plan-2.webp",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/gallery/video-poster",
+   "src": "legacy/video-poster.webp"
+  },
+  {
+   "id": "site/rolunk",
+   "src": "legacy/creators-1.webp"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/nappali",
+   "src": "A/goz/6-_DSC1014.jpg",
+   "hero": true
+  },
+  {
+   "id": "gozmozdony-utca/gallery/nappali-ablakok",
+   "src": "A/goz/5-_DSC1015.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/after/nappali",
+   "src": "A/goz/8-_DSC1009.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/after/haloszoba",
+   "src": "A/goz/10-_DSC1005.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/haloszoba-iroasztal",
+   "src": "A/goz/11-_DSC1003.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/haloszoba-uvegfal",
+   "src": "A/goz/7-_DSC1011.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/after/konyha",
+   "src": "A/goz/17-_DSC0985.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/konyha-bejarat",
+   "src": "A/goz/16-_DSC0987.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/konyha-reszlet",
+   "src": "A/goz/4-_DSC1017.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/etkezo",
+   "src": "A/goz/15-_DSC0992.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/eloszoba",
+   "src": "A/goz/14-_DSC0994.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/after/furdo",
+   "src": "A/goz/13-_DSC0998.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/after/wc",
+   "src": "A/goz/12-_DSC1001.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/gallery/erkely",
+   "src": "A/goz/9-_DSC1007.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/before/konyha",
+   "src": "B/goz/031.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/before/wc",
+   "src": "B/goz/026.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/before/nappali",
+   "src": "B/goz/040.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/before/haloszoba",
+   "src": "B/goz/079.jpg"
+  },
+  {
+   "id": "gozmozdony-utca/before/furdo",
+   "src": "B/goz/021.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/nappali",
+   "src": "A/bal/27-_DSC4374.jpg",
+   "hero": true
+  },
+  {
+   "id": "balazs-bela-utca/after/nappali",
+   "src": "A/bal/26-_DSC4377.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/nappali-kanape",
+   "src": "A/bal/29-_DSC4371.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/nappali-ablak",
+   "src": "A/bal/10-_DSC4428.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/olvasosarok",
+   "src": "A/bal/7-_DSC4434.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/etkezo",
+   "src": "A/bal/18-_DSC4400.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/etkezo-konyha",
+   "src": "A/bal/16-_DSC4412.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/after/konyha",
+   "src": "A/bal/17-_DSC4409.jpg",
+   "og": true
+  },
+  {
+   "id": "balazs-bela-utca/gallery/konyha-reszlet",
+   "src": "A/bal/8-_DSC4431.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/after/haloszoba",
+   "src": "A/bal/12-_DSC4424.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/haloszoba",
+   "src": "A/bal/13-_DSC4423.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/after/furdo",
+   "src": "A/bal/25-_DSC4388.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/furdo-kad",
+   "src": "A/bal/23-_DSC4391.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/eloszoba",
+   "src": "A/bal/22-_DSC4394.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/after/loggia",
+   "src": "A/bal/30-_DSC4369.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/gallery/loggia",
+   "src": "A/bal/20-_DSC4396.jpg"
+  },
+  {
+   "id": "balazs-bela-utca/before/nappali",
+   "src": "B/bal/IMG_1641.JPG"
+  },
+  {
+   "id": "balazs-bela-utca/before/haloszoba",
+   "src": "B/bal/IMG_1717.JPG"
+  },
+  {
+   "id": "balazs-bela-utca/before/loggia",
+   "src": "B/bal/IMG_1622.JPG"
+  },
+  {
+   "id": "balazs-bela-utca/before/konyha",
+   "src": "B/bal/IMG_1278_2.JPG"
+  },
+  {
+   "id": "balazs-bela-utca/before/furdo",
+   "src": "B/bal/att.Somcw-XRg3DeewiF-mq_qB4SCmkVyq3lb5oPNkyS5Sg.jpg"
+  },
+  {
+   "id": "vamhaz-korut/before/nappali-szemben",
+   "src": "r3/drive_ba_home/IMG_0502.jpg"
+  },
+  {
+   "id": "vamhaz-korut/after/nappali-szemben",
+   "src": "r3/drive_ba_home/vamhaz-4-after.jpg",
+   "hero": true
+  },
+  {
+   "id": "vamhaz-korut/before/galeria-acelszerkezet",
+   "src": "r3/vamhaz_nappali_before/005.jpg"
+  },
+  {
+   "id": "vamhaz-korut/plans/koncepcio",
+   "src": "r3/tervek_png/koncepcio.png",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/plans/falak",
+   "src": "r3/tervek_png/falak.png",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/plans/galeria",
+   "src": "r3/tervek_png/galeria.png",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/plans/vilagitas",
+   "src": "r3/tervek_png/vilagitas.png",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/plans/legtechnika",
+   "src": "r3/tervek_png/legtechnika.png",
+   "floorplan": true
+  },
+  {
+   "id": "vamhaz-korut/plans/gepeszet",
+   "src": "r3/tervek_png/gepeszet.png",
+   "floorplan": true
+  },
+  {
+   "id": "site/felujitas-parketta",
+   "src": "r3/felujitas_kep/001.jpg"
+  },
+  {
+   "id": "site/munka-kozben",
+   "src": "r3/drive_rolunk/IMG_8737.JPG"
+  },
+  {
+   "id": "site/csapat",
+   "src": "r3/reszprojektek/118.jpg"
+  },
+  {
+   "id": "reszprojektek/szerkezet-1",
+   "src": "r3/reszprojektek/003.jpg"
+  },
+  {
+   "id": "reszprojektek/szerkezet-2",
+   "src": "r3/reszprojektek/047.jpg"
+  },
+  {
+   "id": "reszprojektek/szerkezet-3",
+   "src": "r3/reszprojektek/041.jpg"
+  },
+  {
+   "id": "reszprojektek/szigeteles-1",
+   "src": "r3/reszprojektek/116.jpg"
+  },
+  {
+   "id": "reszprojektek/szigeteles-2",
+   "src": "r3/reszprojektek/122.jpg"
+  },
+  {
+   "id": "reszprojektek/valaszfal-1",
+   "src": "r3/reszprojektek/146.jpg"
+  },
+  {
+   "id": "reszprojektek/valaszfal-2",
+   "src": "r3/reszprojektek/168.jpg"
+  },
+  {
+   "id": "reszprojektek/valaszfal-3",
+   "src": "r3/reszprojektek/174.jpg"
+  }
+ ]
 }

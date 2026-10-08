@@ -99,6 +99,43 @@
     set();
   });
 
+  /* ---------- Tervlapozó (PlanCarousel): natív scroll-snap sor + nyilak, fülek, számláló ---------- */
+  Array.prototype.forEach.call(doc.querySelectorAll('[data-plan-carousel]'), function (root) {
+    var track = root.querySelector('.plans-carousel__track');
+    var slides = Array.prototype.slice.call(track.children);
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var count = root.querySelector('.plans-carousel__count');
+    if (!slides.length) return;
+    var current = 0;
+    var render = function (i) {
+      current = i;
+      tabs.forEach(function (b, k) { b.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+      if (count) count.textContent = (i + 1) + ' / ' + slides.length;
+    };
+    var goTo = function (i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+      render(i);
+    };
+    tabs.forEach(function (b) { b.addEventListener('click', function () { goTo(Number(b.getAttribute('data-index'))); }); });
+    Array.prototype.forEach.call(root.querySelectorAll('[data-dir]'), function (b) {
+      b.addEventListener('click', function () { goTo(current + Number(b.getAttribute('data-dir'))); });
+    });
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var w = slides[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || '0');
+        var i = Math.round(track.scrollLeft / (w || 1));
+        if (i !== current) render(Math.max(0, Math.min(slides.length - 1, i)));
+      });
+    }, { passive: true });
+    root.classList.add('is-ready');
+    render(0);
+  });
+
   /* ---------- Galéria: kezdetben csak az első képek töltődnek, a többi gombnyomásra ---------- */
   Array.prototype.forEach.call(doc.querySelectorAll('[data-gallery]'), function (list) {
     var more = list.parentNode.querySelector('.gallery-more button');
@@ -185,6 +222,79 @@
       var href = 'mailto:' + to + '?subject=' + encodeURIComponent(T.subject + (data.get('helyszin') || '')) + '&body=' + encodeURIComponent(lines.join('\n'));
       status.textContent = T.mailto(to);
       window.location.href = href;
+    });
+  }
+
+  /* ---------- ChatGPT Ads (OpenAI Measurement Pixel): kapcsolat-kattintás mérés ----------
+     A Pixel betöltőjét a build adja (assets/oaiq-init.js, CSAK ha a site.oaiPixelId ki van töltve); itt csak
+     a dokumentált oaiq("measure", "custom", { type: "custom" }, { custom_event_name }) hívás történik.
+     - EGY delegált click-figyelő (nincs dupla listener; a később beszúrt linkeket is lefedi; az Enter/Space
+       billentyű és a beágyazott ikon/szöveg kattintása is a linken köt ki: closest('a[href]')).
+     - Soha nem hív preventDefault-ot és try/catch-ben fut: a tárcsázó/levelező/WhatsApp mindig megnyílik.
+     - Csak a kapcsolat-link aktiválása számít; a /kapcsolat oldalra navigálás NEM.
+     - A linkek célját (telefonszám, e-mail-cím) NEM küldjük el — csak az eseménynevet.
+     - A hozzájárulást a Pixel saját mechanizmusa kezeli (oaiq("consent", …), lásd lent); elutasításkor az
+       SDK nem küld eseményt, nekünk itt nincs külön feltétel. */
+  var EVENT_BY_KIND = { phone: 'contact_phone_click', whatsapp: 'contact_whatsapp_click', email: 'contact_email_click' };
+  var contactKind = function (href) {
+    if (!href) return null;
+    var h = href.trim().toLowerCase();
+    if (h.indexOf('tel:') === 0) return 'phone';
+    if (h.indexOf('mailto:') === 0) return 'email';
+    if (h.indexOf('whatsapp:') === 0) return 'whatsapp';
+    var m = /^https?:\/\/([^/?#]+)/.exec(h);
+    if (m && (m[1] === 'wa.me' || m[1] === 'www.wa.me' || m[1] === 'api.whatsapp.com' || m[1] === 'web.whatsapp.com')) return 'whatsapp';
+    return null;
+  };
+  var measureContact = function (kind) {
+    try {
+      if (typeof window.oaiq !== 'function') return false;
+      window.oaiq('measure', 'custom', { type: 'custom' }, { custom_event_name: EVENT_BY_KIND[kind] });
+      return true;
+    } catch (err) { return false; }
+  };
+  if (!window.__ufsContactTracking) {
+    window.__ufsContactTracking = true;
+    var lastEvent = null;
+    doc.addEventListener('click', function (e) {
+      try {
+        if (e === lastEvent) return; // ugyanaz az esemény kétszer (pl. kétszer kötött kód) → egyszer számít
+        lastEvent = e;
+        var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a) return;
+        var kind = contactKind(a.getAttribute('href'));
+        if (kind) measureContact(kind);
+      } catch (err) { /* a mérés hibája soha nem akadályozhatja a kapcsolatfelvételt */ }
+    });
+  }
+  window.__ufsContactKind = contactKind; // teszteléshez
+
+  /* ---------- Hozzájárulás-sáv a Pixelhez (csak ha a build betette: <html data-oai-pixel>) ----------
+     Tárolt döntés: localStorage 'ufs-consent' = 'granted' | 'denied'. Alapértelmezés: megtagadva
+     (az oaiq-init.js az init ELŐTT oaiq("consent", false)-t hív, ha nincs tárolt engedély). */
+  var consentBar = doc.getElementById('consent');
+  if (consentBar && doc.documentElement.hasAttribute('data-oai-pixel')) {
+    var KEY = 'ufs-consent';
+    var stored = null;
+    try { stored = window.localStorage.getItem(KEY); } catch (err) { /* privát mód */ }
+    var applyConsent = function (granted) {
+      try { if (typeof window.oaiq === 'function') window.oaiq('consent', !!granted); } catch (err) { /* nincs SDK */ }
+    };
+    if (stored === 'granted' || stored === 'denied') {
+      applyConsent(stored === 'granted');
+    } else {
+      consentBar.hidden = false;
+    }
+    Array.prototype.forEach.call(consentBar.querySelectorAll('[data-consent]'), function (b) {
+      b.addEventListener('click', function () {
+        var v = b.getAttribute('data-consent');
+        try { window.localStorage.setItem(KEY, v); } catch (err) { /* privát mód */ }
+        applyConsent(v === 'granted');
+        consentBar.hidden = true;
+      });
+    });
+    Array.prototype.forEach.call(doc.querySelectorAll('[data-consent-open]'), function (l) {
+      l.addEventListener('click', function (e) { e.preventDefault(); consentBar.hidden = false; consentBar.querySelector('button').focus(); });
     });
   }
 
