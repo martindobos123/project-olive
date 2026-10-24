@@ -21,8 +21,8 @@ export const projects = [
     location: { hu: 'Vámház körút, Kálvin tér környéke, Budapest', en: 'Vámház körút, near Kálvin tér, Budapest' },
     shortLocation: { hu: 'Budapest, Kálvin tér környéke', en: 'Budapest, near Kálvin tér' },
     summary: {
-      hu: 'Egy 79 m²-es, különleges adottságú belvárosi lakás teljes újragondolása. A közel négyméteres belmagasságot, a nagy ablakokat és a műemléki környezet karakterét kortárs, természetes és részletgazdag enteriőrrel egészítettük ki.',
-      en: 'A complete rethink of a 79 m² downtown apartment with exceptional features. We complemented the almost four-metre ceilings, the large windows and the character of the listed building with a contemporary, natural and detailed interior.',
+      hu: 'Ezt a belvárosi lakást teljesen felújítottuk. A közel négyméteres belmagasságot egy új galériával használtuk ki, a lakás így 79 m²-es lett. A nagy ablakokhoz és a műemléki házhoz világos színeket, természetes anyagokat választottunk.',
+      en: 'We fully renovated this downtown apartment. A new gallery level made use of the almost four-metre ceiling height, bringing the floor area to 79 m². We chose light colours and natural materials to suit the large windows and the listed building.',
     },
     cardText: {
       hu: '79 m²-es belvárosi lakás egy Ybl Miklós tervezte műemléki épületben — belső második szinttel és fényaknával.',
@@ -61,7 +61,7 @@ export const projects = [
       },
     ],
     goal: {
-      hu: 'A cél az volt, hogy a belmagasságot valódi élettérré alakítsuk, a műemléki környezet karakterét megtartsuk, és egy természetes anyagokra épülő, nyugodt, kortárs otthon szülessen — korszerű műszaki háttérrel.',
+      hu: 'A nagy belmagasságot egy új lakószinttel szerettük volna kihasználni. Emellett a gépészetet és az elektromos hálózatot is felújítottuk, a berendezést pedig a régi házhoz illő anyagokból és színekből állítottuk össze.',
       en: 'The aim was to turn the ceiling height into real living space, keep the character of the listed building, and create a calm, contemporary home built on natural materials — with up-to-date technical systems.',
     },
     solutions: [
@@ -89,7 +89,7 @@ export const projects = [
       {
         title: { hu: 'Anyaghasználat', en: 'Materials' },
         text: {
-          hu: 'Világos halszálkás padló, meleg fa felületek, zöld csempe és márvány hatású részletek — visszafogott, természetes paletta.',
+          hu: 'Világos halszálkás padlót, fa felületeket, zöld csempét és márványhatású burkolatokat választottunk.',
           en: 'Light herringbone flooring, warm wood surfaces, green tiles and marble-effect details — a restrained, natural palette.',
         },
       },
@@ -184,8 +184,8 @@ export const projects = [
       en: 'The project is featured in the December 2026 issue of Lakáskultúra magazine.',
     },
     story: {
-      hu: 'A Project Olive nevet az olajfáról kapta: lassan nő, sokáig él, és nem siet. Ilyen otthont akartunk — időtállót és természeteset, amely nem a divatnak, hanem az életnek készül.',
-      en: 'Project Olive is named after the olive tree: it grows slowly, lives long and is never in a hurry. That is the kind of home we wanted — timeless and natural, made for living rather than for fashion.',
+      hu: 'A Project Olive nevet az olajfa ihlette. A lakásban sok fát, zöldet és természetes színt használtunk. Olyan otthont szerettünk volna, amelyben mi is szívesen élnénk.',
+      en: 'The olive tree inspired the name Project Olive. We used wood, green accents and natural colours throughout. We wanted to create a home we would enjoy living in ourselves.',
     },
   },
   {
@@ -194,8 +194,8 @@ export const projects = [
     subtitle: null,
     location: { hu: 'Gőzmozdony utca, Budapest', en: 'Gőzmozdony utca, Budapest' },
     shortLocation: BUDAPEST,
-    summary: { hu: 'Komplett lakásfelújítás és enteriőrkialakítás a Gőzmozdony utcában.', en: 'A complete apartment renovation and interior fit-out on Gőzmozdony utca.' },
-    cardText: { hu: 'Komplett lakásfelújítás és enteriőrkialakítás a Gőzmozdony utcában.', en: 'A complete apartment renovation and interior fit-out on Gőzmozdony utca.' },
+    summary: { hu: 'Teljesen felújítottuk és berendeztük ezt a Gőzmozdony utcai lakást.', en: 'A complete apartment renovation and interior fit-out on Gőzmozdony utca.' },
+    cardText: { hu: 'Teljesen felújítottuk és berendeztük ezt a Gőzmozdony utcai lakást.', en: 'A complete apartment renovation and interior fit-out on Gőzmozdony utca.' },
     tags: [{ hu: 'Teljes körű felújítás', en: 'Full renovation' }, { hu: 'Enteriőr', en: 'Interiors' }],
     serviceSlugs: ['felujitas', 'lakberendezes'],
     hero: 'gozmozdony-utca/gallery/nappali',
@@ -216,13 +216,13 @@ export const projects = [
       },
     ],
     goal: {
-      hu: 'Egy világos, egységes és könnyen használható otthon kialakítása — új konyhával, fürdőszobával és WC-vel, nyugodt, meleg színvilággal.',
-      en: 'A bright, coherent and easy-to-use home — with a new kitchen, bathroom and WC and a calm, warm colour palette.',
+      hu: 'Világosabb lakást szerettünk volna, új konyhával, fürdőszobával és WC-vel. A burkolatokhoz és a bútorokhoz meleg színeket választottunk.',
+      en: 'We wanted a brighter apartment with a new kitchen, bathroom and WC. We chose warm colours for the finishes and furniture.',
     },
     solutions: [
       { title: { hu: 'Új konyha', en: 'New kitchen' }, text: { hu: 'Világos frontok, fa munkalap, beépített gépek — az ablakos konyhafal teljes hosszában.', en: 'Light fronts, a wooden worktop and integrated appliances — along the full length of the kitchen wall with the window.' } },
       { title: { hu: 'Fürdőszoba és WC', en: 'Bathroom and WC' }, text: { hu: 'Új burkolat, kád, mosdópult és a gépészeti strang eltakarása a WC-ben.', en: 'New tiling, bathtub and vanity, and the service riser concealed in the WC.' } },
-      { title: { hu: 'Lakóterek', en: 'Living spaces' }, text: { hu: 'Egységes padló, friss falfelületek és visszafogott, meleg tónusú berendezés.', en: 'Continuous flooring, fresh walls and restrained, warm-toned furnishings.' } },
+      { title: { hu: 'Lakóterek', en: 'Living spaces' }, text: { hu: 'A szobák azonos padlót, frissen festett falakat és meleg színű bútorokat kaptak.', en: 'Continuous flooring, fresh walls and restrained, warm-toned furnishings.' } },
     ],
     beforeAfter: [
       {
@@ -306,18 +306,18 @@ export const projects = [
     ],
     starting: [
       {
-        hu: 'A kiindulási állapot egy berendezett, de sötét tónusú lakás volt: fekete konyhabútor, sötétszürke falak, narancssárga csempés fürdőszoba.',
+        hu: 'A lakás be volt rendezve, de sötét volt: fekete konyhabútorral, sötétszürke falakkal és narancssárga csempés fürdőszobával.',
         en: 'The starting point was a furnished but dark apartment: black kitchen cabinets, dark grey walls and a bathroom with orange tiles.',
       },
     ],
     goal: {
-      hu: 'Világosabb, melegebb és egységesebb terek — a meglévő alaprajzra építve, új konyhával, fürdőszobával, burkolatokkal és teljes berendezéssel.',
-      en: 'Brighter, warmer and more coherent spaces — building on the existing layout, with a new kitchen, bathroom, flooring and complete furnishing.',
+      hu: 'Az alaprajzot megtartottuk, a konyhát, a fürdőszobát, a burkolatokat és a bútorokat lecseréltük. Világosabb, melegebb hangulatú lakást szerettünk volna.',
+      en: 'We kept the layout and replaced the kitchen, bathroom, flooring and furniture. The aim was a brighter home with warmer colours.',
     },
     solutions: [
       { title: { hu: 'Világos alapok', en: 'A light base' }, text: { hu: 'Világos falak, dekoratív falpanelek és fa hatású padló adják az új alapot.', en: 'Light walls, decorative wall panelling and wood-effect flooring form the new base.' } },
       { title: { hu: 'Konyha és étkező', en: 'Kitchen and dining' }, text: { hu: 'Krémszínű, fogantyús konyhabútor, fa munkalap és egy kerek étkezőasztal a nappali és a konyha határán.', en: 'Cream cabinets with handles, a wooden worktop and a round dining table where the living room meets the kitchen.' } },
-      { title: { hu: 'Fürdőszoba', en: 'Bathroom' }, text: { hu: 'Natúr tónusú burkolat, cementlap hatású padló, fa mosdópult és arany színű szerelvények.', en: 'Natural-toned tiles, cement-tile-effect flooring, a wooden vanity and gold-coloured fittings.' } },
+      { title: { hu: 'Fürdőszoba', en: 'Bathroom' }, text: { hu: 'Természetes színű burkolatokat, cementlap hatású padlót, fa mosdópultot és arany színű csaptelepeket választottunk.', en: 'Natural-toned tiles, cement-tile-effect flooring, a wooden vanity and gold-coloured fittings.' } },
       { title: { hu: 'Loggia', en: 'Loggia' }, text: { hu: 'A loggia étkezősarokkal és függőfotellel a lakás kültéri szobája lett.', en: 'With a dining corner and a hanging chair, the loggia became the apartment’s outdoor room.' } },
     ],
     beforeAfter: [
