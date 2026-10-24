@@ -108,4 +108,16 @@ A Vámház körúti lakásnál körülbelül 30% volt a teljes projekt hozama 12
 
 ### 13. Mi a következő lépés?
 
-Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális az indulás. Az egyeztetésen átbeszéljük az együttműködés menetét és az Ön kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.
+Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális a kezdés. Az egyeztetésen átbeszéljük az együttműködés menetét és a felmerülő kérdéseket. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.
+
+## A tulajdonos által megadott szövegek – 2026. október 25.
+
+1. Mikor jut pénzhez, és hogyan számolunk el?
+2. Önnek nem kell szakembereket irányítania
+3. Önnek nem kell hirdetéseket böngésznie, szakembereket hívogatnia vagy a helyszínre járnia.
+4. Kapcsolatainkon keresztül, illetve a hirdetéseket figyelve keressük a jó áron megvehető budapesti lakásokat.
+5. Így olyan lakásokról is tudomást szerzünk, amelyeket még nem is hirdetnek.
+6. Egyeztessünk a továbbiakról
+7. Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális a kezdés. Az egyeztetésen átbeszéljük az együttműködés menetét és a felmerülő kérdéseket.
+8. Így találunk kedvező árú lakásokat.
+9. A teljes folyamatot ránk bízhatja.
