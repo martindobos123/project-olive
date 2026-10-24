@@ -55,6 +55,19 @@ jelenik meg az angol oldalon). A 404 csak a gyökérben van (a Pages egyetlen 40
 
 ## Build
 
+### Befektetői oldalak (szövegtervezet)
+
+- `/befektetoknek/` és `/en/investors/`: a navigációból és a főoldal második CTA-jából elérhető, indexelhető tájékoztató.
+- `/befektetoi-egyuttmukodes/` és `/en/investor-partnership/`: hirdetési landing egyszerűsített fejléccel, `noindex`, sitemap nélkül.
+- `src/investor-pages.mjs`: közös oldalelemek; `src/data/investors.mjs`: szerkeszthető HU/EN FAQ és folyamat.
+- A kalkulátor kódja `src/assets/investor.mjs`, stílusai `src/assets/investor.css`; csak az új oldalak töltik be őket. Az adatok helyben maradnak.
+- Külön lenyitható példa mutat két egymást követő projektet, azonos százalékos eredménnyel és teljes újrabefektetéssel. Az időtartam összeadódik; nem nevezzük automatikusan éves hozamnak. A 2 × 15% → 32,25% példa feltételezés, nem hozamígéret vagy referencia.
+- Az új érdeklődési űrlap a meglévő statikus működéshez igazodva e-mailt állít össze. Nincs bekötött leadfogadó backend, nincs tényleges elküldést állító sikerüzenet, és nincs új mérőkód.
+- Ellenőrzés: `node scripts/build.mjs` majd `node --test scripts/test-investors.mjs`.
+
+A hero- és FAQ-szövegek jóváhagyásra várnak: **[szerkeszthető szövegtervezet](docs/investor-copy-review.md)**.
+A tulajdonos projektenkénti 3%-os hozamgaranciát kért; a javaslat és a tisztázandó feltételek a belső tervezetben vannak. Jogi jóváhagyásig az oldalak és a kalkulátor nem ígérnek garantált vagy biztosított hozamot. A kalkulátor pozitív profitnál felez, veszteségnél a teljes veszteséget mutatja befektetői stresszpéldaként; a szerződéses veszteségviselés még tisztázandó.
+
 ```sh
 python scripts/build_images.py   # csak ha képek változtak (OLIVE_RAW = nyers forrásmappa)
 node scripts/build.mjs           # HTML újragenerálása

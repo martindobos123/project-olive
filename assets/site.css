@@ -169,6 +169,7 @@ ul,ol{margin:0;padding:0}
 .nav a:hover,.nav a[aria-current="page"]{border-bottom-color:currentColor}
 .header__cta{display:none}
 .header__end{display:flex;align-items:center;gap:var(--sp-sm)}
+@media(max-width:399px){.header__inner{gap:.5rem}.header__end{gap:.4rem}.brand{font-size:1.1rem}}
 /* nyelvváltó (HU ↔ EN) — a másik nyelv megfelelő oldalára visz */
 .lang-switch{display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap);min-width:var(--tap);color:inherit;font:600 .82rem var(--font-body);letter-spacing:.08em;text-decoration:none;opacity:.85}
 .lang-switch:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
@@ -181,6 +182,8 @@ ul,ol{margin:0;padding:0}
   .header__cta{display:inline-flex}
   .menu-btn{display:none}
 }
+/* Six navigation links need more space; retain the accessible mobile menu on tablets. */
+@media (min-width:1000px) and (max-width:1199px){.nav,.header__cta{display:none}.menu-btn{display:inline-flex}}
 /* átlátszó fejléc a kezdőlap hero-ja fölött, görgetés után visszafogott sticky */
 .header--overlay{position:fixed;left:0;right:0;background:transparent;border-bottom-color:transparent;color:var(--on-dark);backdrop-filter:none;-webkit-backdrop-filter:none}
 .header--overlay .header__cta{background:var(--on-dark);color:var(--ink)}

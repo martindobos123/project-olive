@@ -50,7 +50,7 @@
       if (e.target === mnav) mnav.close(); // a háttérre kattintás bezár
       if (e.target.closest('a')) mnav.close();
     });
-    window.addEventListener('resize', function () { if (window.innerWidth >= 1000 && mnav.open) mnav.close(); });
+    window.addEventListener('resize', function () { if (window.innerWidth >= 1200 && mnav.open) mnav.close(); });
   } else if (menuBtn) {
     menuBtn.addEventListener('click', function () { window.location.href = T.contact; });
   }

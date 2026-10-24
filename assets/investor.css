@@ -1,0 +1,57 @@
+/* Uses the existing site tokens; only investor pages load this sheet. */
+.invest-hero{padding-block:clamp(2.5rem,5vw,5rem)}
+@media(max-width:599px){.header--landing .header__end>.btn{display:none}}
+.invest-hero__grid{display:grid;gap:var(--sp-lg);align-items:center}
+.invest-hero h1{font-size:var(--fs-h1);line-height:1.08;margin-bottom:var(--sp-md);max-width:19ch}
+.invest-hero .btn-row{margin-top:var(--sp-lg)}
+.invest-hero__benefits{padding-left:1.2rem;margin:0 0 1rem;color:var(--ink-soft);font-size:var(--fs-small)}
+.invest-hero__benefits li+li{margin-top:.4rem}
+.invest-hero__proposal{padding:.8rem 0 .8rem 1rem;border-left:2px solid var(--olive);max-width:56ch}
+.invest-hero__photo{margin:0;min-width:0;position:relative}
+.invest-hero__photo picture{aspect-ratio:4/3;overflow:hidden}
+.invest-hero__photo img{height:100%;width:100%;object-fit:cover}
+.invest-hero__photo figcaption{font-size:var(--fs-small);margin-top:.5rem;color:var(--ink-soft)}
+.invest-small{font-size:var(--fs-small);line-height:1.55;color:var(--ink-soft)}
+.invest-strip{background:var(--olive-deep);color:var(--on-dark)}
+.invest-strip .wrap{display:grid;gap:0}
+.invest-strip span{padding:1rem 0;border-bottom:1px solid rgba(250,248,243,.2);font-size:var(--fs-small)}
+.invest-strip span:last-child{border:0}
+.invest-notice{padding:var(--sp-md);border-left:3px solid var(--olive);background:var(--bg-alt);max-width:var(--text-w)}
+.invest-notice p{margin:.5rem 0 0;font-size:var(--fs-small);color:var(--ink-soft)}
+.invest-calc{display:grid;gap:var(--sp-lg);align-items:start}
+.invest-calc__inputs{display:grid;gap:var(--sp-md);min-width:0}
+.invest-control label{display:block;font-size:var(--fs-small);font-weight:500;margin-bottom:.4rem}
+.invest-control label span{font-weight:400;color:var(--ink-soft)}
+.invest-control>div{display:grid;grid-template-columns:minmax(0,1fr) 5.5rem;align-items:center;gap:var(--sp-md)}
+.invest-control input[type=range]{width:100%;min-width:0;min-height:44px;accent-color:var(--olive-deep);cursor:pointer}
+.invest-control input[type=number]{width:100%;min-height:48px;border:var(--border-strong);background:var(--surface);border-radius:var(--radius);padding:.5rem;font:inherit;color:var(--ink)}
+.invest-result{background:var(--surface);border:var(--border-strong);padding:clamp(1rem,3vw,2rem);min-width:0}
+.invest-result h3{font-size:var(--fs-h3)}
+.invest-result__main{display:grid;gap:.5rem;padding-block:var(--sp-md);color:var(--olive-deep)}
+.invest-result__main strong{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;overflow-wrap:anywhere}
+.invest-result__main span{font-size:var(--fs-small)}
+.invest-result.is-loss .invest-result__main{color:#8B3028}
+.invest-breakdown{margin:0 0 var(--sp-md)}
+.invest-breakdown div{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.25rem 1rem;padding:.75rem 0;border-top:var(--border);font-size:var(--fs-small)}
+.invest-breakdown dt{max-width:30ch;color:var(--ink-soft)}
+.invest-breakdown dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums}
+.invest-formula{font-size:var(--fs-small);border-top:var(--border);padding-block:.5rem}
+.invest-formula summary{cursor:pointer;min-height:44px;display:list-item;align-content:center}
+.invest-formula p{margin-top:.75rem;color:var(--ink-soft)}
+.invest-references{list-style:none;display:grid;gap:var(--sp-lg)}
+.invest-references article{display:grid;gap:.8rem}
+.invest-references h3{font-size:var(--fs-h3)}
+.invest-references p{margin:0;font-size:var(--fs-small)}
+.invest-references .link-arrow{justify-self:start;min-height:44px;font-size:var(--fs-small)}
+.invest-faq{max-width:58rem}
+.invest-faq details{border-top:var(--border-strong)}
+.invest-faq details:last-child{border-bottom:var(--border-strong)}
+.invest-faq summary{font-family:var(--font-display);font-size:1.25rem;line-height:1.4;padding:1.2rem .25rem;cursor:pointer}
+.invest-faq details p{padding:0 .25rem 1rem;color:var(--ink-soft);max-width:var(--text-w)}
+.invest-mobile-cta{position:sticky;bottom:0;padding:.6rem var(--gutter) max(.6rem,env(safe-area-inset-bottom));background:var(--bg);border-top:var(--border);z-index:40}
+.invest-mobile-cta .btn{width:100%}
+.invest-page .form textarea{min-height:6rem}
+@media(min-width:700px){.invest-strip .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-md)}.invest-strip span{border:0}.invest-references{grid-template-columns:repeat(3,minmax(0,1fr))}.invest-page--landing .invest-references{grid-template-columns:1fr}.invest-page--landing .invest-references article{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);column-gap:var(--sp-lg);align-items:start}.invest-page--landing .invest-references .media{grid-row:span 3}.invest-page--landing .invest-references h3{align-self:end}}
+@media(min-width:900px){.invest-calc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-xl)}.invest-mobile-cta{display:none}}
+@media(min-width:1000px){.invest-hero__grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--sp-xl)}.invest-hero__photo picture{aspect-ratio:4/5}}
+@media print{.invest-mobile-cta{display:none}.invest-faq details p{display:block}}
