@@ -158,52 +158,52 @@ export const investorFaq = [
 export const investorSteps = [
   {
     "title": {
-      "hu": "Megkeressük a lakást",
-      "en": "We find the apartment"
+      "hu": "Önnek nem kell lakásokat keresnie",
+      "en": "No property hunting for you"
     },
     "text": {
-      "hu": "Felkutatjuk és felmérjük a budapesti lehetőségeket. A kiválasztott lakást az Ön nevére vásároljuk meg.",
-      "en": "We find and assess opportunities in Budapest. The selected apartment is purchased in your name."
+      "hu": "Piacon kívüli lehetőségek és hirdetések közül keressük meg a jó vételt. A felmérést és az áralkut is elvégezzük, a lakás az Ön nevére kerül.",
+      "en": "We find good purchases through off-market opportunities and listings, handle assessment and negotiation, and buy in your name."
     }
   },
   {
     "title": {
-      "hu": "Megtervezzük az átalakítást",
-      "en": "We design the transformation"
+      "hu": "Önnek nem kell terveket egyeztetnie",
+      "en": "No design coordination for you"
     },
     "text": {
-      "hu": "Alaprajz, műszaki tartalom, enteriőr és költségkeret: a teljes tervet összerakjuk.",
-      "en": "Layout, technical scope, interior and budget: we put the complete plan together."
+      "hu": "Alaprajz, műszaki tartalom, enteriőr és költségkeret: egy összehangolt terv alapján halad a projekt, a részleteket mi fogjuk össze.",
+      "en": "Layout, technical scope, interiors and budget follow one coordinated plan. We bring all the details together."
     }
   },
   {
     "title": {
-      "hu": "Végigvisszük a felújítást",
-      "en": "We run the renovation"
+      "hu": "Önnek nem kell mestereket koordinálnia",
+      "en": "No chasing contractors"
     },
     "text": {
-      "hu": "Mi szervezzük a kivitelezőket, a beszerzést és a berendezést. Önnek nem kell mestereket koordinálnia.",
-      "en": "We organise contractors, procurement and furnishing. You do not need to coordinate the trades."
+      "hu": "A kivitelezők, a beszerzések és a berendezés szervezését átvesszük. A napi helyszíni kérdések megoldása a mi feladatunk.",
+      "en": "We organise contractors, procurement and furnishing. We handle the daily questions on site."
     }
   },
   {
     "title": {
-      "hu": "Megszervezzük az eladást",
-      "en": "We organise the sale"
+      "hu": "Önnek nem kell vevőket fogadnia",
+      "en": "No buyer viewings to manage"
     },
     "text": {
-      "hu": "Felkészítjük a lakást az értékesítésre, és kezeljük az eladás napi feladatait.",
-      "en": "We prepare the apartment for sale and handle the daily tasks of selling it."
+      "hu": "A kész lakás értékesítését és a kapcsolódó napi teendőket is intézzük. Önnek nem kell a hirdetésekkel és bemutatásokkal foglalkoznia.",
+      "en": "We manage the sale and its daily tasks, including advertising and viewings, so you do not have to."
     }
   },
   {
     "title": {
-      "hu": "Elszámolunk és felezünk",
-      "en": "We settle and share the profit"
+      "hu": "Ön megkapja a tőkéjét és a profitrészét",
+      "en": "You receive your capital and profit share"
     },
     "text": {
-      "hu": "A nettó projektprofit 50%-a az Öné. Az eladás utáni elszámolásra 3% profitot garantálunk.",
-      "en": "You receive 50% of net project profit. We guarantee 3% profit per project at settlement after the sale."
+      "hu": "Az eladás után a nettó profit fele az Öné, projektenként minimum 3%-os profitgaranciával. Az elszámolásnál minden projektköltséget figyelembe veszünk.",
+      "en": "After the sale, half the net profit is yours, with a minimum 3% profit guarantee per project. Settlement accounts for all project costs."
     }
   }
 ];

@@ -1,11 +1,11 @@
 /* Uses the existing site tokens; only investor pages load this sheet. */
 .invest-hero{padding-block:clamp(1.5rem,3vw,3rem)}
 @media(max-width:599px){.header--landing .header__end>.btn{display:none}}
-.invest-hero__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-lg);max-width:1100px}
-.invest-hero h1{font-size:clamp(1.9rem,1.2rem + 1.8vw,2.9rem);line-height:1.12;margin-bottom:1.5rem;max-width:36ch}
-.invest-hero .lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.55;max-width:44rem}
+.invest-hero__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-lg);max-width:var(--max-w)}
+.invest-hero h1{font-size:clamp(1.9rem,1.2rem + 1.8vw,2.9rem);line-height:1.12;margin-bottom:1.5rem;max-width:none}
+.invest-hero .lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.55;max-width:64rem}
 .invest-hero .btn-row{margin-top:1.4rem}
-.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;border-top:var(--border-strong);border-bottom:var(--border-strong);padding:1rem 0;margin-top:1.2rem;max-width:44rem}
+.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;border-top:var(--border-strong);border-bottom:var(--border-strong);padding:1rem 0;margin-top:1.2rem;max-width:60rem}
 .invest-offer li{display:grid;gap:.4rem;align-content:start}
 .invest-offer strong{font-family:var(--font-display);font-weight:400;font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.15;color:var(--olive-deep)}
 .invest-offer li:nth-child(2) strong{font-size:clamp(.82rem,1.7vw,1.5rem)}
@@ -27,6 +27,25 @@
 .invest-guarantee-example h3{font-size:var(--fs-h3)}
 .invest-guarantee-example p{font-size:var(--fs-small);color:var(--ink-soft);margin:0}
 .invest-guarantee-example .btn{justify-self:start}
+.invest-icon{width:2.5rem;height:2.5rem;flex-shrink:0;color:var(--olive-deep)}
+.invest-guarantee-floor{display:flex;align-items:flex-start;gap:1rem;padding-block:1.25rem;border-block:var(--border-strong)}
+.invest-guarantee-floor strong{color:var(--olive-deep)}
+.invest-responsibilities{background:var(--olive-deep);color:var(--on-dark)}
+.invest-responsibilities .eyebrow,.invest-responsibilities .invest-small{color:var(--sage-soft)}
+.invest-responsibilities h2,.invest-responsibilities h3{color:var(--on-dark)}
+.invest-responsibilities h2{font-size:var(--fs-h2)}
+.invest-responsibilities__intro{display:grid;gap:var(--sp-lg);align-items:center;margin-bottom:var(--sp-xl)}
+.invest-responsibilities__photo{margin:0;position:relative;min-width:0}
+.invest-responsibilities__photo picture{aspect-ratio:3/2;overflow:hidden}
+.invest-responsibilities__photo img{width:100%;height:100%;object-fit:cover}
+.invest-responsibilities__photo figcaption{padding:.5rem .75rem;background:var(--bg-alt);color:var(--ink-soft);font-size:.78rem}
+.invest-benefit-grid{display:grid;list-style:none;gap:1.5rem}
+.invest-benefit-grid li{padding:1.5rem;border:1px solid rgba(250,248,243,.25);background:rgba(250,248,243,.04)}
+.invest-benefit-grid .invest-icon{color:var(--sage-soft);margin-bottom:1rem}
+.invest-benefit-grid h3{font-size:1.4rem;line-height:1.25;margin-bottom:.8rem}
+.invest-benefit-grid p{font-size:var(--fs-small);line-height:1.6;opacity:.9;margin:0}
+@media(min-width:700px){.invest-benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1000px){.invest-responsibilities__intro{grid-template-columns:1.15fr 1fr}.invest-benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.invest-benefit-grid li:last-child{grid-column:span 2}}
 .invest-details{list-style:none;display:grid;gap:2rem}
 .invest-details li{padding-top:1rem;border-top:var(--border-strong)}
 .invest-details h3{font-size:var(--fs-h3);margin-bottom:.6rem}
@@ -88,6 +107,8 @@
 .invest-mobile-cta{position:sticky;bottom:0;padding:.6rem var(--gutter) max(.6rem,env(safe-area-inset-bottom));background:var(--bg);border-top:var(--border);z-index:40}
 .invest-mobile-cta .btn{width:100%}
 .invest-page .form textarea{min-height:6rem}
+.invest-form-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.invest-page .form [type=submit]:disabled{opacity:.65;cursor:wait}
 @media(min-width:700px){.invest-strip .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-md)}.invest-strip span{border:0}.invest-references{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(min-width:900px){.invest-calc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-xl)}.invest-mobile-cta{display:none}}
 @media print{.invest-mobile-cta{display:none}.invest-faq details p{display:block}}

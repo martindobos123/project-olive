@@ -18,6 +18,8 @@ export const site = {
   // a látogató levelezőprogramjában nyit egy előre kitöltött e-mailt — nem jelez hamis sikert.
   // Ha megadod, a Content-Security-Policy form-action / connect-src listájába is fel kell venni.
   formEndpoint: '',
+  // Public FormSubmit endpoint; no secret key is shipped to the browser.
+  investorFormEndpoint: 'https://formsubmit.co/ajax/martindobos123@gmail.com',
   // GoatCounter kód (süti nélküli látogatásmérés). Üresen inaktív.
   goatcounter: '',
   // Adatkezelési tájékoztató: saját oldal (src/i18n.mjs 'privacy' útvonal, src/pages.mjs privacy()).

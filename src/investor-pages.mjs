@@ -3,19 +3,41 @@ import { investorFaq, investorSteps, investorResults } from './data/investors.mj
 import { DEFAULT_PROJECT, calculateProject, calculateTwoProjects } from './assets/investor.mjs';
 import { projects } from './data/projects.mjs';
 import { t, href } from './i18n.mjs';
-import { esc, Picture, Breadcrumb, SectionHeading, ProcessTimeline, BeforeAfterSlider, ProjectGallery, AccessibleLightbox, PageHead } from './components.mjs';
+import { esc, Picture, Breadcrumb, SectionHeading, BeforeAfterSlider, ProjectGallery, AccessibleLightbox, PageHead } from './components.mjs';
 
 const tx = (hu, en) => esc(t({ hu, en }));
 const button = (to = '#erdeklodes') => `<a class="btn btn--solid" href="${to}">${tx('Érdekel a befektetés', 'Explore the investment')}</a>`;
 const number = n => new Intl.NumberFormat(t({hu:'hu-HU',en:'en-GB'}),{maximumFractionDigits:2}).format(n);
 const money = n => new Intl.NumberFormat(t({hu:'hu-HU',en:'en-GB'}),{maximumFractionDigits:0}).format(n) + t({hu:' Ft',en:' HUF'});
 
+function investorIcon(name) {
+  const paths = {
+    search:'<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5M8 11l2 2 4-4"/>',
+    plan:'<path d="M4 3h16v18H4zM4 9h10V3M10 9v12M10 15h10"/>',
+    tools:'<path d="m4 20 9-9M14 4l6 6M13 3l-3 3 8 8 3-3M3 17l4 4M15 15l6 6"/>',
+    home:'<path d="m3 10 9-7 9 7M5 9v12h14V9M9 21v-7h6v7"/>',
+    profit:'<path d="M4 20V4M4 20h17M8 15l4-4 4 2 5-7M16 6h5v5"/>',
+    shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6zM8 12l3 3 5-6"/>',
+  };
+  return `<svg class="invest-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths[name]||paths.home}</svg>`;
+}
+
+function investorResponsibilities() {
+  const photo = projects.find(p=>p.slug==='balazs-bela-utca');
+  return `<section class="section invest-responsibilities" aria-labelledby="model-title"><div class="wrap">
+  <div class="invest-responsibilities__intro"><div><span class="eyebrow">${tx('Önnek felszabadul az ideje', 'Your time stays your own')}</span><h2 id="model-title">${tx('Amiről Önnek nem kell gondoskodnia.', 'Everything you do not have to manage.')}</h2><p class="lead mt-md">${tx('Lakáskeresés, tervezés, kivitelezők, eladás. Ön a saját idejével rendelkezik, a napi feladatokat végig mi intézzük.', 'Property searches, design, contractors and the sale. Your time stays your own while we handle the daily tasks throughout.')}</p></div>
+  <figure class="invest-responsibilities__photo">${Picture(photo.hero,{alt:photo.heroAlt,sizes:'(min-width: 900px) 40vw, 100vw'})}<figcaption>${tx('Balázs Béla utca · megvalósult saját projekt', 'Balázs Béla utca · our completed project')}</figcaption></figure></div>
+  <ol class="invest-benefit-grid">${investorSteps.map((step,i)=>`<li>${investorIcon(['search','plan','tools','home','profit'][i])}<h3>${esc(t(step.title))}</h3><p>${esc(t(step.text))}</p></li>`).join('')}</ol>
+  <p class="invest-small mt-lg">${tx('Önnek a szükséges szerződéseket kell aláírnia és a megállapodás szerinti tőkét biztosítania. A napi szervezéshez nincs szükség az idejére.', 'You sign the necessary agreements and provide the agreed funding. Daily coordination does not require your time.')}</p>
+  </div></section>`;
+}
+
 function heroReference() {
   const project = projects.find(p => p.slug === 'vamhaz-korut');
   const result = investorResults[project.slug];
   const overlay = `<div class="invest-reference-overlay"><strong>≈ ${number(result.projectReturn)}%</strong><span>${tx('teljes projekthozam','full-project return')}</span><b>${result.months} ${tx('hónap','months')}</b></div>`;
   return `<aside class="invest-hero__reference" aria-label="${tx('Vámház körút — saját projektünk előtte és utána','Vámház körút — our project before and after')}">
-  <div class="invest-hero__comparison">${BeforeAfterSlider(project.beforeAfter[0],{eager:true,sizes:'(min-width: 1100px) 1000px, 100vw',overlay})}</div>
+  <div class="invest-hero__comparison">${BeforeAfterSlider(project.beforeAfter[0],{eager:true,sizes:'(min-width: 1280px) 1168px, 100vw',overlay})}</div>
   <a class="link-arrow" href="${href('investorProject:'+project.slug)}">${tx('Vámház körút · Megnézem a projektet','Vámház körút · View the project')}</a>
   <p class="invest-small mt-sm">${tx('Tulajdonosi adatközlés, adózás előtt. Teljes projekteredmény; az 50–50-es modell befektetői része ennek fele.', 'Owner-reported, before tax. Full-project result; the investor share in the 50–50 model is half of this.')}</p>
   </aside>`;
@@ -38,7 +60,7 @@ function profitGuarantee() {
   return `<section class="section section--alt" id="profitgarancia" aria-labelledby="guarantee-title"><div class="wrap split split--top">
   <div><span class="eyebrow">${tx('A profit közös. A garanciát mi adjuk.','Shared profit. Our guarantee.')}</span><h2 id="guarantee-title">${tx('A nettó profit 50%-a az Öné. Projektenként 3% profitot garantálunk.','Half the net profit is yours. We guarantee 3% profit per project.')}</h2><p class="lead">${tx('A lakás eladása után visszakapja a teljes, igazolt projektfinanszírozását és a nettó profit felét — de legalább 3% profitot a befektetett tőkéjére.', 'After the sale, you receive your full documented project funding and half the net profit — with at least 3% profit on your invested capital.')}</p>
   <p class="copy">${tx('Ha a profit fele több, a magasabb összeg jár. A 3% beleszámít a profitrészébe, nem azon felül jár. Ha az eladásból nem jön ki a tőke és a garantált profit, a különbözetet az Urbanflip pótolja.', 'If half the profit is higher, you receive the higher amount. The 3% is included in your profit share, not added to it. If the sale does not cover your capital and guaranteed profit, Urbanflip funds the difference.')}</p><p class="invest-small mt-md">${tx('Az évi 20–30% az Ön adózás előtti hozamcélja, nem garantált éves eredmény. Az elért éves hozamot a projektek eredménye, időtartama és az újrabefektetés üteme határozza meg.', 'The 20–30% annual target is before your own taxes, not a guaranteed annual result. Actual annual returns depend on project results, duration and the timing of reinvestment.')}</p></div>
-  <div class="invest-guarantee-example"><span class="eyebrow">${tx('Például 50 millió Ft tőkénél','For example, with HUF 50 million')}</span><strong>1 500 000 Ft</strong><h3>${tx('garantált profit projektenként','guaranteed profit per project')}</h3><p>${tx('Az eladás utáni elszámoláskor, a tőkéjén felül. Saját adózás előtt; a garancia projektre, nem egy évre szól.', 'At settlement after the sale, in addition to your capital. Before your own taxes; the guarantee applies per project, not per year.')}</p>${button()}</div>
+  <div class="invest-guarantee-example"><span class="eyebrow">${tx('50 millió Ft tőke · szemléltető példa','HUF 50 million capital · illustrative example')}</span><strong>6 000 000 Ft</strong><h3>${tx('az Ön adózás előtti profitja','your profit before tax')}</h3><p>${tx('12 millió Ft nettó projektprofit 50%-a az Öné: ez ebben a példában 12% projekthozam. A 6 millió Ft szemléltető eredmény.', 'You receive half of HUF 12 million net project profit: a 12% project return in this example. HUF 6 million is an illustrative result.')}</p><div class="invest-guarantee-floor">${investorIcon('shield')}<p><strong>${tx('Ha a projekt veszteséges, akkor is 1 500 000 Ft profitot garantálunk.','Even if the project makes a loss, we guarantee HUF 1,500,000 profit.')}</strong> ${tx('Az 50 millió Ft tőkéje visszafizetésén felül, az eladás utáni elszámoláskor. A 3% a profitrészébe beleszámít; saját adózás előtt, projektenként.', 'In addition to repayment of your HUF 50 million capital, at settlement after the sale. The 3% is included in your profit share; before your own taxes, per project.')}</p></div>${button()}</div>
   </div></section>`;
 }
 
@@ -98,14 +120,16 @@ function references(landing) {
 function enquiry() {
   return `<section class="section section--alt" id="erdeklodes" aria-labelledby="enquiry-title"><div class="wrap split split--top">
   <div><span class="eyebrow">${tx('Első lépés: egy beszélgetés', 'First step: a conversation')}</span><h2 id="enquiry-title">${tx('Nézzük meg, illik-e Önhöz ez a modell.', 'Let’s see if this model suits you.')}</h2><p class="lead">${tx('Írja meg, milyen keretben és mikor gondolkodik. Átbeszéljük a lehetőségeket, a költségeket és a nyitott kérdéseket.', 'Tell us your budget and timing. We will discuss the possibilities, costs and open questions.')}</p><p class="invest-small">${tx('Az érdeklődés nem jelent befektetési kötelezettséget. Az együttműködés részleteit egyedi megállapodás rögzíti.', 'An enquiry creates no obligation to invest. An individual agreement defines the terms.')}</p><a class="link-arrow" href="${site.phoneHref}">${esc(site.phone)}</a></div>
-  <form class="form" data-invest-form data-mailto="${esc(site.email)}" aria-describedby="invest-form-note">
+  <form class="form" data-invest-form data-endpoint="${esc(site.investorFormEndpoint)}" action="${esc(site.investorFormEndpoint.replace('/ajax/','/'))}" method="POST" aria-describedby="invest-form-note">
+    <input type="hidden" name="_subject" value="${tx('Befektetői érdeklődés — Urban Flip Studio','Investor enquiry — Urban Flip Studio')}"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
+    <div class="invest-form-trap" aria-hidden="true"><label for="invest-website">${tx('Hagyja üresen', 'Leave empty')}</label><input id="invest-website" name="_honey" type="text" tabindex="-1" autocomplete="off"></div>
     <div class="form__row"><div class="field"><label for="invest-name">${tx('Név', 'Name')} *</label><input id="invest-name" name="name" autocomplete="name" maxlength="120" required></div><div class="field"><label for="invest-email">${tx('E-mail', 'Email')} *</label><input id="invest-email" name="email" type="email" autocomplete="email" maxlength="180" required></div></div>
     <div class="form__row"><div class="field"><label for="invest-budget">${tx('Tervezett tőkekeret (opcionális)', 'Planned capital (optional)')}</label><select id="invest-budget" name="budget"><option value="">${tx('Még egyeztetnék róla', 'Let’s discuss it')}</option><option>40–50 M Ft</option><option>50–80 M Ft</option><option>80+ M Ft</option></select></div><div class="field"><label for="invest-phone">${tx('Telefonszám (opcionális)', 'Phone (optional)')}</label><input id="invest-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div></div>
     <div class="field"><label for="invest-message">${tx('Időzítés, kérdés vagy elképzelés (opcionális)', 'Timing, questions or ideas (optional)')}</label><textarea id="invest-message" name="message" maxlength="1500" rows="3"></textarea></div>
     <div class="field field--check"><input id="invest-consent" name="consent" type="checkbox" required><label for="invest-consent">${tx('Hozzájárulok adataim kezeléséhez a megkeresésem megválaszolása céljából. Elolvastam az', 'I consent to my data being processed to respond to my enquiry. I have read the')} <a href="${href('privacy')}">${tx('adatkezelési tájékoztatót', 'privacy notice')}</a>. *</label></div>
-    <button class="btn btn--solid" type="submit">${tx('Érdeklődő e-mail összeállítása', 'Prepare enquiry email')}</button><p class="form__status" role="status" aria-live="polite"></p>
-    <p class="form__alt" id="invest-form-note">${tx('A gomb előre kitöltött e-mailt nyit a saját levelezőjében; az üzenetet ott kell elküldenie. Ha nem nyílik meg, írjon közvetlenül:', 'The button opens a pre-filled email in your email app; send the message there. If it does not open, email us directly:')} <a href="mailto:${site.email}">${esc(site.email)}</a>.</p>
-    <noscript><p>${tx('Az űrlap összeállításához JavaScript szükséges. Kérjük, írjon közvetlenül a fenti e-mail-címre, vagy telefonáljon.', 'The form requires JavaScript. Please email us directly using the address above or call us.')}</p></noscript>
+    <button class="btn btn--solid" type="submit">${tx('Beszéljünk a befektetésről', 'Let’s discuss your investment')}</button><p class="form__status" role="status" aria-live="polite" tabindex="-1"></p>
+    <p class="form__alt" id="invest-form-note">${tx('Az üzenetét közvetlenül innen küldheti el, saját levelező megnyitása nélkül. Vagy írjon nekünk:', 'Send your message directly from this page, without opening an email app. Or email us:')} <a href="mailto:${site.email}">${esc(site.email)}</a>.</p>
+    <noscript><p>${tx('JavaScript nélkül a küldés a FormSubmit visszaigazoló oldalán fejeződik be. E-mailben és telefonon is elér minket.', 'Without JavaScript, submission finishes on FormSubmit’s confirmation page. You can also reach us by email or phone.')}</p></noscript>
   </form></div></section>`;
 }
 
@@ -127,15 +151,10 @@ export function investorPage(landing = false) {
       <div class="btn-row">${button()}${landing?'':`<a class="btn btn--line" href="#kalkulator">${tx('Kiszámolom egy projekt eredményét', 'Explore a project’s numbers')}</a>`}</div>
       <p class="invest-small mt-md"><strong>${tx('Minimum beszálló: 40–50 millió Ft', 'Minimum investment: HUF 40–50 million')}</strong> · ${tx('projekttől függően', 'depending on the project')}</p>
     </div>${heroReference()}</div></section>
-    <div class="invest-strip"><div class="wrap"><span>${tx('Az ingatlan az Ön nevén', 'Property in your name')}</span><span>${tx('Teljes projektszervezés', 'Full project coordination')}</span><span>${tx('Pozitív projektprofit: 50–50%', 'Positive project profit: 50–50%')}</span></div></div>
-    ${landing?references(true):''}
+    ${references(landing)}
     ${propertySourcing()}
-    <section class="section" aria-labelledby="model-title"><div class="wrap">
-    ${SectionHeading({eyebrow:tx('Önnek nem kell a felújítással foglalkoznia', 'No renovation work for you'),title:tx('Amit mi mind vállalunk.', 'Everything we take care of.'),id:'model-title',intro:tx('Nem kell lakást vadásznia, kivitelezőt keresnie vagy a helyszínen intézkednie. A lakáskereséstől az eladásig mi visszük a teljes projektet.', 'No property hunting, finding contractors or managing a building site. We run the complete project, from the property search to the sale.'),split:true})}
-    ${ProcessTimeline(investorSteps)}
-    <p class="copy mt-lg">${tx('Önnek nem kell a helyszínen dolgoznia vagy mestereket hívogatnia. A szükséges szerződések aláírásában és meghatalmazásokban számítunk Önre; a napi szervezést mi intézzük.', 'You do not need to work on site or chase contractors. We need your signature or authorisation for the necessary agreements; we handle daily coordination.')}</p>
-    </div></section>
-    ${profitGuarantee()}${calculator()}${landing?'':references(false)}${practicalDetails()}
+    ${investorResponsibilities()}
+    ${profitGuarantee()}${calculator()}${practicalDetails()}
     <section class="section" aria-labelledby="faq-title"><div class="wrap invest-faq">
     ${SectionHeading({eyebrow:tx('Kérdések és válaszok','Questions and answers'),title:tx('Amit érdemes előre tisztázni.', 'What to clarify before starting.'),id:'faq-title'})}
     ${investorFaq.map(f=>`<details><summary>${esc(t(f.q))}</summary><p>${esc(t(f.a))}${f.links?` <a href="${esc(f.links[0].url)}" target="_blank" rel="noopener">${esc(t(f.links[0].label))}</a>`:''}</p></details>`).join('')}

@@ -20,7 +20,7 @@ Vámház körút: a meglévő, egyező nézőpontú nappali–konyha fotópár e
 
 ### Az oldal sorrendje
 
-Ajánlat és előtte–utána bizonyíték → korábbi projektek (landing) → lakásforrások és vételárelőny → teljes projektszervezés → önálló profitgarancia és 50 M Ft-os példa → kalkulátor → referenciák (aloldal) → pénzügyi tudnivalók (tulajdon, elszámolás, közvetlen fizetés, időzítés, adózás, céges részvétel, kockázatok és kiszállás) → összefoglaló FAQ → érdeklődés. A FAQ egyik témája sem csak lenyitható válaszban olvasható.
+Teljes konténerszélességű ajánlat → előtte–utána kép → referenciák (mindkét oldal) → lakásforrások és vételárelőny → befektetői teendőket átvevő képes, ikonos szekció → önálló profitgarancia és 50 M Ft-os példa → kalkulátor → pénzügyi tudnivalók (tulajdon, elszámolás, közvetlen fizetés, időzítés, adózás, céges részvétel, kockázatok és kiszállás) → összefoglaló FAQ → érdeklődés. A FAQ egyik témája sem csak lenyitható válaszban olvasható.
 
 ## Honnan vannak a lakások?
 
@@ -29,6 +29,16 @@ Külön, nyitott szakasz a folyamat előtt: „A profitot már a vételárnál m
 ## Vállalt konstrukció
 
 A tulajdonos által megerősített ajánlat szerint a teljes igazolt projektfinanszírozás visszajár, ezen felül legalább 3% jár az eladás utáni elszámoláskor. A profitból járó 50% beleszámít a minimumba. A minimum teljesítéséhez szükséges tőkehiányt és hozamkülönbözetet az Urbanflip pótolja. A kockázatokról, az elhúzódó eladásról, a vállalás teljesíthetőségéről és a vis maior kezeléséről külön FAQ szól. Ez nem állami vagy banki biztosítás.
+
+## Szemléltető profitpélda és megjelenés
+
+50 M Ft tőke mellett 12 M Ft nettó projektprofitból 6 M Ft a befektető adózás előtti része, azaz 12% projekthozam. Ez szemléltető eredmény, nem 6 M Ft-os garancia. Veszteséges projektnél is 1,5 M Ft garantált profit járna az 50 M Ft tőkén felül, az eladás utáni elszámoláskor. A 3% beleszámít a profitrészbe.
+
+A hero a többi oldalszakasszal azonos, 1280 px-es konténerhez igazodik. A napi feladatok befektetői szemszögből, saját projektfotóval, olívazöld háttéren és öt SVG-ikonnal jelennek meg. A kalkulátor és a képcsúszka megmarad.
+
+## Oldalon belüli érdeklődési űrlap
+
+FormSubmit AJAX végpont a martindobos123@gmail.com címre. Név, válaszcím, opcionális telefon/tőkekeret/üzenet, adatkezelési hozzájárulás. Valós szolgáltatói sikerjelzés után törlődik az űrlap; aktiválási, hálózati vagy időtúllépési hiba esetén az adatok megmaradnak. Dupla küldés elleni védelem, honeypot, 20 másodperces időkorlát; az oldalon nincs titkos API-kulcs. A FormSubmit adatkezelése szerepel a tájékoztatóban. A szolgáltatói e-mailes aktiválást és az éles kézbesítést induláskor ellenőrizni kell.
 
 ## Kalkulátor
 
