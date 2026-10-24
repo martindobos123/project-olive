@@ -73,8 +73,8 @@ const CSP = [
   "default-src 'self'", "base-uri 'self'", `img-src 'self' data:${PIXEL ? ' https://bzr.openai.com' : ''}`,
   "style-src 'self' 'unsafe-inline'", "font-src 'self'",
   `script-src 'self'${site.goatcounter ? ' https://gc.zgo.at' : ''}${PIXEL ? ' https://bzrcdn.openai.com' : ''}`,
-  `connect-src 'self'${site.goatcounter ? ' https://*.goatcounter.com' : ''}${site.formEndpoint ? ' ' + new URL(site.formEndpoint).origin : ''}${PIXEL ? ' https://bzr.openai.com https://bzrcdn.openai.com' : ''}`,
-  "media-src 'self'", "object-src 'none'", "frame-src 'none'", "form-action 'self'", 'upgrade-insecure-requests',
+  `connect-src 'self'${site.goatcounter ? ' https://*.goatcounter.com' : ''}${site.formEndpoint ? ' ' + new URL(site.formEndpoint).origin : ''}${site.investorFormEndpoint ? ' ' + new URL(site.investorFormEndpoint).origin : ''}${PIXEL ? ' https://bzr.openai.com https://bzrcdn.openai.com' : ''}`,
+  "media-src 'self'", "object-src 'none'", "frame-src 'none'", `form-action 'self'${site.investorFormEndpoint ? ' ' + new URL(site.investorFormEndpoint).origin : ''}`, 'upgrade-insecure-requests',
 ].join('; ');
 
 function layout(page, lang) {

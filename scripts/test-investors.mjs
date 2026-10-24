@@ -1,10 +1,24 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { calculateProject, calculateTwoProjects, DEFAULT_PROJECT } from '../src/assets/investor.mjs';
+import { calculateProject, calculateTwoProjects, DEFAULT_PROJECT, sendInvestorEnquiry } from '../src/assets/investor.mjs';
 import { investorResults } from '../src/data/investors.mjs';
 const example = DEFAULT_PROJECT;
 const close = (actual, expected) => assert.ok(Math.abs(actual-expected)<1e-8, `${actual} != ${expected}`);
+
+test('form delivery requires a positive provider response, including string false and activation',async()=>{
+ const reply=(success,message='',ok=true)=>async()=>({ok,json:async()=>({success,message})});
+ assert.deepEqual(await sendInvestorEnquiry('https://example.test',{},reply('true')),{ok:true});
+ assert.deepEqual(await sendInvestorEnquiry('https://example.test',{},reply('false','This form needs Activation')),{ok:false,activation:true});
+ assert.deepEqual(await sendInvestorEnquiry('https://example.test',{},reply('false')),{ok:false,activation:false});
+ assert.deepEqual(await sendInvestorEnquiry('https://example.test',{},reply(true,'',false)),{ok:false,activation:false});
+});
+test('form network errors, invalid JSON and timeouts do not report success',async()=>{
+ assert.equal((await sendInvestorEnquiry('https://example.test',{},async()=>{throw new Error('offline')})).ok,false);
+ assert.equal((await sendInvestorEnquiry('https://example.test',{},async()=>({ok:true,json:async()=>{throw new Error('HTML response')}}))).ok,false);
+ const delayed=(_url,{signal})=>new Promise((_resolve,reject)=>signal.addEventListener('abort',()=>reject(new Error('timeout'))));
+ assert.equal((await sendInvestorEnquiry('https://example.test',{},delayed,5)).ok,false);
+});
 
 test('owner screenshot defaults split every cost before sharing profit',()=>{
  const r=calculateProject(example);
