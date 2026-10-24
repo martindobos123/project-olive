@@ -1,6 +1,6 @@
 # Urban Flip Studio – jóváhagyásra váró szövegtervezet
 
-Ezek szerkeszthető javaslatok. A PR tervezet marad a hero és a FAQ elfogadásáig. A főoldal jelenlegi címe választásig változatlan.
+Ezek szerkeszthető javaslatok. A főoldal jelenlegi címét a tulajdonos elfogadta. A befektetői hero C változata kiválasztva, kizárólag jogi jóváhagyás utáni használatra. A FAQ módosításai még nyitottak, a PR tervezet marad.
 
 ## Főoldali hero – választható címek
 
@@ -30,13 +30,13 @@ A korábbi hero-javaslatokat a tulajdonos elvetette. A főoldal jelenlegi headli
 
 Budapesti lakás, az Ön nevére vásárolva. Ön biztosítja a vétel és a felújítás keretét; mi megkeressük, átalakítjuk és értékesítésre visszük az ingatlant. A pozitív projektprofitot a költségek után felezzük. A tervezett 3%-os minimum projekthozam vállalása és szerződéses feltételei még véglegesítés alatt állnak.
 
-### C – A teljes ajánlat, kizárólag jogi jóváhagyás UTÁNI használatra
+### C – KIVÁLASZTOTT teljes ajánlat, kizárólag jogi jóváhagyás UTÁNI használatra
 
 **A lakás az Ön nevén. A projektprofit 50%-a az Öné. Projektenként legalább 3% hozammal.**
 
 A lakáskereséstől a felújításon át az eladásig mi szervezzük a projektet. Ön finanszíroz, mi elvégezzük a napi munkát. A 3%-os minimumhozam a szerződésben meghatározott finanszírozási alapra és feltételekkel jár; a felezett profitból kapott részesedés beleszámít a minimumba.
 
-**Ez még belső szövegopció, nem jóváhagyott vállalás.** A számítási alap, a tőkeveszteség rendezése, a fizetési határidő és a fedezet még tisztázandó. Ez a változat nem kerül a generált oldalakba.
+**Tulajdonosi döntés, 2026. október 24.:** a C cím kiválasztva; a teljes igazolt projektfinanszírozás visszafizetése és az ezen felüli legalább 3% a szerződéses kidolgozás elfogadott üzleti alapja. Az 50%-os profitrészesedés beleszámít a minimumba. Veszteséges projektben az Urbanflipnek kellene pótolnia a hiányzó tőkét és a minimumhozamot. Ez üzleti irányválasztás, nem jogi jóváhagyás. A szerződés, fedezet, teljesíthetőség és fizetési határidő még rendezendő. A teljes garanciaígéretet tartalmazó C változat jogi jóváhagyásig nem kerül a generált oldalakba.
 
 Fő CTA: **Beszéljünk a befektetésről**. A főoldali CTA: **Befektetőként csatlakoznék**.
 
@@ -76,7 +76,7 @@ A többletköltség és az alacsonyabb eladási ár csökkenti az eredményt; ve
 ### 7. Van minimumhozam?
 **Nyilvános oldalra, jogi jóváhagyásig:** Projektenkénti 3%-os minimumhozammal tervezünk, de a vállalás és a szerződéses feltételei még véglegesítés alatt állnak. Ez jelenleg nem hozamgarancia. A kalkulátor nem feltételez garantált kifizetést: a megadott adatokból számolt projektpéldát és a lehetséges veszteséget is megmutatja.
 
-**Belső konstrukciós javaslat a 2026. október 24-i kérés alapján:** Projektenkénti 3%-os hozamgaranciával tervezünk. Javasolt számítási alap az igazoltan befizetett, elszámolásban elismert teljes projektfinanszírozás. Javasolt elszámolás: a befektető pozitív profitból járó 50%-os részesedése beleszámít a minimumba; a 3% nem ezen felül jár. Példa: 50 millió Ft finanszírozás esetén 1,5 millió Ft minimum projektjövedelem, nem éves hozam. Ez csak egyeztetési alap, még nem vállalható nyilvános ajánlat.
+**Belső konstrukciós javaslat a 2026. október 24-i kérés alapján:** Projektenkénti 3%-os hozamgaranciával tervezünk. A tulajdonos által szerződéses kidolgozási alapként elfogadott számítási alap az igazoltan befizetett, elszámolásban elismert teljes projektfinanszírozás, amely visszajár. Ezen felül legalább 3% járna. Elfogadott elszámolási irány: a befektető pozitív profitból járó 50%-os részesedése beleszámít a minimumba; a 3% nem ezen felül jár. Példa: 50 millió Ft finanszírozás esetén 1,5 millió Ft minimum projektjövedelem, nem éves hozam. Ez csak egyeztetési alap, még nem vállalható nyilvános ajánlat.
 
 **Rögzítendő:** szerződő kötelezett és fizetőképessége; a tőkeveszteség rendezése és a tőke visszafizetése; a finanszírozási alapba tartozó tételek; hozam és személyes adók viszonya; fizetés időpontja és végső határideje elhúzódó eladásnál; korai kiszállás; biztosíték, teljesítés és érvényesítés; költségtúllépés és kivételek. A 3%-ot a kalkulátor nem alkalmazza automatikus alsó korlátként, amíg a feltételek nincsenek elfogadva.
 
