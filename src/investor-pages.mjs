@@ -21,6 +21,19 @@ function heroReference() {
   </aside>`;
 }
 
+function propertySourcing() {
+  const sources = [
+    ['Piacon kívüli lehetőségek', 'Off-market opportunities', 'Ingatlanos kapcsolatokon, örökölt lakások értékesítésén és közös képviselőkön keresztül olyan lakásokhoz is hozzájutunk, amelyek még nem kerültek fel a hirdetési oldalakra.', 'Through estate-agent contacts, inherited-property sales and building managers, we also access apartments that have not yet appeared on listing sites.'],
+    ['Készpénzzel jobb alkupozíció', 'A stronger position with cash', 'A rendelkezésre álló tőkével hitelügyintézés nélkül tudunk vásárolni. Az eladónak érték a gyors, kiszámítható megállapodás: ez segít piaci ár alatt megvenni a megfelelő lakást.', 'Available capital lets us buy without arranging a mortgage. A quick, predictable agreement is valuable to sellers and helps us negotiate a below-market purchase price.'],
+    ['Saját szoftver figyeli a piacot', 'Our own software monitors the market', 'A kapcsolati hálónk mellett saját szoftverünk is folyamatosan figyeli az ingatlanpiacot, és küldi nekünk a jó vételeket. Így gyorsan tudunk reagálni az ígéretes lehetőségekre.', 'Alongside our network, our own software continuously monitors property listings and alerts us to good buying opportunities, helping us respond quickly.'],
+  ];
+  return `<section class="section section--alt" id="lakasforrasok" aria-labelledby="sourcing-title"><div class="wrap">
+  ${SectionHeading({eyebrow:tx('Honnan vannak a jó vételek?', 'Where do we find good deals?'),title:tx('A profitot már a vételárnál megalapozzuk.', 'A good purchase price lays the foundation for profit.'),id:'sourcing-title',intro:tx('Kapcsolati hálóval, piacon kívüli lehetőségekkel és saját piacfigyelő szoftverrel keressük a piaci ár alatti budapesti lakásokat.', 'We use our network, off-market opportunities and our own monitoring software to find Budapest apartments below market value.'),split:true})}
+  <ul class="invest-details">${sources.map(([hu,en,a,b])=>`<li><h3>${tx(hu,en)}</h3><p>${tx(a,b)}</p></li>`).join('')}</ul>
+  <p class="lead mt-lg">${tx('Önnek nem kell hirdetéseket böngésznie vagy ingatlanosokat hívogatnia. A jó vétel felkutatása és az áralku is a mi feladatunk.', 'You do not need to browse listings or chase estate agents. Finding the right purchase and negotiating the price are part of our work.')}</p>
+  </div></section>`;
+}
+
 function profitGuarantee() {
   return `<section class="section section--alt" id="profitgarancia" aria-labelledby="guarantee-title"><div class="wrap split split--top">
   <div><span class="eyebrow">${tx('A profit közös. A garanciát mi adjuk.','Shared profit. Our guarantee.')}</span><h2 id="guarantee-title">${tx('A nettó profit 50%-a az Öné. Projektenként 3% profitot garantálunk.','Half the net profit is yours. We guarantee 3% profit per project.')}</h2><p class="lead">${tx('A lakás eladása után visszakapja a teljes, igazolt projektfinanszírozását és a nettó profit felét — de legalább 3% profitot a befektetett tőkéjére.', 'After the sale, you receive your full documented project funding and half the net profit — with at least 3% profit on your invested capital.')}</p>
@@ -116,6 +129,7 @@ export function investorPage(landing = false) {
     </div>${heroReference()}</div></section>
     <div class="invest-strip"><div class="wrap"><span>${tx('Az ingatlan az Ön nevén', 'Property in your name')}</span><span>${tx('Teljes projektszervezés', 'Full project coordination')}</span><span>${tx('Pozitív projektprofit: 50–50%', 'Positive project profit: 50–50%')}</span></div></div>
     ${landing?references(true):''}
+    ${propertySourcing()}
     <section class="section" aria-labelledby="model-title"><div class="wrap">
     ${SectionHeading({eyebrow:tx('Önnek nem kell a felújítással foglalkoznia', 'No renovation work for you'),title:tx('Amit mi mind vállalunk.', 'Everything we take care of.'),id:'model-title',intro:tx('Nem kell lakást vadásznia, kivitelezőt keresnie vagy a helyszínen intézkednie. A lakáskereséstől az eladásig mi visszük a teljes projektet.', 'No property hunting, finding contractors or managing a building site. We run the complete project, from the property search to the sale.'),split:true})}
     ${ProcessTimeline(investorSteps)}
