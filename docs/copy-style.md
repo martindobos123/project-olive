@@ -3,6 +3,7 @@
 A tulajdonos által kért hang: közérthető, természetes, rövid és professzionális. A magyar oldalon magázódunk.
 
 - Konkrétan mondjuk el, mit intézünk és ez miben segít az olvasónak.
+- A hang legyen közvetlen, de ne gyermeteg vagy leereszkedő. „Kivitelezők” és „egyeztetés” használható; a „mesterek hívogatása” jellegű fordulatokat kerüljük.
 - Rövid mondatok, hétköznapi igék. Például „szakembereket szervezünk” a „szakágak koordinációja” helyett.
 - Kerüljük az általános reklámmondatokat, a ködös hasonlatokat és a fölösleges szakzsargont.
 - A műszaki részleteket, projektadatokat és a pénzügyi feltételeket pontosan írjuk le.

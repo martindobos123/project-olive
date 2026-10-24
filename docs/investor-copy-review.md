@@ -66,7 +66,7 @@ Az Ön nevére, végig Ön a tulajdonos. Mi megkeressük a lakást, felújítjuk
 
 ### 3. Nekem tényleg csak a tőkét kell adnom?
 
-Igen. Mi keressük a lakást, szervezzük a felújítást, a beszerzést, a berendezést és az eladást. Önnek nem kell mestereket hívogatnia vagy a helyszínre járnia. A szükséges szerződéseket és meghatalmazásokat Ön írja alá.
+Igen. Mi keressük a lakást, szervezzük a felújítást, a beszerzést, a berendezést és az eladást. A kivitelezőkkel való egyeztetést és a helyszíni feladatokat is mi intézzük. A szükséges szerződéseket és meghatalmazásokat Ön írja alá.
 
 ### 4. Hogyan felezzük a nettó profitot?
 
@@ -108,4 +108,4 @@ A Vámház körúti lakásnál körülbelül 30% volt a teljes projekt hozama 12
 
 ### 13. Mi a következő lépés?
 
-Írja meg, mennyit fektetne be és mikor kezdene. Elmondjuk, hogyan dolgozunk, és átbeszéljük a kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.
+Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális az indulás. Az egyeztetésen átbeszéljük az együttműködés menetét és az Ön kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.
