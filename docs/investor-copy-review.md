@@ -1,14 +1,16 @@
 # Urban Flip Studio – befektetői ajánlat és FAQ
 
-Frissítve: 2026. október 24. A tulajdonos legújabb kérése szerint az ajánlat közvetlen és leadgenerálásra célzott. A PR továbbra is draft, élesítés nélkül.
+Frissítve: 2026. október 24. A tulajdonos legújabb kérése szerint az ajánlat közvetlen és leadgenerálásra célzott. A tulajdonos jóváhagyta az élesítést a kiválasztott ajánlattal.
 
 ## Hero
 
-**Budapesti lakást veszünk, felújítunk és eladunk. Önnek 50% nettó profitrész, 3% garantált profittal.**
+**Mi megtaláljuk, felújítjuk és eladjuk. Ön finanszírozza, tulajdonolja, és megtartja a profit felét évi 20–30%-os hozamcéllal.**
 
-Ön csak a tőkét biztosítja. A lakás az Ön nevén van, a teljes projektet mi visszük.
+Garanciát is vállalunk projektenként minimum 3%-os hozamra, veszteség esetén is! A lakás az Ön nevén van, minden mást mi végzünk.
 
-50–50% nettó profitmegosztás · 3% garantált profit projektenként · saját névre vásárolt ingatlan.
+50–50% nettó profitmegosztás · Hozamgarancia: tőkegarancia és minimum 3% profit projektenként · saját névre vásárolt ingatlan.
+
+Az évi 20–30% befektetői célhozam saját adózás előtt, nem garantált éves eredmény. Az eredményt a projektek profitja, időtartama és az újrabefektetés üteme határozza meg; a garancia projektenkénti.
 
 **Minimum beszálló: 40–50 millió Ft**, projekttől függően. CTA: **Érdekel a befektetés**.
 
@@ -18,7 +20,7 @@ Vámház körút: a meglévő, egyező nézőpontú nappali–konyha fotópár e
 
 ### Az oldal sorrendje
 
-Ajánlat és előtte–utána bizonyíték → korábbi projektek (landing) → teljes projektszervezés → önálló profitgarancia és 50 M Ft-os példa → kalkulátor → referenciák (aloldal) → pénzügyi tudnivalók (tulajdon, elszámolás, közvetlen fizetés, időzítés, adózás, céges részvétel, kockázatok és kiszállás) → érdeklődés → összefoglaló FAQ. A FAQ egyik témája sem csak lenyitható válaszban olvasható.
+Ajánlat és előtte–utána bizonyíték → korábbi projektek (landing) → teljes projektszervezés → önálló profitgarancia és 50 M Ft-os példa → kalkulátor → referenciák (aloldal) → pénzügyi tudnivalók (tulajdon, elszámolás, közvetlen fizetés, időzítés, adózás, céges részvétel, kockázatok és kiszállás) → összefoglaló FAQ → érdeklődés. A FAQ egyik témája sem csak lenyitható válaszban olvasható.
 
 ## Vállalt konstrukció
 
@@ -28,7 +30,7 @@ A tulajdonos által megerősített ajánlat szerint a teljes igazolt projektfina
 
 Alapértékek a tulajdonosi képernyőkép szerint: 45 M Ft vétel, 8 M Ft felújítás, 2 M Ft egyéb költség, 67 M Ft eladás, 6 hónap. Minden csúszka és számmező lépése 1.
 
-55 M Ft teljes finanszírozás, 12 M Ft nettó projektprofit, 6 M Ft befektetői jövedelem: 10,91% projekthozam. Évesítve 23,01%, azonos százalékos eredmény és teljes újrabefektetés mellett.
+55 M Ft teljes finanszírozás, 12 M Ft nettó projektprofit, 6 M Ft befektetői jövedelem, kiemelt forintösszegként is: 10,91% projekthozam. Évesítve 23,01%, azonos százalékos eredmény és teljes újrabefektetés mellett.
 
 Évesített hozam = ((1 + projekthozam / 100)^(12 / hónap) − 1) × 100. Ez egy összehasonlító matematikai mutató, nem megígért éves eredmény. A 3% projektenkénti minimum. A kalkulátor nem von le személyes adót. Ha a garantált profit csak Urbanflip-pótlással teljesülhet, a szükséges pótlást külön jelzi.
 
