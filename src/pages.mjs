@@ -46,10 +46,10 @@ const crumb = (key, label) => ({ href: href(key), label: t(label) });
 const HOME = { hu: 'Kezdőlap', en: 'Home' };
 
 const closingCta = () => ContactCTA({
-  title: t({ hu: 'Van egy lakás, amiben több lehetőség van?', en: 'Have an apartment with more potential?' }),
+  title: t({ hu: 'Felújítást tervez? Beszéljünk róla.', en: 'Planning a renovation? Let’s talk.' }),
   text: t({
-    hu: 'Írjon néhány mondatot a projektről. Az első egyeztetésen átbeszéljük az ingatlan állapotát, az elképzeléseket és a lehetséges következő lépéseket.',
-    en: 'Write a few lines about your project. At our first meeting we’ll go through the condition of the property, your ideas and the possible next steps.',
+    hu: 'Írja meg, mit szeretne felújítani és mennyit szán rá. Átbeszéljük az elképzeléseit, és elmondjuk, hogyan tudunk segíteni.',
+    en: 'Tell us what you would like to renovate and your budget. We will talk through your plans and explain how we can help.',
   }),
 });
 
@@ -79,7 +79,7 @@ ${Hero({
   eyebrow: t({ hu: 'Generálkivitelezés · Enteriőrtervezés · Lakberendezés', en: 'General contracting · Interior design · Furnishing' }),
   title: t({ hu: 'Lakásfelújítás A–Z-ig, a tervezéstől a lakberendezésig.', en: 'Apartment renovation from A to Z, from design to furnishing.' }),
   lead: t({
-    hu: 'Teljes körű lakásfelújítást és enteriőrtervezést vállalunk Budapesten – a műszaki tervezéstől és kivitelezéstől a berendezésen át az átadásig.',
+    hu: 'Budapesti lakásokat újítunk fel a tervektől a berendezésig. A szakembereket és a beszerzést is mi szervezzük, Ön végig velünk egyeztet.',
     en: 'We take on full-scope apartment renovation and interior design in Budapest – from technical planning and construction through furnishing to handover.',
   }),
   ctas: [
@@ -90,10 +90,10 @@ ${Hero({
 <section class="section" aria-labelledby="intro-title"><div class="wrap split split--top">
   <div>
     <span class="eyebrow">Urban Flip Studio</span>
-    <h2 id="intro-title">${t({ hu: 'Egy kézben a teljes átalakulás', en: 'The whole transformation in one pair of hands' })}</h2>
+    <h2 id="intro-title">${t({ hu: 'A felújítás minden lépését intézzük', en: 'We handle every stage of the renovation' })}</h2>
     <p class="lead">${t({
-      hu: 'Az Urban Flip Studio a felújítás műszaki és esztétikai oldalát fogja össze. Megtervezzük a tereket, megszervezzük és vezetjük a kivitelezést, majd a berendezést és az utolsó részleteket is a helyükre tesszük. Így az ötlet, a költségek és a megvalósítás nem külön utakon haladnak.',
-      en: 'Urban Flip Studio brings together the technical and the aesthetic side of a renovation. We design the spaces, organise and run the build, then put the furnishings and the last details in place. That way the idea, the costs and the execution never drift apart.',
+      hu: 'Megtervezzük a lakást, megszervezzük a felújítást, és a berendezésben is segítünk. A szakemberek egyeztetését és a beszerzéseket mi intézzük. Ön velünk beszéli át a terveket, a költségeket és a felmerülő kérdéseket.',
+      en: 'We plan the apartment, organise the renovation and help furnish it. We handle contractors and purchases. You talk to us about the plans, costs and any questions along the way.',
     })}</p>
     <p class="mt-md"><a class="link-arrow" href="${href('contact')}">${t({ hu: 'Kérjen konzultációt', en: 'Request a consultation' })}</a></p>
   </div>
@@ -104,7 +104,7 @@ ${Hero({
   ${SectionHeading({
     eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }), title: t({ hu: 'Tervezéstől a berendezésig', en: 'From design to furnishing' }), id: 'szolg-title', split: true,
     intro: t({
-      hu: 'Vállalunk teljes lakásfelújítást generálkivitelezéssel, önálló tervezést, lakberendezést, és kisebb volumenű, eladás vagy kiadás előtti home stagingot is.',
+      hu: 'Vállalunk teljes felújítást, de külön tervezéssel, lakberendezéssel vagy eladás előtti rendbetétellel is kereshet minket.',
       en: 'We take on full renovations as general contractor, standalone design, interior furnishing, and smaller home staging jobs before a sale or rental.',
     }),
   })}
@@ -136,17 +136,17 @@ ${Hero({
 </div></section>
 
 <section class="section" aria-labelledby="miert-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Miért velünk?', en: 'Why us?' }), title: t({ hu: 'Ami a munkánkat összetartja', en: 'What holds our work together' }), id: 'miert-title' })}
+  ${SectionHeading({ eyebrow: t({ hu: 'Miért velünk?', en: 'Why us?' }), title: t({ hu: 'Amit tőlünk várhat', en: 'What you can expect from us' }), id: 'miert-title' })}
   ${whyList()}
 </div></section>
 
 <section class="section section--alt" aria-labelledby="rolunk-title"><div class="wrap split split--flip">
   <div>
     <span class="eyebrow">${t({ hu: 'Rólunk', en: 'About us' })}</span>
-    <h2 id="rolunk-title">${t({ hu: 'Kis stúdió, teljes figyelem.', en: 'A small studio, full attention.' })}</h2>
+    <h2 id="rolunk-title">${t({ hu: 'Ketten visszük a felújítását.', en: 'The two of us manage your renovation.' })}</h2>
     <p class="copy">${t({
-      hu: 'Az Urban Flip Studiót ketten, házaspárként indítottuk. Először a saját lakásainkon, a saját pénzünkön tanultuk meg a szakmát — ma már másoknak is A-tól Z-ig megoldjuk a felújítást. Szándékosan kicsik maradunk: egyszerre csak néhány projektet vállalunk, hogy mindegyikre valóban oda tudjunk figyelni.',
-      en: 'We started Urban Flip Studio as a married couple. We first learned the craft on our own apartments, with our own money — today we handle renovations from A to Z for others too. We deliberately stay small: we take on only a few projects at a time, so that each one gets our real attention.',
+      hu: 'Házaspárként indítottuk az Urban Flip Studiót. Először a saját lakásainkat újítottuk fel, később mások is ránk bízták az otthonukat. Egyszerre csak néhány munkát vállalunk, hogy mindegyikre jusson időnk.',
+      en: 'We started Urban Flip Studio as a married couple, renovating our own apartments. Later, clients began trusting us with their homes too. We take on only a few jobs at a time so we have time for each one.',
     })}</p>
     <p class="mt-md"><a class="link-arrow" href="${href('about')}">${t({ hu: 'Ismerjen meg minket', en: 'Get to know us' })}</a></p>
   </div>
@@ -165,7 +165,7 @@ function servicesPage() {
     key: 'services',
     title: t({ hu: 'Szolgáltatások — lakásfelújítás, tervezés, lakberendezés, home staging', en: 'Services — renovation, design, interiors, home staging' }) + BRAND,
     description: t({
-      hu: 'Teljes körű lakásfelújítás és generálkivitelezés, műszaki és térszervezési tervezés, enteriőrtervezés és lakberendezés, valamint eladás előtti lakásfelkészítés (home staging) Budapesten.',
+      hu: 'Teljes körű lakásfelújítás és generálkivitelezés, alaprajzi és műszaki tervezés, enteriőrtervezés és lakberendezés, valamint eladás előtti lakásfelkészítés (home staging) Budapesten.',
       en: 'Full-scope apartment renovation and general contracting, technical and spatial planning, interior design and furnishing, and pre-sale home staging in Budapest.',
     }),
     ogImage: 'gozmozdony-utca/gallery/nappali',
@@ -197,7 +197,7 @@ ${PageHead({
     </div>
   </article>`).join('')}
   ${MidCta({
-    text: t({ hu: 'Teljes felújítás vagy csak egy részfeladat? Írja meg, mire van szüksége, és javaslunk egy utat.', en: 'A full renovation or just one part of it? Tell us what you need and we’ll suggest a way forward.' }),
+    text: t({ hu: 'Teljes felújításban gondolkodik, vagy csak egy kisebb munkát bízna ránk? Írja meg, mire van szüksége.', en: 'A full renovation or just one part of it? Tell us what you need and we’ll suggest a way forward.' }),
     label: t({ hu: 'Megírom, mire van szükségem', en: 'Tell us what you need' }), phone: true,
   })}
 </div></section>
@@ -225,14 +225,14 @@ function projectsIndex() {
     body: `<main id="tartalom" tabindex="-1">
 ${PageHead({
   crumbs, eyebrow: t({ hu: 'Projektek', en: 'Projects' }),
-  title: t({ hu: 'Lakások, amelyeket újragondoltunk', en: 'Apartments we have reimagined' }),
-  intro: t({ hu: 'Minden projektnél megmutatjuk a kiindulási állapotot is — mert a változás így érthető igazán.', en: 'For every project we also show the starting point — because that is what makes the change clear.' }),
+  title: t({ hu: 'Ezeket a lakásokat újítottuk fel', en: 'Apartments we have renovated' }),
+  intro: t({ hu: 'Nézze meg, milyenek voltak a lakások a felújítás előtt, és mi készült belőlük.', en: 'See what the apartments looked like before the renovation and how they turned out.' }),
 })}
 <section class="section" style="padding-top:0"><div class="wrap">
   <ul class="projects">${projects.map((p) => ProjectCard(p, { headingLevel: 2 })).join('')}</ul>
 </div></section>
 <section class="section section--alt" aria-labelledby="reszprojektek"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Részprojektek', en: 'Partial projects' }), title: t({ hu: 'Nem csak A-tól Z-ig', en: 'Not only from A to Z' }), id: 'reszprojektek', split: true, intro: t(subprojectsIntro) })}
+  ${SectionHeading({ eyebrow: t({ hu: 'Részprojektek', en: 'Partial projects' }), title: t({ hu: 'Kisebb munkáink', en: 'Smaller jobs' }), id: 'reszprojektek', split: true, intro: t(subprojectsIntro) })}
   <ul class="subprojects">${subprojects.map(SubprojectCard).join('')}</ul>
   ${MidCta({
     text: t({ hu: 'Egy konkrét részfeladatra keres kivitelezőt? Írja meg röviden, mit szeretne.', en: 'Looking for a contractor for one specific job? Tell us briefly what you need.' }),
@@ -284,7 +284,7 @@ function projectPage(p, i) {
   ${SectionHeading({
     eyebrow: t({ hu: 'Előtte – utána', en: 'Before – after' }), title: t({ hu: 'Ugyanaz a tér, felújítás előtt és után', en: 'The same space, before and after' }), id: 'elotte-utana',
     intro: t({
-      hu: 'A képpárok ugyanazt a helyiséget mutatják. Ahol a nézőpont azonos, csúszkával is összehasonlíthatók; máshol egymás mellett láthatók.',
+      hu: 'A képeken ugyanaz a helyiség látszik felújítás előtt és után. Húzza el a csúszkát az összehasonlításhoz. A más nézőpontból készült fotókat egymás mellé tettük.',
       en: 'Each pair shows the same room. Where the viewpoint matches, you can compare them with a slider; otherwise they are shown side by side.',
     }),
   })}
@@ -306,7 +306,7 @@ ${p.floorplans.length || p.plans?.length ? `<section class="section" aria-labell
   ${SectionHeading({ eyebrow: t({ hu: 'Alaprajz és tervek', en: 'Floor plan and drawings' }), title: p.floorplans.length > 1 ? t({ hu: 'Alaprajzok', en: 'Floor plans' }) : t({ hu: 'Alaprajz', en: 'Floor plan' }), id: 'alaprajz' })}
   <div class="plans">${p.floorplans.map((f) => `<figure>${Picture(f.image, { alt: f.alt, sizes: '(min-width: 800px) 45vw, 100vw' })}<figcaption>${esc(t(f.caption))}</figcaption></figure>`).join('')}</div>
   ${p.plans?.length ? `<h3 class="mt-xl" style="font-size:var(--fs-h3)">${t({ hu: 'A műszaki tervek', en: 'The technical drawings' })}</h3>
-  <p class="copy mt-sm">${t({ hu: 'Minden szakágra saját tervlap készült, még a kivitelezés előtt — így a döntések nem a helyszínen, rögtönözve születtek.', en: 'Every trade got its own plan sheet before construction started — so decisions were not improvised on site.' })}</p>
+  <p class="copy mt-sm">${t({ hu: 'A falakról, a világításról, a szellőzésről, a fűtésről és a vízszerelésről is készítettünk tervet, még a kivitelezés előtt.', en: 'Every trade got its own plan sheet before construction started — so decisions were not improvised on site.' })}</p>
   ${PlanCarousel(p.plans, { id: `plans-${p.slug}` })}` : ''}
 </div></section>` : ''}
 
@@ -354,22 +354,22 @@ function about() {
     body: `<main id="tartalom" tabindex="-1">
 ${PageHead({
   crumbs, eyebrow: t({ hu: 'Rólunk', en: 'About us' }),
-  title: t({ hu: 'Inkább szenvedély, mint munka.', en: 'More passion than work.' }),
-  intro: t({ hu: 'Ketten vagyunk, a magánéletben házaspár. Az Urban Flip Studio a közös szerelemprojektünkből nőtt ki.', en: 'We are two people, married in private life. Urban Flip Studio grew out of our shared passion project.' }),
+  title: t({ hu: 'Szeretünk lakásokat felújítani.', en: 'We enjoy renovating apartments.' }),
+  intro: t({ hu: 'Házaspár vagyunk, és együtt vezetjük az Urban Flip Studiót. A közös munkát a saját lakásaink felújításával kezdtük.', en: 'We are a married couple and run Urban Flip Studio together. We started by renovating our own apartments.' }),
 })}
 <section class="section" style="padding-top:0"><div class="wrap split" style="align-items:start">
   <div class="copy">
     <p>${t({
-      hu: 'Az első lakásokat a saját pénzünkön, a saját kockázatunkra újítottuk fel. Ott tanultuk meg, mennyit számít egy jó alaprajz, egy átgondolt fény vagy egy pontosan kivitelezett csatlakozás.',
+      hu: 'Az első lakásokat a saját pénzünkből újítottuk fel. Ezeken tanultuk meg, hogyan kell megtervezni, megszervezni és végigvinni egy felújítást.',
       en: 'We renovated our first apartments with our own money, at our own risk. That is where we learned how much a good layout, well-planned light or a precisely finished joint matters.',
     })}</p>
     <p>${t({
-      hu: 'Ma már másoknak is dolgozunk, A-tól Z-ig: a felméréstől és a tervezéstől a kivitelezésen és a beszerzésen át a berendezésig és az átadásig. Egyikünk a tereket, a fényeket és az anyagokat gondolja végig, a másikunk a kivitelezést szervezi és vezeti — így a tervezőasztalnál született döntések a helyszínen sem vesznek el.',
-      en: 'Today we work for clients too, from A to Z: from survey and design through construction and procurement to furnishing and handover. One of us thinks through the spaces, the light and the materials; the other organises and runs the build — so the decisions made at the drawing board don’t get lost on site.',
+      hu: 'Ma már mások lakását is felújítjuk a felméréstől a berendezésig. Sugi a lakberendezéssel, az anyagokkal és a színekkel foglalkozik, Martin a műszaki tervezést és a kivitelezést szervezi. Minden munkán együtt dolgozunk.',
+      en: 'We now renovate clients’ homes too, from the first survey to furnishing. Sugi handles interiors, materials and colours; Martin organises technical planning and construction. We work together on every project.',
     })}</p>
     <p>${t({
-      hu: 'Nem akarunk nagy céggé válni. Szándékosan egyszerre csak néhány projektet vállalunk, hogy mindegyikre valóban oda tudjunk figyelni.',
-      en: 'We don’t want to become a big company. We deliberately take on only a few projects at a time, so that each one gets our real attention.',
+      hu: 'Egyszerre csak néhány felújítást vállalunk. Így van időnk rendszeresen a helyszínen lenni és személyesen egyeztetni az ügyfeleinkkel.',
+      en: 'We take on only a few renovations at a time. This lets us visit sites regularly and speak with our clients in person.',
     })}</p>
     <p>${t({ hu: 'Az eddigi legnagyobb közös munkánk a Vámház körúti lakás, a', en: 'Our biggest project together so far is the Vámház körút apartment,' })} <a href="${href('project:vamhaz-korut')}">Project Olive</a>${t({
       hu: ' volt. Hónapokig kerestük a burkolatokat, a lámpákat, a kilincseket és a színeket — ugyanezzel a figyelemmel dolgozunk az ügyfeleink lakásain is.',
@@ -380,8 +380,8 @@ ${PageHead({
 </div></section>
 
 <section class="section section--alt" aria-labelledby="kik-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Kik vagyunk', en: 'Who we are' }), title: t({ hu: 'Ketten, két oldalról', en: 'Two of us, from two sides' }), id: 'kik-title', split: true,
-    intro: t({ hu: 'Egyikünk a szerkezetet és a kivitelezést, a másikunk a tereket és az enteriőrt viszi — a döntések mégis közösek, a tervezőasztaltól a kulcsátadásig.', en: 'One of us runs the structure and the build, the other the spaces and the interior — yet the decisions are shared, from the drawing board to the handover of the keys.' }) })}
+  ${SectionHeading({ eyebrow: t({ hu: 'Kik vagyunk', en: 'Who we are' }), title: t({ hu: 'Ki mivel foglalkozik?', en: 'Who does what?' }), id: 'kik-title', split: true,
+    intro: t({ hu: 'Sugi a lakás berendezését tervezi, Martin a műszaki munkákat szervezi. A fontos döntéseket együtt hozzuk meg.', en: 'Sugi plans the interiors and Martin organises the building work. We make the important decisions together.' }) })}
   <ul class="profiles">
     <li class="profile">
       <span class="eyebrow">${t({ hu: 'Szerkezet és kivitelezés', en: 'Structure and construction' })}</span>
@@ -395,7 +395,7 @@ ${PageHead({
       <span class="eyebrow">${t({ hu: 'Enteriőr és lakberendezés', en: 'Interior and furnishing' })}</span>
       <h3>Sugi</h3>
       <p class="copy">${t({
-        hu: 'A terek, a fények és az anyagok: térszervezés, színvilág, burkolatok, világítás, bútorok és textilek. Ő gondolja végig, hogyan lesz a felújított lakásból lakható, személyes otthon — és végigkíséri a berendezést az utolsó részletig.',
+        hu: 'Sugi tervezi a helyiségek elrendezését, és segít kiválasztani a burkolatokat, a színeket, a lámpákat, a bútorokat és a textileket. A beszerzésben és a berendezésben is részt vesz.',
         en: 'The spaces, the light and the materials: layout, colour palette, finishes, lighting, furniture and textiles. She thinks through how the renovated apartment becomes a liveable, personal home — and follows the furnishing through to the last detail.',
       })}</p>
     </li>
@@ -408,8 +408,8 @@ ${PageHead({
     <span class="eyebrow">${t({ hu: 'Ahogy dolgozunk', en: 'How we work' })}</span>
     <h2 id="helyszin-title">${t({ hu: 'Végig ott vagyunk.', en: 'We are there throughout.' })}</h2>
     <p class="copy">${t({
-      hu: 'Nem sablonterméket gyártunk. A burkolatokat, a lámpákat, a kilincseket és a színeket kézzel válogatjuk össze — a festékárnyalatokat is a helyszínen, a lakás saját fényében próbáljuk ki, mint a képen. A kivitelezés alatt rendszeresen a helyszínen vagyunk, így a tervezőasztalnál született döntések a falakon is úgy jelennek meg, ahogy elképzeltük.',
-      en: 'We don’t make off-the-shelf products. We hand-pick the tiles, the lamps, the door handles and the colours — and we test the paint shades on site, in the apartment’s own light, as in the photo. During construction we are on site regularly, so the decisions made at the drawing board end up on the walls the way we imagined them.',
+      hu: 'A burkolatokat, a lámpákat, a kilincseket és a színeket az adott lakáshoz választjuk. A festékeket a helyszínen is kipróbáljuk, mert a színek másképp mutatnak a lakás fényében. A kivitelezés alatt rendszeresen kijárunk, és ellenőrizzük a munkát.',
+      en: 'We choose tiles, lamps, handles and colours to suit each apartment. We also test paints on site because colours look different in the apartment’s own light. During the build, we visit regularly to check the work.',
     })}</p>
     <p class="copy">${t({
       hu: 'A fizikai munkát egy állandó, megbízható csapat végzi, akikkel projektről projektre együtt dolgozunk — bontástól a parkettázásig.',
@@ -421,9 +421,9 @@ ${PageHead({
 
 <section class="section section--alt" aria-labelledby="csapat-title"><div class="wrap">
   <span class="eyebrow">${t({ hu: 'A csapat', en: 'The team' })}</span>
-  <h2 id="csapat-title" class="mb-md">${t({ hu: 'Megbízható kezek minden szakágban', en: 'Reliable hands in every trade' })}</h2>
+  <h2 id="csapat-title" class="mb-md">${t({ hu: 'Állandó szakemberekkel dolgozunk', en: 'A team we work with regularly' })}</h2>
   <figure class="media media--169 team-photo">${Picture('site/csapat', { alt: { hu: 'A csapat egy kerti munkaterületen: alapot ásnak és mérnek ki', en: 'The team on a garden site: digging and setting out a foundation' }, sizes: '(min-width: 1280px) 1180px, 100vw' })}</figure>
-  <p class="caption">${t({ hu: 'Állandó csapattal dolgozunk — így a minőség nem a véletlenen múlik.', en: 'We work with a steady team — so quality does not depend on luck.' })}</p>
+  <p class="caption">${t({ hu: 'Ugyanazzal a csapattal dolgozunk több felújításon is.', en: 'We work with the same team across our renovation projects.' })}</p>
   ${MidCta({
     text: t({ hu: 'Megismerne minket személyesen? Egy első egyeztetés nem kötelez semmire.', en: 'Would you like to meet us in person? A first conversation commits you to nothing.' }),
     label: t({ hu: 'Időpontot kérek', en: 'Ask for an appointment' }), phone: true,
@@ -431,9 +431,9 @@ ${PageHead({
 </div></section>
 
 <section class="section" aria-labelledby="miert-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Alapelvek', en: 'Principles' }), title: t({ hu: 'Ami a munkánkat összetartja', en: 'What holds our work together' }), id: 'miert-title' })}
+  ${SectionHeading({ eyebrow: t({ hu: 'Alapelvek', en: 'Principles' }), title: t({ hu: 'Amit tőlünk várhat', en: 'What you can expect from us' }), id: 'miert-title' })}
   ${whyList()}
-  <p class="copy mt-lg">${t({ hu: 'A műhely mindennapjai az', en: 'Everyday life in the studio is also on' })} <a href="${site.instagram}" rel="noopener" target="_blank">${t({ hu: 'Instagramon', en: 'Instagram' })}</a>${t({ hu: ' is követhetők.', en: '.' })}</p>
+  <p class="copy mt-lg">${t({ hu: 'További képeket az', en: 'Everyday life in the studio is also on' })} <a href="${site.instagram}" rel="noopener" target="_blank">${t({ hu: 'Instagramon', en: 'Instagram' })}</a>${t({ hu: ' is talál.', en: '.' })}</p>
 </div></section>
 ${closingCta()}
 </main>`,
@@ -457,8 +457,8 @@ ${PageHead({
   crumbs, eyebrow: t({ hu: 'Kapcsolat', en: 'Contact' }),
   title: t({ hu: 'Meséljen a lakásról', en: 'Tell us about your apartment' }),
   intro: t({
-    hu: 'Írjon néhány mondatot a projektről. Az első egyeztetésen átbeszéljük az ingatlan állapotát, az elképzeléseket és a lehetséges következő lépéseket.',
-    en: 'Write a few lines about your project. At our first meeting we’ll go through the condition of the property, your ideas and the possible next steps.',
+    hu: 'Írja meg, mit szeretne felújítani és mennyit szán rá. Átbeszéljük az elképzeléseit, és elmondjuk, hogyan tudunk segíteni.',
+    en: 'Tell us what you would like to renovate and your budget. We will talk through your plans and explain how we can help.',
   }),
 })}
 <section class="section" style="padding-top:0"><div class="wrap contact-grid">

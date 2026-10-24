@@ -3,8 +3,8 @@
 // írják le; helyszínt, megrendelőt vagy évszámot nem találunk ki — ha a tulajdonos megadja,
 // a `where` mező tölthető (null → nem jelenik meg).
 export const subprojectsIntro = {
-  hu: 'Nem mindig a teljes lakást újítjuk fel. Egy-egy jól körülhatárolt részmunkát — szerkezetépítést, szigetelést, bontást és falazást — önállóan is vállalunk, ugyanazzal a figyelemmel.',
-  en: 'We don’t always renovate the whole apartment. We also take on well-defined partial jobs — structural work, insulation, demolition and walling — on their own, with the same attention.',
+  hu: 'Kisebb munkával is kereshet minket. Szerkezetépítést, szigetelést, bontást és falazást külön is vállalunk.',
+  en: 'You can also come to us for smaller jobs, including structural work, insulation, demolition and new walls.',
 };
 
 export const subprojects = [
@@ -12,7 +12,7 @@ export const subprojects = [
     slug: 'szerkezetepites',
     title: { hu: 'Szerkezetépítés és födém', en: 'Structural work and floor slab' },
     text: {
-      hu: 'Teherhordó falak, vasbeton koszorú és előregyártott födémpallók — egy épület váza az alapoktól a födémig.',
+      hu: 'Teherhordó falak, vasbeton koszorú és előregyártott födémpallók építése.',
       en: 'Load-bearing walls, a reinforced-concrete ring beam and precast floor planks — the skeleton of a building from the foundations to the slab.',
     },
     where: null,
@@ -39,7 +39,7 @@ export const subprojects = [
     slug: 'bontas-falazas',
     title: { hu: 'Bontás és új válaszfalak', en: 'Demolition and new partition walls' },
     text: {
-      hu: 'A régi falak és burkolatok bontása, majd az új alaprajz felépítése pórusbeton válaszfalakkal — egy felújítás első, szerkezeti szakasza.',
+      hu: 'A régi falakat és burkolatokat elbontottuk, majd az új alaprajz szerint pórusbeton válaszfalakat építettünk.',
       en: 'Taking out the old walls and finishes, then building the new layout with aerated-concrete partitions — the first, structural phase of a renovation.',
     },
     where: null,

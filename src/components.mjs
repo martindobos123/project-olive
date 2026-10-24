@@ -256,18 +256,18 @@ export function ConsentBanner() {
 }
 
 export function ContactForm({ services: opts }) {
-  const opt = t({ hu: 'opcionális', en: 'optional' });
+  const opt = t({ hu: 'nem kötelező', en: 'optional' });
   const field = (name, label, { type = 'text', required = false, auto, optional = false } = {}) => `<div class="field"><label for="f-${name}">${esc(t(label))}${optional ? ` <span class="opt">(${opt})</span>` : ''}</label><input id="f-${name}" name="${name}" type="${type}"${required ? ' required' : ''}${auto ? ` autocomplete="${auto}"` : ''}></div>`;
   const wa = t({ hu: 'WhatsAppon', en: 'on WhatsApp' });
   return `<form class="form" id="contact-form" novalidate${site.formEndpoint ? ` data-endpoint="${esc(site.formEndpoint)}"` : ''} data-mailto="${esc(site.email)}" aria-describedby="form-note">
   <div class="form__row">${field('nev', { hu: 'Név', en: 'Name' }, { required: true, auto: 'name' })}${field('email', { hu: 'E-mail', en: 'Email' }, { type: 'email', required: true, auto: 'email' })}</div>
-  <div class="form__row">${field('telefon', { hu: 'Telefonszám', en: 'Phone number' }, { type: 'tel', auto: 'tel', optional: true })}${field('helyszin', { hu: 'Ingatlan helye vagy kerülete', en: 'Property location or district' }, { required: true })}</div>
+  <div class="form__row">${field('telefon', { hu: 'Telefonszám', en: 'Phone number' }, { type: 'tel', auto: 'tel', optional: true })}${field('helyszin', { hu: 'Hol van a lakás?', en: 'Property location or district' }, { required: true })}</div>
   <div class="form__row">
-    <div class="field"><label for="f-szolgaltatas">${t({ hu: 'Érdekelt szolgáltatás', en: 'Service you are interested in' })}</label><select id="f-szolgaltatas" name="szolgaltatas" required><option value="">${t({ hu: 'Válasszon…', en: 'Please choose…' })}</option>${t(opts).map((o) => `<option>${esc(o)}</option>`).join('')}</select></div>
+    <div class="field"><label for="f-szolgaltatas">${t({ hu: 'Miben segíthetünk?', en: 'Service you are interested in' })}</label><select id="f-szolgaltatas" name="szolgaltatas" required><option value="">${t({ hu: 'Válasszon…', en: 'Please choose…' })}</option>${t(opts).map((o) => `<option>${esc(o)}</option>`).join('')}</select></div>
     ${field('kezdes', { hu: 'Tervezett kezdés', en: 'Planned start' }, { optional: true })}
   </div>
-  <div class="form__row">${field('keret', { hu: 'Becsült keret', en: 'Estimated budget' }, { optional: true })}<div></div></div>
-  <div class="field"><label for="f-leiras">${t({ hu: 'Rövid leírás', en: 'Short description' })}</label><textarea id="f-leiras" name="leiras" required></textarea></div>
+  <div class="form__row">${field('keret', { hu: 'Mennyit szán a felújításra?', en: 'Estimated budget' }, { optional: true })}<div></div></div>
+  <div class="field"><label for="f-leiras">${t({ hu: 'Mit szeretne felújítani?', en: 'Short description' })}</label><textarea id="f-leiras" name="leiras" required></textarea></div>
   <div class="field field--check"><input id="f-consent" name="hozzajarulas" type="checkbox" required><label for="f-consent">${t({ hu: 'Hozzájárulok, hogy az Urban Flip Studio a megadott adataimat a megkeresésem megválaszolása céljából kezelje. Elolvastam az', en: 'I agree that Urban Flip Studio may process the data I provide in order to respond to my enquiry. I have read the' })} <a href="${href('privacy')}" target="_blank" rel="noopener">${t({ hu: 'adatkezelési tájékoztatót', en: 'privacy notice' })}</a>.</label></div>
   <div><button class="btn btn--solid" type="submit">${t({ hu: 'Üzenet küldése', en: 'Send message' })}</button></div>
   <p class="form__status" role="status" aria-live="polite"></p>

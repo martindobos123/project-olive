@@ -5,11 +5,11 @@ export const services = [
     slug: 'felujitas',
     title: { hu: 'Teljes körű lakásfelújítás', en: 'Full-scope apartment renovation' },
     short: { hu: 'Teljes körű felújítás', en: 'Full renovation' },
-    teaser: { hu: 'A bontástól az átadásig egy kézben a kivitelezés.', en: 'From demolition to handover, the build in one pair of hands.' },
+    teaser: { hu: 'A bontástól a kész lakásig mi szervezzük a munkát.', en: 'We organise the work from demolition to the finished apartment.' },
     image: 'site/felujitas-parketta', // a tulajdonos választotta (2026-10-06): a csapat halszálkás parkettát fektet
     imagePosition: '50% 40%',
     text: {
-      hu: 'A bontástól a kész lakás átadásáig megszervezzük és összefogjuk a teljes kivitelezést. Koordináljuk a szakágakat, követjük az ütemezést, és gondoskodunk arról, hogy a műszaki megoldások összhangban legyenek a tervekkel.',
+      hu: 'A bontástól az átadásig mi szervezzük a felújítást. Egyeztetünk a szakemberekkel, intézzük a beszerzést, és ellenőrizzük az elkészült munkát. Önnek egy kapcsolattartóval kell egyeztetnie.',
       en: 'From demolition to the handover of the finished apartment, we organise and manage the entire build. We coordinate the trades, keep track of the schedule and make sure the technical solutions match the design.',
     },
     listTitle: { hu: 'Fő munkaterületek', en: 'Main areas of work' },
@@ -17,7 +17,7 @@ export const services = [
       hu: [
         'állapotfelmérés', 'bontás', 'falazás és gipszkartonozás', 'villanyszerelés',
         'víz- és gépészeti munkák', 'burkolás', 'festés', 'padlózás', 'világítás',
-        'szaniterek', 'konyha és egyedi bútorok', 'szakágak koordinációja', 'ütemezés', 'beszerzés', 'átadás',
+        'szaniterek', 'konyha és egyedi bútorok', 'szakemberek szervezése', 'ütemezés', 'beszerzés', 'átadás',
       ],
       en: [
         'condition survey', 'demolition', 'masonry and drywall', 'electrical work',
@@ -26,20 +26,20 @@ export const services = [
       ],
     },
     note: {
-      hu: 'A munkákat a projekthez illő szakemberekkel és szakágakkal valósítjuk meg; a szervezés, az összehangolás és a kapcsolattartás nálunk fut össze.',
+      hu: 'A munkát az adott feladathoz értő szakemberek végzik. Mi szervezzük őket, és velünk tud egyeztetni a felújításról.',
       en: 'The work is carried out by specialists and trades suited to the project; organisation, coordination and communication all run through us.',
     },
   },
   {
     slug: 'tervezes',
-    title: { hu: 'Műszaki és térszervezési tervezés', en: 'Technical and spatial planning' },
+    title: { hu: 'Alaprajzi és műszaki tervezés', en: 'Technical and spatial planning' },
     short: { hu: 'Tervezés', en: 'Design' },
-    teaser: { hu: 'Alaprajz, funkciók, fények és anyagok — még a kivitelezés előtt.', en: 'Layout, functions, light and materials — before construction starts.' },
+    teaser: { hu: 'Előre megtervezzük az alaprajzot, a világítást és az anyagokat.', en: 'Layout, functions, light and materials — before construction starts.' },
     image: 'vamhaz-korut/floorplans/fo-szint',
     // a /szolgaltatasok oldalon a kép helyett lapozható tervsorozat (PlanCarousel) — a Vámház körúti projekt tervei
     plans: 'vamhaz-korut',
     text: {
-      hu: 'A jó döntések az alaprajznál kezdődnek. Felmérjük a lakást, rendszerezzük az igényeket, és olyan tervet készítünk, amelyben a funkciók, a fények és az anyagok együtt működnek.',
+      hu: 'Felmérjük a lakást, és átbeszéljük, mire van szüksége. Megtervezzük a helyiségek elrendezését, a világítást és az anyagokat, hogy a kivitelezés előtt tiszták legyenek a fontos döntések.',
       en: 'Good decisions start with the floor plan. We survey the apartment, organise your requirements and create a plan in which functions, light and materials work together.',
     },
     listTitle: { hu: 'A tervezés tartalma', en: 'What the design covers' },
@@ -60,15 +60,15 @@ export const services = [
     slug: 'lakberendezes',
     title: { hu: 'Enteriőrtervezés és lakberendezés', en: 'Interior design and furnishing' },
     short: { hu: 'Lakberendezés', en: 'Interiors' },
-    teaser: { hu: 'Egységes enteriőr a tér arányaitól a textilekig.', en: 'A coherent interior, from proportions to textiles.' },
+    teaser: { hu: 'Segítünk kiválasztani a bútorokat, a színeket és a kiegészítőket.', en: 'Help choosing furniture, colours and finishing touches.' },
     image: 'balazs-bela-utca/gallery/nappali',
     text: {
-      hu: 'A tér arányaitól a világításon és bútorokon át a textilekig egységes enteriőrt alakítunk ki. A cél nem egy gyorsan múló trend, hanem egy következetes, használható és személyes otthon.',
-      en: 'From the proportions of the space through lighting and furniture to textiles, we create a coherent interior. The goal is not a passing trend but a consistent, practical and personal home.',
+      hu: 'Segítünk kiválasztani a burkolatokat, a lámpákat, a bútorokat és a textileket. Olyan lakást tervezünk, amely illik Önhöz, és a mindennapokban is kényelmes.',
+      en: 'We help you choose finishes, lighting, furniture and textiles. The aim is a home that feels like yours and is comfortable to live in.',
     },
     listTitle: { hu: 'Amiben segítünk', en: 'How we help' },
     list: {
-      hu: ['anyag- és termékválasztás', 'egyedi bútorok és beépített megoldások koordinációja', 'világítás', 'berendezés', 'styling'],
+      hu: ['anyag- és termékválasztás', 'egyedi és beépített bútorok tervezése, beszerzése', 'világítás', 'berendezés', 'styling'],
       en: ['material and product selection', 'coordination of custom and built-in furniture', 'lighting', 'furnishing', 'styling'],
     },
   },
@@ -76,10 +76,10 @@ export const services = [
     slug: 'home-staging',
     title: { hu: 'Eladás vagy kiadás előtti home staging', en: 'Home staging before sale or rental' },
     short: { hu: 'Home staging', en: 'Home staging' },
-    teaser: { hu: 'Célzott beavatkozások eladás vagy kiadás előtt.', en: 'Targeted improvements before selling or letting.' },
+    teaser: { hu: 'Felkészítjük a lakást az eladásra vagy a kiadásra.', en: 'Targeted improvements before selling or letting.' },
     image: 'gozmozdony-utca/gallery/nappali',
     text: {
-      hu: 'Eladás vagy kiadás előtt célzott beavatkozásokkal tesszük vonzóbbá és fotózhatóbbá az ingatlant. A home staging lehet kisebb javítás, festés, világításfrissítés, bútorozás, átrendezés, dekoráció és az ingatlan fotózásra való előkészítése.',
+      hu: 'Eladás vagy kiadás előtt rendbe tesszük és berendezzük a lakást, hogy a fotókon és a megtekintéskor is jól mutasson. Ez lehet néhány javítás, festés, új lámpák, bútorok átrendezése vagy dekorálás.',
       en: 'Before a sale or rental, targeted improvements make the property more attractive and photogenic. Home staging can include minor repairs, painting, updated lighting, furnishing, rearranging, styling and preparing the property for the photo shoot.',
     },
     listTitle: { hu: 'Lehetséges elemek', en: 'Possible elements' },
@@ -88,17 +88,17 @@ export const services = [
       en: ['minor repairs', 'painting', 'updated lighting', 'furnishing and rearranging', 'styling', 'preparation for the photo shoot'],
     },
     note: {
-      hu: 'A home staging önállóan, kisebb volumenű szolgáltatásként is kérhető — nem kell hozzá teljes felújítás.',
+      hu: 'Home staginget teljes felújítás nélkül is vállalunk.',
       en: 'Home staging can be booked on its own as a smaller service — no full renovation needed.',
     },
   },
   {
     slug: 'reszleges-felujitas',
-    title: { hu: 'Részleges felújítás és „ráncfelvarrás”', en: 'Partial renovation and refresh' },
+    title: { hu: 'Részleges felújítás és felfrissítés', en: 'Partial renovation and refresh' },
     short: { hu: 'Részleges felújítás', en: 'Partial renovation' },
-    teaser: { hu: 'Amikor nem kell mindent újragondolni.', en: 'When not everything needs rethinking.' },
+    teaser: { hu: 'Egy konyhát, fürdőszobát vagy egyetlen szobát is felújítunk.', en: 'When not everything needs rethinking.' },
     text: {
-      hu: 'Nem minden lakásnak van szüksége teljes átalakításra. Egy konyha, egy fürdőszoba, új burkolat, festés vagy világítás is sokat változtathat — ilyenkor a meglévő adottságokra építünk.',
+      hu: 'Ha csak a lakás egy részén változtatna, abban is segítünk. Vállalunk konyha- és fürdőszoba-felújítást, burkolást, festést vagy a világítás cseréjét is.',
       en: 'Not every apartment needs a complete overhaul. A new kitchen, a bathroom, new flooring, paint or lighting can change a lot — in these cases we build on what is already there.',
     },
   },
