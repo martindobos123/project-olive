@@ -1,18 +1,39 @@
 /* Uses the existing site tokens; only investor pages load this sheet. */
 .invest-hero{padding-block:clamp(1.5rem,3vw,3rem)}
 @media(max-width:599px){.header--landing .header__end>.btn{display:none}}
-.invest-hero__grid{display:grid;gap:var(--sp-lg);align-items:center}
-.invest-hero h1{font-size:clamp(2.05rem,1.3rem + 2.7vw,3.7rem);line-height:1.1;margin-bottom:1.2rem;max-width:22ch}
+.invest-hero__grid{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--sp-lg);max-width:1100px}
+.invest-hero h1{font-size:clamp(1.9rem,1.2rem + 1.8vw,2.9rem);line-height:1.12;margin-bottom:1.5rem;max-width:36ch}
 .invest-hero h1 em{font-weight:400;color:var(--olive-deep)}
-.invest-hero .lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.55}
+.invest-hero .lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.55;max-width:44rem}
 .invest-hero .btn-row{margin-top:1.4rem}
-.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;border-top:var(--border-strong);border-bottom:var(--border-strong);padding:1rem 0;margin-top:1.2rem}
+.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;border-top:var(--border-strong);border-bottom:var(--border-strong);padding:1rem 0;margin-top:1.2rem;max-width:44rem}
 .invest-offer li{display:grid;gap:.4rem;align-content:start}
 .invest-offer strong{font-family:var(--font-display);font-weight:400;font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.15;color:var(--olive-deep)}
 .invest-offer span{font-size:.8rem;line-height:1.4;color:var(--ink-soft)}
 .invest-hero__benefits{padding-left:1.2rem;margin:0 0 1rem;color:var(--ink-soft);font-size:var(--fs-small)}
 .invest-hero__benefits li+li{margin-top:.4rem}
 .invest-hero__proposal{padding:.8rem 0 .8rem 1rem;border-left:2px solid var(--olive);max-width:56ch}
+.invest-hero__reference{min-width:0;width:100%;margin-top:var(--sp-md)}
+.invest-hero__comparison .ba__head{display:none}
+.invest-hero__comparison .ba__hint{font-size:.82rem;color:var(--ink-soft);margin:.6rem 0 1rem;line-height:1.4}
+.invest-hero__reference>.link-arrow{font-size:var(--fs-small);min-height:44px}
+.invest-hero__reference>.invest-small{font-size:.8rem;max-width:60ch}
+.invest-reference-overlay{position:absolute;right:.7rem;bottom:.7rem;z-index:2;display:grid;gap:.15rem;max-width:11rem;padding:.7rem 1rem;background:rgba(250,248,243,.96);color:var(--ink);pointer-events:none;border:var(--border)}
+.invest-reference-overlay strong{font:400 1.9rem/1.1 var(--font-display);color:var(--olive-deep)}
+.invest-reference-overlay span{font-size:.7rem;line-height:1.3}
+.invest-reference-overlay b{font-size:.85rem;font-weight:500;margin-top:.2rem}
+.invest-guarantee-example{background:var(--surface);border:var(--border-strong);padding:clamp(1.2rem,3vw,2rem);display:grid;gap:1rem}
+.invest-guarantee-example>strong{font:400 clamp(2rem,3vw,3rem)/1.1 var(--font-display);color:var(--olive-deep)}
+.invest-guarantee-example h3{font-size:var(--fs-h3)}
+.invest-guarantee-example p{font-size:var(--fs-small);color:var(--ink-soft);margin:0}
+.invest-guarantee-example .btn{justify-self:start}
+.invest-details{list-style:none;display:grid;gap:2rem}
+.invest-details li{padding-top:1rem;border-top:var(--border-strong)}
+.invest-details h3{font-size:var(--fs-h3);margin-bottom:.6rem}
+.invest-details p{color:var(--ink-soft);font-size:var(--fs-small);margin-bottom:.6rem}
+.invest-details a{font-size:var(--fs-small)}
+@media(min-width:700px){.invest-details{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.invest-details{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .invest-hero__photo{margin:0;min-width:0;position:relative}
 .invest-hero__photo picture{aspect-ratio:4/3;overflow:hidden}
 .invest-hero__photo img{height:100%;width:100%;object-fit:cover}
@@ -67,5 +88,4 @@
 .invest-page .form textarea{min-height:6rem}
 @media(min-width:700px){.invest-strip .wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-md)}.invest-strip span{border:0}.invest-references{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(min-width:900px){.invest-calc{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--sp-xl)}.invest-mobile-cta{display:none}}
-@media(min-width:1000px){.invest-hero__grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--sp-lg)}.invest-hero__photo picture{aspect-ratio:1/1;max-height:590px}}
 @media print{.invest-mobile-cta{display:none}.invest-faq details p{display:block}}

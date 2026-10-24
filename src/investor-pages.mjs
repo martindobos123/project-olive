@@ -10,6 +10,40 @@ const button = (to = '#erdeklodes') => `<a class="btn btn--solid" href="${to}">$
 const number = n => new Intl.NumberFormat(t({hu:'hu-HU',en:'en-GB'}),{maximumFractionDigits:2}).format(n);
 const money = n => new Intl.NumberFormat(t({hu:'hu-HU',en:'en-GB'}),{maximumFractionDigits:0}).format(n) + t({hu:' Ft',en:' HUF'});
 
+function heroReference() {
+  const project = projects.find(p => p.slug === 'vamhaz-korut');
+  const result = investorResults[project.slug];
+  const overlay = `<div class="invest-reference-overlay"><strong>≈ ${number(result.projectReturn)}%</strong><span>${tx('teljes projekthozam','full-project return')}</span><b>${result.months} ${tx('hónap','months')}</b></div>`;
+  return `<aside class="invest-hero__reference" aria-label="${tx('Vámház körút — saját projektünk előtte és utána','Vámház körút — our project before and after')}">
+  <div class="invest-hero__comparison">${BeforeAfterSlider(project.beforeAfter[0],{eager:true,sizes:'(min-width: 1100px) 1000px, 100vw',overlay})}</div>
+  <a class="link-arrow" href="${href('investorProject:'+project.slug)}">${tx('Vámház körút · Megnézem a projektet','Vámház körút · View the project')}</a>
+  <p class="invest-small mt-sm">${tx('Tulajdonosi adatközlés, adózás előtt. Teljes projekteredmény; az 50–50-es modell befektetői része ennek fele.', 'Owner-reported, before tax. Full-project result; the investor share in the 50–50 model is half of this.')}</p>
+  </aside>`;
+}
+
+function profitGuarantee() {
+  return `<section class="section section--alt" id="profitgarancia" aria-labelledby="guarantee-title"><div class="wrap split split--top">
+  <div><span class="eyebrow">${tx('A profit közös. A garanciát mi adjuk.','Shared profit. Our guarantee.')}</span><h2 id="guarantee-title">${tx('A nettó profit 50%-a az Öné. Projektenként 3% profitot garantálunk.','Half the net profit is yours. We guarantee 3% profit per project.')}</h2><p class="lead">${tx('A lakás eladása után visszakapja a teljes, igazolt projektfinanszírozását és a nettó profit felét — de legalább 3% profitot a befektetett tőkéjére.', 'After the sale, you receive your full documented project funding and half the net profit — with at least 3% profit on your invested capital.')}</p>
+  <p class="copy">${tx('Ha a profit fele több, a magasabb összeg jár. A 3% beleszámít a profitrészébe, nem azon felül jár. Ha az eladásból nem jön ki a tőke és a garantált profit, a különbözetet az Urbanflip pótolja.', 'If half the profit is higher, you receive the higher amount. The 3% is included in your profit share, not added to it. If the sale does not cover your capital and guaranteed profit, Urbanflip funds the difference.')}</p></div>
+  <div class="invest-guarantee-example"><span class="eyebrow">${tx('Például 50 millió Ft tőkénél','For example, with HUF 50 million')}</span><strong>1 500 000 Ft</strong><h3>${tx('garantált profit projektenként','guaranteed profit per project')}</h3><p>${tx('Az eladás utáni elszámoláskor, a tőkéjén felül. Saját adózás előtt; a garancia projektre, nem egy évre szól.', 'At settlement after the sale, in addition to your capital. Before your own taxes; the guarantee applies per project, not per year.')}</p>${button()}</div>
+  </div></section>`;
+}
+
+function practicalDetails() {
+  const cards = [
+    ['A lakás és a pénz útja','The property and your money','Az ingatlan az Ön vagy a cége nevére kerül. A minimum beszálló projekttől függően 40–50 millió Ft; ebből a vételt, a felújítást és a kapcsolódó költségeket finanszírozza. A kivitelezői számlákat közvetlenül is rendezheti.','The property is registered in your name or your company’s name. The minimum investment is HUF 40–50 million, depending on the project, funding purchase, renovation and associated costs. You can also pay contractor invoices directly.'],
+    ['Mit felezünk pontosan?','What exactly do we split?','Az eladási árból levonjuk a vételárat, a felújítást, a berendezést, a vagyonszerzés, ügyvéd, fenntartás és értékesítés elszámolt költségeit. A megmaradó nettó projektprofitot felezzük, az Ön saját adózása előtt.','We deduct the purchase price, renovation, furnishing, acquisition, legal, holding and selling costs from the sale price. We split the remaining net project profit before your own taxes.'],
+    ['Mikor érkezik a kifizetés?','When are you paid?','A lakás eladása utáni elszámoláskor, a tőkéjével és a profitjával együtt. A teljes időbe a lakáskeresés, a felújítás és az értékesítés is beletartozik. Ha tovább tart az eladás, később érkezik a kifizetés is.','At settlement after the sale, you receive your capital plus profit. The total timeline includes the search, renovation and sale. A longer sale period also delays payment.'],
+    ['Magánszemélyként','As a private individual','Az ingatlaneladás adóköteles jövedelmét főszabály szerint 15% SZJA terheli. Rendszeres, üzletszerű flippelésnél eltérő szabályok és további közterhek is felmerülhetnek; induláskor ezt könyvelővel egyeztetjük.','Taxable income from a property sale is generally subject to 15% personal income tax. Regular business-like flipping may involve different rules and additional taxes; we clarify this with your accountant at the start.'],
+    ['Cégen keresztül is működik','You can invest through a company','A tőkét nem kell előbb magánszemélyként kivennie a cégéből: a lakást a cége is megveheti. Az Urbanflip a díjáról a cégnek tud számlázni. Az adózás és a költségelszámolás a cégformától, az adózási módtól és az adott ügylettől függ.','You do not need to withdraw capital personally from your company first: the company can buy the property. Urbanflip can invoice the company for its fee. Taxation and deductibility depend on the legal form, tax regime and transaction.'],
+    ['Időzítés, garancia, kiszállás','Timing, guarantee and exit','A kereslet befolyásolja, mikor tudjuk eladni a lakást. A tőke és a 3% garantált profit az Urbanflip szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás rendjét a szerződésben rögzítjük.','Demand affects when the apartment sells. Capital repayment and the 3% guaranteed profit are Urbanflip’s contractual commitment, not a bank or government guarantee; performance also depends on our ability to pay. Force majeure and early exit are defined in the agreement.'],
+  ];
+  return `<section class="section" id="befektetoi-tudnivalok" aria-labelledby="details-title"><div class="wrap">
+  ${SectionHeading({eyebrow:tx('A lényeg, mielőtt belevágunk','The essentials before we start'),title:tx('A pénzügyek is átláthatók.','Clear finances, too.'),id:'details-title'})}
+  <ul class="invest-details">${cards.map(([hu,en,a,b],i)=>`<li><h3>${tx(hu,en)}</h3><p>${tx(a,b)}</p>${i===3?`<a href="${esc(investorFaq.find(f=>f.links).links[0].url)}" target="_blank" rel="noopener">${tx('NAV: ingatlanértékesítés adózása','NAV: taxation of property sales')}</a>`:''}</li>`).join('')}</ul>
+  </div></section>`;
+}
+
 function calculator() {
   const initial = calculateProject(DEFAULT_PROJECT);
   const two = calculateTwoProjects(initial);
@@ -30,7 +64,7 @@ function calculator() {
     <dl class="invest-breakdown">
       ${[['investor','Az Ön projektjövedelme','Your project income',money(initial.investor)],['total','Teljes projektfinanszírozás','Total project funding',money(initial.total)],['profit','Nettó projektprofit','Net project profit',money(initial.profit)],['operator','Urbanflip számolt projekteredménye','Urbanflip calculated project result',money(initial.operator)],['settlement','Tőke és az Ön hozama együtt','Your capital plus return',money(initial.settlement)],['duration','Teljes projektidő','Total project duration',tx('6 hónap','6 months')]].map(([key,hu,en,val])=>`<div><dt>${tx(hu,en)}</dt><dd data-result="${key}">${val}</dd></div>`).join('')}
     </dl><p class="invest-small" data-calc-status role="status"></p>
-    <p class="invest-small">${tx('Az évesített érték azonos százalékos eredményt és teljes újrabefektetést feltételez, várakozási idő nélkül. Nem éves hozamígéret. A 3%-os minimum mindig projektre, nem egy évre vonatkozik.', 'The annualised figure assumes the same percentage result and full reinvestment with no waiting time. It is not an annual return promise. The 3% minimum always applies per project, not per year.')}</p>
+    <p class="invest-small">${tx('Az évesített érték azonos százalékos eredményt és teljes újrabefektetést feltételez, várakozási idő nélkül. Nem éves hozamígéret. A 3%-os profitgarancia mindig projektre, nem egy évre vonatkozik.', 'The annualised figure assumes the same percentage result and full reinvestment with no waiting time. It is not an annual return promise. The 3% profit guarantee applies per project, not per year.')}</p>
     <details class="invest-formula"><summary>${tx('Hogyan jön ki az eredmény?', 'How is this calculated?')}</summary><p>${tx('Nettó projektprofit = eladási ár − vételár − felújítás − egyéb költségek. Az Ön jövedelme a nettó projektprofit 50%-a, de legalább a teljes projektfinanszírozás 3%-a. Az ehhez szükséges hiányt az Urbanflip pótlásaként számoljuk. Projekthozam = az Ön jövedelme / teljes finanszírozás × 100. Évesített hozam = ((1 + projekthozam / 100)^(12 / hónap) − 1) × 100. Az adózás nincs levonva.', 'Net project profit = sale price − purchase price − renovation − other costs. Your income is 50% of net project profit, with a minimum of 3% of total funding. Any shortfall is shown as funding required from Urbanflip. Project return = your income / total funding × 100. Annualised return = ((1 + project return / 100)^(12 / months) − 1) × 100. Taxes are not deducted.')}</p></details>
     <details class="invest-formula invest-two"><summary>${tx('És ha két projektet forgatnék végig?', 'What if I completed two projects?')}</summary>
     <p>${tx('Két egymást követő, azonos százalékos befektetői eredményű projektet feltételezünk, a teljes záróösszeg újrabefektetésével. A második projekt költségei arányosan változnának. Ez számítási feltételezés, nem elérhető hozamra tett ígéret.', 'We assume two consecutive projects with the same percentage investor result, reinvesting the entire closing amount. Second-project costs scale proportionally. This is a calculation assumption, not a promise of an achievable return.')}</p>
@@ -74,25 +108,26 @@ export function investorPage(landing = false) {
     body: `<main id="tartalom" tabindex="-1" class="invest-page${landing?' invest-page--landing':''}">
     <section class="invest-hero"><div class="wrap invest-hero__grid"><div>
       ${landing?'':Breadcrumb(crumbs)}<span class="eyebrow">${tx('Budapest · Befektetői együttműködés', 'Budapest · Investor partnership')}</span>
-      <h1>${tx('Ön adja a tőkét.', 'You provide the capital.')}<br><em>${tx('A nettó profit fele az Öné.', 'Half the net profit is yours.')}</em></h1>
-      <p class="lead">${tx('Mi budapesti lakást vásárolunk az Ön nevére, felújítjuk és eladjuk. Ön a nettó projektprofit 50%-át kapja, projektenként minimum 3%-os hozamgaranciával.', 'We buy a Budapest apartment in your name, renovate it and sell it. You receive 50% of net project profit, with a guaranteed minimum 3% return per project.')}</p>
-      <ul class="invest-offer"><li><strong>50–50%</strong><span>${tx('nettó profitmegosztás', 'net profit split')}</span></li><li><strong>3%</strong><span>${tx('minimum projekthozam', 'minimum project return')}</span></li><li><strong>${tx('Saját néven', 'In your name')}</strong><span>${tx('az ingatlan az Öné', 'you own the apartment')}</span></li></ul>
+      <h1>${tx('Budapesti lakást veszünk, felújítunk és eladunk.', 'We buy, renovate and sell Budapest apartments.')} <em>${tx('Önnek 50% nettó profitrész, 3% garantált profittal.', 'You get half the net profit, with 3% guaranteed profit per project.')}</em></h1>
+      <p class="lead">${tx('Ön csak a tőkét biztosítja. A lakás az Ön nevén van, a teljes projektet mi visszük.', 'You simply provide the capital. The apartment is in your name; we run the entire project.')}</p>
+      <ul class="invest-offer"><li><strong>50–50%</strong><span>${tx('nettó profitmegosztás', 'net profit split')}</span></li><li><strong>3%</strong><span>${tx('garantált profit projektenként', 'guaranteed profit per project')}</span></li><li><strong>${tx('Saját néven', 'In your name')}</strong><span>${tx('az ingatlan az Öné', 'you own the apartment')}</span></li></ul>
       <div class="btn-row">${button()}${landing?'':`<a class="btn btn--line" href="#kalkulator">${tx('Kiszámolom egy projekt eredményét', 'Explore a project’s numbers')}</a>`}</div>
       <p class="invest-small mt-md"><strong>${tx('Minimum beszálló: 40–50 millió Ft', 'Minimum investment: HUF 40–50 million')}</strong> · ${tx('projekttől függően', 'depending on the project')}</p>
-    </div><figure class="invest-hero__photo">${Picture('vamhaz-korut/gallery/nappali-galeria',{alt:{hu:'Saját megvalósult felújításunk: a Vámház körúti lakás nappalija és galériája',en:'Our completed renovation: living room and gallery at Vámház körút'},eager:true,sizes:'(min-width: 1000px) 45vw, 100vw'})}<figcaption>${tx('Vámház körút · Saját felújítási referencia', 'Vámház körút · Our renovation work')}</figcaption></figure></div></section>
+    </div>${heroReference()}</div></section>
     <div class="invest-strip"><div class="wrap"><span>${tx('Az ingatlan az Ön nevén', 'Property in your name')}</span><span>${tx('Teljes projektszervezés', 'Full project coordination')}</span><span>${tx('Pozitív projektprofit: 50–50%', 'Positive project profit: 50–50%')}</span></div></div>
     ${landing?references(true):''}
     <section class="section" aria-labelledby="model-title"><div class="wrap">
     ${SectionHeading({eyebrow:tx('Önnek nem kell a felújítással foglalkoznia', 'No renovation work for you'),title:tx('Amit mi mind vállalunk.', 'Everything we take care of.'),id:'model-title',intro:tx('Nem kell lakást vadásznia, kivitelezőt keresnie vagy a helyszínen intézkednie. A lakáskereséstől az eladásig mi visszük a teljes projektet.', 'No property hunting, finding contractors or managing a building site. We run the complete project, from the property search to the sale.'),split:true})}
     ${ProcessTimeline(investorSteps)}
+    <p class="copy mt-lg">${tx('Önnek nem kell a helyszínen dolgoznia vagy mestereket hívogatnia. A szükséges szerződések aláírásában és meghatalmazásokban számítunk Önre; a napi szervezést mi intézzük.', 'You do not need to work on site or chase contractors. We need your signature or authorisation for the necessary agreements; we handle daily coordination.')}</p>
     </div></section>
-    ${calculator()}${landing?'':references(false)}
+    ${profitGuarantee()}${calculator()}${landing?'':references(false)}${practicalDetails()}${enquiry()}
     <section class="section" aria-labelledby="faq-title"><div class="wrap invest-faq">
     ${SectionHeading({eyebrow:tx('Kérdések és válaszok','Questions and answers'),title:tx('Amit érdemes előre tisztázni.', 'What to clarify before starting.'),id:'faq-title'})}
     ${investorFaq.map(f=>`<details><summary>${esc(t(f.q))}</summary><p>${esc(t(f.a))}${f.links?` <a href="${esc(f.links[0].url)}" target="_blank" rel="noopener">${esc(t(f.links[0].label))}</a>`:''}</p></details>`).join('')}
-    </div></section>${enquiry()}
+    <div class="mt-lg">${button()}</div></div></section>
     <div class="invest-mobile-cta">${button()}</div>
-    </main>`,
+    </main>`.replace(/[ \t]+\n/g, '\n'),
   };
 }
 
@@ -115,7 +150,7 @@ export function investorProjectPage(project) {
       <dl class="invest-case__facts"><div><dt>${tx('Teljes projekthozam, adózás előtt','Full-project return, before tax')}</dt><dd>≈ ${number(result.projectReturn)}%</dd></div><div><dt>${tx('Teljes projektidő','Total project duration')}</dt><dd>${result.months} ${tx('hónap','months')}</dd></div></dl>
       <p class="copy">${tx('A hozam a projekt teljes ráfordított tőkéjéhez viszonyított, közelítő eredmény. A pontos vételi és eladási összegeket magánadatként kezeljük.', 'The return is the approximate project result relative to the total capital spent. Exact purchase and sale figures are private.')}</p>
       <div class="invest-notice"><h2>${tx('Mit jelentene ez 50–50-es megosztással?','What would a 50–50 split mean?')}</h2><p><strong>${number(result.projectReturn/2)}% ${tx('befektetői projekthozamot','investor project return')}</strong> ${tx('a fenti projektidő alatt, saját adózás előtt. Ez a mai együttműködés szemléltetése, nem korábbi külső befektető kifizetése.', 'over the project duration above, before personal taxes. This illustrates today’s partnership model, not a payout to a previous external investor.')}</p></div>
-      <p class="invest-small mt-md">${tx('A korábbi projekteredmény nem ígér ugyanekkora jövőbeli hozamot. Az aktuális ajánlat minimuma a projektenkénti 3%-os szerződéses vállalásunk.', 'The earlier project result does not promise the same future return. The current offer includes our contractual 3% minimum per project.')}</p>
+      <p class="invest-small mt-md">${tx('A korábbi projekteredmény nem ígér ugyanekkora jövőbeli hozamot. Az aktuális ajánlat része a projektenkénti 3%-os profitgaranciánk.', 'The earlier project result does not promise the same future return. The current offer includes our contractual 3% profit guarantee per project.')}</p>
       ${button(href('investors')+'#erdeklodes')}</div></div></section>
       <section class="section section--alt"><div class="wrap">${SectionHeading({title:tx('A lakás átalakulása','The apartment’s transformation'),id:'case-before-after'})}${BeforeAfterSlider(project.beforeAfter[0])}</div></section>
       <section class="section"><div class="wrap">${SectionHeading({title:tx('A megvalósult munka','The completed work'),id:'case-gallery'})}${ProjectGallery(project.gallery,{id:'invest-gallery-'+project.slug})}</div></section>

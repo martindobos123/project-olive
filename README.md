@@ -60,8 +60,9 @@ jelenik meg az angol oldalon). A 404 csak a gyökérben van (a Pages egyetlen 40
 - /befektetoknek/ és /en/investors/: befektetői ajánlat, navigáció és főoldali második CTA.
 - /befektetoi-egyuttmukodes/ és /en/investor-partnership/: leadgeneráló landing, egyszerűsített navigációval; noindex és sitemap nélkül.
 - /befektetoknek/projektek/: külön HU/EN befektetői esettanulmányok. A hozamok csak itt és a befektetői ajánlatban jelennek meg, a felújítási portfólióban nem.
+- A hero konkrét lakásflip-ajánlatot, 50% nettó profitrészt és 3% garantált profitot mond ki. A Vámház körúti előtte–utána csúszkán hozam- és időadat is szerepel. A FAQ témái rövid, nyitott szakaszokban is olvashatók a kapcsolatfelvétel előtt.
 - A történeti adatok a tulajdonos közlései, teljes projekthozamok. Az 50–50 modell befektetői része szemléltetés, nem múltbeli kifizetés. Forrás: src/data/investors.mjs.
-- A kalkulátor alapja 45/8/2/67 M Ft és 6 hónap, egész lépésekkel. A nettó projektprofit fele jár a befektetőnek, minimum a teljes finanszírozás 3%-a; az esetleges Urbanflip-pótlást külön jelzi. Az évesített érték teljes újrabefektetést feltételező matematikai mutató.
+- A kalkulátor alapja 45/8/2/67 M Ft és 6 hónap, egész lépésekkel. A nettó projektprofit fele jár a befektetőnek, minimum a teljes finanszírozás 3%-a garantált profitként; az esetleges Urbanflip-pótlást külön jelzi. Az évesített érték teljes újrabefektetést feltételező matematikai mutató.
 - Az adatok helyben maradnak. Az űrlap a meglévő statikus működéshez igazodva e-mailt állít össze; nincs leadfogadó backend vagy új mérőkód.
 - A 3% az Urbanflip tulajdonos által vállalt szerződéses kötelezettsége, nem banki vagy állami biztosítás. A részletek és kockázatok a FAQ-ban szerepelnek. Az adózási válasz NAV-forrásra hivatkozik.
 - Ellenőrzés: node scripts/build.mjs majd node --test scripts/test-investors.mjs.

@@ -57,12 +57,12 @@ export const investorFaq = [
   },
   {
     "q": {
-      "hu": "Van minimumhozam?",
-      "en": "Is there a minimum return?"
+      "hu": "Van profitgarancia?",
+      "en": "Is there a profit guarantee?"
     },
     "a": {
-      "hu": "Igen: projektenként minimum 3%-os hozamot vállalunk a teljes, igazolt projektfinanszírozására. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és nem éves, hanem projektenkénti minimum. Például 50 millió Ft-nál a minimum projektjövedelem 1,5 millió Ft, saját adózás előtt.",
-      "en": "Yes: we commit to a minimum 3% return per project on your full, documented project funding. At settlement after the sale you are entitled to your capital plus at least 3%. If half the net profit is higher, you receive the higher amount. The 3% is included in your profit share; it is a per-project minimum, not an annual return. With HUF 50 million, the minimum project income is HUF 1.5 million before your own taxes."
+      "hu": "Igen: a teljes, igazolt projektfinanszírozására projektenként 3% profitot garantálunk. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és a garancia projektre, nem egy évre szól. Például 50 millió Ft-nál a garantált profit 1,5 millió Ft, saját adózás előtt.",
+      "en": "Yes: we guarantee 3% profit per project on your full, documented project funding. At settlement after the sale you are entitled to your capital plus at least 3%. If half the net profit is higher, you receive the higher amount. The 3% is included in your profit share; the guarantee applies per project, not per year. With HUF 50 million, the guaranteed profit is HUF 1.5 million before your own taxes."
     }
   },
   {
@@ -71,8 +71,8 @@ export const investorFaq = [
       "en": "What if renovation costs rise or the apartment sells for less?"
     },
     "a": {
-      "hu": "A 3%-os minimumhozamot ilyenkor is mi vállaljuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a minimum projektjövedelem, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.",
-      "en": "We still commit to the 3% minimum return. If the sale does not cover the full invested capital plus the minimum project income, Urban Flip Studio funds the difference at settlement. You do not have to solve the daily problems: we manage the project and contractors."
+      "hu": "A 3%-os profitgaranciát ilyenkor is mi adjuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a garantált profit, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.",
+      "en": "Our 3% profit guarantee still applies. If the sale does not cover the full invested capital plus the guaranteed profit, Urban Flip Studio funds the difference at settlement. You do not have to solve the daily problems: we manage the project and contractors."
     }
   },
   {
@@ -81,8 +81,8 @@ export const investorFaq = [
       "en": "When do I receive my money back?"
     },
     "a": {
-      "hu": "A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os minimum projektre szól, nem egy előre rögzített éves időszakra.",
-      "en": "At settlement after the apartment is sold, together with your return. Allow time for the search, renovation and sale. A delayed sale also delays payment; the 3% minimum applies to the project, not to a fixed annual period."
+      "hu": "A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os profitgarancia projektre szól, nem egy előre rögzített éves időszakra.",
+      "en": "At settlement after the apartment is sold, together with your return. Allow time for the search, renovation and sale. A delayed sale also delays payment; the 3% profit guarantee applies to the project, not to a fixed annual period."
     }
   },
   {
@@ -91,8 +91,8 @@ export const investorFaq = [
       "en": "What risks should I consider?"
     },
     "a": {
-      "hu": "Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a minimumhozam rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.",
-      "en": "The main uncertainty is timing: weaker demand may make the sale take longer. Capital repayment and the minimum return are Urban Flip Studio’s contractual commitment, not a bank or government guarantee; performance also depends on our ability to pay. Force majeure and early exit are addressed in the contract."
+      "hu": "Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a garantált profit rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.",
+      "en": "The main uncertainty is timing: weaker demand may make the sale take longer. Capital repayment and the guaranteed profit are Urban Flip Studio’s contractual commitment, not a bank or government guarantee; performance also depends on our ability to pay. Force majeure and early exit are addressed in the contract."
     }
   },
   {
@@ -192,8 +192,8 @@ export const investorSteps = [
       "en": "We settle and share the profit"
     },
     "text": {
-      "hu": "A nettó projektprofit 50%-a az Öné. Az eladás utáni elszámolásra minimum 3% projekthozamot vállalunk.",
-      "en": "You receive 50% of net project profit. We commit to a minimum 3% project return at settlement after the sale."
+      "hu": "A nettó projektprofit 50%-a az Öné. Az eladás utáni elszámolásra 3% profitot garantálunk.",
+      "en": "You receive 50% of net project profit. We guarantee 3% profit per project at settlement after the sale."
     }
   }
 ];

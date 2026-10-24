@@ -4,13 +4,21 @@ Frissítve: 2026. október 24. A tulajdonos legújabb kérése szerint az ajánl
 
 ## Hero
 
-**Ön adja a tőkét. A nettó profit fele az Öné.**
+**Budapesti lakást veszünk, felújítunk és eladunk. Önnek 50% nettó profitrész, 3% garantált profittal.**
 
-Mi budapesti lakást vásárolunk az Ön nevére, felújítjuk és eladjuk. Ön a nettó projektprofit 50%-át kapja, projektenként minimum 3%-os hozamgaranciával.
+Ön csak a tőkét biztosítja. A lakás az Ön nevén van, a teljes projektet mi visszük.
 
-50–50% nettó profitmegosztás · 3% minimum projekthozam · az ingatlan az Ön nevén.
+50–50% nettó profitmegosztás · 3% garantált profit projektenként · saját névre vásárolt ingatlan.
 
 **Minimum beszálló: 40–50 millió Ft**, projekttől függően. CTA: **Érdekel a befektetés**.
+
+### Hero referencia
+
+Vámház körút: a meglévő, egyező nézőpontú nappali–konyha fotópár előtte–utána csúszkával. A képen ≈30% teljes projekthozam és 12 hónap szerepel. Tulajdonosi adatközlés, adózás előtt; ez teljes projekteredmény, az 50–50-es modell befektetői része ennek fele.
+
+### Az oldal sorrendje
+
+Ajánlat és előtte–utána bizonyíték → korábbi projektek (landing) → teljes projektszervezés → önálló profitgarancia és 50 M Ft-os példa → kalkulátor → referenciák (aloldal) → pénzügyi tudnivalók (tulajdon, elszámolás, közvetlen fizetés, időzítés, adózás, céges részvétel, kockázatok és kiszállás) → érdeklődés → összefoglaló FAQ. A FAQ egyik témája sem csak lenyitható válaszban olvasható.
 
 ## Vállalt konstrukció
 
@@ -22,7 +30,7 @@ Alapértékek a tulajdonosi képernyőkép szerint: 45 M Ft vétel, 8 M Ft felú
 
 55 M Ft teljes finanszírozás, 12 M Ft nettó projektprofit, 6 M Ft befektetői jövedelem: 10,91% projekthozam. Évesítve 23,01%, azonos százalékos eredmény és teljes újrabefektetés mellett.
 
-Évesített hozam = ((1 + projekthozam / 100)^(12 / hónap) − 1) × 100. Ez egy összehasonlító matematikai mutató, nem megígért éves eredmény. A 3% projektenkénti minimum. A kalkulátor nem von le személyes adót. Ha a minimumhozam csak Urbanflip-pótlással teljesülhet, a szükséges pótlást külön jelzi.
+Évesített hozam = ((1 + projekthozam / 100)^(12 / hónap) − 1) × 100. Ez egy összehasonlító matematikai mutató, nem megígért éves eredmény. A 3% projektenkénti minimum. A kalkulátor nem von le személyes adót. Ha a garantált profit csak Urbanflip-pótlással teljesülhet, a szükséges pótlást külön jelzi.
 
 ## Elkülönített befektetői referenciák
 
@@ -48,21 +56,21 @@ Az eladási árból levonjuk a vételárat és a projekt összes elszámolt köl
 
 A minimum beszálló 40–50 millió Ft, a konkrét projekttől függően. Ebből finanszírozza a lakás megvásárlását, felújítását és a kapcsolódó költségeket. Az első beszélgetésen megnézzük, melyik projekttípus illik a keretéhez.
 
-### 5. Van minimumhozam?
+### 5. Van profitgarancia?
 
-Igen: projektenként minimum 3%-os hozamot vállalunk a teljes, igazolt projektfinanszírozására. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és nem éves, hanem projektenkénti minimum. Például 50 millió Ft-nál a minimum projektjövedelem 1,5 millió Ft, saját adózás előtt.
+Igen: a teljes, igazolt projektfinanszírozására projektenként 3% profitot garantálunk. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és a garancia projektre, nem egy évre szól. Például 50 millió Ft-nál a garantált profit 1,5 millió Ft, saját adózás előtt.
 
 ### 6. Mi van, ha drágább lesz a felújítás vagy kevesebbért megy el a lakás?
 
-A 3%-os minimumhozamot ilyenkor is mi vállaljuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a minimum projektjövedelem, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.
+A 3%-os profitgaranciát ilyenkor is mi adjuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a garantált profit, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.
 
 ### 7. Mikor kapom vissza a pénzem?
 
-A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os minimum projektre szól, nem egy előre rögzített éves időszakra.
+A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os profitgarancia projektre szól, nem egy előre rögzített éves időszakra.
 
 ### 8. Milyen kockázattal számoljak?
 
-Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a minimumhozam rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.
+Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a garantált profit rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.
 
 ### 9. Hogyan adózom magánszemélyként vagy céggel?
 

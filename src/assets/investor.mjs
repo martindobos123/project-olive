@@ -46,8 +46,8 @@ if (typeof document !== 'undefined') {
         return;
       }
       status.textContent = numbers.guaranteeFunding > 0
-        ? (en ? 'This result includes ' + money(numbers.guaranteeFunding) + ' funded by Urbanflip to meet its contractual minimum. This amount is not covered by sale proceeds.' : 'A szerződéses minimum teljesítéséhez ez a példa ' + money(numbers.guaranteeFunding) + ' Urbanflip-pótlást tartalmaz. Ezt az összeget az eladási bevétel nem fedezi.')
-        : (numbers.roi <= 3 ? (en ? 'The calculation applies the 3% contractual project minimum.' : 'A számítás a 3%-os szerződéses projektminimumot alkalmazza.') : '');
+        ? (en ? 'This result includes ' + money(numbers.guaranteeFunding) + ' funded by Urbanflip to meet its contractual profit guarantee. This amount is not covered by sale proceeds.' : 'A profitgarancia teljesítéséhez ez a példa ' + money(numbers.guaranteeFunding) + ' Urbanflip-pótlást tartalmaz. Ezt az összeget az eladási bevétel nem fedezi.')
+        : (numbers.roi <= 3 ? (en ? 'The calculation applies the 3% contractual profit guarantee.' : 'A számítás a projektenkénti 3%-os profitgaranciát alkalmazza.') : '');
       for (const key of ['total', 'profit', 'operator', 'investor', 'settlement']) root.querySelector(`[data-result="${key}"]`).textContent = money(numbers[key]);
       root.querySelector('[data-result="annualized"]').textContent = number(numbers.annualized) + '%';
       root.querySelector('[data-result="roi"]').textContent = number(numbers.roi) + '%';
