@@ -17,6 +17,16 @@ export const investorResults = {
 export const investorFaq = [
   {
     "q": {
+      "hu": "Honnan találjátok a jó áron megvehető lakásokat?",
+      "en": "How do you find apartments at attractive prices?"
+    },
+    "a": {
+      "hu": "Több forrásból dolgozunk: ingatlanos kapcsolatokból, örökölt lakások értékesítéséből és közös képviselőkön keresztül piacon kívüli lehetőségekhez is hozzájutunk. A készpénzes vásárlás erősíti az alkupozíciónkat, így piaci ár alatt is tudunk vásárolni. Saját szoftverünk közben folyamatosan figyeli az ingatlanpiacot, és jelzi a jó vételeket. A lakáskeresést és az áralkut mi végezzük.",
+      "en": "We use several sources: estate-agent contacts, inherited-property sales and building managers also give us access to off-market opportunities. Buying with available cash strengthens our negotiating position and helps us buy below market value. Our own software continuously monitors listings and alerts us to good deals. We handle the search and price negotiation."
+    }
+  },
+  {
+    "q": {
       "hu": "Kinek a nevére kerül a lakás?",
       "en": "Who owns the apartment?"
     },
