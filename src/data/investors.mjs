@@ -41,7 +41,7 @@ export const investorFaq = [
       "en": "Do I really just provide the capital?"
     },
     "a": {
-      "hu": "Igen. Mi keressük a lakást, szervezzük a felújítást, a beszerzést, a berendezést és az eladást. Önnek nem kell mestereket hívogatnia vagy a helyszínre járnia. A szükséges szerződéseket és meghatalmazásokat Ön írja alá.",
+      "hu": "Igen. Mi keressük a lakást, szervezzük a felújítást, a beszerzést, a berendezést és az eladást. A kivitelezőkkel való egyeztetést és a helyszíni feladatokat is mi intézzük. A szükséges szerződéseket és meghatalmazásokat Ön írja alá.",
       "en": "Yes. We handle daily work: finding the property, design, contractors, procurement, furnishing and sale. No chasing trades or visiting the site. We will need your signature or authorisation for the necessary agreements."
     }
   },
@@ -150,7 +150,7 @@ export const investorFaq = [
       "en": "What is the next step?"
     },
     "a": {
-      "hu": "Írja meg, mennyit fektetne be és mikor kezdene. Elmondjuk, hogyan dolgozunk, és átbeszéljük a kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.",
+      "hu": "Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális az indulás. Az egyeztetésen átbeszéljük az együttműködés menetét és az Ön kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.",
       "en": "Let’s discuss your capital and timing. We show you how we work, answer your questions and, if it suits both sides, prepare the partnership. The first conversation does not commit you to invest."
     }
   }
@@ -178,8 +178,8 @@ export const investorSteps = [
   },
   {
     "title": {
-      "hu": "Önnek nem kell mestereket szerveznie",
-      "en": "No chasing contractors"
+      "hu": "A felújítás szervezését átvállaljuk",
+      "en": "We manage the renovation"
     },
     "text": {
       "hu": "Mi egyeztetünk a kivitelezőkkel, intézzük a beszerzést és a berendezést. Ha a helyszínen kérdés merül fel, azt is mi oldjuk meg.",
