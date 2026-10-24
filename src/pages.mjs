@@ -2,7 +2,7 @@
 // A build nyelvenként egyszer hívja az allPages()-t (src/i18n.mjs → setLang); a key-ből jön a
 // másik nyelvű megfelelő (hreflang + nyelvváltó).
 import { site, process, why } from './data/site.mjs';
-import { investorPage } from './investor-pages.mjs';
+import { investorPage, investorProjectPage } from './investor-pages.mjs';
 import { services, featuredServiceSlugs, formServices } from './data/services.mjs';
 import { projects } from './data/projects.mjs';
 import { subprojects, subprojectsIntro } from './data/subprojects.mjs';
@@ -558,7 +558,7 @@ ${PageHead({ eyebrow: '404', title: 'Ezt az oldalt nem találjuk', intro: 'Lehet
 
 export function allPages() {
   resetMidCta();
-  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true)];
+  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true), ...projects.map(investorProjectPage)];
   for (const p of pages) p.path = href(p.key);
   if (lang === 'hu') pages.push(notFound());
   return pages;

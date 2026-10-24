@@ -1,22 +1,199 @@
-// Copy is a proposal pending owner review; see docs/investor-copy-review.md.
-// The requested 3% per-project guarantee is deliberately NOT public until legal approval.
+// Owner-supplied offer and historical figures, confirmed 2026-10-24.
+// Financial reference data stays separate from the renovation portfolio.
+export const investorResults = {
+  "vamhaz-korut": {
+    "projectReturn": 30,
+    "months": 12
+  },
+  "gozmozdony-utca": {
+    "projectReturn": 18,
+    "months": 4
+  },
+  "balazs-bela-utca": {
+    "projectReturn": 21,
+    "months": 5
+  }
+};
 export const investorFaq = [
-  { q: { hu: 'Kinek a nevére kerül a lakás?', en: 'Who owns the apartment?' }, a: { hu: 'A tervezett modell szerint a lakás az Ön nevére kerül. Ön finanszírozza a vételt és a felújítást, az Urban Flip Studio szervezi a projektet. A tulajdonjog önmagában nem véd az ingatlan értékvesztésétől.', en: 'Under the proposed model, the apartment is registered in your name. You fund the purchase and renovation; Urban Flip Studio organises the project. Ownership alone does not protect against a fall in property value.' } },
-  { q: { hu: 'Pontosan mit vállal az Urban Flip Studio?', en: 'What does Urban Flip Studio do?' }, a: { hu: 'Mi keressük a megfelelő budapesti lakást, tervezzük és szervezzük a felújítást, majd az értékesítést. A napi operatív döntéseket mi visszük; az Ön aláírását vagy meghatalmazását igénylő lépéseket és a döntési jogköröket szerződésben rögzítjük.', en: 'We search for a suitable Budapest apartment, plan and organise the renovation, then organise the sale. We handle daily operational decisions; steps requiring your signature or authorisation and decision-making powers are defined in the contract.' } },
-  { q: { hu: 'Hogyan számoljuk a felezhető profitot?', en: 'How is the shared profit calculated?' }, a: { hu: 'Az eladási bevételből levonjuk a vételárat és a szerződés szerint elszámolható projektköltségeket. Ilyen lehet a felújítás, berendezés, vagyonszerzés, ügyvédi munka, fenntartás és értékesítés költsége. Az így maradó pozitív projektprofit 50%-a a befektetőé, 50%-a az Urban Flip Studióé. A személyes adózás és a veszteségviselés szabályait külön kell tisztázni.', en: 'The purchase price and contractually agreed project costs are deducted from sale proceeds. These may include renovation, furnishing, acquisition, legal, holding and selling costs. The remaining positive project profit is split equally. Personal taxes and the allocation of losses must be clarified separately.' } },
-  { q: { hu: 'Mekkora tőkével érdemes elindulni?', en: 'How much capital is needed?' }, a: { hu: 'Az előzetesen megvitatott keret nagyságrendileg 40–50 millió Ft-tól indul, a vétel és a felújítás együttes finanszírozására. A tényleges tőkeigényt az adott ingatlan, a járulékos költségek és a tartalék határozzák meg; az egyeztetés nem kötelez befektetésre.', en: 'The initial budget discussed is approximately HUF 40–50 million and upwards, covering the purchase and renovation together. Actual funding depends on the property, associated costs and contingency. An enquiry does not commit you to invest.' } },
-  { q: { hu: 'Mennyi időre kötöm le a pénzem?', en: 'How long is the capital committed?' }, a: { hu: 'A projekt ideje a lakáskereséstől a felújításon át az eladás és az elszámolás lezárásáig tart. Előre biztos eladási határidőt nem ígérünk. A kalkulátorban megadott időtartam feltételezés, nem vállalás; korai kiszállás feltételeiről előre szükséges megállapodni.', en: 'The project runs from the property search through renovation to the completed sale and settlement. We do not promise a fixed sale date. The calculator duration is an assumption, not a commitment; early exit terms must be agreed in advance.' } },
-  { q: { hu: 'Mi történik, ha nőnek a költségek vagy alacsonyabb az eladási ár?', en: 'What if costs rise or the sale price falls?' }, a: { hu: 'A többletköltség és az alacsonyabb eladási ár csökkenti az eredményt; veszteség is előfordulhat. Indulás előtt tisztázni kell a tartalékot, a költségkeret túllépésének kezelését, a pótlólagos finanszírozást és a veszteségviselést. A kalkulátor veszteséges esetet is megmutat.', en: 'Higher costs and a lower sale price reduce the result; a loss is possible. Contingency, overruns, additional funding and allocation of losses must be clarified before starting. The calculator also shows loss scenarios.' } },
-  { q: { hu: 'Van minimumhozam?', en: 'Is there a minimum return?' }, a: { hu: 'Projektenkénti 3%-os minimumhozammal tervezünk, de a vállalás és a szerződéses feltételei még véglegesítés alatt állnak. Ez jelenleg nem hozamgarancia. A kalkulátor nem feltételez garantált kifizetést: a megadott adatokból számolt projektpéldát és a lehetséges veszteséget is megmutatja.', en: 'We are planning a 3% minimum return per project, but the commitment and contractual terms are still being finalised. This is not currently a return guarantee. The calculator assumes no guaranteed payout: it illustrates the entered project figures, including potential losses.' } },
-  { q: { hu: 'Közvetlenül fizethetem a felújítást?', en: 'Can I pay contractors directly?' }, a: { hu: 'A megvitatott modellben ez lehetséges: Ön közvetlenül is rendezheti a kivitelező számláit. A számlázás, az ütemezés és az elszámolható költségek rendjét a projekt indulása előtt szükséges rögzíteni. A konkrét költségstruktúrát az egyedi megállapodás tartalmazza.', en: 'This is possible in the model discussed: you may pay contractor invoices directly. Invoicing, payment schedules and eligible costs must be agreed before the project starts. The individual agreement defines the cost structure.' } },
-  { q: { hu: 'A bemutatott projektek befektetői eredményeket igazolnak?', en: 'Do the projects demonstrate investor returns?' }, a: { hu: 'A Vámház körúti, Gőzmozdony utcai és Balázs Béla utcai esettanulmányok a megvalósult felújítási munkáinkat mutatják be saját fotókkal. Nem közlünk hozzájuk befektetői hozamot vagy eladási profitot, mert ezekhez nincs itt igazolt pénzügyi elszámolás.', en: 'The Vámház körút, Gőzmozdony utca and Balázs Béla utca case studies show completed renovation work with our own photos. No investor returns or sale profits are stated, as supporting financial accounts are not provided here.' } },
-  { q: { hu: 'Mi történik az érdeklődés után?', en: 'What happens after an enquiry?' }, a: { hu: 'Átbeszéljük a tervezett tőkekeretet, az időzítést és a modell részleteit. Ezután derül ki, van-e kölcsönösen megfelelő következő lépés. Az érdeklődés nem jelent pénzügyi kötelezettségvállalást. Jelenleg az űrlap előre kitöltött e-mailt nyit; az üzenetet a saját levelezőjéből kell elküldenie.', en: 'We discuss your planned capital, timing and the model to see whether there is a suitable next step for both parties. An enquiry creates no financial commitment. The form currently opens a pre-filled email; send it from your own email app.' } },
+  {
+    "q": {
+      "hu": "Kinek a nevére kerül a lakás?",
+      "en": "Who owns the apartment?"
+    },
+    "a": {
+      "hu": "Az Ön nevére. Ön a tulajdonos, mi pedig megkeressük a lakást, megszervezzük a felújítást és az eladást. Ha cégen keresztül fektet be, az ingatlan a cége nevére kerül.",
+      "en": "It is registered in your name. You own the property; we find the apartment and organise the renovation and sale. If you invest through a company, the company owns it."
+    }
+  },
+  {
+    "q": {
+      "hu": "Nekem tényleg csak a tőkét kell adnom?",
+      "en": "Do I really just provide the capital?"
+    },
+    "a": {
+      "hu": "Igen, a napi munkát mi visszük: lakáskeresés, tervezés, kivitelezők, beszerzés, berendezés és értékesítés. Önnek nem kell mestereket hívogatnia vagy a helyszínre járnia. A szükséges szerződések aláírásában és meghatalmazásokban természetesen számítunk Önre.",
+      "en": "Yes. We handle daily work: finding the property, design, contractors, procurement, furnishing and sale. No chasing trades or visiting the site. We will need your signature or authorisation for the necessary agreements."
+    }
+  },
+  {
+    "q": {
+      "hu": "Hogyan felezzük a nettó profitot?",
+      "en": "How do we split the net profit?"
+    },
+    "a": {
+      "hu": "Az eladási árból levonjuk a vételárat és a projekt összes elszámolt költségét: a felújítást, berendezést, vagyonszerzést, ügyvédet, fenntartást és értékesítést. A fennmaradó nettó projektprofit fele az Öné, fele a miénk. Itt a nettó a projektköltségek utáni, de az Ön saját adózása előtti eredményt jelenti.",
+      "en": "We deduct the purchase price and all accounted project costs from the sale price: renovation, furnishing, acquisition, legal, holding and selling costs. Half the remaining net project profit is yours, half is ours. Here, net means after project costs but before your own taxes."
+    }
+  },
+  {
+    "q": {
+      "hu": "Mennyi a minimum beszálló?",
+      "en": "What is the minimum investment?"
+    },
+    "a": {
+      "hu": "A minimum beszálló 40–50 millió Ft, a konkrét projekttől függően. Ebből finanszírozza a lakás megvásárlását, felújítását és a kapcsolódó költségeket. Az első beszélgetésen megnézzük, melyik projekttípus illik a keretéhez.",
+      "en": "The minimum investment is HUF 40–50 million, depending on the project. It funds the purchase, renovation and associated costs. At our first conversation we work out which type of project suits your budget."
+    }
+  },
+  {
+    "q": {
+      "hu": "Van minimumhozam?",
+      "en": "Is there a minimum return?"
+    },
+    "a": {
+      "hu": "Igen: projektenként minimum 3%-os hozamot vállalunk a teljes, igazolt projektfinanszírozására. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és nem éves, hanem projektenkénti minimum. Például 50 millió Ft-nál a minimum projektjövedelem 1,5 millió Ft, saját adózás előtt.",
+      "en": "Yes: we commit to a minimum 3% return per project on your full, documented project funding. At settlement after the sale you are entitled to your capital plus at least 3%. If half the net profit is higher, you receive the higher amount. The 3% is included in your profit share; it is a per-project minimum, not an annual return. With HUF 50 million, the minimum project income is HUF 1.5 million before your own taxes."
+    }
+  },
+  {
+    "q": {
+      "hu": "Mi van, ha drágább lesz a felújítás vagy kevesebbért megy el a lakás?",
+      "en": "What if renovation costs rise or the apartment sells for less?"
+    },
+    "a": {
+      "hu": "A 3%-os minimumhozamot ilyenkor is mi vállaljuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a minimum projektjövedelem, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.",
+      "en": "We still commit to the 3% minimum return. If the sale does not cover the full invested capital plus the minimum project income, Urban Flip Studio funds the difference at settlement. You do not have to solve the daily problems: we manage the project and contractors."
+    }
+  },
+  {
+    "q": {
+      "hu": "Mikor kapom vissza a pénzem?",
+      "en": "When do I receive my money back?"
+    },
+    "a": {
+      "hu": "A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os minimum projektre szól, nem egy előre rögzített éves időszakra.",
+      "en": "At settlement after the apartment is sold, together with your return. Allow time for the search, renovation and sale. A delayed sale also delays payment; the 3% minimum applies to the project, not to a fixed annual period."
+    }
+  },
+  {
+    "q": {
+      "hu": "Milyen kockázattal számoljak?",
+      "en": "What risks should I consider?"
+    },
+    "a": {
+      "hu": "Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a minimumhozam rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.",
+      "en": "The main uncertainty is timing: weaker demand may make the sale take longer. Capital repayment and the minimum return are Urban Flip Studio’s contractual commitment, not a bank or government guarantee; performance also depends on our ability to pay. Force majeure and early exit are addressed in the contract."
+    }
+  },
+  {
+    "q": {
+      "hu": "Hogyan adózom magánszemélyként vagy céggel?",
+      "en": "How are private individuals and companies taxed?"
+    },
+    "a": {
+      "hu": "Magánszemélyként az ingatlaneladás adóköteles jövedelmét főszabály szerint 15% SZJA terheli. Rendszeres, üzletszerű flippelésnél eltérő szabályok és további közterhek is felmerülhetnek, ezért induláskor könyvelővel egyeztetjük az Ön helyzetét. Cégnél a cégforma és az adózási mód számít. Céges befektetéshez nem kell a tőkét előbb magánszemélyként kivennie: a lakást a cége is megveheti, az Urban Flip Studio pedig a díjáról a cégnek tud számlázni. A költségként elszámolhatóságot a könyvelő az adott ügylet alapján állapítja meg.",
+      "en": "For a private individual, taxable income from a property sale is generally subject to 15% personal income tax. Regular business-like flipping may involve different rules and additional taxes, so your accountant should check your position at the start. Company taxation depends on legal form and tax regime. You do not need to withdraw capital personally first: the company can buy the apartment and Urban Flip Studio can invoice the company for its fee. Your accountant determines deductibility for the particular transaction."
+    },
+    "links": [
+      {
+        "label": {
+          "hu": "NAV: ingatlanértékesítés adózása",
+          "en": "NAV: taxation of property sales"
+        },
+        "url": "https://nav.gov.hu/pfile/file?path=/ugyfeliranytu/nezzen-utana/inf_fuz/2026/09.-Az-ingatlanertekesitesbol-es-a-vagyoni-erteku-jog-atruhazasabol-szarmazo-jovedelem-2026.02.04"
+      }
+    ]
+  },
+  {
+    "q": {
+      "hu": "Közvetlenül is fizethetem a felújítást?",
+      "en": "Can I pay for the renovation directly?"
+    },
+    "a": {
+      "hu": "Igen. A kivitelező számláit közvetlenül is rendezheti, mi pedig ugyanúgy megszervezzük és végigvezetjük a munkát. Az ütemezést és a költségkeretet előre átbeszéljük.",
+      "en": "Yes. You can pay contractor invoices directly while we still organise and manage the work. We agree the schedule and budget in advance."
+    }
+  },
+  {
+    "q": {
+      "hu": "Milyen eredményeket hoztak a korábbi projektek?",
+      "en": "What results did earlier projects achieve?"
+    },
+    "a": {
+      "hu": "A Vámház körúti projekt hozzávetőleg 30%-ot hozott 12 hónap alatt, a Gőzmozdony utcai 18%-ot 4 hónap alatt, a Balázs Béla utcai 21%-ot 5 hónap alatt, adózás előtt. Ezek az Urbanflip tulajdonosa által közölt, teljes projekthozamok, nem egy korábbi külső befektető kifizetései. A pontos vételi és eladási összegek magánadatok. Az 50–50-es modell befektetői részét külön szemléltetjük a befektetői referenciákban; a korábbi eredmények nem ígérnek ugyanekkora jövőbeli hozamot.",
+      "en": "Vámház körút returned approximately 30% over 12 months, Gőzmozdony utca 18% over 4 months and Balázs Béla utca 21% over 5 months, before tax. These are owner-reported full-project returns, not payouts to a previous external investor. Exact purchase and sale figures are private. The investor share under the 50–50 model is illustrated separately; past results do not promise the same future returns."
+    }
+  },
+  {
+    "q": {
+      "hu": "Mi a következő lépés?",
+      "en": "What is the next step?"
+    },
+    "a": {
+      "hu": "Beszéljünk a tőkekeretéről és az időzítésről. Megmutatjuk, hogyan dolgozunk, végigvesszük a kérdéseit, és ha mindkét félnek megfelelő, előkészítjük az együttműködést. Az első egyeztetés nem kötelezi befektetésre.",
+      "en": "Let’s discuss your capital and timing. We show you how we work, answer your questions and, if it suits both sides, prepare the partnership. The first conversation does not commit you to invest."
+    }
+  }
 ];
-
 export const investorSteps = [
-  { title: { hu: 'Keretek és megállapodás', en: 'Scope and agreement' }, text: { hu: 'Tőke, költségek, döntési jogkörök, kockázatok és elszámolás: először a közös szabályokat rögzítjük.', en: 'Capital, costs, decision-making, risks and settlement: first we agree the rules.' } },
-  { title: { hu: 'Lakáskeresés és vétel', en: 'Search and purchase' }, text: { hu: 'Budapesti lakást keresünk a projekt kereteihez. A megvásárolt ingatlan az Ön nevére kerül.', en: 'We search for a Budapest apartment within the project scope. The purchased property is registered in your name.' } },
-  { title: { hu: 'Tervezés és felújítás', en: 'Design and renovation' }, text: { hu: 'Mi szervezzük a tervezést, a kivitelezést és a berendezést, az előre egyeztetett költségkeret mentén.', en: 'We organise design, construction and furnishing against the agreed budget.' } },
-  { title: { hu: 'Értékesítés', en: 'Sale' }, text: { hu: 'Előkészítjük és szervezzük az eladást. Az ár és az eladási idő a piaci körülményektől is függ.', en: 'We prepare and organise the sale. Price and time to sell also depend on market conditions.' } },
-  { title: { hu: 'Elszámolás és profitmegosztás', en: 'Settlement and profit sharing' }, text: { hu: 'Elszámoljuk a projekt költségeit. A fennmaradó pozitív projektprofitot fele-fele arányban osztjuk meg.', en: 'We account for project costs. The remaining positive project profit is shared equally.' } },
+  {
+    "title": {
+      "hu": "Megkeressük a lakást",
+      "en": "We find the apartment"
+    },
+    "text": {
+      "hu": "Felkutatjuk és felmérjük a budapesti lehetőségeket. A kiválasztott lakást az Ön nevére vásároljuk meg.",
+      "en": "We find and assess opportunities in Budapest. The selected apartment is purchased in your name."
+    }
+  },
+  {
+    "title": {
+      "hu": "Megtervezzük az átalakítást",
+      "en": "We design the transformation"
+    },
+    "text": {
+      "hu": "Alaprajz, műszaki tartalom, enteriőr és költségkeret: a teljes tervet összerakjuk.",
+      "en": "Layout, technical scope, interior and budget: we put the complete plan together."
+    }
+  },
+  {
+    "title": {
+      "hu": "Végigvisszük a felújítást",
+      "en": "We run the renovation"
+    },
+    "text": {
+      "hu": "Mi szervezzük a kivitelezőket, a beszerzést és a berendezést. Önnek nem kell mestereket koordinálnia.",
+      "en": "We organise contractors, procurement and furnishing. You do not need to coordinate the trades."
+    }
+  },
+  {
+    "title": {
+      "hu": "Megszervezzük az eladást",
+      "en": "We organise the sale"
+    },
+    "text": {
+      "hu": "Felkészítjük a lakást az értékesítésre, és kezeljük az eladás napi feladatait.",
+      "en": "We prepare the apartment for sale and handle the daily tasks of selling it."
+    }
+  },
+  {
+    "title": {
+      "hu": "Elszámolunk és felezünk",
+      "en": "We settle and share the profit"
+    },
+    "text": {
+      "hu": "A nettó projektprofit 50%-a az Öné. Az eladás utáni elszámolásra minimum 3% projekthozamot vállalunk.",
+      "en": "You receive 50% of net project profit. We commit to a minimum 3% project return at settlement after the sale."
+    }
+  }
 ];

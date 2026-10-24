@@ -1,94 +1,83 @@
-# Urban Flip Studio – jóváhagyásra váró szövegtervezet
+# Urban Flip Studio – befektetői ajánlat és FAQ
 
-Ezek szerkeszthető javaslatok. A főoldal jelenlegi címét a tulajdonos elfogadta. A befektetői hero C változata kiválasztva, kizárólag jogi jóváhagyás utáni használatra. A FAQ módosításai még nyitottak, a PR tervezet marad.
+Frissítve: 2026. október 24. A tulajdonos legújabb kérése szerint az ajánlat közvetlen és leadgenerálásra célzott. A PR továbbra is draft, élesítés nélkül.
 
-## Főoldali hero – választható címek
+## Hero
 
-1. **Lakásfelújítás A–Z-ig, a tervezéstől a lakberendezésig.** (jelenlegi)
-2. **Egy kézben a tervezés, a felújítás és az utolsó részletek.**
-3. **Új lehetőség minden lakásban. Mi végigvisszük az átalakulást.**
+**Ön adja a tőkét. A nettó profit fele az Öné.**
 
-Második CTA: **Befektetőként csatlakoznék** → `/befektetoknek/`.
+Mi budapesti lakást vásárolunk az Ön nevére, felújítjuk és eladjuk. Ön a nettó projektprofit 50%-át kapja, projektenként minimum 3%-os hozamgaranciával.
 
-## Befektetői hero – új, ajánlatközpontú irány
+50–50% nettó profitmegosztás · 3% minimum projekthozam · az ingatlan az Ön nevén.
 
-A korábbi hero-javaslatokat a tulajdonos elvetette. A főoldal jelenlegi headline-ja elfogadva, marad.
+**Minimum beszálló: 40–50 millió Ft**, projekttől függően. CTA: **Érdekel a befektetés**.
 
-### A – Tulajdon és konkrét részesedés (a PR ideiglenes iránya)
+## Vállalt konstrukció
 
-**A lakás az Ön nevén. A projektprofit fele az Öné.**
+A tulajdonos által megerősített ajánlat szerint a teljes igazolt projektfinanszírozás visszajár, ezen felül legalább 3% jár az eladás utáni elszámoláskor. A profitból járó 50% beleszámít a minimumba. A minimum teljesítéséhez szükséges tőkehiányt és hozamkülönbözetet az Urbanflip pótolja. A kockázatokról, az elhúzódó eladásról, a vállalás teljesíthetőségéről és a vis maior kezeléséről külön FAQ szól. Ez nem állami vagy banki biztosítás.
 
-Ön finanszíroz, mi keressük a budapesti lakást, megszervezzük a felújítást és az eladást. Az ingatlan az Ön nevére kerül; a napi szervezést mi végezzük.
+## Kalkulátor
 
-- A költségek után maradó pozitív projektprofit 50%-a Öné.
-- Nincs kivitelezőszervezés vagy napi projektmunka az Ön oldalán.
-- Projektenkénti 3%-os minimumhozammal tervezünk. Vállalása és szerződéses feltételei még véglegesítés alatt állnak; ez jelenleg nem hozamgarancia.
+Alapértékek a tulajdonosi képernyőkép szerint: 45 M Ft vétel, 8 M Ft felújítás, 2 M Ft egyéb költség, 67 M Ft eladás, 6 hónap. Minden csúszka és számmező lépése 1.
 
-### B – Eredmény és tehermentesítés
+55 M Ft teljes finanszírozás, 12 M Ft nettó projektprofit, 6 M Ft befektetői jövedelem: 10,91% projekthozam. Évesítve 23,01%, azonos százalékos eredmény és teljes újrabefektetés mellett.
 
-**A projektprofit 50%-a az Öné. A felújítás gondja a miénk.**
+Évesített hozam = ((1 + projekthozam / 100)^(12 / hónap) − 1) × 100. Ez egy összehasonlító matematikai mutató, nem megígért éves eredmény. A 3% projektenkénti minimum. A kalkulátor nem von le személyes adót. Ha a minimumhozam csak Urbanflip-pótlással teljesülhet, a szükséges pótlást külön jelzi.
 
-Budapesti lakás, az Ön nevére vásárolva. Ön biztosítja a vétel és a felújítás keretét; mi megkeressük, átalakítjuk és értékesítésre visszük az ingatlant. A pozitív projektprofitot a költségek után felezzük. A tervezett 3%-os minimum projekthozam vállalása és szerződéses feltételei még véglegesítés alatt állnak.
+## Elkülönített befektetői referenciák
 
-### C – KIVÁLASZTOTT teljes ajánlat, kizárólag jogi jóváhagyás UTÁNI használatra
+A tulajdonos 2026. október 24-i adatközlése: Vámház körút ≈30% / 12 hónap, Gőzmozdony–Köki ≈18% / 4 hónap, Balázs Béla ≈21% / 5 hónap. Teljes projektprofit / teljes ráfordított tőke, adózás előtt. Nem külső befektető tényleges kifizetései.
 
-**A lakás az Ön nevén. A projektprofit 50%-a az Öné. Projektenként legalább 3% hozammal.**
+Az 50–50 modell szemléltető befektetői projekthozama rendre 15%, 9%, 10,5%. Ezeket nem nevezzük megvalósult befektetői kifizetésnek. Pontos tranzakciós összegeket nem közlünk, magánadatok. A számok kizárólag a befektetői oldalakon és a külön /befektetoknek/projektek/ útvonalakon jelennek meg; a felújítási portfólióban nem.
 
-A lakáskereséstől a felújításon át az eladásig mi szervezzük a projektet. Ön finanszíroz, mi elvégezzük a napi munkát. A 3%-os minimumhozam a szerződésben meghatározott finanszírozási alapra és feltételekkel jár; a felezett profitból kapott részesedés beleszámít a minimumba.
-
-**Tulajdonosi döntés, 2026. október 24.:** a C cím kiválasztva; a teljes igazolt projektfinanszírozás visszafizetése és az ezen felüli legalább 3% a szerződéses kidolgozás elfogadott üzleti alapja. Az 50%-os profitrészesedés beleszámít a minimumba. Veszteséges projektben az Urbanflipnek kellene pótolnia a hiányzó tőkét és a minimumhozamot. Ez üzleti irányválasztás, nem jogi jóváhagyás. A szerződés, fedezet, teljesíthetőség és fizetési határidő még rendezendő. A teljes garanciaígéretet tartalmazó C változat jogi jóváhagyásig nem kerül a generált oldalakba.
-
-Fő CTA: **Beszéljünk a befektetésről**. A főoldali CTA: **Befektetőként csatlakoznék**.
-
-## Két flip és a 30% feletti eredmény – szemléltető matematika
-
-50 M Ft teljes projektfinanszírozás, 65 M Ft eladás esetén 15 M Ft projektprofit keletkezik a megadott költségek után. Ennek fele, 7,5 M Ft a befektetőé: **15% projekthozam**, személyes adók előtt.
-
-- Két ilyen projekt, változatlan 50 M Ft projektkerettel: összesen 15 M Ft befektetői eredmény, az induló keret **30%-a**. A közben kivett nyereséget nem fektetjük újra.
-- Teljes újrabefektetéssel, ugyanekkora százalékos eredményt és arányosan változó második projektköltségeket feltételezve: 50 × 1,15 × 1,15 = **66,125 M Ft**. A számolt összesített eredmény **32,25%**.
-- Ez csak akkor 12 hónapos eredmény, ha a lakáskeresés, a két projekt, az eladások és az elszámolások együttesen beleférnek 12 hónapba. A személyes adók és a két projekt közötti várakozás módosíthatják az eredményt és az időtartamot.
-- Ez nem múltbeli referencia, előrejelzés vagy igazoltan elérhető hozam. A hero nem ígér évi 30%-ot. A kalkulátor külön megmutatja a kétprojekt-eset feltételezéseit és idejét.
-
-## A megadott anyagokból alkalmazott szerkesztési elvek
-
-Az értékajánlatot az első képernyőn tisztázzuk: mi jár a befektetőnek, mitől szabadul meg, milyen kerettel érdemes érdeklődnie. A sorrend: ajánlat → megvalósult munka → működés és számítás → kockázatok, kifogások → kapcsolatfelvétel. Egyetlen elsődleges cél az egyeztetés. A hirdetési landing navigációja és lábléce ennek megfelelően egyszerűsödik. Nem használunk kitalált ügyfélvéleményt, hamis sürgetést vagy nem igazolt kizárólagossági állítást.
-
-## Szerkeszthető FAQ-válaszok
+## Szerkeszthető FAQ
 
 ### 1. Kinek a nevére kerül a lakás?
-A tervezett modell szerint a lakás az Ön nevére kerül. Ön finanszírozza a vételt és a felújítást, az Urban Flip Studio szervezi a projektet. A tulajdonjog önmagában nem véd az ingatlan értékvesztésétől.
 
-### 2. Pontosan mit vállal az Urban Flip Studio?
-Mi keressük a megfelelő budapesti lakást, tervezzük és szervezzük a felújítást, majd az értékesítést. A napi operatív döntéseket mi visszük; az Ön aláírását vagy meghatalmazását igénylő lépéseket és a döntési jogköröket szerződésben rögzítjük.
+Az Ön nevére. Ön a tulajdonos, mi pedig megkeressük a lakást, megszervezzük a felújítást és az eladást. Ha cégen keresztül fektet be, az ingatlan a cége nevére kerül.
 
-### 3. Hogyan számoljuk a felezhető profitot?
-Az eladási bevételből levonjuk a vételárat és a szerződés szerint elszámolható projektköltségeket. Ilyen lehet a felújítás, berendezés, vagyonszerzés, ügyvédi munka, fenntartás és értékesítés költsége. Az így maradó pozitív projektprofit 50%-a a befektetőé, 50%-a az Urban Flip Studióé. A személyes adózás és a veszteségviselés szabályait külön kell tisztázni.
+### 2. Nekem tényleg csak a tőkét kell adnom?
 
-### 4. Mekkora tőkével érdemes elindulni?
-Az előzetesen megvitatott keret nagyságrendileg 40–50 millió Ft-tól indul, a vétel és a felújítás együttes finanszírozására. A tényleges tőkeigényt az adott ingatlan, a járulékos költségek és a tartalék határozzák meg; az egyeztetés nem kötelez befektetésre.
+Igen, a napi munkát mi visszük: lakáskeresés, tervezés, kivitelezők, beszerzés, berendezés és értékesítés. Önnek nem kell mestereket hívogatnia vagy a helyszínre járnia. A szükséges szerződések aláírásában és meghatalmazásokban természetesen számítunk Önre.
 
-### 5. Mennyi időre kötöm le a pénzem?
-A projekt ideje a lakáskereséstől a felújításon át az eladás és az elszámolás lezárásáig tart. Előre biztos eladási határidőt nem ígérünk. A kalkulátorban megadott időtartam feltételezés, nem vállalás; korai kiszállás feltételeiről előre szükséges megállapodni.
+### 3. Hogyan felezzük a nettó profitot?
 
-### 6. Mi történik, ha nőnek a költségek vagy alacsonyabb az eladási ár?
-A többletköltség és az alacsonyabb eladási ár csökkenti az eredményt; veszteség is előfordulhat. Indulás előtt tisztázni kell a tartalékot, a költségkeret túllépésének kezelését, a pótlólagos finanszírozást és a veszteségviselést. A kalkulátor veszteséges esetet is megmutat.
+Az eladási árból levonjuk a vételárat és a projekt összes elszámolt költségét: a felújítást, berendezést, vagyonszerzést, ügyvédet, fenntartást és értékesítést. A fennmaradó nettó projektprofit fele az Öné, fele a miénk. Itt a nettó a projektköltségek utáni, de az Ön saját adózása előtti eredményt jelenti.
 
-### 7. Van minimumhozam?
-**Nyilvános oldalra, jogi jóváhagyásig:** Projektenkénti 3%-os minimumhozammal tervezünk, de a vállalás és a szerződéses feltételei még véglegesítés alatt állnak. Ez jelenleg nem hozamgarancia. A kalkulátor nem feltételez garantált kifizetést: a megadott adatokból számolt projektpéldát és a lehetséges veszteséget is megmutatja.
+### 4. Mennyi a minimum beszálló?
 
-**Belső konstrukciós javaslat a 2026. október 24-i kérés alapján:** Projektenkénti 3%-os hozamgaranciával tervezünk. A tulajdonos által szerződéses kidolgozási alapként elfogadott számítási alap az igazoltan befizetett, elszámolásban elismert teljes projektfinanszírozás, amely visszajár. Ezen felül legalább 3% járna. Elfogadott elszámolási irány: a befektető pozitív profitból járó 50%-os részesedése beleszámít a minimumba; a 3% nem ezen felül jár. Példa: 50 millió Ft finanszírozás esetén 1,5 millió Ft minimum projektjövedelem, nem éves hozam. Ez csak egyeztetési alap, még nem vállalható nyilvános ajánlat.
+A minimum beszálló 40–50 millió Ft, a konkrét projekttől függően. Ebből finanszírozza a lakás megvásárlását, felújítását és a kapcsolódó költségeket. Az első beszélgetésen megnézzük, melyik projekttípus illik a keretéhez.
 
-**Rögzítendő:** szerződő kötelezett és fizetőképessége; a tőkeveszteség rendezése és a tőke visszafizetése; a finanszírozási alapba tartozó tételek; hozam és személyes adók viszonya; fizetés időpontja és végső határideje elhúzódó eladásnál; korai kiszállás; biztosíték, teljesítés és érvényesítés; költségtúllépés és kivételek. A 3%-ot a kalkulátor nem alkalmazza automatikus alsó korlátként, amíg a feltételek nincsenek elfogadva.
+### 5. Van minimumhozam?
 
-### 8. Közvetlenül fizethetem a felújítást?
-A megvitatott modellben ez lehetséges: Ön közvetlenül is rendezheti a kivitelező számláit. A számlázás, az ütemezés és az elszámolható költségek rendjét a projekt indulása előtt szükséges rögzíteni. A konkrét költségstruktúrát az egyedi megállapodás tartalmazza.
+Igen: projektenként minimum 3%-os hozamot vállalunk a teljes, igazolt projektfinanszírozására. Az eladás utáni elszámoláskor a tőkéje és ezen felül legalább 3% illeti meg. Ha a nettó profit fele ennél több, természetesen a magasabb összeget kapja. A 3% nem az 50%-os profitrészén felül jár, és nem éves, hanem projektenkénti minimum. Például 50 millió Ft-nál a minimum projektjövedelem 1,5 millió Ft, saját adózás előtt.
 
-### 9. A bemutatott projektek befektetői eredményeket igazolnak?
-A Vámház körúti, Gőzmozdony utcai és Balázs Béla utcai esettanulmányok a megvalósult felújítási munkáinkat mutatják be saját fotókkal. Nem közlünk hozzájuk befektetői hozamot vagy eladási profitot, mert ezekhez nincs itt igazolt pénzügyi elszámolás.
+### 6. Mi van, ha drágább lesz a felújítás vagy kevesebbért megy el a lakás?
 
-### 10. Mi történik az érdeklődés után?
-Átbeszéljük a tervezett tőkekeretet, az időzítést és a modell részleteit. Ezután derül ki, van-e kölcsönösen megfelelő következő lépés. Az érdeklődés nem jelent pénzügyi kötelezettségvállalást. Jelenleg az űrlap előre kitöltött e-mailt nyit; az üzenetet a saját levelezőjéből kell elküldenie.
+A 3%-os minimumhozamot ilyenkor is mi vállaljuk. Ha az eladásból nem jön ki a teljes befektetett tőke és a minimum projektjövedelem, a különbözetet az Urban Flip Studio pótolja az elszámoláskor. Önnek nem kell a napi problémákat megoldania: a projektet és a kivitelezőket mi kezeljük.
 
-## Igazolható referenciák és határok
+### 7. Mikor kapom vissza a pénzem?
 
-Forrás: a GitHub `src/data/projects.mjs` adatai és a kapcsolódó saját képek. Vámház körút / Project Olive, Gőzmozdony utca, Balázs Béla utca. Nem kerül be új hozamállítás, ügyfélvélemény, eladási ár, megtérülési eredmény vagy garantált eladási idő. A kalkulátor minden száma szemléltető feltételezés.
+A lakás eladása utáni elszámoláskor, a hozamával együtt. A keresés, felújítás és értékesítés teljes idejével érdemes számolnia. Ha az eladás elhúzódik, az a kifizetést is későbbre tolja; a 3%-os minimum projektre szól, nem egy előre rögzített éves időszakra.
+
+### 8. Milyen kockázattal számoljak?
+
+Az eladás időzítése a legfontosabb bizonytalanság: gyengébb keresletnél tovább tarthat, mire lezárjuk a projektet. A tőke és a minimumhozam rendezése az Urban Flip Studio szerződéses vállalása, nem banki vagy állami garancia; a teljesítés a fizetőképességünktől is függ. A vis maior és az idő előtti kiszállás kezelését a szerződésben rögzítjük.
+
+### 9. Hogyan adózom magánszemélyként vagy céggel?
+
+Magánszemélyként az ingatlaneladás adóköteles jövedelmét főszabály szerint 15% SZJA terheli. Rendszeres, üzletszerű flippelésnél eltérő szabályok és további közterhek is felmerülhetnek, ezért induláskor könyvelővel egyeztetjük az Ön helyzetét. Cégnél a cégforma és az adózási mód számít. Céges befektetéshez nem kell a tőkét előbb magánszemélyként kivennie: a lakást a cége is megveheti, az Urban Flip Studio pedig a díjáról a cégnek tud számlázni. A költségként elszámolhatóságot a könyvelő az adott ügylet alapján állapítja meg.
+
+[NAV: ingatlanértékesítés adózása](https://nav.gov.hu/pfile/file?path=/ugyfeliranytu/nezzen-utana/inf_fuz/2026/09.-Az-ingatlanertekesitesbol-es-a-vagyoni-erteku-jog-atruhazasabol-szarmazo-jovedelem-2026.02.04)
+
+### 10. Közvetlenül is fizethetem a felújítást?
+
+Igen. A kivitelező számláit közvetlenül is rendezheti, mi pedig ugyanúgy megszervezzük és végigvezetjük a munkát. Az ütemezést és a költségkeretet előre átbeszéljük.
+
+### 11. Milyen eredményeket hoztak a korábbi projektek?
+
+A Vámház körúti projekt hozzávetőleg 30%-ot hozott 12 hónap alatt, a Gőzmozdony utcai 18%-ot 4 hónap alatt, a Balázs Béla utcai 21%-ot 5 hónap alatt, adózás előtt. Ezek az Urbanflip tulajdonosa által közölt, teljes projekthozamok, nem egy korábbi külső befektető kifizetései. A pontos vételi és eladási összegek magánadatok. Az 50–50-es modell befektetői részét külön szemléltetjük a befektetői referenciákban; a korábbi eredmények nem ígérnek ugyanekkora jövőbeli hozamot.
+
+### 12. Mi a következő lépés?
+
+Beszéljünk a tőkekeretéről és az időzítésről. Megmutatjuk, hogyan dolgozunk, végigvesszük a kérdéseit, és ha mindkét félnek megfelelő, előkészítjük az együttműködést. Az első egyeztetés nem kötelezi befektetésre.

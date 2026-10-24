@@ -55,18 +55,18 @@ jelenik meg az angol oldalon). A 404 csak a gyökérben van (a Pages egyetlen 40
 
 ## Build
 
-### Befektetői oldalak (szövegtervezet)
+### Befektetői oldalak
 
-- `/befektetoknek/` és `/en/investors/`: a navigációból és a főoldal második CTA-jából elérhető, indexelhető tájékoztató.
-- `/befektetoi-egyuttmukodes/` és `/en/investor-partnership/`: hirdetési landing egyszerűsített fejléccel, `noindex`, sitemap nélkül.
-- `src/investor-pages.mjs`: közös oldalelemek; `src/data/investors.mjs`: szerkeszthető HU/EN FAQ és folyamat.
-- A kalkulátor kódja `src/assets/investor.mjs`, stílusai `src/assets/investor.css`; csak az új oldalak töltik be őket. Az adatok helyben maradnak.
-- Külön lenyitható példa mutat két egymást követő projektet, azonos százalékos eredménnyel és teljes újrabefektetéssel. Az időtartam összeadódik; nem nevezzük automatikusan éves hozamnak. A 2 × 15% → 32,25% példa feltételezés, nem hozamígéret vagy referencia.
-- Az új érdeklődési űrlap a meglévő statikus működéshez igazodva e-mailt állít össze. Nincs bekötött leadfogadó backend, nincs tényleges elküldést állító sikerüzenet, és nincs új mérőkód.
-- Ellenőrzés: `node scripts/build.mjs` majd `node --test scripts/test-investors.mjs`.
+- /befektetoknek/ és /en/investors/: befektetői ajánlat, navigáció és főoldali második CTA.
+- /befektetoi-egyuttmukodes/ és /en/investor-partnership/: leadgeneráló landing, egyszerűsített navigációval; noindex és sitemap nélkül.
+- /befektetoknek/projektek/: külön HU/EN befektetői esettanulmányok. A hozamok csak itt és a befektetői ajánlatban jelennek meg, a felújítási portfólióban nem.
+- A történeti adatok a tulajdonos közlései, teljes projekthozamok. Az 50–50 modell befektetői része szemléltetés, nem múltbeli kifizetés. Forrás: src/data/investors.mjs.
+- A kalkulátor alapja 45/8/2/67 M Ft és 6 hónap, egész lépésekkel. A nettó projektprofit fele jár a befektetőnek, minimum a teljes finanszírozás 3%-a; az esetleges Urbanflip-pótlást külön jelzi. Az évesített érték teljes újrabefektetést feltételező matematikai mutató.
+- Az adatok helyben maradnak. Az űrlap a meglévő statikus működéshez igazodva e-mailt állít össze; nincs leadfogadó backend vagy új mérőkód.
+- A 3% az Urbanflip tulajdonos által vállalt szerződéses kötelezettsége, nem banki vagy állami biztosítás. A részletek és kockázatok a FAQ-ban szerepelnek. Az adózási válasz NAV-forrásra hivatkozik.
+- Ellenőrzés: node scripts/build.mjs majd node --test scripts/test-investors.mjs.
 
-A hero- és FAQ-szövegek jóváhagyásra várnak: **[szerkeszthető szövegtervezet](docs/investor-copy-review.md)**.
-A tulajdonos projektenkénti 3%-os hozamgaranciát kért; a javaslat és a tisztázandó feltételek a belső tervezetben vannak. Jogi jóváhagyásig az oldalak és a kalkulátor nem ígérnek garantált vagy biztosított hozamot. A kalkulátor pozitív profitnál felez, veszteségnél a teljes veszteséget mutatja befektetői stresszpéldaként; a szerződéses veszteségviselés még tisztázandó.
+Aktuális szöveg: [hero és FAQ](docs/investor-copy-review.md).
 
 ```sh
 python scripts/build_images.py   # csak ha képek változtak (OLIVE_RAW = nyers forrásmappa)
