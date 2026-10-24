@@ -150,7 +150,7 @@ export const investorFaq = [
       "en": "What is the next step?"
     },
     "a": {
-      "hu": "Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális az indulás. Az egyeztetésen átbeszéljük az együttműködés menetét és az Ön kérdéseit. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.",
+      "hu": "Írja meg, mekkora összeget fektetne be, és mikor lenne aktuális a kezdés. Az egyeztetésen átbeszéljük az együttműködés menetét és a felmerülő kérdéseket. Ha mindkettőnknek megfelel, előkészítjük a szerződést. Az első beszélgetés nem kötelezi befektetésre.",
       "en": "Let’s discuss your capital and timing. We show you how we work, answer your questions and, if it suits both sides, prepare the partnership. The first conversation does not commit you to invest."
     }
   }
@@ -178,8 +178,8 @@ export const investorSteps = [
   },
   {
     "title": {
-      "hu": "A felújítás szervezését átvállaljuk",
-      "en": "We manage the renovation"
+      "hu": "Önnek nem kell szakembereket irányítania",
+      "en": "You do not need to manage contractors"
     },
     "text": {
       "hu": "Mi egyeztetünk a kivitelezőkkel, intézzük a beszerzést és a berendezést. Ha a helyszínen kérdés merül fel, azt is mi oldjuk meg.",
