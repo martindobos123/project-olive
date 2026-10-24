@@ -4,7 +4,7 @@ Frissítve: 2026. október 24. A tulajdonos legújabb kérése szerint az ajánl
 
 ## Hero
 
-**Mi megtaláljuk, felújítjuk és eladjuk. Ön finanszírozza, tulajdonolja, és megtartja a profit felét évi 20–30%-os hozamcéllal.**
+**Mi megtaláljuk, felújítjuk és eladjuk. Ön finanszírozza a projektet, tulajdonolja a lakást, és megtartja a profit felét évi 20–30%-os hozamcéllal.**
 
 Garanciát is vállalunk projektenként minimum 3%-os hozamra, veszteség esetén is! A lakás az Ön nevén van, minden mást mi végzünk.
 
