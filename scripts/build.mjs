@@ -8,7 +8,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from '../src/data/site.mjs';
 import { allPages } from '../src/pages.mjs';
-import { Header, Footer, ConsentBanner, esc, img } from '../src/components.mjs';
+import { Header, Footer, ConsentBanner, LangSwitch, esc, img } from '../src/components.mjs';
 import { LANGS, setLang, href, t } from '../src/i18n.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,6 +29,8 @@ if (PIXEL && !/^[\w-]{4,128}$/.test(PIXEL)) throw new Error(`site.oaiPixelId gya
 const assetSrc = {
   'site.css': readFileSync(join(ROOT, 'src', 'assets', 'fonts.css'), 'utf8') + readFileSync(join(ROOT, 'src', 'assets', 'site.css'), 'utf8'),
   'site.js': readFileSync(join(ROOT, 'src', 'assets', 'site.js'), 'utf8'),
+  'investor.css': readFileSync(join(ROOT, 'src', 'assets', 'investor.css'), 'utf8'),
+  'investor.js': readFileSync(join(ROOT, 'src', 'assets', 'investor.mjs'), 'utf8'),
   // Régi /project-olive/ cím → projektoldal; a query stringet (pl. az OpenAI ?oppref=… attribúciós
   // paramétert) és a hash-t megőrzi, hogy a Pixel a céloldalon még lássa. A CSP tiltja az inline scriptet,
   // ezért külön fájl; JS nélkül a <noscript> meta-refresh visz tovább (query nélkül).
@@ -112,14 +114,15 @@ ${alternates ? LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:lo
 <link rel="manifest" href="/site.webmanifest">
 ${PRELOAD_FONTS.map((f) => `<link rel="preload" href="/assets/fonts/${f}" as="font" type="font/woff2" crossorigin>`).join('\n')}
 <link rel="stylesheet" href="${assets['site.css']}">
+${page.investorAssets ? `<link rel="stylesheet" href="${assets['investor.css']}"><script type="module" src="${assets['investor.js']}"></script>` : ''}
 ${PIXEL ? `<script src="${assets['oaiq-init.js']}"></script>\n` : ''}<script src="${assets['site.js']}" defer></script>
 ${page.jsonLd.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body>
 <a class="skip-link" href="#tartalom">${t({ hu: 'Ugrás a tartalomhoz', en: 'Skip to content' })}</a>
-${Header({ path: page.path, overlay: !!page.overlayHeader, alternates })}
+${page.landing ? `<header class="header header--landing"><div class="header__inner"><a class="brand" href="${href('home')}">${esc(site.name)}</a><div class="header__end">${LangSwitch(alternates)}<a class="btn btn--solid" href="#erdeklodes">${t({hu:'Egyeztessünk',en:'Let’s talk'})}</a></div></div></header>` : Header({ path: page.path, overlay: !!page.overlayHeader, alternates })}
 ${page.body}
-${Footer()}
+${page.landing ? `<footer class="footer"><div class="wrap"><p class="footer__brand">${esc(site.name)}</p><p>Budapest · <a href="${site.phoneHref}">${esc(site.phone)}</a> · <a href="mailto:${site.email}">${esc(site.email)}</a></p><p><a href="${href('privacy')}">${t({hu:'Adatkezelési tájékoztató',en:'Privacy notice'})}</a>${PIXEL ? ` · <a href="#consent" data-consent-open>${t({hu:'Mérési beállítások',en:'Measurement settings'})}</a>` : ''}</p></div></footer>` : Footer()}
 ${PIXEL ? ConsentBanner() : ''}
 </body>
 </html>

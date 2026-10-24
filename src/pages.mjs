@@ -2,6 +2,7 @@
 // A build nyelvenként egyszer hívja az allPages()-t (src/i18n.mjs → setLang); a key-ből jön a
 // másik nyelvű megfelelő (hreflang + nyelvváltó).
 import { site, process, why } from './data/site.mjs';
+import { investorPage, investorProjectPage } from './investor-pages.mjs';
 import { services, featuredServiceSlugs, formServices } from './data/services.mjs';
 import { projects } from './data/projects.mjs';
 import { subprojects, subprojectsIntro } from './data/subprojects.mjs';
@@ -83,7 +84,7 @@ ${Hero({
   }),
   ctas: [
     { label: t({ hu: 'Kérek konzultációt', en: 'Book a consultation' }), href: href('contact') },
-    { label: t({ hu: 'Elkészült projektek', en: 'Completed projects' }), href: href('projects') },
+    { label: t({ hu: 'Befektetőként csatlakoznék', en: 'Explore investing' }), href: href('investors') },
   ],
 })}
 <section class="section" aria-labelledby="intro-title"><div class="wrap split split--top">
@@ -511,6 +512,8 @@ ${UL([
 ])}
 ${P('A weboldal űrlapja a látogató saját levelezőprogramjában nyit meg egy előre kitöltött e-mailt; az adatok így közvetlenül az Adatkezelő e-mail-fiókjába érkeznek, a weboldal szervere nem tárolja őket.',
     'The website form opens a pre-filled email in your own email application; the data therefore arrives directly in the Controller’s mailbox and is not stored by the website’s server.')}
+${P('A befektetői érdeklődési űrlapon ezen felül önkéntesen megadhatja a tervezett tőkekeretét és az időzítéssel kapcsolatos elképzeléseit. Ezeket is kizárólag a megkeresés megválaszolásához használjuk. A kalkulátorban megadott adatokat a böngésző helyben dolgozza fel, nem továbbítja nekünk és nem tárolja.',
+    'In the investor enquiry form you may also voluntarily provide your planned capital and timing. We use these only to respond to your enquiry. Calculator inputs are processed locally in your browser, are not sent to us and are not stored.')}
 ${H('3. Sütik és mérés', '3. Cookies and measurement')}
 ${P('A weboldal működéséhez sütit nem használunk, és látogatottsági statisztikát sem gyűjtünk.',
     'The website does not use cookies to function and we do not collect visitor statistics.')}
@@ -555,7 +558,7 @@ ${PageHead({ eyebrow: '404', title: 'Ezt az oldalt nem találjuk', intro: 'Lehet
 
 export function allPages() {
   resetMidCta();
-  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy()];
+  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true), ...projects.map(investorProjectPage)];
   for (const p of pages) p.path = href(p.key);
   if (lang === 'hu') pages.push(notFound());
   return pages;

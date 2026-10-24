@@ -14,10 +14,13 @@ const ROUTES = {
   about: { hu: '/rolunk/', en: '/en/about/' },
   contact: { hu: '/kapcsolat/', en: '/en/contact/' },
   privacy: { hu: '/adatkezeles/', en: '/en/privacy/' },
+  investors: { hu: '/befektetoknek/', en: '/en/investors/' },
+  investorLanding: { hu: '/befektetoi-egyuttmukodes/', en: '/en/investor-partnership/' },
 };
 
 // href('services') / href('project:vamhaz-korut') — az aktuális (vagy megadott) nyelv útvonala
 export function href(key, l = lang) {
+  if (key.startsWith('investorProject:')) return `${ROUTES.investors[l]}${l === 'hu' ? 'projektek' : 'projects'}/${key.slice('investorProject:'.length)}/`;
   if (key.startsWith('project:')) return `${ROUTES.projects[l]}${key.slice(8)}/`;
   if (!ROUTES[key]) throw new Error(`Ismeretlen útvonal-kulcs: ${key}`);
   return ROUTES[key][l];

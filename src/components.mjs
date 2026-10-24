@@ -155,17 +155,17 @@ export function ProjectFacts(facts) {
   return `<dl class="facts">${known.map((f) => `<div><dt>${esc(t(f.label))}</dt><dd>${esc(t(f.value))}</dd></div>`).join('')}</dl>`;
 }
 
-export function BeforeAfterSlider(pair) {
+export function BeforeAfterSlider(pair, { eager = false, sizes: pictureSizes, overlay = '' } = {}) {
   const aspect = pair.aspect ? ` style="--ba-aspect:${esc(pair.aspect)}"` : '';
-  const sizes = pair.displayMode === 'slider' ? '(min-width: 1280px) 1180px, 100vw' : '(min-width: 640px) 50vw, 100vw';
+  const sizes = pictureSizes || (pair.displayMode === 'slider' ? '(min-width: 1280px) 1180px, 100vw' : '(min-width: 640px) 50vw, 100vw');
   const [aw, ah] = (pair.aspect || '4 / 3').split('/').map(Number); // pl. '3 / 4'
   const portrait = aw < ah;
   const room = t(pair.room);
   return `<figure class="ba${portrait ? ' ba--portrait' : ''}" data-mode="${pair.displayMode}" data-room="${esc(room)}"${aspect}>
   <div class="ba__head"><h3 class="ba__room">${esc(room)}</h3>${pair.note ? `<p class="ba__note">${esc(t(pair.note))}</p>` : ''}</div>
   <div class="ba__pair">
-    <div class="ba__item ba__item--before">${Picture(pair.before, { alt: pair.altBefore, sizes, objectPosition: pair.objectPositionBefore })}<span class="ba__label">${t(L.before)}</span></div>
-    <div class="ba__item ba__item--after">${Picture(pair.after, { alt: pair.altAfter, sizes, objectPosition: pair.objectPositionAfter })}<span class="ba__label">${t(L.after)}</span></div>
+    <div class="ba__item ba__item--before">${Picture(pair.before, { alt: pair.altBefore, sizes, eager, objectPosition: pair.objectPositionBefore })}<span class="ba__label">${t(L.before)}</span></div>
+    <div class="ba__item ba__item--after">${Picture(pair.after, { alt: pair.altAfter, sizes, eager, objectPosition: pair.objectPositionAfter })}<span class="ba__label">${t(L.after)}</span></div>${overlay ? `\n    ${overlay}` : ''}
   </div>
   ${pair.displayMode === 'slider' ? `<p class="ba__hint" hidden>${t({ hu: 'Húzza a csúszkát, vagy fókuszálva használja a nyílbillentyűket.', en: 'Drag the slider, or focus it and use the arrow keys.' })}</p>` : ''}
 </figure>`;

@@ -31,6 +31,7 @@ export const site = {
   nav: [
     { label: { hu: 'Szolgáltatások', en: 'Services' }, key: 'services' },
     { label: { hu: 'Projektek', en: 'Projects' }, key: 'projects' },
+    { label: { hu: 'Befektetőknek', en: 'Investors' }, key: 'investors' },
     { label: { hu: 'Folyamat', en: 'Process' }, key: 'home', hash: 'process' },
     { label: { hu: 'Rólunk', en: 'About' }, key: 'about' },
     { label: { hu: 'Kapcsolat', en: 'Contact' }, key: 'contact' },

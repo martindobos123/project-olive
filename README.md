@@ -55,6 +55,20 @@ jelenik meg az angol oldalon). A 404 csak a gyökérben van (a Pages egyetlen 40
 
 ## Build
 
+### Befektetői oldalak
+
+- /befektetoknek/ és /en/investors/: befektetői ajánlat, navigáció és főoldali második CTA.
+- /befektetoi-egyuttmukodes/ és /en/investor-partnership/: leadgeneráló landing, egyszerűsített navigációval; noindex és sitemap nélkül.
+- /befektetoknek/projektek/: külön HU/EN befektetői esettanulmányok. A hozamok csak itt és a befektetői ajánlatban jelennek meg, a felújítási portfólióban nem.
+- A hero a tulajdonos által választott ajánlatot használja: teljes lakásflip-szervezés, 50% nettó profitrész és évi 20–30%-os befektetői hozamcél. A 3%-os projektgarancia az alcímben és a Hozamgarancia pontban szerepel; az éves cél nem garantált eredmény. A Vámház körúti előtte–utána csúszkán hozam- és időadat is szerepel. A FAQ témái rövid, nyitott szakaszokban is olvashatók, a FAQ a jelentkezési űrlap előtt van. A kalkulátor a befektető adózás előtti profitját forintban is kiemeli.
+- A történeti adatok a tulajdonos közlései, teljes projekthozamok. Az 50–50 modell befektetői része szemléltetés, nem múltbeli kifizetés. Forrás: src/data/investors.mjs.
+- A kalkulátor alapja 45/8/2/67 M Ft és 6 hónap, egész lépésekkel. A nettó projektprofit fele jár a befektetőnek, minimum a teljes finanszírozás 3%-a garantált profitként; az esetleges Urbanflip-pótlást külön jelzi. Az évesített érték teljes újrabefektetést feltételező matematikai mutató.
+- Az adatok helyben maradnak. Az űrlap a meglévő statikus működéshez igazodva e-mailt állít össze; nincs leadfogadó backend vagy új mérőkód.
+- A 3% az Urbanflip tulajdonos által vállalt szerződéses kötelezettsége, nem banki vagy állami biztosítás. A részletek és kockázatok a FAQ-ban szerepelnek. Az adózási válasz NAV-forrásra hivatkozik.
+- Ellenőrzés: node scripts/build.mjs majd node --test scripts/test-investors.mjs.
+
+Aktuális szöveg: [hero és FAQ](docs/investor-copy-review.md).
+
 ```sh
 python scripts/build_images.py   # csak ha képek változtak (OLIVE_RAW = nyers forrásmappa)
 node scripts/build.mjs           # HTML újragenerálása
