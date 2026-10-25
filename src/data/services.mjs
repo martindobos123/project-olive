@@ -97,14 +97,37 @@ export const services = [
     title: { hu: 'Részleges felújítás és felfrissítés', en: 'Partial renovation and refresh' },
     short: { hu: 'Részleges felújítás', en: 'Partial renovation' },
     teaser: { hu: 'Egy konyhát, fürdőszobát vagy egyetlen szobát is felújítunk.', en: 'When not everything needs rethinking.' },
+    image: 'balazs-bela-utca/after/konyha',
     text: {
       hu: 'Ha csak a lakás egy részén változtatna, abban is segítünk. Vállalunk konyha- és fürdőszoba-felújítást, burkolást, festést vagy a világítás cseréjét is.',
       en: 'Not every apartment needs a complete overhaul. A new kitchen, a bathroom, new flooring, paint or lighting can change a lot — in these cases we build on what is already there.',
     },
   },
+  {
+    slug: 'befektetoi-egyuttmukodes',
+    pageKey: 'investors',
+    title: { hu: 'Befektetői együttműködés', en: 'Investor partnership' },
+    short: { hu: 'Befektetői együttműködés', en: 'Investor partnership' },
+    teaser: { hu: 'Ön finanszírozza a lakásvásárlást és a felújítást. Mi intézzük a projektet az eladásig, a nettó profiton fele-fele arányban osztozunk.', en: 'You fund the apartment purchase and renovation. We manage the project through to sale and share the net profit equally.' },
+    image: 'vamhaz-korut/after/nappali-szemben',
+    text: {
+      hu: 'Budapesti lakást keresünk, megvesszük az Ön nevére, felújítjuk és eladjuk. Ön biztosítja a vásárlás és a felújítás költségét, mi szervezzük a teljes projektet. Az elszámolt projektköltségek után fennmaradó nettó profitot 50–50%-ban osztjuk meg, a lakás az eladásig az Ön tulajdona.',
+      en: 'We find a Budapest apartment, buy it in your name, renovate it and sell it. You fund the purchase and renovation; we manage the entire project. After accounted project costs, we split the net profit 50–50. The apartment stays in your ownership until the sale.',
+    },
+    note: {
+      hu: 'Önnek nem kell hirdetéseket böngésznie, szakembereket hívogatnia vagy a helyszínre járnia. A feltételeket, a hozamgaranciát, a kalkulátort és a befektetői referenciákat külön oldalon találja.',
+      en: 'You do not need to search listings, coordinate trades or visit the site. Our dedicated investor page covers the terms, return guarantee, calculator and investment case studies.',
+    },
+    cta: { hu: 'Megnézem a befektetési lehetőséget', en: 'Explore the investor partnership' },
+    listTitle: { hu: 'Amit a projektben intézünk', en: 'What we handle' },
+    list: {
+      hu: ['lakáskeresés és vételi egyeztetés', 'tervezés és költségvetés', 'felújítás és berendezés', 'értékesítés és elszámolás'],
+      en: ['property search and purchase negotiations', 'design and budgeting', 'renovation and furnishing', 'sale and settlement'],
+    },
+  },
 ];
 
-export const featuredServiceSlugs = ['felujitas', 'tervezes', 'lakberendezes', 'home-staging'];
+export const featuredServiceSlugs = ['felujitas', 'befektetoi-egyuttmukodes', 'tervezes', 'lakberendezes', 'home-staging', 'reszleges-felujitas'];
 
 // Az űrlap szolgáltatás-választója
 export const formServices = {

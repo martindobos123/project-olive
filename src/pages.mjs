@@ -28,8 +28,8 @@ const orgLd = () => ({
   email: site.email,
   image: abs(`/images/projects/${site.defaultOgImage}-og.jpg`),
   description: t({
-    hu: 'Teljes körű lakásfelújítás, generálkivitelezés, enteriőrtervezés, lakberendezés és home staging Budapesten.',
-    en: 'Full-scope apartment renovation, general contracting, interior design, furnishing and home staging in Budapest.',
+    hu: 'Lakásfelújítás, enteriőrtervezés, lakberendezés, home staging és befektetői lakásprojektek teljes szervezése Budapesten.',
+    en: 'Apartment renovation, interior design, furnishing, home staging and management of investor-funded apartment projects in Budapest.',
   }),
   areaServed: { '@type': 'City', name: 'Budapest' },
   sameAs: [site.instagram],
@@ -46,10 +46,10 @@ const crumb = (key, label) => ({ href: href(key), label: t(label) });
 const HOME = { hu: 'Kezdőlap', en: 'Home' };
 
 const closingCta = () => ContactCTA({
-  title: t({ hu: 'Felújítást tervez? Beszéljünk róla.', en: 'Planning a renovation? Let’s talk.' }),
+  title: t({ hu: 'Felújítás vagy befektetés? Egyeztessünk a részletekről.', en: 'Renovating or investing? Let’s discuss the details.' }),
   text: t({
-    hu: 'Írja meg, mit szeretne felújítani és mennyit szán rá. Átbeszéljük az elképzeléseit, és elmondjuk, hogyan tudunk segíteni.',
-    en: 'Tell us what you would like to renovate and your budget. We will talk through your plans and explain how we can help.',
+    hu: 'Keressen minket, ha felújítaná a lakását, vagy befektetőként csatlakozna egy lakásprojekthez. Átbeszéljük az elképzeléseit és az együttműködés menetét.',
+    en: 'Get in touch if you would like to renovate your apartment or join an apartment project as an investor. We will discuss your plans and how we can work together.',
   }),
 });
 
@@ -66,8 +66,8 @@ function home() {
       en: 'Urban Flip Studio — Full-scope apartment renovation and interior design in Budapest',
     }),
     description: t({
-      hu: 'Teljes körű lakásfelújítás tervezéssel Budapesten: generálkivitelezés, enteriőrtervezés, lakberendezés és eladás előtti home staging egy kézben. Nézze meg a munkáinkat.',
-      en: 'Full-scope apartment renovation with design in Budapest: general contracting, interior design, furnishing and pre-sale home staging in one pair of hands. See our work.',
+      hu: 'Lakásfelújítás, tervezés, lakberendezés és home staging Budapesten. Befektetőként a lakáskereséstől az eladásig ránk bízhatja a projektet.',
+      en: 'Apartment renovation, design, furnishing and home staging in Budapest. As an investor, you can leave the project to us from property search through to sale.',
     }),
     ogImage: 'vamhaz-korut/gallery/nappali-galeria',
     overlayHeader: true,
@@ -79,8 +79,8 @@ ${Hero({
   eyebrow: t({ hu: 'Generálkivitelezés · Enteriőrtervezés · Lakberendezés', en: 'General contracting · Interior design · Furnishing' }),
   title: t({ hu: 'Lakásfelújítás A–Z-ig, a tervezéstől a lakberendezésig.', en: 'Apartment renovation from A to Z, from design to furnishing.' }),
   lead: t({
-    hu: 'Budapesti lakásokat újítunk fel a tervektől a berendezésig. A szakembereket és a beszerzést is mi szervezzük, Ön végig velünk egyeztet.',
-    en: 'We take on full-scope apartment renovation and interior design in Budapest – from technical planning and construction through furnishing to handover.',
+    hu: 'Budapesti lakásokat újítunk fel a tervektől a berendezésig. Befektetőként a lakáskereséstől az eladásig ránk bízhatja a projektet.',
+    en: 'We renovate Budapest apartments from design through to furnishing. As an investor, you can leave the project to us from finding the property through to its sale.',
   }),
   ctas: [
     { label: t({ hu: 'Kérek konzultációt', en: 'Book a consultation' }), href: href('contact') },
@@ -102,10 +102,10 @@ ${Hero({
 
 <section class="section section--alt" aria-labelledby="szolg-title"><div class="wrap">
   ${SectionHeading({
-    eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }), title: t({ hu: 'Tervezéstől a berendezésig', en: 'From design to furnishing' }), id: 'szolg-title', split: true,
+    eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }), title: t({ hu: 'Felújítás és befektetői együttműködés', en: 'Renovation and investor partnerships' }), id: 'szolg-title', split: true,
     intro: t({
-      hu: 'Vállalunk teljes felújítást, de külön tervezéssel, lakberendezéssel vagy eladás előtti rendbetétellel is kereshet minket.',
-      en: 'We take on full renovations as general contractor, standalone design, interior furnishing, and smaller home staging jobs before a sale or rental.',
+      hu: 'Felújítaná a lakását, vagy befektetésként vásárolna egyet? Vállalunk teljes felújítást, külön tervezést és lakberendezést, befektetőknek pedig a vásárlástól az eladásig intézzük a projektet.',
+      en: 'Renovating your apartment or buying one as an investment? We offer full renovations, standalone design and furnishing, and manage investor projects from purchase through to sale.',
     }),
   })}
   <ul class="services">${featured.map(ServiceBlock).join('')}</ul>
@@ -126,7 +126,7 @@ ${Hero({
 </div></section>
 
 <section class="section section--alt" id="${processId}" aria-labelledby="folyamat-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Folyamat', en: 'Process' }), title: t({ hu: 'Öt lépésben az átadásig', en: 'Five steps to handover' }), id: 'folyamat-title', split: true, intro: t(process.intro) })}
+  ${SectionHeading({ eyebrow: t({ hu: 'A felújítás menete', en: 'Renovation process' }), title: t({ hu: 'Öt lépésben az átadásig', en: 'Five steps to handover' }), id: 'folyamat-title', split: true, intro: t(process.intro) })}
   ${ProcessTimeline(process.steps)}
   <p class="copy mt-lg">${t({
     hu: 'Az árat és az ütemezést mindig az adott lakás állapota és a közösen meghozott döntések alapján határozzuk meg.',
@@ -143,7 +143,7 @@ ${Hero({
 <section class="section section--alt" aria-labelledby="rolunk-title"><div class="wrap split split--flip">
   <div>
     <span class="eyebrow">${t({ hu: 'Rólunk', en: 'About us' })}</span>
-    <h2 id="rolunk-title">${t({ hu: 'Ketten visszük a felújítását.', en: 'The two of us manage your renovation.' })}</h2>
+    <h2 id="rolunk-title">${t({ hu: 'Ketten visszük a projektjét.', en: 'The two of us manage your project.' })}</h2>
     <p class="copy">${t({
       hu: 'Házaspárként indítottuk az Urban Flip Studiót. Először a saját lakásainkat újítottuk fel, később mások is ránk bízták az otthonukat. Egyszerre csak néhány munkát vállalunk, hogy mindegyikre jusson időnk.',
       en: 'We started Urban Flip Studio as a married couple, renovating our own apartments. Later, clients began trusting us with their homes too. We take on only a few jobs at a time so we have time for each one.',
@@ -163,24 +163,24 @@ function servicesPage() {
   const crumbs = [crumb('home', HOME), crumb('services', { hu: 'Szolgáltatások', en: 'Services' })];
   return {
     key: 'services',
-    title: t({ hu: 'Szolgáltatások — lakásfelújítás, tervezés, lakberendezés, home staging', en: 'Services — renovation, design, interiors, home staging' }) + BRAND,
+    title: t({ hu: 'Szolgáltatások — lakásfelújítás és befektetői együttműködés', en: 'Services — renovation and investor partnerships' }) + BRAND,
     description: t({
-      hu: 'Teljes körű lakásfelújítás és generálkivitelezés, alaprajzi és műszaki tervezés, enteriőrtervezés és lakberendezés, valamint eladás előtti lakásfelkészítés (home staging) Budapesten.',
-      en: 'Full-scope apartment renovation and general contracting, technical and spatial planning, interior design and furnishing, and pre-sale home staging in Budapest.',
+      hu: 'Lakásfelújítás, műszaki tervezés, lakberendezés és home staging Budapesten. Befektetői együttműködés teljes projektszervezéssel, lakáskereséstől eladásig.',
+      en: 'Apartment renovation, technical planning, furnishing and home staging in Budapest. Investor partnerships with full project management from property search to sale.',
     }),
     ogImage: 'gozmozdony-utca/gallery/nappali',
     jsonLd: [orgLd(), breadcrumbLd(crumbs), ...services.map((s) => ({
       '@context': 'https://schema.org', '@type': 'Service', name: t(s.title), description: t(s.text),
       provider: { '@id': `${site.url}/#business` }, areaServed: { '@type': 'City', name: 'Budapest' },
-      url: abs(`${href('services')}#${s.slug}`), inLanguage: lang,
+      url: abs(s.pageKey ? href(s.pageKey) : `${href('services')}#${s.slug}`), inLanguage: lang,
     }))],
     body: `<main id="tartalom" tabindex="-1">
 ${PageHead({
   crumbs, eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }),
-  title: t({ hu: 'Tervezés, kivitelezés, berendezés — együtt vagy külön', en: 'Design, construction, furnishing — together or separately' }),
+  title: t({ hu: 'Saját otthon vagy befektetés — a megvalósítást ránk bízhatja', en: 'Your home or an investment — we manage the project' }),
   intro: t({
-    hu: 'Egy teljes lakásfelújítást a tervtől az átadásig összefogunk, de a tervezés, a lakberendezés vagy egy eladás előtti home staging önállóan is kérhető.',
-    en: 'We can manage a full apartment renovation from plan to handover, but design, interior furnishing or pre-sale home staging can also be booked on their own.',
+    hu: 'Saját lakásának felújításában, tervezésében és berendezésében is segítünk. Ha befektetne, de a lakáskeresést és a felújítást nem szeretné szervezni, a vásárlástól az eladásig végigvisszük a projektet.',
+    en: 'We help renovate, design and furnish your own apartment. If you want to invest without managing the property search or renovation, we handle the project from purchase through to sale.',
   }),
 })}
 <section class="section section--flush" style="padding-top:0"><div class="wrap">
@@ -188,7 +188,8 @@ ${PageHead({
     <div>
       <h2 id="h-${s.slug}">${esc(t(s.title))}</h2>
       <p class="copy">${esc(t(s.text))}</p>
-      ${s.note ? `<p class="sblock__note">${esc(t(s.note))}</p>` : ''}
+      ${s.note ? `<p class="sblock__note">${esc(t(s.note))}</p>` : ''}${s.pageKey ? `
+      <p class="mt-md"><a class="btn btn--solid" href="${href(s.pageKey)}">${esc(t(s.cta))}</a></p>` : ''}
     </div>
     <div class="sblock__aside">
       ${s.plans ? PlanCarousel(projectBySlug[s.plans].plans, { id: `plans-${s.slug}`, sizes: '(min-width: 900px) 55vw, 100vw' }) : s.image ? `<figure class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 900px) 55vw, 100vw', objectPosition: s.imagePosition })}</figure>` : ''}
@@ -202,7 +203,7 @@ ${PageHead({
   })}
 </div></section>
 <section class="section section--alt" aria-labelledby="folyamat-title"><div class="wrap">
-  ${SectionHeading({ eyebrow: t({ hu: 'Folyamat', en: 'Process' }), title: t({ hu: 'Hogyan dolgozunk', en: 'How we work' }), id: 'folyamat-title', split: true, intro: t(process.intro) })}
+  ${SectionHeading({ eyebrow: t({ hu: 'A felújítás menete', en: 'Renovation process' }), title: t({ hu: 'Így zajlik a felújítás', en: 'How a renovation works' }), id: 'folyamat-title', split: true, intro: t(process.intro) })}
   ${ProcessTimeline(process.steps)}
 </div></section>
 ${closingCta()}
@@ -346,8 +347,8 @@ function about() {
     key: 'about',
     title: t({ hu: 'Rólunk — egy házaspár, aki A-tól Z-ig felújít', en: 'About us — a couple who renovate from A to Z' }) + BRAND,
     description: t({
-      hu: 'Az Urban Flip Studio egy budapesti házaspár stúdiója: a saját lakásainkon tanultuk meg a felújítást, ma már másoknak is A-tól Z-ig megoldjuk — egyszerre csak néhány projekttel.',
-      en: 'Urban Flip Studio is a Budapest couple’s studio: we learned renovation on our own apartments and now handle it from A to Z for others too — only a few projects at a time.',
+      hu: 'Sugi és Martin: saját lakásprojektjeink után ma már ügyfeleinknek is szervezünk teljes felújításokat és befektetői lakásprojekteket Budapesten.',
+      en: 'Sugi and Martin: building on our own apartment projects, we now manage full renovations and investor-funded apartment projects in Budapest.',
     }),
     ogImage: 'vamhaz-korut/gallery/nappali-konyha',
     jsonLd: [orgLd(), breadcrumbLd(crumbs)],
@@ -367,6 +368,10 @@ ${PageHead({
       hu: 'Ma már mások lakását is felújítjuk a felméréstől a berendezésig. Sugi a lakberendezéssel, az anyagokkal és a színekkel foglalkozik, Martin a műszaki tervezést és a kivitelezést szervezi. Minden munkán együtt dolgozunk.',
       en: 'We now renovate clients’ homes too, from the first survey to furnishing. Sugi handles interiors, materials and colours; Martin organises technical planning and construction. We work together on every project.',
     })}</p>
+    <p>${t({
+      hu: 'A saját lakásprojektjeink tapasztalatára épül a befektetői együttműködésünk is. A befektető finanszírozza a vásárlást és a felújítást, mi intézzük a lakáskeresést, a kivitelezést és az eladást.',
+      en: 'Our investor partnership builds on our own apartment projects. The investor funds the purchase and renovation; we handle the property search, construction and sale.',
+    })} <a href="${href('investors')}">${t({ hu: 'A befektetői együttműködés részletei', en: 'How the investor partnership works' })}</a></p>
     <p>${t({
       hu: 'Egyszerre csak néhány felújítást vállalunk. Így van időnk rendszeresen a helyszínen lenni és személyesen egyeztetni az ügyfeleinkkel.',
       en: 'We take on only a few renovations at a time. This lets us visit sites regularly and speak with our clients in person.',
@@ -445,24 +450,31 @@ function contact() {
   const crumbs = [crumb('home', HOME), crumb('contact', { hu: 'Kapcsolat', en: 'Contact' })];
   return {
     key: 'contact',
-    title: t({ hu: 'Kapcsolat — konzultáció lakásfelújításhoz', en: 'Contact — consultation for your renovation' }) + BRAND,
+    title: t({ hu: 'Kapcsolat — felújítás és befektetői együttműködés', en: 'Contact — renovation and investor partnerships' }) + BRAND,
     description: t({
-      hu: 'Meséljen a lakásról: írjon néhány mondatot a felújításról, a tervezésről, a lakberendezésről vagy az eladás előtti home stagingről, és egyeztetünk a következő lépésekről.',
-      en: 'Tell us about your apartment: write a few lines about the renovation, design, furnishing or pre-sale home staging, and we’ll agree on the next steps.',
+      hu: 'Keressen minket lakásfelújítással, tervezéssel, lakberendezéssel vagy befektetői együttműködéssel kapcsolatban. Egyeztessünk a terveiről.',
+      en: 'Contact us about apartment renovation, design, furnishing or an investor partnership. Let’s discuss your plans.',
     }),
     ogImage: 'balazs-bela-utca/after/konyha',
     jsonLd: [orgLd(), breadcrumbLd(crumbs)],
     body: `<main id="tartalom" tabindex="-1">
 ${PageHead({
   crumbs, eyebrow: t({ hu: 'Kapcsolat', en: 'Contact' }),
-  title: t({ hu: 'Meséljen a lakásról', en: 'Tell us about your apartment' }),
+  title: t({ hu: 'Egyeztessünk a terveiről', en: 'Let’s discuss your plans' }),
   intro: t({
-    hu: 'Írja meg, mit szeretne felújítani és mennyit szán rá. Átbeszéljük az elképzeléseit, és elmondjuk, hogyan tudunk segíteni.',
-    en: 'Tell us what you would like to renovate and your budget. We will talk through your plans and explain how we can help.',
+    hu: 'Felújítaná a lakását, tervezésben kérne segítséget, vagy befektetőként csatlakozna? Válassza az Önnek megfelelő kapcsolatfelvételt, vagy keressen minket közvetlenül.',
+    en: 'Planning a renovation, looking for design help or interested in investing? Choose the relevant enquiry option below or contact us directly.',
   }),
 })}
-<section class="section" style="padding-top:0"><div class="wrap contact-grid">
-  <div>${ContactForm({ services: formServices })}</div>
+<section class="section section--flush" style="padding-top:0" aria-labelledby="contact-investor-title"><div class="wrap">
+  <aside class="contact-investor">
+    <div><h2 id="contact-investor-title">${t({ hu: 'Befektetőként csatlakozna?', en: 'Interested in investing?' })}</h2>
+    <p>${t({ hu: 'Nem szükséges saját lakással rendelkeznie. A befektetői űrlapon az induló tőkéről és a tervezett kezdésről kérdezünk.', en: 'You do not need to own an apartment. Our investor enquiry form asks about your available capital and when you would like to start.' })}</p></div>
+    <a class="btn btn--solid" href="${href('investors')}#erdeklodes">${t({ hu: 'Befektetői egyeztetést kérek', en: 'Enquire about investing' })}</a>
+  </aside>
+</div></section>
+<section class="section"><div class="wrap contact-grid">
+  <div><h2 class="mb-md">${t({ hu: 'Felújítással kapcsolatban keres minket?', en: 'Enquiring about a renovation?' })}</h2>${ContactForm({ services: formServices })}</div>
   <aside aria-labelledby="elerhetoseg">
     <h2 id="elerhetoseg" class="eyebrow">${t({ hu: 'Közvetlen elérhetőség', en: 'Direct contact' })}</h2>
     <ul class="contact-list">

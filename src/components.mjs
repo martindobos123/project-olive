@@ -121,7 +121,7 @@ export function Tags(tags, cls = 'tags') {
 }
 
 export function ServiceBlock(s, i) {
-  return `<li class="service"><a class="service__link" href="${href('services')}#${s.slug}">
+  return `<li class="service"><a class="service__link" href="${s.pageKey ? href(s.pageKey) : `${href('services')}#${s.slug}`}">
   ${s.image ? `<div class="media">${Picture(s.image, { alt: '', sizes: '(min-width: 760px) 45vw, 100vw', objectPosition: s.imagePosition })}</div>` : ''}
   <span class="service__num">${String(i + 1).padStart(2, '0')}</span>
   <h3>${esc(t(s.short))}</h3>
