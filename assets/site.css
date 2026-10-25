@@ -239,7 +239,7 @@ ul,ol{margin:0;padding:0}
 .service__num{font-family:var(--font-display);font-size:.95rem;color:var(--olive)}
 .service h3{font-size:var(--fs-h3)}
 .service p{color:var(--ink-soft);margin:0}
-.service a.service__link{text-decoration:none;color:inherit;display:grid;gap:var(--sp-sm)}
+.service a.service__link{text-decoration:none;color:inherit;display:grid;gap:var(--sp-sm);align-content:start}
 .service .media{aspect-ratio:3/2}
 .service .media img{transition:transform var(--dur-slow) var(--ease)}
 @media (hover:hover) and (prefers-reduced-motion:no-preference){.service a:hover .media img{transform:scale(1.025)}}
@@ -377,6 +377,11 @@ ul,ol{margin:0;padding:0}
 .cta p{max-width:var(--text-w);color:rgba(250,248,243,.88);margin-bottom:var(--sp-lg)}
 .cta a:not(.btn){color:var(--on-dark)}
 .contact-grid{display:grid;gap:var(--sp-xl)}
+.contact-investor{padding:var(--sp-lg);background:var(--surface);border-left:3px solid var(--olive);display:grid;gap:var(--sp-md)}
+.contact-investor h2{font-size:var(--fs-h3);margin-bottom:var(--sp-sm)}
+.contact-investor p{color:var(--ink-soft);max-width:65ch;margin:0}
+.contact-investor .btn{justify-self:start}
+@media (min-width:960px){.contact-investor{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:var(--sp-lg)}}
 @media (min-width:960px){.contact-grid{grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(3rem,6vw,7rem)}}
 .contact-list{list-style:none;display:grid;gap:0;border-top:var(--border-strong)}
 .contact-list li{border-bottom:var(--border);padding:var(--sp-sm) 0}

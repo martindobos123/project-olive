@@ -70,3 +70,27 @@ test('routes, integer controls, SEO and separation of financial references',()=>
   for(const route of [`projektek/${slug}`,`en/projects/${slug}`])assert.doesNotMatch(read(route+'/index.html'),/full-project return|projekthozam|befektetői projekthozam|investor project return/);
  }
 });
+
+test('investor service is discoverable in both languages without replacing renovation enquiries or process anchors',()=>{
+ const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+ for(const [prefix,catalog,contact,investors,processId] of [
+  ['', 'szolgaltatasok','kapcsolat','befektetoknek','folyamat'],
+  ['en/','services','contact','investors','process'],
+ ]){
+  const url=`/${prefix}${investors}/`;
+  const home=read(prefix+'index.html');
+  assert.match(home,new RegExp(`<a class="service__link" href="${url}">`));
+  assert.ok(home.includes(`id="${processId}"`));
+  const service=read(`${prefix}${catalog}/index.html`);
+  const entry=service.match(/<article class="sblock" id="befektetoi-egyuttmukodes"[\s\S]*?<\/article>/)?.[0];
+  assert.ok(entry?.includes(`href="${url}"`));
+  const structured=[...service.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1])).flat();
+  assert.ok(structured.some(x=>x['@type']==='Service'&&x.url===`https://urbanflipstudio.com${url}`));
+  const enquiry=read(`${prefix}${contact}/index.html`);
+  assert.ok(enquiry.includes(`href="${url}#erdeklodes"`));
+  assert.ok(enquiry.includes('id="f-helyszin"')); // Existing renovation enquiry stays available.
+  for(const html of [home,service,enquiry,read(`${prefix}projektek/index.html`.replace('en/projektek','en/projects'))]){
+   for(const nav of html.matchAll(/<nav\b[\s\S]*?<\/nav>/g))assert.doesNotMatch(nav[0],/>\s*(Folyamat|Process)\s*</);
+  }
+ }
+});
