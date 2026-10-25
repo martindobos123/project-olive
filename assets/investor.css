@@ -5,11 +5,11 @@
 .invest-hero h1{font-size:clamp(1.9rem,1.2rem + 1.8vw,2.9rem);line-height:1.12;margin-bottom:1.5rem;max-width:none}
 .invest-hero .lead{font-size:clamp(1.05rem,1rem + .3vw,1.2rem);line-height:1.55;max-width:64rem}
 .invest-hero .btn-row{margin-top:1.4rem}
-.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;border-top:var(--border-strong);border-bottom:var(--border-strong);padding:1rem 0;margin-top:1.2rem;max-width:60rem}
-.invest-offer li{display:grid;gap:.4rem;align-content:start}
-.invest-offer strong{font-family:var(--font-display);font-weight:400;font-size:clamp(1.2rem,2vw,1.8rem);line-height:1.15;color:var(--olive-deep)}
-.invest-offer li:nth-child(2) strong{font-size:clamp(.82rem,1.7vw,1.5rem)}
-.invest-offer span{font-size:.8rem;line-height:1.4;color:var(--ink-soft)}
+.invest-offer{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;border-top:var(--border-strong);border-bottom:var(--border-strong);margin-top:1.2rem;max-width:60rem}
+.invest-offer li{display:grid;gap:.35rem;align-content:start;min-width:0;padding:1rem 0}
+.invest-offer strong{font:400 clamp(1rem,2.4vw,1.35rem)/1.25 var(--font-display);color:var(--olive-deep)}
+.invest-offer span{font:400 clamp(.75rem,.65rem + .3vw,.875rem)/1.5 var(--font-body);color:var(--ink-soft);overflow-wrap:anywhere}
+@media(min-width:700px){.invest-offer{gap:1.5rem}}
 .invest-hero__benefits{padding-left:1.2rem;margin:0 0 1rem;color:var(--ink-soft);font-size:var(--fs-small)}
 .invest-hero__benefits li+li{margin-top:.4rem}
 .invest-hero__proposal{padding:.8rem 0 .8rem 1rem;border-left:2px solid var(--olive);max-width:56ch}
