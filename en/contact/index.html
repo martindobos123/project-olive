@@ -31,6 +31,7 @@
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=0194ef52">
 
+
 <script src="/assets/site.js?v=3c077b46" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://urbanflipstudio.com/#business","name":"Urban Flip Studio","url":"https://urbanflipstudio.com/en/","telephone":"+36706043807","email":"martindobos123@gmail.com","image":"https://urbanflipstudio.com/images/projects/vamhaz-korut/after/nappali-szemben-og.jpg","description":"Apartment renovation, interior design, furnishing, home staging and management of investor-funded apartment projects in Budapest.","areaServed":{"@type":"City","name":"Budapest"},"sameAs":["https://www.instagram.com/urbanflipstudio/"],"inLanguage":"en"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://urbanflipstudio.com/en/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://urbanflipstudio.com/en/contact/"}]}</script>
@@ -40,7 +41,7 @@
 <header class="header">
   <div class="header__inner">
     <a class="brand" href="/en/" aria-label="Urban Flip Studio – home">Urban Flip Studio</a>
-    <nav class="nav" aria-label="Main navigation"><ul><li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/" aria-current="page">Contact</a></li></ul></nav>
+    <nav class="nav" aria-label="Main navigation"><ul><li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/sale-preparation/">Sell your apartment</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/" aria-current="page">Contact</a></li></ul></nav>
     <div class="header__end">
       <a class="lang-switch" href="/kapcsolat/" hreflang="hu" lang="hu"><span aria-hidden="true">HU</span><span class="visually-hidden">Magyar</span></a>
       <a class="btn btn--solid header__cta" href="/en/contact/">Discuss a project</a>
@@ -53,7 +54,7 @@
     <div class="mnav__top"><a class="brand" href="/en/">Urban Flip Studio</a><button class="mnav__close" type="button">Close<span class="visually-hidden"> – menu</span></button></div>
     <nav aria-label="Mobile navigation"><ul>
       <li><a href="/en/">Home</a></li>
-      <li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/" aria-current="page">Contact</a></li>
+      <li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/sale-preparation/">Sell your apartment</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/" aria-current="page">Contact</a></li>
     </ul></nav>
     <div class="mnav__foot">
       <a class="btn btn--solid" href="/en/contact/">Discuss a project</a>
@@ -68,7 +69,11 @@
   <h1>Let’s discuss your plans</h1>
   <p class="lead">Planning a renovation, looking for design help or interested in investing? Choose the relevant enquiry option below or contact us directly.</p>
 </div></header>
-<section class="section section--flush" style="padding-top:0" aria-labelledby="contact-investor-title"><div class="wrap">
+<section class="section section--flush" style="padding-top:0"><div class="wrap">
+  <aside class="contact-investor mb-md" aria-labelledby="contact-value-title">
+    <div><h2 id="contact-value-title">Selling your apartment?</h2><p>We fund the agreed preparation. You pay commission after the sale.</p></div>
+    <a class="btn btn--solid" href="/en/sale-preparation/#egyeztetes">Discuss sale preparation</a>
+  </aside>
   <aside class="contact-investor">
     <div><h2 id="contact-investor-title">Interested in investing?</h2>
     <p>You do not need to own an apartment. Our investor enquiry form asks about your available capital and when you would like to start.</p></div>
@@ -80,7 +85,7 @@
   <div class="form__row"><div class="field"><label for="f-nev">Name</label><input id="f-nev" name="nev" type="text" required autocomplete="name"></div><div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required autocomplete="email"></div></div>
   <div class="form__row"><div class="field"><label for="f-telefon">Phone number <span class="opt">(optional)</span></label><input id="f-telefon" name="telefon" type="tel" autocomplete="tel"></div><div class="field"><label for="f-helyszin">Property location or district</label><input id="f-helyszin" name="helyszin" type="text" required></div></div>
   <div class="form__row">
-    <div class="field"><label for="f-szolgaltatas">Service you are interested in</label><select id="f-szolgaltatas" name="szolgaltatas" required><option value="">Please choose…</option><option>Full renovation</option><option>Design</option><option>Interiors</option><option>Home staging</option><option>Other</option></select></div>
+    <div class="field"><label for="f-szolgaltatas">Service you are interested in</label><select id="f-szolgaltatas" name="szolgaltatas" required><option value="">Please choose…</option><option>Full renovation</option><option>Design</option><option>Interiors</option><option>Sale preparation / home staging</option><option>Other</option></select></div>
     <div class="field"><label for="f-kezdes">Planned start <span class="opt">(optional)</span></label><input id="f-kezdes" name="kezdes" type="text"></div>
   </div>
   <div class="form__row"><div class="field"><label for="f-keret">Estimated budget <span class="opt">(optional)</span></label><input id="f-keret" name="keret" type="text"></div><div></div></div>
@@ -105,7 +110,7 @@
 <footer class="footer"><div class="wrap">
   <div class="footer__grid">
     <div><p class="footer__brand">Urban Flip Studio</p><p>Apartment renovation, interior design, home staging and investor partnerships in Budapest.</p></div>
-    <nav aria-label="Footer navigation"><h2>Pages</h2><ul><li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/">Contact</a></li></ul></nav>
+    <nav aria-label="Footer navigation"><h2>Pages</h2><ul><li><a href="/en/services/">Services</a></li><li><a href="/en/projects/">Projects</a></li><li><a href="/en/sale-preparation/">Sell your apartment</a></li><li><a href="/en/investors/">Investors</a></li><li><a href="/en/about/">About</a></li><li><a href="/en/contact/">Contact</a></li></ul></nav>
     <div><h2>Contact</h2><ul><li><a href="tel:+36706043807">+36 70 604 3807</a></li><li><a href="mailto:martindobos123@gmail.com">martindobos123@gmail.com</a></li><li><a href="https://wa.me/36706043807" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="https://www.instagram.com/urbanflipstudio/" rel="noopener" target="_blank">Instagram</a></li></ul></div>
   </div>
   <div class="footer__bottom"><span>© 2026 Urban Flip Studio</span><a href="/en/privacy/">Privacy notice</a><span>Budapest</span></div>

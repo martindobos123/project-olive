@@ -16,6 +16,7 @@ const ROUTES = {
   privacy: { hu: '/adatkezeles/', en: '/en/privacy/' },
   investors: { hu: '/befektetoknek/', en: '/en/investors/' },
   investorLanding: { hu: '/befektetoi-egyuttmukodes/', en: '/en/investor-partnership/' },
+  valueEnhancement: { hu: '/erteknoveles/', en: '/en/sale-preparation/' },
 };
 
 // href('services') / href('project:vamhaz-korut') — az aktuális (vagy megadott) nyelv útvonala
