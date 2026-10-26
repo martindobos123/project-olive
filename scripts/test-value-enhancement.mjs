@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { preparationFee } from '../src/assets/value-enhancement.mjs';
+import { preparationFee, preparationOutcome } from '../src/assets/value-enhancement.mjs';
 const read = p => readFileSync(new URL('../'+p,import.meta.url),'utf8');
 
 test('gross commission applies to the whole sale price, including the minimum boundary',()=>{
@@ -15,6 +15,18 @@ test('gross commission applies to the whole sale price, including the minimum bo
 });
 test('missing and invalid sale prices do not produce a commission',()=>{
   for(const n of [undefined,null,NaN,Infinity,-Infinity,0,-1,'60000000']) assert.equal(preparationFee(n),null);
+});
+test('owner keeps the price increase after the gross commission on the full sale price',()=>{
+  assert.deepEqual(preparationOutcome(60e6,65e6),{uplift:5e6,fee:1_950_000,extra:3_050_000});
+  assert.deepEqual(preparationOutcome(40e6,45e6),{uplift:5e6,fee:1_500_000,extra:3_500_000});
+});
+test('unchanged or lower prices show the full negative difference without concealing the fee',()=>{
+  assert.deepEqual(preparationOutcome(60e6,60e6),{uplift:0,fee:1_800_000,extra:-1_800_000});
+  assert.deepEqual(preparationOutcome(60e6,59e6),{uplift:-1e6,fee:1_770_000,extra:-2_770_000});
+  for(const n of [undefined,null,NaN,Infinity,0,-1,'60000000']) {
+    assert.equal(preparationOutcome(n,65e6),null);
+    assert.equal(preparationOutcome(60e6,n),null);
+  }
 });
 test('both languages expose discoverable, indexable pages with matching FAQ and accessible enquiry forms',()=>{
   for(const [route,other,home,services,privacy] of [

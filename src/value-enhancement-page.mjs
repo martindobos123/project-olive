@@ -1,7 +1,7 @@
 import { site } from './data/site.mjs';
 import { projects } from './data/projects.mjs';
 import { preparationTasks, preparationFaq } from './data/value-enhancement.mjs';
-import { preparationFee } from './assets/value-enhancement.mjs';
+import { preparationOutcome } from './assets/value-enhancement.mjs';
 import { lang, t, href } from './i18n.mjs';
 import { esc, Picture, Breadcrumb, BeforeAfterSlider, SectionHeading } from './components.mjs';
 
@@ -44,6 +44,7 @@ function enquiry() {
 
 export function valueEnhancementPage() {
   const key='valueEnhancement';
+  const example=preparationOutcome(60e6,65e6);
   const project=projects.find(p=>p.slug==='balazs-bela-utca');
   const crumbs=[{href:href('home'),label:tx('Kezdőlap','Home')},{href:href(key),label:tx('Értéknövelés','Sale preparation')}];
   const description=tx('Saját költségen készítjük fel budapesti lakását az eladásra: rendrakás, festés, kisebb javítások, home staging és fotózás. Jutalék az eladás után.','We fund the agreed preparation of your Budapest apartment for sale: tidying, painting, minor repairs, home staging and photography. Commission payable after the sale.');
@@ -77,11 +78,17 @@ export function valueEnhancementPage() {
       <p class="lead">${tx('A jutalék a lakás eladási árának 3%-a, de minimum 1,5 millió Ft. Ez fedezi az előre egyeztetett felkészítést; arra külön előleget nem kérünk.','The commission is 3% of the apartment sale price, with a minimum of HUF 1.5 million. It covers the agreed preparation; no separate deposit is required for that work.')}</p>
       <p>${tx('Bruttó végösszeg, további ÁFA nélkül. A díjat az eladás után, a vételárból fizeti.','Gross total, with no VAT added. You pay after the sale, from the proceeds.')}</p>
       <p class="value-small mt-md">${tx('A kiválasztott munkákat, a berendezést, az értékesítésben vállalt feladatokat és az elszámolást indulás előtt rögzítjük.','Before starting, we document the agreed work, furnishings, selling assistance and settlement arrangements.')}</p></div>
-      <div class="value-fee" data-preparation-fee><span class="eyebrow">${tx('Egyszerűen kiszámolható','See your commission')}</span>
-        <label for="value-sale">${tx('A lakás eladási ára (millió Ft)','Apartment sale price (HUF million)')}</label><div class="value-fee__inputs"><input type="range" min="10" max="300" step="1" value="60" aria-label="${tx('Eladási ár beállítása, millió Ft','Set sale price, HUF million')}"><input id="value-sale" name="sale" type="number" min="10" max="300" step="1" value="60" inputmode="numeric"></div>
-        <p class="value-fee__label">${tx('Fizetendő jutalék, bruttó','Commission payable, gross')}</p><output class="value-fee__amount" for="value-sale" data-fee-output aria-live="polite">${money(preparationFee(60e6))}</output>
-        <p class="value-small">${tx('3% az eladási árból · minimum 1 500 000 Ft','3% of the sale price · minimum HUF 1,500,000')}</p><p class="value-small" data-fee-error hidden>${tx('10 és 300 közötti egész összeget adjon meg, millió Ft-ban.','Enter a whole number from 10 to 300, in HUF million.')}</p>
-        ${cta()}<noscript><p class="value-small">${tx('A csúszka JavaScripttel működik. A jutalék az eladási ár 3%-a, minimum 1,5 millió Ft; 60 milliós eladásnál 1,8 millió Ft.','The slider requires JavaScript. Commission is 3% with a HUF 1.5 million minimum; at HUF 60 million it is HUF 1.8 million.')}</p></noscript>
+      <div class="value-fee" data-preparation-fee><span class="eyebrow">${tx('Mennyivel járhat jobban?','How much more could you keep?')}</span>
+        <p class="value-small">${tx('Állítsa be a jelenlegi és a felkészítés utáni eladási árat. A számoló levonja a jutalékunkat is.','Enter the current sale price and the price after preparation. The calculator also deducts our commission.')}</p>
+        ${[
+          ['original',60,tx('Eladási ár jelenlegi állapotban (millió Ft)','Sale price in current condition (HUF million)')],
+          ['prepared',65,tx('Eladási ár felkészítés után (millió Ft)','Sale price after preparation (HUF million)')],
+        ].map(([name,value,label])=>`<div class="value-fee__control" data-price-control><label for="value-${name}">${label}</label><div class="value-fee__inputs"><input type="range" min="10" max="300" step="1" value="${value}" aria-label="${label}"><input id="value-${name}" name="${name}" type="number" min="10" max="300" step="1" value="${value}" inputmode="numeric"></div></div>`).join('')}
+        <dl class="value-fee__breakdown"><div><dt>${tx('A felkészítés értéktöbblete','Added sale value')}</dt><dd data-uplift-output>${money(example.uplift)}</dd></div><div><dt>${tx('Urbanflip jutaléka, bruttó','Urbanflip commission, gross')}</dt><dd data-fee-output>${money(example.fee)}</dd></div></dl>
+        <div class="value-fee__result" role="status" aria-live="polite" aria-atomic="true"><p class="value-fee__label" data-extra-label>${tx('Ennyivel marad több Önnél a jutalék után','Extra proceeds you keep after commission')}</p><output class="value-fee__amount" for="value-original value-prepared" data-extra-output>${money(example.extra)}</output></div>
+        <p class="value-small" data-outcome-negative hidden>${tx('Ezekkel az árakkal a magasabb eladási ár nem fedezi a jutalékot.','At these prices, the increase does not cover the commission.')}</p>
+        <p class="value-small">${tx('Jutalék: 3% a felkészítés utáni eladási árból, minimum bruttó 1 500 000 Ft. A megadott árakkal számolt példa; a tényleges eladási ár eltérhet.','Commission: 3% of the sale price after preparation, minimum HUF 1,500,000 gross. This is an illustration using your inputs; the actual sale price may differ.')}</p><p class="value-small" data-fee-error hidden>${tx('Mindkét árhoz 10 és 300 közötti egész összeget adjon meg, millió Ft-ban.','For both prices, enter a whole number from 10 to 300, in HUF million.')}</p>
+        ${cta()}<noscript><p class="value-small">${tx('A csúszkák JavaScripttel működnek. Példa: 60 helyett 65 milliós eladásnál az 5 millió Ft értéktöbbletből 1,95 millió Ft a jutalék, így 3,05 millió Ft-tal marad több Önnél.','The sliders require JavaScript. Example: selling for HUF 65 million instead of 60 million adds HUF 5 million; commission is HUF 1.95 million, leaving you HUF 3.05 million extra.')}</p></noscript>
       </div>
     </div></section>
 
@@ -107,7 +114,7 @@ export function valueEnhancementPage() {
       <div><span class="eyebrow">${tx('Ha nagyobb munkára van szükség','When more work is needed')}</span><h2 id="value-renovation-title">${tx('Teljes felújítást és korszerűsítést is vállalunk.','We also offer full renovation and modernisation.')}</h2>
       <p>${tx('Felújítandó vagy félkész lakásnál is érdemes egyeztetnünk. Ha a célhoz több kell egy felfrissítésnél, külön ajánlatot adunk a szükséges munkákra.','We can also discuss apartments needing renovation or completion. Where a refresh is not enough, we quote separately for the necessary work.')}</p>
       <p class="value-small">${tx('A teljes felújítás és a nagyobb műszaki korszerűsítés külön, a tulajdonos által finanszírozott megrendelés.','Full renovation and substantial technical upgrades are separate, owner-funded projects.')}</p><a class="link-arrow" href="${href('services')}#felujitas">${tx('A felújítás részletei','Explore renovation services')}</a></div>
-      <figure class="media media--43">${Picture('site/felujitas-parketta',{alt:{hu:'Csapatunk parkettát fektet egy lakásfelújításon',en:'Our team laying parquet during a renovation'},sizes:'(min-width: 900px) 40vw, 100vw',objectPosition:'50% 40%'})}</figure>
+      <figure class="media media--43">${Picture('site/munka-kozben',{alt:{hu:'Festés előkészítése saját lakásprojektünkben',en:'Preparing paint for one of our own apartment projects'},sizes:'(min-width: 900px) 40vw, 100vw',objectPosition:'55% 65%'})}</figure>
     </div></section>
 
     <section class="section section--alt" aria-labelledby="value-faq-title"><div class="wrap value-faq">
