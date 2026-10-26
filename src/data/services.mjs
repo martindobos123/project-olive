@@ -74,23 +74,25 @@ export const services = [
   },
   {
     slug: 'home-staging',
-    title: { hu: 'Eladás vagy kiadás előtti home staging', en: 'Home staging before sale or rental' },
-    short: { hu: 'Home staging', en: 'Home staging' },
-    teaser: { hu: 'Felkészítjük a lakást az eladásra vagy a kiadásra.', en: 'Targeted improvements before selling or letting.' },
+    pageKey: 'valueEnhancement',
+    title: { hu: 'Értéknövelés és eladásra felkészítés', en: 'Sale preparation and home staging' },
+    short: { hu: 'Értéknövelés', en: 'Sale preparation' },
+    teaser: { hu: 'Saját költségen szépítjük meg és készítjük fel lakását az eladásra. Ön az eladás után fizet jutalékot.', en: 'We cover the cost of preparing your apartment for sale. You pay commission afterwards from the sale proceeds.' },
     image: 'gozmozdony-utca/gallery/nappali',
     text: {
-      hu: 'Eladás vagy kiadás előtt rendbe tesszük és berendezzük a lakást, hogy a fotókon és a megtekintéskor is jól mutasson. Ez lehet néhány javítás, festés, új lámpák, bútorok átrendezése vagy dekorálás.',
-      en: 'Before a sale or rental, targeted improvements make the property more attractive and photogenic. Home staging can include minor repairs, painting, updated lighting, furnishing, rearranging, styling and preparing the property for the photo shoot.',
+      hu: 'Saját költségen rendbe tesszük, felfrissítjük és berendezzük a lakást, hogy vonzóbb legyen a vevőknek. Az előre egyeztetett felkészítést mi finanszírozzuk, Ön az eladás után, a vételárból fizet jutalékot.',
+      en: 'We fund the agreed tidying, refresh and furnishing to make your apartment more appealing to buyers. You pay commission after the sale from the proceeds.',
     },
     listTitle: { hu: 'Lehetséges elemek', en: 'Possible elements' },
     list: {
-      hu: ['kisebb javítások', 'festés', 'világításfrissítés', 'bútorozás és átrendezés', 'dekoráció', 'előkészítés a fotózásra'],
-      en: ['minor repairs', 'painting', 'updated lighting', 'furnishing and rearranging', 'styling', 'preparation for the photo shoot'],
+      hu: ['pakolás és rendrakás', 'takarítás', 'tisztasági festés', 'kisebb javítások', 'bútorozás és átrendezés', 'textilek, színek és dekoráció', 'fotózás és hirdetési anyag'],
+      en: ['decluttering and tidying', 'cleaning', 'fresh paint', 'minor repairs', 'furnishing and rearranging', 'textiles, colour and accessories', 'photography and listing materials'],
     },
     note: {
-      hu: 'Home staginget teljes felújítás nélkül is vállalunk.',
-      en: 'Home staging can be booked on its own as a smaller service — no full renovation needed.',
+      hu: 'A teljes felújítás és a nagyobb korszerűsítés külön, tulajdonos által finanszírozott megrendelés. A felkészítéshez hozott bútorokat a vevő megvásárolhatja, vagy visszavesszük őket.',
+      en: 'Full renovation and substantial upgrades are separate, owner-funded projects. Buyers can purchase the supplied furnishings or we take them back.',
     },
+    cta: { hu: 'Megnézem az Értéknövelés ajánlatot', en: 'Explore sale preparation' },
   },
   {
     slug: 'reszleges-felujitas',
@@ -131,6 +133,6 @@ export const featuredServiceSlugs = ['felujitas', 'befektetoi-egyuttmukodes', 't
 
 // Az űrlap szolgáltatás-választója
 export const formServices = {
-  hu: ['Teljes körű felújítás', 'Tervezés', 'Lakberendezés', 'Home staging', 'Egyéb'],
-  en: ['Full renovation', 'Design', 'Interiors', 'Home staging', 'Other'],
+  hu: ['Teljes körű felújítás', 'Tervezés', 'Lakberendezés', 'Értéknövelés / home staging', 'Egyéb'],
+  en: ['Full renovation', 'Design', 'Interiors', 'Sale preparation / home staging', 'Other'],
 };

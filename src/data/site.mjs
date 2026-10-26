@@ -33,6 +33,7 @@ export const site = {
   nav: [
     { label: { hu: 'Szolgáltatások', en: 'Services' }, key: 'services' },
     { label: { hu: 'Projektek', en: 'Projects' }, key: 'projects' },
+    { label: { hu: 'Értéknövelés', en: 'Sell your apartment' }, key: 'valueEnhancement' },
     { label: { hu: 'Befektetőknek', en: 'Investors' }, key: 'investors' },
     { label: { hu: 'Rólunk', en: 'About' }, key: 'about' },
     { label: { hu: 'Kapcsolat', en: 'Contact' }, key: 'contact' },

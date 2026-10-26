@@ -31,6 +31,8 @@ const assetSrc = {
   'site.js': readFileSync(join(ROOT, 'src', 'assets', 'site.js'), 'utf8'),
   'investor.css': readFileSync(join(ROOT, 'src', 'assets', 'investor.css'), 'utf8'),
   'investor.js': readFileSync(join(ROOT, 'src', 'assets', 'investor.mjs'), 'utf8'),
+  'value.css': readFileSync(join(ROOT, 'src', 'assets', 'value-enhancement.css'), 'utf8'),
+  'value.js': readFileSync(join(ROOT, 'src', 'assets', 'value-enhancement.mjs'), 'utf8'),
   // Régi /project-olive/ cím → projektoldal; a query stringet (pl. az OpenAI ?oppref=… attribúciós
   // paramétert) és a hash-t megőrzi, hogy a Pixel a céloldalon még lássa. A CSP tiltja az inline scriptet,
   // ezért külön fájl; JS nélkül a <noscript> meta-refresh visz tovább (query nélkül).
@@ -115,6 +117,7 @@ ${alternates ? LANGS.filter((l) => l !== lang).map((l) => `<meta property="og:lo
 ${PRELOAD_FONTS.map((f) => `<link rel="preload" href="/assets/fonts/${f}" as="font" type="font/woff2" crossorigin>`).join('\n')}
 <link rel="stylesheet" href="${assets['site.css']}">
 ${page.investorAssets ? `<link rel="stylesheet" href="${assets['investor.css']}"><script type="module" src="${assets['investor.js']}"></script>` : ''}
+${page.valueAssets ? `<link rel="stylesheet" href="${assets['value.css']}"><script type="module" src="${assets['value.js']}"></script><script type="module" src="${assets['investor.js']}"></script>` : ''}
 ${PIXEL ? `<script src="${assets['oaiq-init.js']}"></script>\n` : ''}<script src="${assets['site.js']}" defer></script>
 ${page.jsonLd.map((j) => `<script type="application/ld+json">${JSON.stringify(j).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>

@@ -3,6 +3,7 @@
 // másik nyelvű megfelelő (hreflang + nyelvváltó).
 import { site, process, why } from './data/site.mjs';
 import { investorPage, investorProjectPage } from './investor-pages.mjs';
+import { valueEnhancementPage } from './value-enhancement-page.mjs';
 import { services, featuredServiceSlugs, formServices } from './data/services.mjs';
 import { projects } from './data/projects.mjs';
 import { subprojects, subprojectsIntro } from './data/subprojects.mjs';
@@ -102,10 +103,10 @@ ${Hero({
 
 <section class="section section--alt" aria-labelledby="szolg-title"><div class="wrap">
   ${SectionHeading({
-    eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }), title: t({ hu: 'Felújítás és befektetői együttműködés', en: 'Renovation and investor partnerships' }), id: 'szolg-title', split: true,
+    eyebrow: t({ hu: 'Szolgáltatások', en: 'Services' }), title: t({ hu: 'Felújítás, értéknövelés és befektetés', en: 'Renovation, sale preparation and investing' }), id: 'szolg-title', split: true,
     intro: t({
-      hu: 'Felújítaná a lakását, vagy befektetésként vásárolna egyet? Vállalunk teljes felújítást, külön tervezést és lakberendezést, befektetőknek pedig a vásárlástól az eladásig intézzük a projektet.',
-      en: 'Renovating your apartment or buying one as an investment? We offer full renovations, standalone design and furnishing, and manage investor projects from purchase through to sale.',
+      hu: 'Felújítaná vagy eladná a lakását, esetleg befektetne egybe? Vállalunk teljes felújítást és eladásra felkészítést, befektetőknek pedig a lakáskereséstől az eladásig intézzük a projektet.',
+      en: 'Renovating, selling or investing in an apartment? We offer full renovations and sale preparation, and manage investor projects from property search through to sale.',
     }),
   })}
   <ul class="services">${featured.map(ServiceBlock).join('')}</ul>
@@ -466,7 +467,11 @@ ${PageHead({
     en: 'Planning a renovation, looking for design help or interested in investing? Choose the relevant enquiry option below or contact us directly.',
   }),
 })}
-<section class="section section--flush" style="padding-top:0" aria-labelledby="contact-investor-title"><div class="wrap">
+<section class="section section--flush" style="padding-top:0"><div class="wrap">
+  <aside class="contact-investor mb-md" aria-labelledby="contact-value-title">
+    <div><h2 id="contact-value-title">${t({ hu: 'Eladná a lakását?', en: 'Selling your apartment?' })}</h2><p>${t({ hu: 'Saját költségen készítjük fel az eladásra. A jutalékot az eladás után fizeti.', en: 'We fund the agreed preparation. You pay commission after the sale.' })}</p></div>
+    <a class="btn btn--solid" href="${href('valueEnhancement')}#egyeztetes">${t({ hu: 'Értéknövelési egyeztetést kérek', en: 'Discuss sale preparation' })}</a>
+  </aside>
   <aside class="contact-investor">
     <div><h2 id="contact-investor-title">${t({ hu: 'Befektetőként csatlakozna?', en: 'Interested in investing?' })}</h2>
     <p>${t({ hu: 'Nem szükséges saját lakással rendelkeznie. A befektetői űrlapon az induló tőkéről és a tervezett kezdésről kérdezünk.', en: 'You do not need to own an apartment. Our investor enquiry form asks about your available capital and when you would like to start.' })}</p></div>
@@ -522,18 +527,19 @@ ${UL([
   ['Jogalap: az Ön hozzájárulása (GDPR 6. cikk (1) a) pont), illetve szerződés megkötését megelőző lépések (GDPR 6. cikk (1) b) pont).', 'Legal basis: your consent (Art. 6(1)(a) GDPR) and steps prior to entering into a contract (Art. 6(1)(b) GDPR).'],
   ['Megőrzés: a megkeresés lezárásától számított 1 évig; szerződéskötés esetén a szerződéses és számviteli iratok megőrzésére vonatkozó jogszabályi ideig (számviteli bizonylat: 8 év).', 'Retention: 1 year after the enquiry is closed; if a contract is concluded, for the statutory retention period of contractual and accounting records (accounting documents: 8 years).'],
 ])}
-${P('A befektetői érdeklődési űrlap a FormSubmit (formsubmit.co) szolgáltatáson keresztül továbbítja a megadott adatokat az Adatkezelő e-mail-fiókjába. A küldés során az adatokat a FormSubmit is kezeli. A felújítási kapcsolatfelvételi űrlap továbbra is a látogató saját levelezőprogramjában nyit meg egy előre kitöltött e-mailt. A GitHub Pages tárhelyen az űrlapadatokat nem tároljuk.',
-    'The investor enquiry form sends the submitted data to the Controller’s mailbox through FormSubmit (formsubmit.co), which also processes the data during submission. The renovation contact form still opens a pre-filled message in your own email application. We do not store form entries on the GitHub Pages hosting service.')}
+${P('A befektetői és az értéknövelési érdeklődési űrlap a FormSubmit (formsubmit.co) szolgáltatáson keresztül továbbítja a megadott adatokat az Adatkezelő e-mail-fiókjába. A küldés során az adatokat a FormSubmit is kezeli. A felújítási kapcsolatfelvételi űrlap továbbra is a látogató saját levelezőprogramjában nyit meg egy előre kitöltött e-mailt. A GitHub Pages tárhelyen az űrlapadatokat nem tároljuk.',
+    'The investor and sale-preparation enquiry forms send the submitted data to the Controller’s mailbox through FormSubmit (formsubmit.co), which also processes the data during submission. The renovation contact form still opens a pre-filled message in your own email application. We do not store form entries on the GitHub Pages hosting service.')}
 ${P('A befektetői érdeklődési űrlapon ezen felül önkéntesen megadhatja a tervezett tőkekeretét és az időzítéssel kapcsolatos elképzeléseit. Ezeket is kizárólag a megkeresés megválaszolásához használjuk. A kalkulátorban megadott adatokat a böngésző helyben dolgozza fel, nem továbbítja nekünk és nem tárolja.',
     'In the investor enquiry form you may also voluntarily provide your planned capital and timing. We use these only to respond to your enquiry. Calculator inputs are processed locally in your browser, are not sent to us and are not stored.')}
+${P('Az értéknövelési űrlapon megadhatja az ingatlan állapotát, méretét, a hirdetés linkjét és az eladás tervezett idejét is. Ezeket a megkeresés értékeléséhez és megválaszolásához használjuk.', 'The sale-preparation form may also include the apartment condition, size, listing link and sale timing. We use these to assess and respond to your enquiry.')}
 ${H('3. Sütik és mérés', '3. Cookies and measurement')}
 ${P('A weboldal működéséhez sütit nem használunk, és látogatottsági statisztikát sem gyűjtünk.',
     'The website does not use cookies to function and we do not collect visitor statistics.')}
 ${P('<strong>Hirdetésmérés (csak hozzájárulással):</strong> ChatGPT-hirdetéseink eredményességének méréséhez az OpenAI mérőkódját (Measurement Pixel) használhatjuk. A mérőkód csak akkor kapcsol be, ha Ön a weboldalon megjelenő sávban az „Elfogadom” gombra kattint. Ekkor két első féltől származó süti kerülhet a böngészőjébe: <code>__oppref</code> (hirdetés-azonosító, 30 nap) és <code>__obref</code> (böngésző-azonosító, 365 nap), és a kapcsolatfelvételi gombok (telefon, e-mail, WhatsApp) megnyomásának ténye — személyes adat nélkül — továbbításra kerül az OpenAI felé. A hozzájárulás bármikor visszavonható a sáv „Elutasítom” gombjával vagy a böngésző sütijeinek törlésével; elutasításkor a sütik törlődnek. Az OpenAI adatkezeléséről: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.',
     '<strong>Ad measurement (only with consent):</strong> to measure the results of our ChatGPT ads we may use OpenAI’s Measurement Pixel. It is only enabled if you click “Accept” in the bar shown on the website. Two first-party cookies may then be set: <code>__oppref</code> (ad attribution identifier, 30 days) and <code>__obref</code> (browser identifier, 365 days), and the fact that a contact button (phone, email, WhatsApp) was activated — without personal data — is sent to OpenAI. You can withdraw consent at any time with the “Decline” button or by deleting your browser cookies; on decline the cookies are removed. OpenAI’s privacy policy: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.')}
 ${H('4. Címzettek, adatfeldolgozók', '4. Recipients and processors')}
-${P('Az adatokat nem értékesítjük. A megkeresések fogadásához és a weboldal működtetéséhez technikai szolgáltatókat veszünk igénybe: GitHub, Inc. (GitHub Pages tárhely), FormSubmit (befektetői űrlapüzenetek továbbítása), Google LLC (Gmail), valamint WhatsApp Ireland Ltd. (WhatsApp-üzenetek). Ezek a szolgáltatók saját adatvédelmi feltételeik szerint is kezelhetik az adatokat.',
-    'We do not sell your data. Our technical providers for enquiries and website operation are GitHub, Inc. (GitHub Pages hosting), FormSubmit (investor form delivery), Google LLC (Gmail) and WhatsApp Ireland Ltd. (WhatsApp messages). These providers may also process data under their own privacy terms.')}
+${P('Az adatokat nem értékesítjük. A megkeresések fogadásához és a weboldal működtetéséhez technikai szolgáltatókat veszünk igénybe: GitHub, Inc. (GitHub Pages tárhely), FormSubmit (befektetői és értéknövelési űrlapüzenetek továbbítása), Google LLC (Gmail), valamint WhatsApp Ireland Ltd. (WhatsApp-üzenetek). Ezek a szolgáltatók saját adatvédelmi feltételeik szerint is kezelhetik az adatokat.',
+    'We do not sell your data. Our technical providers for enquiries and website operation are GitHub, Inc. (GitHub Pages hosting), FormSubmit (investor and sale-preparation form delivery), Google LLC (Gmail) and WhatsApp Ireland Ltd. (WhatsApp messages). These providers may also process data under their own privacy terms.')}
 ${H('5. Az Ön jogai', '5. Your rights')}
 ${P('Kérheti a személyes adataihoz való hozzáférést, azok helyesbítését, törlését, kezelésük korlátozását, tiltakozhat az adatkezelés ellen, és élhet az adathordozhatósághoz való jogával. Hozzájárulását bármikor visszavonhatja; ez nem érinti a visszavonás előtti adatkezelés jogszerűségét. Kérelmét a fenti elérhetőségeken nyújthatja be; legkésőbb egy hónapon belül válaszolunk.',
     'You may request access to your personal data, its rectification or erasure, restriction of processing, object to processing, and exercise your right to data portability. You may withdraw your consent at any time; this does not affect the lawfulness of processing before the withdrawal. Please send requests to the contact details above; we reply within one month at the latest.')}
@@ -570,7 +576,7 @@ ${PageHead({ eyebrow: '404', title: 'Ezt az oldalt nem találjuk', intro: 'Lehet
 
 export function allPages() {
   resetMidCta();
-  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true), ...projects.map(investorProjectPage)];
+  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true), ...projects.map(investorProjectPage), valueEnhancementPage()];
   for (const p of pages) p.path = href(p.key);
   if (lang === 'hu') pages.push(notFound());
   return pages;
