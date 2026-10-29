@@ -1,3 +1,4 @@
+import { legalPages } from './legal-pages.mjs';
 // Oldalsablonok. Minden oldal: { key, path, title, description, ogImage, jsonLd, overlayHeader, body }.
 // A build nyelvenként egyszer hívja az allPages()-t (src/i18n.mjs → setLang); a key-ből jön a
 // másik nyelvű megfelelő (hreflang + nyelvváltó).
@@ -496,64 +497,6 @@ ${PageHead({
 }
 
 /* ===================== ADATKEZELÉSI TÁJÉKOZTATÓ ===================== */
-// A tulajdonos kérésére linkelve (2026-10-06). Az adatkezelő cégszerű adatait (cégnév, székhely,
-// adószám/nyilvántartási szám) a tulajdonos adja meg — addig a vállalkozás neve és elérhetőségei szerepelnek.
-function privacy() {
-  const crumbs = [crumb('home', HOME), crumb('privacy', { hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' })];
-  const H = (hu, en) => `<h2>${t({ hu, en })}</h2>`;
-  const P = (hu, en) => `<p>${t({ hu, en })}</p>`;
-  const UL = (items) => `<ul>${items.map(([hu, en]) => `<li>${t({ hu, en })}</li>`).join('')}</ul>`;
-  return {
-    key: 'privacy',
-    noindex: false,
-    title: t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' }) + BRAND,
-    description: t({
-      hu: 'Az Urban Flip Studio adatkezelési tájékoztatója: milyen adatokat, milyen célból és meddig kezelünk a kapcsolatfelvétel és a weboldal használata során.',
-      en: 'Urban Flip Studio privacy notice: what data we process, for what purpose and for how long when you contact us or use the website.',
-    }),
-    ogImage: site.defaultOgImage,
-    jsonLd: [breadcrumbLd(crumbs)],
-    body: `<main id="tartalom" tabindex="-1">
-${PageHead({ crumbs, eyebrow: t({ hu: 'Jogi tájékoztató', en: 'Legal' }), title: t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' }), intro: t({ hu: 'Hatályos: 2026. október 24-től.', en: 'Effective from 24 October 2026.' }) })}
-<section class="section legal" style="padding-top:0"><div class="wrap"><div class="copy">
-${H('1. Az adatkezelő', '1. Data controller')}
-${P(`Urban Flip Studio (a továbbiakban: Adatkezelő). Elérhetőségek: e-mail: <a href="mailto:${site.email}">${site.email}</a>, telefon: <a href="${site.phoneHref}">${site.phone}</a>, Budapest.`,
-    `Urban Flip Studio (the “Controller”). Contact: email <a href="mailto:${site.email}">${site.email}</a>, phone <a href="${site.phoneHref}">${site.phone}</a>, Budapest, Hungary.`)}
-${H('2. Milyen adatokat kezelünk és miért', '2. What data we process and why')}
-${P('<strong>Kapcsolatfelvétel</strong> (űrlap, e-mail, telefon, WhatsApp): név, e-mail-cím, telefonszám (ha megadja), az ingatlan helye vagy kerülete, az érdeklődés tárgya, tervezett kezdés és keret (ha megadja), valamint az üzenet tartalma.',
-    '<strong>Contact</strong> (form, email, phone, WhatsApp): name, email address, phone number (if given), the location or district of the property, the subject of your enquiry, planned start and budget (if given), and the content of your message.')}
-${UL([
-  ['Cél: a megkeresés megválaszolása, egyeztetés, ajánlatadás.', 'Purpose: to answer your enquiry, arrange a meeting and prepare a quote.'],
-  ['Jogalap: az Ön hozzájárulása (GDPR 6. cikk (1) a) pont), illetve szerződés megkötését megelőző lépések (GDPR 6. cikk (1) b) pont).', 'Legal basis: your consent (Art. 6(1)(a) GDPR) and steps prior to entering into a contract (Art. 6(1)(b) GDPR).'],
-  ['Megőrzés: a megkeresés lezárásától számított 1 évig; szerződéskötés esetén a szerződéses és számviteli iratok megőrzésére vonatkozó jogszabályi ideig (számviteli bizonylat: 8 év).', 'Retention: 1 year after the enquiry is closed; if a contract is concluded, for the statutory retention period of contractual and accounting records (accounting documents: 8 years).'],
-])}
-${P('A befektetői és az értéknövelési érdeklődési űrlap a FormSubmit (formsubmit.co) szolgáltatáson keresztül továbbítja a megadott adatokat az Adatkezelő e-mail-fiókjába. A küldés során az adatokat a FormSubmit is kezeli. A felújítási kapcsolatfelvételi űrlap továbbra is a látogató saját levelezőprogramjában nyit meg egy előre kitöltött e-mailt. A GitHub Pages tárhelyen az űrlapadatokat nem tároljuk.',
-    'The investor and sale-preparation enquiry forms send the submitted data to the Controller’s mailbox through FormSubmit (formsubmit.co), which also processes the data during submission. The renovation contact form still opens a pre-filled message in your own email application. We do not store form entries on the GitHub Pages hosting service.')}
-${P('A befektetői érdeklődési űrlapon ezen felül önkéntesen megadhatja a tervezett tőkekeretét és az időzítéssel kapcsolatos elképzeléseit. Ezeket is kizárólag a megkeresés megválaszolásához használjuk. A kalkulátorban megadott adatokat a böngésző helyben dolgozza fel, nem továbbítja nekünk és nem tárolja.',
-    'In the investor enquiry form you may also voluntarily provide your planned capital and timing. We use these only to respond to your enquiry. Calculator inputs are processed locally in your browser, are not sent to us and are not stored.')}
-${P('Az értéknövelési űrlapon megadhatja az ingatlan állapotát, méretét, a hirdetés linkjét és az eladás tervezett idejét is. Ezeket a megkeresés értékeléséhez és megválaszolásához használjuk.', 'The sale-preparation form may also include the apartment condition, size, listing link and sale timing. We use these to assess and respond to your enquiry.')}
-${H('3. Sütik és mérés', '3. Cookies and measurement')}
-${P('A weboldal működéséhez sütit nem használunk, és látogatottsági statisztikát sem gyűjtünk.',
-    'The website does not use cookies to function and we do not collect visitor statistics.')}
-${P('<strong>Hirdetésmérés (csak hozzájárulással):</strong> ChatGPT-hirdetéseink eredményességének méréséhez az OpenAI mérőkódját (Measurement Pixel) használhatjuk. A mérőkód csak akkor kapcsol be, ha Ön a weboldalon megjelenő sávban az „Elfogadom” gombra kattint. Ekkor két első féltől származó süti kerülhet a böngészőjébe: <code>__oppref</code> (hirdetés-azonosító, 30 nap) és <code>__obref</code> (böngésző-azonosító, 365 nap), és a kapcsolatfelvételi gombok (telefon, e-mail, WhatsApp) megnyomásának ténye — személyes adat nélkül — továbbításra kerül az OpenAI felé. A hozzájárulás bármikor visszavonható a sáv „Elutasítom” gombjával vagy a böngésző sütijeinek törlésével; elutasításkor a sütik törlődnek. Az OpenAI adatkezeléséről: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.',
-    '<strong>Ad measurement (only with consent):</strong> to measure the results of our ChatGPT ads we may use OpenAI’s Measurement Pixel. It is only enabled if you click “Accept” in the bar shown on the website. Two first-party cookies may then be set: <code>__oppref</code> (ad attribution identifier, 30 days) and <code>__obref</code> (browser identifier, 365 days), and the fact that a contact button (phone, email, WhatsApp) was activated — without personal data — is sent to OpenAI. You can withdraw consent at any time with the “Decline” button or by deleting your browser cookies; on decline the cookies are removed. OpenAI’s privacy policy: <a href="https://openai.com/policies/privacy-policy/" rel="noopener" target="_blank">openai.com/policies/privacy-policy</a>.')}
-${H('4. Címzettek, adatfeldolgozók', '4. Recipients and processors')}
-${P('Az adatokat nem értékesítjük. A megkeresések fogadásához és a weboldal működtetéséhez technikai szolgáltatókat veszünk igénybe: GitHub, Inc. (GitHub Pages tárhely), FormSubmit (befektetői és értéknövelési űrlapüzenetek továbbítása), Google LLC (Gmail), valamint WhatsApp Ireland Ltd. (WhatsApp-üzenetek). Ezek a szolgáltatók saját adatvédelmi feltételeik szerint is kezelhetik az adatokat.',
-    'We do not sell your data. Our technical providers for enquiries and website operation are GitHub, Inc. (GitHub Pages hosting), FormSubmit (investor and sale-preparation form delivery), Google LLC (Gmail) and WhatsApp Ireland Ltd. (WhatsApp messages). These providers may also process data under their own privacy terms.')}
-${H('5. Az Ön jogai', '5. Your rights')}
-${P('Kérheti a személyes adataihoz való hozzáférést, azok helyesbítését, törlését, kezelésük korlátozását, tiltakozhat az adatkezelés ellen, és élhet az adathordozhatósághoz való jogával. Hozzájárulását bármikor visszavonhatja; ez nem érinti a visszavonás előtti adatkezelés jogszerűségét. Kérelmét a fenti elérhetőségeken nyújthatja be; legkésőbb egy hónapon belül válaszolunk.',
-    'You may request access to your personal data, its rectification or erasure, restriction of processing, object to processing, and exercise your right to data portability. You may withdraw your consent at any time; this does not affect the lawfulness of processing before the withdrawal. Please send requests to the contact details above; we reply within one month at the latest.')}
-${H('6. Jogorvoslat', '6. Remedies')}
-${P('Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatósághoz fordulhat (1055 Budapest, Falk Miksa utca 9–11.; <a href="https://naih.hu" rel="noopener" target="_blank">naih.hu</a>; ugyfelszolgalat@naih.hu), vagy bírósághoz fordulhat.',
-    'You may lodge a complaint with the Hungarian National Authority for Data Protection and Freedom of Information (NAIH, 1055 Budapest, Falk Miksa utca 9–11; <a href="https://naih.hu" rel="noopener" target="_blank">naih.hu</a>; ugyfelszolgalat@naih.hu) or bring the matter before a court.')}
-${H('7. A tájékoztató módosítása', '7. Changes to this notice')}
-${P('A tájékoztatót időről időre frissíthetjük; a mindenkor hatályos változat ezen az oldalon érhető el.',
-    'We may update this notice from time to time; the current version is always available on this page.')}
-</div></div></section>
-</main>`,
-  };
-}
-
 /* ===================== 404 (csak a gyökérben — a GitHub Pages egyetlen 404.html-t szolgál ki) ===================== */
 function notFound() {
   return {
@@ -576,7 +519,7 @@ ${PageHead({ eyebrow: '404', title: 'Ezt az oldalt nem találjuk', intro: 'Lehet
 
 export function allPages() {
   resetMidCta();
-  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), privacy(), investorPage(), investorPage(true), ...projects.map(investorProjectPage), valueEnhancementPage()];
+  const pages = [home(), servicesPage(), projectsIndex(), ...projects.map(projectPage), about(), contact(), ...legalPages(), investorPage(), investorPage(true), ...projects.map(investorProjectPage), valueEnhancementPage()];
   for (const p of pages) p.path = href(p.key);
   if (lang === 'hu') pages.push(notFound());
   return pages;

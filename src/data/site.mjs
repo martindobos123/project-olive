@@ -2,6 +2,10 @@
 // A nyelvfüggő szövegek { hu, en } objektumok (lásd src/i18n.mjs).
 export const site = {
   name: 'Urban Flip Studio',
+  legalOperator: 'Dobos Martin',
+  legalAddress: '1162 Budapest, Állás utca 40.',
+  legalApproved: true, // Website notices; not a legal opinion on the underlying business.
+
   url: 'https://urbanflipstudio.com',
   locale: { hu: 'hu_HU', en: 'en_GB' },
   city: 'Budapest',
@@ -19,7 +23,7 @@ export const site = {
   // Ha megadod, a Content-Security-Policy form-action / connect-src listájába is fel kell venni.
   formEndpoint: '',
   // Public FormSubmit endpoint; no secret key is shipped to the browser.
-  investorFormEndpoint: 'https://formsubmit.co/ajax/martindobos123@gmail.com',
+  investorFormEndpoint: '',
   // GoatCounter kód (süti nélküli látogatásmérés). Üresen inaktív.
   goatcounter: '',
   // Adatkezelési tájékoztató: saját oldal (src/i18n.mjs 'privacy' útvonal, src/pages.mjs privacy()).

@@ -89,3 +89,13 @@ a források a megadott Google Drive- és Google Fotók-albumokból származnak.
 ## Kapcsolati adatok
 
 telefon / WhatsApp: `+36 70 604 3807` · e-mail: `martindobos123@gmail.com` · domain a `CNAME`-ben.
+
+## Jogi oldalak – 2026. október 29.
+
+A `src/legal-pages.mjs` generálja a magyar és angol adatkezelési tájékoztatót, impresszumot, weboldali ÁSZF-et és sütitájékoztatót. Üzemeltető: a tulajdonos által megadott Dobos Martin, a cím a `site.mjs` fájlban. Az ÁSZF nem szolgáltatási vagy befektetési szerződés.
+
+Ez a kiadás FELÜLÍRJA a fenti FormSubmit- és pixel-aktiválási leírást: minden érdeklődő űrlap a látogató saját levelezőjében készít elő üzenetet, nem küld hálózati POST-ot. Küldéshez a látogatónak a levelezőjében kell elküldenie az üzenetet. Külső űrlap vagy mérés visszakapcsolását a build megállítja, amíg az adatkezelés és a hozzájárulási megoldás felülvizsgálata meg nem történik.
+
+A közzétett 12 hónapos megőrzést ténylegesen végre kell hajtani a levelezésben; a statikus honlap nem törli a Gmail-leveleket. A konkrét kivitelező/szolgáltató vállalkozás adatait és a fogyasztói szerződés feltételeit az egyedi megrendelés előtt rendezni kell. A weboldali szöveg ezt nem helyettesíti és nem igazolja a tevékenység adózási/engedélyezési megfelelését.
+
+Ellenőrzés: `node scripts/build.mjs` és `node --test scripts/test-*.mjs`.

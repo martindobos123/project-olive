@@ -25,6 +25,7 @@ const assets = {};
 // (pl. `OAI_PIXEL_ID=test-local node scripts/build.mjs`): a kimenetet utána tiszta builddel felül kell írni,
 // commitolni mindig a site.mjs-beli (valódi vagy üres) értékkel generált oldalakat szabad.
 const PIXEL = process.env.OAI_PIXEL_ID || site.oaiPixelId;
+if (PIXEL || site.goatcounter || site.formEndpoint || site.investorFormEndpoint) throw new Error('Update legal notices and consent controls before enabling tracking or external form delivery.');
 if (PIXEL && !/^[\w-]{4,128}$/.test(PIXEL)) throw new Error(`site.oaiPixelId gyanús érték: ${PIXEL}`);
 const assetSrc = {
   'site.css': readFileSync(join(ROOT, 'src', 'assets', 'fonts.css'), 'utf8') + readFileSync(join(ROOT, 'src', 'assets', 'site.css'), 'utf8'),
@@ -125,7 +126,7 @@ ${page.jsonLd.map((j) => `<script type="application/ld+json">${JSON.stringify(j)
 <a class="skip-link" href="#tartalom">${t({ hu: 'Ugrás a tartalomhoz', en: 'Skip to content' })}</a>
 ${page.landing ? `<header class="header header--landing"><div class="header__inner"><a class="brand" href="${href('home')}">${esc(site.name)}</a><div class="header__end">${LangSwitch(alternates)}<a class="btn btn--solid" href="#erdeklodes">${t({hu:'Egyeztessünk',en:'Let’s talk'})}</a></div></div></header>` : Header({ path: page.path, overlay: !!page.overlayHeader, alternates })}
 ${page.body}
-${page.landing ? `<footer class="footer"><div class="wrap"><p class="footer__brand">${esc(site.name)}</p><p>Budapest · <a href="${site.phoneHref}">${esc(site.phone)}</a> · <a href="mailto:${site.email}">${esc(site.email)}</a></p><p><a href="${href('privacy')}">${t({hu:'Adatkezelési tájékoztató',en:'Privacy notice'})}</a>${PIXEL ? ` · <a href="#consent" data-consent-open>${t({hu:'Mérési beállítások',en:'Measurement settings'})}</a>` : ''}</p></div></footer>` : Footer()}
+${page.landing ? `<footer class="footer"><div class="wrap"><p class="footer__brand">${esc(site.name)}</p><p>Budapest · <a href="${site.phoneHref}">${esc(site.phone)}</a> · <a href="mailto:${site.email}">${esc(site.email)}</a></p><p><a href="${href('privacy')}">${t({hu:'Adatkezelési tájékoztató',en:'Privacy notice'})}</a> · <a href="${href('imprint')}">${t({hu:'Impresszum',en:'Legal notice'})}</a> · <a href="${href('terms')}">${t({hu:'ÁSZF',en:'Terms'})}</a> · <a href="${href('cookies')}">${t({hu:'Sütitájékoztató',en:'Cookies'})}</a>${PIXEL ? ` · <a href="#consent" data-consent-open>${t({hu:'Mérési beállítások',en:'Measurement settings'})}</a>` : ''}</p></div></footer>` : Footer()}
 ${PIXEL ? ConsentBanner() : ''}
 </body>
 </html>
