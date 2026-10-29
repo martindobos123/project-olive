@@ -24,25 +24,6 @@ export function calculateTwoProjects(result) {
   return { settlement, roi: (settlement / result.total - 1) * 100, months: 2 * result.months };
 }
 
-// FormSubmit can return HTTP 200 with success: "false" (for example before activation).
-export async function sendInvestorEnquiry(endpoint, payload, fetcher = fetch, timeoutMs = 20000) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetcher(endpoint, {
-      method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify(payload), signal:controller.signal,
-    });
-    const data = await response.json();
-    if (!response.ok || !(data.success === true || data.success === 'true')) {
-      return { ok:false, activation:/activat/i.test(String(data.message || '')) };
-    }
-    return { ok:true };
-  } catch {
-    return { ok:false, activation:false };
-  } finally { clearTimeout(timeout); }
-}
-
 if (typeof document !== 'undefined') {
   const en = document.documentElement.lang === 'en';
   const locale = en ? 'en-GB' : 'hu-HU';
@@ -89,34 +70,23 @@ if (typeof document !== 'undefined') {
   }
 
   const form = document.querySelector('[data-invest-form]');
-  if (form) form.addEventListener('submit', async event => {
+  if (form) form.addEventListener('submit', event => {
     event.preventDefault();
-    if (form.dataset.sending === 'true' || !form.reportValidity()) return;
+    if (!form.reportValidity()) return;
     const data = new FormData(form);
     if (String(data.get('_honey') || '').trim()) return;
-    const submit = form.querySelector('[type=submit]');
+    const labels = en
+      ? {name:'Name',email:'Email',phone:'Phone',budget:'Planned capital',location:'Property location',condition:'Condition',listing:'Listing',message:'Message'}
+      : {name:'Név',email:'E-mail',phone:'Telefonszám',budget:'Tervezett tőke',location:'Ingatlan helye',condition:'Állapot',listing:'Hirdetés',message:'Üzenet'};
+    const body = Object.entries(labels).flatMap(([key,label]) => {
+      const value = String(data.get(key) || '').trim();
+      return value ? [label + ': ' + value] : [];
+    }).join('\n');
     const status = form.querySelector('.form__status');
-    const label = submit.textContent;
-    const payload = Object.fromEntries([...data.entries()].map(([key,value])=>[key,String(value).trim()]));
-    payload._url = window.location.origin + window.location.pathname;
-    form.dataset.sending = 'true';
-    form.setAttribute('aria-busy','true');
-    submit.disabled = true;
-    submit.textContent = en ? 'Sending…' : 'Küldés…';
-    status.textContent = en ? 'Sending your enquiry…' : 'Érdeklődés küldése…';
-    const result = await sendInvestorEnquiry(form.dataset.endpoint, payload);
-    if (result.ok) {
-      form.reset();
-      status.textContent = en ? 'Thank you, your enquiry has been sent. We will contact you using the details you provided.' : 'Köszönjük, az érdeklődését elküldtük. A megadott elérhetőségén keressük.';
-    } else {
-      status.textContent = result.activation
-        ? (en ? 'The form is awaiting email activation. Your message is not confirmed as sent. Please contact us using the email address below.' : 'Az űrlap e-mailes aktiválásra vár, az üzenet elküldését még nem tudjuk visszaigazolni. Kérjük, írjon a lenti e-mail-címre.')
-        : (en ? 'We could not confirm submission. Your entries are preserved. Please try again or use the email address below.' : 'Nem sikerült visszaigazolni a küldést. A kitöltött adatai megmaradtak. Próbálja újra, vagy írjon a lenti e-mail-címre.');
-    }
-    submit.disabled = false;
-    submit.textContent = label;
-    form.dataset.sending = 'false';
-    form.removeAttribute('aria-busy');
+    status.textContent = en
+      ? 'Your email app will open. Send the message there; it has not been sent yet. If no app opens, copy your details and email the address below.'
+      : 'Megnyílik a levelezője. Az üzenetet ott kell elküldenie; még nem történt küldés. Ha nem nyílik meg, másolja át az adatokat és írjon a lenti címre.';
+    window.location.href = 'mailto:' + form.dataset.mailto + '?subject=' + encodeURIComponent(String(data.get('_subject') || 'Urban Flip Studio')) + '&body=' + encodeURIComponent(body);
     status.focus();
   });
 }

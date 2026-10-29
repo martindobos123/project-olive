@@ -25,7 +25,7 @@ function enquiry() {
   <p class="lead">${tx('Írja meg, hol van a lakás és milyen állapotban van. Ha már hirdeti, a hirdetés linkjét is elküldheti. Átbeszéljük a lehetőségeket és a következő lépést.','Tell us where the apartment is and its current condition. If it is already listed, you can include the listing link. We will discuss the options and the next step.')}</p>
   <p class="value-small">${tx('A megkeresés még nem jelent megrendelést. A munkákat és a feltételeket indulás előtt egyeztetjük.','An enquiry does not commit you to a service. We agree the work and terms before starting.')}</p>
   <p class="mt-md"><a class="link-arrow" href="${site.phoneHref}">${esc(site.phone)}</a></p></div>
-  <form class="form" data-invest-form data-preparation-form data-endpoint="${esc(endpoint)}" action="${esc(endpoint.replace('/ajax/','/'))}" method="POST" aria-describedby="value-form-note">
+  <form class="form" data-invest-form data-preparation-form data-mailto="${esc(site.email)}" action="mailto:${esc(site.email)}" method="POST" enctype="text/plain" aria-describedby="value-form-note">
     <input type="hidden" name="_subject" value="${tx('Értéknövelés — eladásra felkészítés — Urban Flip Studio','Sale preparation enquiry — Urban Flip Studio')}"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
     <div class="value-trap" aria-hidden="true"><label for="value-website">${tx('Hagyja üresen','Leave empty')}</label><input id="value-website" name="_honey" tabindex="-1" autocomplete="off"></div>
     <div class="form__row"><div class="field"><label for="value-name">${tx('Név','Name')} *</label><input id="value-name" name="name" autocomplete="name" maxlength="120" required></div><div class="field"><label for="value-email">E-mail *</label><input id="value-email" name="email" type="email" autocomplete="email" maxlength="180" required></div></div>
@@ -35,10 +35,10 @@ function enquiry() {
     ].map(([hu,en])=>`<option>${esc(tx(hu,en))}</option>`).join('')}</select></div>
     <div class="field"><label for="value-listing">${tx('A hirdetés linkje (nem kötelező)','Listing link (optional)')}</label><input id="value-listing" name="listing" type="url" placeholder="https://" maxlength="1000"></div>
     <div class="field"><label for="value-message">${tx('A lakás mérete, tervezett eladás, kérdések (nem kötelező)','Apartment size, timing and questions (optional)')}</label><textarea id="value-message" name="message" maxlength="2000" rows="3"></textarea></div>
-    <div class="field field--check"><input id="value-consent" name="consent" type="checkbox" required><label for="value-consent">${tx('Hozzájárulok adataim kezeléséhez a megkeresésem megválaszolása céljából. Elolvastam az','I consent to my data being processed to respond to my enquiry. I have read the')} <a href="${href('privacy')}">${tx('adatkezelési tájékoztatót','privacy notice')}</a>. *</label></div>
-    <button class="btn btn--solid" type="submit">${tx('Egyeztetést kérek','Request a conversation')}</button><p class="form__status" role="status" aria-live="polite" tabindex="-1"></p>
-    <p class="form__alt" id="value-form-note">${tx('Az üzenetet közvetlenül az oldalról küldheti el. E-mailben is elér minket:','Send your enquiry directly from this page. You can also email us at')} <a href="mailto:${site.email}">${esc(site.email)}</a>.</p>
-    <noscript><p>${tx('JavaScript nélkül a beküldés a FormSubmit visszaigazoló oldalán fejeződik be.','Without JavaScript, submission finishes on FormSubmit’s confirmation page.')}</p></noscript>
+    <div class="field field--check"><input id="value-consent" name="consent" type="checkbox" required><label for="value-consent">${tx('Adataimat Dobos Martin a megkeresésem megválaszolásához kezeli. Megismertem az','Dobos Martin processes my data to respond to my enquiry. I have read the')} <a href="${href('privacy')}">${tx('adatkezelési tájékoztatót','privacy notice')}</a>. *</label></div>
+    <button class="btn btn--solid" type="submit">${tx('E-mail előkészítése','Prepare email')}</button><p class="form__status" role="status" aria-live="polite" tabindex="-1"></p>
+    <p class="form__alt" id="value-form-note">${tx('A gomb megnyitja a levelezőjét. Az üzenetet ott kell elküldenie. Ha nem nyílik meg, írjon ide:','The button opens your email app. Send the message there. If no app opens, email')} <a href="mailto:${site.email}">${esc(site.email)}</a>.</p>
+    <noscript><p>${tx('JavaScript nélkül írjon közvetlenül a fenti e-mail-címre, vagy használja a levelezőjét.', 'Without JavaScript, email the address above directly or use your email app.')}</p></noscript>
   </form></div></section>`;
 }
 
