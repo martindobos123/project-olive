@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; media-src 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com https://www.facebook.com; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net https://cdn.jsdelivr.net/npm/meta-capi-param-builder-clientjs/ https://unpkg.com/meta-capi-param-builder-clientjs/; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://www.facebook.com; media-src 'self'; object-src 'none'; frame-src 'none'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="origin">
 <title>Befektetőknek — budapesti lakásprojektek | Urban Flip Studio</title>
 <meta name="description" content="Ön finanszírozza a budapesti lakást és a felújítást, mi szervezzük a projektet. Saját tulajdonú ingatlan, 50–50% pozitív projektprofit-megosztás, átlátható kalkulátor és egyeztetés.">
@@ -30,7 +30,7 @@
 <link rel="preload" href="/assets/fonts/fraunces-normal-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/site.css?v=f28c742c">
-<script src="/assets/measurement.js?v=9110f663" defer></script>
+<script src="/assets/measurement.js?v=567adbfb" defer></script>
 <link rel="stylesheet" href="/assets/investor.css?v=e680750d"><script type="module" src="/assets/investor.js?v=cf1680ac"></script>
 
 <script src="/assets/site.js?v=8b22af1b" defer></script>
@@ -168,11 +168,11 @@
 <section class="consent" id="consent" aria-labelledby="consent-title" hidden>
   <div><h2 id="consent-title">Sütik és mérési beállítások</h2>
   <p>Az oldal mérés nélkül is használható. Az analitika a látogatásokat és az oldal használatát méri; a marketing a hirdetések eredményességét és célzását segíti. Külső szolgáltatók csak a választott hozzájárulás után töltődnek be. Döntését 180 napig tároljuk, és a láblécben bármikor módosíthatja vagy visszavonhatja.</p>
-  <p>Beállított szolgáltatók: Google Analytics 4 (Google Tag Manager). <a href="/sutik/">Szolgáltatók, sütik és részletek</a></p>
+  <p>Beállított szolgáltatók: Google Analytics 4, Meta Pixel (Google Tag Manager). <a href="/sutik/">Szolgáltatók, sütik és részletek</a></p>
 
   <fieldset><legend>Választható célok</legend>
   <label><input type="checkbox" name="analytics"> Analitika</label>
-  </fieldset></div>
+  <label><input type="checkbox" name="marketing"> Marketing</label></fieldset></div>
   <div class="btn-row"><button type="button" class="btn btn--line" data-consent="none">Mindet elutasítom</button><button type="button" class="btn btn--line" data-consent="all">Mindet elfogadom</button><button type="button" class="btn btn--line" data-consent="save">Kiválasztás mentése</button></div>
 </section>
 </body>

@@ -111,3 +111,10 @@ test('GA4-only GTM needs analytics consent and never requests marketing consent'
  assert.equal(b.window.dataLayer.at(-1).measurement.event_name,'page_view');
  const choice=JSON.parse(b.local.get('ufs-consent-v2'));assert.equal(choice.marketing,false);
 });
+
+test('audited mixed GTM keeps purpose choices independent and never duplicates analytics pageviews',()=>{
+ const b=browser({GTM_CONTAINER_ID:'GTM-TEST123',GTM_SERVICES:'ga4,meta',GTM_PURPOSE_GATING_VERIFIED:'true'});
+ b.choose(true,false);assert.equal(b.scripts.length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,0);
+ b.choose(true,true);assert.equal(b.scripts.length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_page_view').length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,1);
+ const m=browser({GTM_CONTAINER_ID:'GTM-TEST123',GTM_SERVICES:'ga4,meta',GTM_PURPOSE_GATING_VERIFIED:'true'});m.choose(false,true);assert.equal(m.scripts.length,1);assert.equal(m.session.size,0);assert.equal(m.window.dataLayer.filter(x=>x.event==='ufs_page_view').length,0);assert.equal(m.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,1);
+});
