@@ -1,4 +1,4 @@
-window.__ufsMeasurementConfig = {"noticeVersion":"2026-11-14.2","ga4":"","gtm":"GTM-5RM2FGZ5","meta":"","googleAds":"","adsLeadLabel":"","linkedin":"","linkedinLead":"","tiktok":"","providers":["ga4"],"active":true,"debug":false,"revision":"a93283dd78db225f","paths":["/","/szolgaltatasok/","/projektek/","/projektek/vamhaz-korut/","/projektek/gozmozdony-utca/","/projektek/balazs-bela-utca/","/rolunk/","/kapcsolat/","/adatkezeles/","/impresszum/","/aszf/","/sutik/","/befektetoknek/","/befektetoi-egyuttmukodes/","/befektetoknek/projektek/vamhaz-korut/","/befektetoknek/projektek/gozmozdony-utca/","/befektetoknek/projektek/balazs-bela-utca/","/erteknoveles/","/404.html","/en/","/en/services/","/en/projects/","/en/projects/vamhaz-korut/","/en/projects/gozmozdony-utca/","/en/projects/balazs-bela-utca/","/en/about/","/en/contact/","/en/privacy/","/en/legal-notice/","/en/terms/","/en/cookies/","/en/investors/","/en/investor-partnership/","/en/investors/projects/vamhaz-korut/","/en/investors/projects/gozmozdony-utca/","/en/investors/projects/balazs-bela-utca/","/en/sale-preparation/"]};
+window.__ufsMeasurementConfig = {"noticeVersion":"2026-11-14.3","ga4":"","gtm":"GTM-5RM2FGZ5","meta":"","googleAds":"","adsLeadLabel":"","linkedin":"","linkedinLead":"","tiktok":"","providers":["ga4","meta"],"active":true,"debug":false,"purposeGatingVerified":true,"revision":"a028fc4e03a55ffa","paths":["/","/szolgaltatasok/","/projektek/","/projektek/vamhaz-korut/","/projektek/gozmozdony-utca/","/projektek/balazs-bela-utca/","/rolunk/","/kapcsolat/","/adatkezeles/","/impresszum/","/aszf/","/sutik/","/befektetoknek/","/befektetoi-egyuttmukodes/","/befektetoknek/projektek/vamhaz-korut/","/befektetoknek/projektek/gozmozdony-utca/","/befektetoknek/projektek/balazs-bela-utca/","/erteknoveles/","/404.html","/en/","/en/services/","/en/projects/","/en/projects/vamhaz-korut/","/en/projects/gozmozdony-utca/","/en/projects/balazs-bela-utca/","/en/about/","/en/contact/","/en/privacy/","/en/legal-notice/","/en/terms/","/en/cookies/","/en/investors/","/en/investor-partnership/","/en/investors/projects/vamhaz-korut/","/en/investors/projects/gozmozdony-utca/","/en/investors/projects/balazs-bela-utca/","/en/sale-preparation/"]};
 /* Consent-gated measurement. No SDK, event backlog or attribution storage before opt-in. */
 (function () {
   'use strict';
@@ -12,7 +12,7 @@ window.__ufsMeasurementConfig = {"noticeVersion":"2026-11-14.2","ga4":"","gtm":"
   var attribution = null, attributionAt = 0, consentTimer;
   var needsAnalytics = config.providers.includes('ga4');
   var needsMarketing = config.providers.some(function (provider) { return provider !== 'ga4'; });
-  function gtmAllowed() { return (!needsAnalytics || state.analytics) && (!needsMarketing || state.marketing); }
+  function gtmAllowed() { return config.purposeGatingVerified ? (state.analytics || state.marketing) : ((!needsAnalytics || state.analytics) && (!needsMarketing || state.marketing)); }
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   function signal(command) {
@@ -152,7 +152,7 @@ window.__ufsMeasurementConfig = {"noticeVersion":"2026-11-14.2","ga4":"","gtm":"
       script('tiktok', 'https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=' + config.tiktok + '&lib=ttq'); ttq.page();
     }
   }
-  var allowed = ['page_view','cta_click','contact_phone_click','contact_email_click','contact_whatsapp_click','outbound_click','form_start','form_validation_error','form_submit_attempt','email_draft_open','form_error','generate_lead','js_error','resource_error','unhandled_rejection','calculator_interaction'];
+  var allowed = ['page_view','cta_click','contact_phone_click','contact_email_click','contact_whatsapp_click','outbound_click','form_start','form_validation_error','form_submit_attempt','email_draft_open','form_error','generate_lead','js_error','resource_error','unhandled_rejection','calculator_interaction','marketing_page_view'];
   function track(name, params) {
     try {
       if (closed || !config.active || !allowed.includes(name) || !(state.analytics || state.marketing)) return false;
@@ -210,7 +210,8 @@ window.__ufsMeasurementConfig = {"noticeVersion":"2026-11-14.2","ga4":"","gtm":"
       location.reload(); return;
     }
     signal('update'); start();
-    if ((state.analytics && !previous.analytics) || (config.gtm && gtmAllowed() && state.marketing && !previous.marketing)) track('page_view');
+    if (state.analytics && !previous.analytics) track('page_view');
+    if (config.gtm && state.marketing && !previous.marketing) track('marketing_page_view');
   }
   function show() {
     if (!bar) return;

@@ -13,7 +13,7 @@ export function measurementConfig(env = process.env) {
     tiktok: ['TIKTOK_PIXEL_ID', /^[A-Z0-9]{10,30}$/],
   };
   // Bump when the purposes or published consent notice changes.
-  const config = { noticeVersion: '2026-11-14.2' };
+  const config = { noticeVersion: '2026-11-14.3' };
   for (const [key, [name, pattern]] of Object.entries(fields)) {
     config[key] = (env[name] || '').trim();
     if (config[key] && !pattern.test(config[key])) throw new Error(`Invalid ${name}`);
@@ -29,6 +29,8 @@ export function measurementConfig(env = process.env) {
   config.providers = names.filter(s => config[s] || services.includes(s));
   config.active = config.providers.length > 0;
   config.debug = env.MEASUREMENT_DEBUG === 'true';
+  // Enable only after auditing every GTM tag's Additional Consent Checks.
+  config.purposeGatingVerified = !!config.gtm && env.GTM_PURPOSE_GATING_VERIFIED === 'true';
   // A changed provider/configuration requires a fresh choice, including across deployments.
   config.revision = createHash('sha256').update(JSON.stringify(config)).digest('hex').slice(0, 16);
   return config;
@@ -49,7 +51,7 @@ export function measurementCsp(config = measurement) {
     const ads = ['https://www.googleadservices.com', 'https://googleads.g.doubleclick.net', 'https://pagead2.googlesyndication.com', 'https://www.google.com', 'https://www.google.hu', 'https://ad.doubleclick.net'];
     connect.push(...ads); img.push(...ads); frame.push('https://www.googletagmanager.com');
   }
-  if (has('meta')) { script.push('https://connect.facebook.net'); connect.push('https://www.facebook.com'); img.push('https://www.facebook.com'); }
+  if (has('meta')) { script.push('https://connect.facebook.net', 'https://cdn.jsdelivr.net/npm/meta-capi-param-builder-clientjs/', 'https://unpkg.com/meta-capi-param-builder-clientjs/'); connect.push('https://www.facebook.com'); img.push('https://www.facebook.com'); }
   if (has('linkedin')) { script.push('https://snap.licdn.com'); connect.push('https://px.ads.linkedin.com', 'https://px4.ads.linkedin.com'); img.push('https://px.ads.linkedin.com', 'https://px4.ads.linkedin.com', 'https://p.adsymptotic.com'); }
   if (has('tiktok')) { script.push('https://analytics.tiktok.com', 'https://anlytics-ipv6.tiktokw.us'); connect.push('https://analytics.tiktok.com', 'https://anlytics-ipv6.tiktokw.us'); img.push('https://analytics.tiktok.com', 'https://anlytics-ipv6.tiktokw.us'); }
   return { script: [...new Set(script)].join(' '), connect: [...new Set(connect)].join(' '), img: [...new Set(img)].join(' '), frame: frame.join(' ') || "'none'" };

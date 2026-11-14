@@ -11,7 +11,7 @@
   var attribution = null, attributionAt = 0, consentTimer;
   var needsAnalytics = config.providers.includes('ga4');
   var needsMarketing = config.providers.some(function (provider) { return provider !== 'ga4'; });
-  function gtmAllowed() { return (!needsAnalytics || state.analytics) && (!needsMarketing || state.marketing); }
+  function gtmAllowed() { return config.purposeGatingVerified ? (state.analytics || state.marketing) : ((!needsAnalytics || state.analytics) && (!needsMarketing || state.marketing)); }
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   function signal(command) {
@@ -151,7 +151,7 @@
       script('tiktok', 'https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=' + config.tiktok + '&lib=ttq'); ttq.page();
     }
   }
-  var allowed = ['page_view','cta_click','contact_phone_click','contact_email_click','contact_whatsapp_click','outbound_click','form_start','form_validation_error','form_submit_attempt','email_draft_open','form_error','generate_lead','js_error','resource_error','unhandled_rejection','calculator_interaction'];
+  var allowed = ['page_view','cta_click','contact_phone_click','contact_email_click','contact_whatsapp_click','outbound_click','form_start','form_validation_error','form_submit_attempt','email_draft_open','form_error','generate_lead','js_error','resource_error','unhandled_rejection','calculator_interaction','marketing_page_view'];
   function track(name, params) {
     try {
       if (closed || !config.active || !allowed.includes(name) || !(state.analytics || state.marketing)) return false;
@@ -209,7 +209,8 @@
       location.reload(); return;
     }
     signal('update'); start();
-    if ((state.analytics && !previous.analytics) || (config.gtm && gtmAllowed() && state.marketing && !previous.marketing)) track('page_view');
+    if (state.analytics && !previous.analytics) track('page_view');
+    if (config.gtm && state.marketing && !previous.marketing) track('marketing_page_view');
   }
   function show() {
     if (!bar) return;
