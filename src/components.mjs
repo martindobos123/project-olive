@@ -1,3 +1,4 @@
+import { measurement } from './measurement-config.mjs';
 // Újrafelhasználható HTML-komponensek (sima függvények → HTML-string). Nincs keretrendszer,
 // nincs függőség: a scripts/build.mjs ebből állítja elő a statikus oldalakat.
 // A nyelvfüggő szövegek a t()-n mennek át (src/i18n.mjs) — az adatfájlok { hu, en } objektumai is.
@@ -91,7 +92,7 @@ export function Hero({ image, alt, eyebrow, title, lead, ctas = [] }) {
     ${eyebrow ? `<span class="hero__eyebrow">${esc(eyebrow)}</span>` : ''}
     <h1 id="hero-title">${esc(title)}</h1>
     ${lead ? `<p class="hero__lead">${esc(lead)}</p>` : ''}
-    ${ctas.length ? `<div class="btn-row">${ctas.map((c, i) => `<a class="btn ${i ? 'btn--ghost-light' : 'btn--light'}" href="${c.href}">${esc(c.label)}</a>`).join('')}</div>` : ''}
+    ${ctas.length ? `<div class="btn-row">${ctas.map((c, i) => `<a class="btn ${i ? 'btn--ghost-light' : 'btn--light'}" data-cta="hero-${i + 1}" href="${c.href}">${esc(c.label)}</a>`).join('')}</div>` : ''}
   </div>
 </section>`;
 }
@@ -106,7 +107,7 @@ export function PageHead({ eyebrow, title, intro, crumbs }) {
 }
 
 export function Breadcrumb(crumbs) {
-  return `<nav class="breadcrumb" aria-label="${t({ hu: 'Morzsamenü', en: 'Breadcrumb' })}"><ol>${crumbs.map((c, i) => `<li>${i < crumbs.length - 1 ? `<a href="${c.href}">${esc(c.label)}</a>` : `<span aria-current="page">${esc(c.label)}</span>`}</li>`).join('')}</ol></nav>`;
+  return `<nav class="breadcrumb" aria-label="${t({ hu: 'Morzsamenü', en: 'Breadcrumb' })}"><ol>${crumbs.map((c, i) => `<li>${i < crumbs.length - 1 ? `<a data-cta="hero-${i + 1}" href="${c.href}">${esc(c.label)}</a>` : `<span aria-current="page">${esc(c.label)}</span>`}</li>`).join('')}</ol></nav>`;
 }
 
 export function SectionHeading({ eyebrow, title, intro, id, split = false, level = 2 }) {
@@ -228,7 +229,7 @@ export function ContactCTA({ title, text, label = t({ hu: 'Beszéljünk a projek
   return `<section class="section cta" aria-labelledby="cta-title"><div class="wrap">
   <h2 id="cta-title">${esc(title)}</h2>
   <p>${esc(text)}</p>
-  <div class="btn-row"><a class="btn btn--light" href="${to}">${esc(label)}</a><a class="btn btn--ghost-light" href="${site.phoneHref}">${esc(site.phone)}</a></div>
+  <div class="btn-row"><a class="btn btn--light" data-cta="contact-section" href="${to}">${esc(label)}</a><a class="btn btn--ghost-light" href="${site.phoneHref}">${esc(site.phone)}</a></div>
 </div></section>`;
 }
 
@@ -238,21 +239,23 @@ export function MidCta({ text, label, to = href('contact'), phone = false }) {
   const id = `mid-cta-${++midCtaN}`;
   return `<aside class="mid-cta" aria-labelledby="${id}">
   <p id="${id}">${esc(text)}</p>
-  <div class="btn-row"><a class="btn btn--solid" href="${to}">${esc(label)}</a>${phone ? `<a class="btn btn--line" href="${site.phoneHref}">${esc(site.phone)}</a>` : ''}</div>
+  <div class="btn-row"><a class="btn btn--solid" data-cta="mid-section" href="${to}">${esc(label)}</a>${phone ? `<a class="btn btn--line" href="${site.phoneHref}">${esc(site.phone)}</a>` : ''}</div>
 </aside>`;
 }
 export const resetMidCta = () => { midCtaN = 0; };
 
-// Süti-/mérés-hozzájárulás (CSAK ha az OpenAI Pixel be van állítva — a build akkor teszi be).
-// A döntést a site.js tárolja (localStorage) és a dokumentált oaiq("consent", …) hívással adja át a Pixelnek.
+// Purpose-specific choices; optional boxes always start unchecked.
 export function ConsentBanner() {
-  return `<div class="consent" id="consent" role="region" aria-label="${t({ hu: 'Mérési hozzájárulás', en: 'Measurement consent' })}" hidden>
-  <p>${t({
-    hu: 'Hirdetéseink eredményességének méréséhez a ChatGPT Ads mérőkódját használjuk, amely sütit helyez el. Csak akkor kapcsoljuk be, ha hozzájárul.',
-    en: 'To measure the results of our ads we use the ChatGPT Ads measurement pixel, which sets a cookie. We only enable it if you agree.',
-  })} <a href="${href('privacy')}">${t({ hu: 'Részletek', en: 'Details' })}</a></p>
-  <div class="btn-row"><button type="button" class="btn btn--solid" data-consent="granted">${t({ hu: 'Elfogadom', en: 'Accept' })}</button><button type="button" class="btn btn--line" data-consent="denied">${t({ hu: 'Elutasítom', en: 'Decline' })}</button></div>
-</div>`;
+  return `<section class="consent" id="consent" aria-labelledby="consent-title" hidden>
+  <div><h2 id="consent-title">${t({hu:'Sütik és mérési beállítások',en:'Cookies and measurement settings'})}</h2>
+  <p>${t({hu:'Az oldal mérés nélkül is használható. Az analitika a látogatásokat és az oldal használatát méri; a marketing a hirdetések eredményességét és célzását segíti. Külső szolgáltatók csak a választott hozzájárulás után töltődnek be. Döntését 180 napig tároljuk, és a láblécben bármikor módosíthatja vagy visszavonhatja.',en:'You can use the site without measurement. Analytics measures visits and site usage; marketing helps measure and target ads. External providers load only after your consent. We remember your choice for 180 days. Change or withdraw it anytime in the footer.'})}</p>
+  <p>${t({hu:'Beállított szolgáltatók:',en:'Configured providers:'})} ${esc(measurement.providers.map(x => ({ga4:'Google Analytics 4',meta:'Meta Pixel',googleAds:'Google Ads',linkedin:'LinkedIn Insight Tag',tiktok:'TikTok Pixel'})[x]).join(', '))}${measurement.gtm ? ' (Google Tag Manager)' : ''}. <a href="${href('cookies')}">${t({hu:'Szolgáltatók, sütik és részletek',en:'Providers, cookies and details'})}</a></p>
+  ${measurement.gtm && measurement.providers.includes('ga4') && measurement.providers.length > 1 ? `<p>${t({hu:'A Tag Manager csak mindkét kategória engedélyezésekor indul el.',en:'Tag Manager loads only when both categories are allowed.'})}</p>` : ''}
+  <fieldset><legend>${t({hu:'Választható célok',en:'Optional purposes'})}</legend>
+  ${measurement.providers.includes('ga4') ? `<label><input type="checkbox" name="analytics"> ${t({hu:'Analitika',en:'Analytics'})}</label>` : ''}
+  ${measurement.providers.some(provider => provider !== 'ga4') ? `<label><input type="checkbox" name="marketing"> ${t({hu:'Marketing',en:'Marketing'})}</label>` : ''}</fieldset></div>
+  <div class="btn-row"><button type="button" class="btn btn--line" data-consent="none">${t({hu:'Mindet elutasítom',en:'Reject all'})}</button><button type="button" class="btn btn--line" data-consent="all">${t({hu:'Mindet elfogadom',en:'Accept all'})}</button><button type="button" class="btn btn--line" data-consent="save">${t({hu:'Kiválasztás mentése',en:'Save selection'})}</button></div>
+</section>`.replace(/^[ \t]+$/gm, '');
 }
 
 export function ContactForm({ services: opts }) {
@@ -283,7 +286,7 @@ export function Footer() {
     <nav aria-label="${t({ hu: 'Lábléc navigáció', en: 'Footer navigation' })}"><h2>${t({ hu: 'Oldalak', en: 'Pages' })}</h2><ul>${site.nav.filter((n) => !n.hash).map((n) => `<li><a href="${navHref(n)}">${esc(t(n.label))}</a></li>`).join('')}</ul></nav>
     <div><h2>${t({ hu: 'Kapcsolat', en: 'Contact' })}</h2><ul><li><a href="${site.phoneHref}">${esc(site.phone)}</a></li><li><a href="mailto:${site.email}">${esc(site.email)}</a></li><li><a href="${site.whatsapp}" rel="noopener" target="_blank">WhatsApp</a></li><li><a href="${site.instagram}" rel="noopener" target="_blank">Instagram</a></li></ul></div>
   </div>
-  <div class="footer__bottom"><span>© ${year} ${esc(site.name)}</span><a href="${href('privacy')}">${t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' })}</a> · <a href="${href('imprint')}">${t({hu:'Impresszum',en:'Legal notice'})}</a> · <a href="${href('terms')}">${t({hu:'ÁSZF',en:'Terms'})}</a> · <a href="${href('cookies')}">${t({hu:'Sütitájékoztató',en:'Cookies'})}</a>${site.oaiPixelId ? `<a href="#consent" data-consent-open>${t({ hu: 'Mérési beállítások', en: 'Measurement settings' })}</a>` : ''}<span>Budapest</span></div>
+  <div class="footer__bottom"><span>© ${year} ${esc(site.name)}</span><a href="${href('privacy')}">${t({ hu: 'Adatkezelési tájékoztató', en: 'Privacy notice' })}</a> · <a href="${href('imprint')}">${t({hu:'Impresszum',en:'Legal notice'})}</a> · <a href="${href('terms')}">${t({hu:'ÁSZF',en:'Terms'})}</a> · <a href="${href('cookies')}">${t({hu:'Sütitájékoztató',en:'Cookies'})}</a>${measurement.active ? `<a href="#consent" data-consent-open>${t({ hu: 'Mérési beállítások', en: 'Measurement settings' })}</a>` : ''}<span>Budapest</span></div>
 </div></footer>`;
 }
 

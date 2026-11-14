@@ -75,6 +75,8 @@ if (typeof document !== 'undefined') {
     if (!form.reportValidity()) return;
     const data = new FormData(form);
     if (String(data.get('_honey') || '').trim()) return;
+    const formId = form.hasAttribute?.('data-preparation-form') ? 'preparation' : 'investor';
+    window.ufsMeasurement?.track('form_submit_attempt', { form_id: formId });
     const labels = en
       ? {name:'Name',email:'Email',phone:'Phone',budget:'Planned capital',location:'Property location',condition:'Condition',listing:'Listing',message:'Message'}
       : {name:'Név',email:'E-mail',phone:'Telefonszám',budget:'Tervezett tőke',location:'Ingatlan helye',condition:'Állapot',listing:'Hirdetés',message:'Üzenet'};
@@ -86,6 +88,7 @@ if (typeof document !== 'undefined') {
     status.textContent = en
       ? 'Your email app will open. Send the message there; it has not been sent yet. If no app opens, copy your details and email the address below.'
       : 'Megnyílik a levelezője. Az üzenetet ott kell elküldenie; még nem történt küldés. Ha nem nyílik meg, másolja át az adatokat és írjon a lenti címre.';
+    window.ufsMeasurement?.track('email_draft_open', { form_id: formId });
     window.location.href = 'mailto:' + form.dataset.mailto + '?subject=' + encodeURIComponent(String(data.get('_subject') || 'Urban Flip Studio')) + '&body=' + encodeURIComponent(body);
     status.focus();
   });

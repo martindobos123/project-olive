@@ -14,9 +14,7 @@ export const site = {
   email: 'martindobos123@gmail.com',
   whatsapp: 'https://wa.me/36706043807',
   instagram: 'https://www.instagram.com/urbanflipstudio/',
-  // ChatGPT Ads Manager — OpenAI Measurement Pixel azonosító (Ads Manager → Conversions → Pixel).
-  // Üresen a Pixel NEM települ és a CSP sem bővül; a kapcsolat-kattintás mérés kódja (site.js) készen
-  // várja. Helyőrzőt NEM írunk ide — csak a valódi ID-t (a tulajdonostól).
+  // Legacy providers remain disabled; use measurement-config.mjs and build-time env IDs.
   oaiPixelId: '',
   // TODO: valódi űrlap-fogadó végpont (pl. Formspree / saját backend). Amíg üres, az űrlap
   // a látogató levelezőprogramjában nyit egy előre kitöltött e-mailt — nem jelez hamis sikert.
