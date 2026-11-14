@@ -247,13 +247,13 @@ export const resetMidCta = () => { midCtaN = 0; };
 // Purpose-specific choices; optional boxes always start unchecked.
 export function ConsentBanner() {
   return `<section class="consent" id="consent" aria-labelledby="consent-title" hidden>
-  <div><h2 id="consent-title">${t({hu:'Sütik és mérési beállítások',en:'Cookies and measurement settings'})}</h2>
-  <p>${t({hu:'A „Rendben” gombbal engedélyezi az analitikai és marketingmérést. Az „Elutasítom” mindkettőt kikapcsolja. Az oldal mérés nélkül is használható. Az analitika a látogatásokat és az oldal használatát méri; a marketing a hirdetések eredményességét és célzását segíti. Külső szolgáltatók csak a választott hozzájárulás után töltődnek be. Döntését 180 napig tároljuk, és a láblécben bármikor módosíthatja vagy visszavonhatja.',en:'“Accept” allows analytics and marketing measurement. “Reject” disables both. You can use the site without measurement. Analytics measures visits and site usage; marketing helps measure and target ads. External providers load only after your consent. We remember your choice for 180 days. Change or withdraw it anytime in the footer.'})}</p>
-  <p>${t({hu:'Beállított szolgáltatók:',en:'Configured providers:'})} ${esc(measurement.providers.map(x => ({openai:'ChatGPT Ads Pixel',ga4:'Google Analytics 4',meta:'Meta Pixel',googleAds:'Google Ads',linkedin:'LinkedIn Insight Tag',tiktok:'TikTok Pixel'})[x]).join(', '))}${measurement.gtm ? ' (GA4 / Meta: Google Tag Manager)' : ''}. <a href="${href('cookies')}">${t({hu:'Szolgáltatók, sütik és részletek',en:'Providers, cookies and details'})}</a></p>
+  <div><h2 id="consent-title">${t({hu:'Sütik',en:'Cookies'})}</h2>
+  <p>${t({hu:'Engedélyezi a sütiket látogatásmérésre és a hirdetések mérésére, személyre szabására?',en:'Allow cookies to measure visits and ads, and personalise advertising?'})} <a href="${href('cookies')}">${t({hu:'Részletek',en:'Details'})}</a></p>
   ${measurement.gtm && !measurement.purposeGatingVerified && measurement.providers.includes('ga4') && measurement.providers.length > 1 ? `<p>${t({hu:'A Tag Manager csak mindkét kategória engedélyezésekor indul el.',en:'Tag Manager loads only when both categories are allowed.'})}</p>` : ''}
   </div>
   <div class="btn-row"><button type="button" class="btn btn--line" data-consent="all">${t({hu:'Rendben',en:'Accept'})}</button><button type="button" class="btn btn--line" data-consent="none">${t({hu:'Elutasítom',en:'Reject'})}</button></div>
   <details><summary>${t({hu:'Beállítások',en:'Settings'})}</summary>
+  <p>${esc(measurement.providers.map(x => ({openai:'ChatGPT Ads Pixel',ga4:'Google Analytics 4',meta:'Meta Pixel',googleAds:'Google Ads',linkedin:'LinkedIn Insight Tag',tiktok:'TikTok Pixel'})[x]).join(', '))}</p>
   <fieldset><legend>${t({hu:'Választható célok',en:'Optional purposes'})}</legend>
   ${measurement.providers.includes('ga4') ? `<label><input type="checkbox" name="analytics"> ${t({hu:'Analitika',en:'Analytics'})}</label>` : ''}
   ${measurement.providers.some(provider => provider !== 'ga4') ? `<label><input type="checkbox" name="marketing"> ${t({hu:'Marketing',en:'Marketing'})}</label>` : ''}</fieldset>
