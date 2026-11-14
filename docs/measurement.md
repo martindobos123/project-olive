@@ -121,3 +121,11 @@ A GA4 alapcímke Initialization mellett ufs_page_view eseményre is aktiválhat�
 - Négy eseményhatókörű egyéni dimenzió létrehozva: cta_id, form_id, calculator_id, language.
 - A Meta felületén a mai dátumra szűrve a feldolgozott események visszaigazolása az utolsó ellenőrzéskor még függőben volt. A Meta akár 30 perces késést jelez. A Pixel telepítése és engedélyhez kötött betöltése ellenőrizve; a Meta adatfogadása még nem tekinthető külön visszaigazoltnak.
 - A böngésző a telefonlink megnyitását biztonsági okból blokkolta; ezt nem kerültük meg. A kontaktkattintás-kezelést automatizált teszt ellenőrzi; éles hívás indítása nem történt.
+
+## ChatGPT Ads Pixel és egyszerűbb hozzájárulás
+
+A két elsődleges gomb: Rendben (mindkét cél engedélyezése) és Elutasítom (mindkettő tiltása). Részletes célválasztás a lenyitható Beállítások alatt. Elutasítás után nincs követőkód vagy marketingesemény.
+
+CHATGPT_PIXEL_ID=8nMWbTQu8a6FGm6nibftaf; a kapcsolt Urban Flip Studio hirdetési fiók meglévő My first pixel adatforrása. Önálló, marketingengedélyhez kötött képpixel a hivatalos Image Tag endpointtal; GTM-ben nincs OpenAI címke és nem szabad duplikálni. Nem tölt be OpenAI SDK-t, nem olvas űrlapmezőket, nincs automatic advanced matching vagy user object, nem ír böngészőazonosító-sütit. Oldalanként egy page_viewed; CTA/contact kattintások custom események; igazolt lead kizárólag generate_lead esetén lead_created. Az aktuális URL érvényes oppref értéke csak marketingengedéllyel továbbítható, tartós tárolás nincs. Ez korlátozza a több oldalon átívelő hirdetésattribúciót. Nincs kampányaktiválás.
+
+Hivatalos integráció: https://learn.chatgpt.com/ads/image-tag . A szolgáltatólista, CSP és hozzájárulási verzió frissítve.

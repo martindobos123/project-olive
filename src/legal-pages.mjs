@@ -17,6 +17,7 @@ function identity() {
 function measurementNotice() {
  if (!measurement.active) return p('Ebben a kiadásban nincs beállított analitikai vagy marketingmérés.','No analytics or marketing measurement is configured in this release.');
  const providers = {
+  openai: ['ChatGPT Ads Pixel — OpenAI','https://openai.com/policies/privacy-policy/', 'Képpixel, böngészőazonosító-süti nélkül / image pixel without browser identifier cookies'],
   ga4: ['Google Analytics 4 — Google Ireland Limited','https://policies.google.com/privacy', '_ga, _ga_*: 180 nap / days'],
   meta: ['Meta Pixel — Meta Platforms Ireland Limited','https://www.facebook.com/privacy/policies/cookies/', '_fbp, _fbc: 90 nap / days'],
   googleAds: ['Google Ads — Google Ireland Limited','https://policies.google.com/technologies/cookies', '_gcl_au, _gcl_aw: 90 nap / days'],

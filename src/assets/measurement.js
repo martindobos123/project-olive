@@ -42,7 +42,7 @@
     for (var i = 0; i < parts.length - 1; i++) domains.push('.' + parts.slice(i).join('.'));
     document.cookie.split(';').forEach(function (entry) {
       var name = entry.trim().split('=')[0];
-      if (!/^(_ga($|_)|_gid$|_gat|_gcl_|_fbp$|_fbc$|_ttp$|_tt_enable_cookie$|ttcsid|tt_|li_)/.test(name)) return;
+      if (!/^(_ga($|_)|_gid$|_gat|_gcl_|_fbp$|_fbc$|_ttp$|_tt_enable_cookie$|ttcsid|tt_|li_|__oppref$|__obref$)/.test(name)) return;
       domains.forEach(function (domain) {
         document.cookie = name + '=; Max-Age=0; path=/' + (domain ? '; domain=' + domain : '') + '; SameSite=Lax';
       });
@@ -81,7 +81,7 @@
     var query = new URLSearchParams(location.search), clean = new URLSearchParams();
     ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (key) { var v = safeToken(query.get(key)); if (v) clean.set(key, v); });
     // Click identifiers are only exposed to advertising providers after marketing consent.
-    if (state.marketing) ['gclid','gbraid','wbraid','fbclid','ttclid'].forEach(function (key) {
+    if (state.marketing) ['gclid','gbraid','wbraid','fbclid','ttclid','oppref'].forEach(function (key) {
       var v = query.get(key); if (v && /^[\w-]{1,256}$/.test(v)) clean.set(key, v);
     });
     var hash = /^#[a-zA-Z][a-zA-Z0-9_-]{0,60}$/.test(location.hash) ? location.hash : '';
@@ -93,10 +93,32 @@
     var el = document.createElement('script'); el.async = true; el.src = url; el.dataset.measurement = name;
     document.head.appendChild(el);
   }
+  // Minimal image transport: no SDK, automatic matching, user object or browser-ID cookies.
+  function openaiEvent(name, custom) {
+    if (!state.marketing || closed || !config.openai) return;
+    var query = new URLSearchParams({ pid: config.openai, event: name, 'data[type]': name === 'page_viewed' ? 'contents' : name === 'custom' ? 'custom' : 'customer_action' });
+    query.set('event_id', 'ufs_' + Date.now() + '_' + Math.random().toString(36).slice(2));
+    if (custom) query.set('custom_event_name', custom);
+    var ref = new URLSearchParams(location.search).get('oppref');
+    if (ref && /^[\w-]{1,256}$/.test(ref)) query.set('oppref', ref);
+    var url = 'https://bzr.openai.com/v1/sdk/events?' + query.toString();
+    // Keep click events alive while navigating to the contact page. No identifiers or credentials.
+    if (name !== 'page_viewed' && typeof fetch === 'function') {
+      fetch(url, { mode: 'no-cors', credentials: 'omit', keepalive: true, cache: 'no-store', referrerPolicy: 'origin' }).catch(function () {}); return;
+    }
+    var pixel = document.createElement('img'); pixel.hidden = true; pixel.width = 1; pixel.height = 1; pixel.alt = '';
+    pixel.dataset.measurement = 'openai'; pixel.src = url;
+    pixel.onload = pixel.onerror = function () { pixel.remove(); };
+    document.body.appendChild(pixel);
+  }
   function start() {
     if (!config.active || closed || !(state.analytics || state.marketing)) return;
     captureAttribution();
     cleanAddress();
+    if (state.marketing && config.openai && !loaded.openai) {
+      loaded.openai = true;
+      openaiEvent('page_viewed');
+    }
     if (config.gtm) {
       // Only the declared purposes can authorize this audited container.
       if (gtmAllowed() && !loaded.gtm) {
@@ -167,6 +189,10 @@
       if (params && config.paths.includes(params.target_path)) data.target_path = params.target_path;
       if (state.analytics && attribution) Object.assign(data, attribution);
       if (config.debug) data.debug_mode = true;
+      if (state.marketing && config.openai && loaded.openai) {
+        if (name === 'generate_lead') openaiEvent('lead_created');
+        else if (/^contact_/.test(name) || name === 'cta_click') openaiEvent('custom', name);
+      }
       if (config.gtm) { window.dataLayer.push({ measurement: null }); window.dataLayer.push({ event: 'ufs_' + name, measurement: data }); }
       else {
         if (state.analytics && config.ga4) window.gtag('event', name, Object.assign({ send_to: config.ga4 }, data));

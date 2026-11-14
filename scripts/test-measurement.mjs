@@ -9,7 +9,7 @@ function browser(env = direct, initial, blocked = false) {
   let time = Date.now();
   class ClockDate extends Date { static now() { return time; } }
   const config = { ...measurementConfig(env), paths:['/','/kapcsolat/'] };
-  const local = new Map(), session = new Map(), scripts = [], events = {}, windowEvents = {}, timers = [];
+  const local = new Map(), session = new Map(), scripts = [], pixels = [], events = {}, windowEvents = {}, timers = [];
   const input = { analytics:{checked:false}, marketing:{checked:false} };
   const buttons = Object.fromEntries(['none','all','save'].map(action => [action, { dataset:{consent:action}, focus(){}, addEventListener(_,fn){this.click=fn} }]));
   const bar = {hidden:true, querySelector(s){return s === 'button' ? buttons.none : input[s.match(/name=(\w+)/)[1]]}, querySelectorAll(){return Object.values(buttons)}};
@@ -17,13 +17,13 @@ function browser(env = direct, initial, blocked = false) {
   const storage = map => ({ getItem:k=>{if(blocked)throw Error('blocked');return map.get(k) ?? null}, setItem:(k,v)=>{if(blocked)throw Error('blocked');map.set(k,v)}, removeItem:k=>{if(blocked)throw Error('blocked');map.delete(k)} });
   const location = { hostname:'urbanflipstudio.com', origin:'https://urbanflipstudio.com', href:'https://urbanflipstudio.com/?utm_source=test&email=private%40example.com', search:'?utm_source=test&email=private%40example.com', hash:'', reload(){this.reloads=(this.reloads||0)+1} };
   const document = {cookie:'_ga=old; essential=yes',referrer:'https://ref.example/private?q=secret',activeElement:null,documentElement:{lang:'hu',getAttribute:()=>'/'} ,getElementById:()=>bar,
-    createElement:()=>({dataset:{}}),head:{appendChild:el=>scripts.push(el)},querySelectorAll:()=>[],addEventListener:(name,fn)=>{events[name]=fn} };
+    body:{appendChild:el=>pixels.push(el)},createElement:()=>({dataset:{},remove(){}}),head:{appendChild:el=>scripts.push(el)},querySelectorAll:()=>[],addEventListener:(name,fn)=>{events[name]=fn} };
   const window = {__ufsMeasurementConfig:config,addEventListener:(name,fn)=>{windowEvents[name]=fn}};
-  const context = { window, document, location, localStorage:storage(local), sessionStorage:storage(session), history:{state:null,replaceState:(_,__,url)=>{location.cleaned=url}}, URL,URLSearchParams, WeakSet, Date:ClockDate,
+  const context = { fetch:(url,options)=>{pixels.push({src:url,options});return Promise.resolve()}, window, document, location, localStorage:storage(local), sessionStorage:storage(session), history:{state:null,replaceState:(_,__,url)=>{location.cleaned=url}}, URL,URLSearchParams, WeakSet, Date:ClockDate,
     setTimeout:(fn,delay)=>{timers.push({fn,delay});return timers.length},clearTimeout:()=>{} };
   vm.runInNewContext(source,context);
   const choose = (analytics,marketing) => {input.analytics.checked=analytics;input.marketing.checked=marketing;buttons.save.click()};
-  return {context,window,document,location,config,scripts,local,session,bar,buttons,choose,events,windowEvents,timers,advance:ms=>{time+=ms},
+  return {context,window,document,location,config,scripts,pixels,local,session,bar,buttons,choose,events,windowEvents,timers,advance:ms=>{time+=ms},
     commands:()=>window.dataLayer.filter(x=>typeof x[0]==='string').map(x=>Array.from(x))};
 }
 test('build validates public IDs and rejects duplicates, undeclared GTM providers and orphan conversion labels',()=>{
@@ -117,4 +117,14 @@ test('audited mixed GTM keeps purpose choices independent and never duplicates a
  b.choose(true,false);assert.equal(b.scripts.length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,0);
  b.choose(true,true);assert.equal(b.scripts.length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_page_view').length,1);assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,1);
  const m=browser({GTM_CONTAINER_ID:'GTM-TEST123',GTM_SERVICES:'ga4,meta',GTM_PURPOSE_GATING_VERIFIED:'true'});m.choose(false,true);assert.equal(m.scripts.length,1);assert.equal(m.session.size,0);assert.equal(m.window.dataLayer.filter(x=>x.event==='ufs_page_view').length,0);assert.equal(m.window.dataLayer.filter(x=>x.event==='ufs_marketing_page_view').length,1);
+});
+test('ChatGPT image pixel respects refusal, purpose choice, single pageview and withdrawal',()=>{
+ const env={GTM_CONTAINER_ID:'GTM-TEST123',GTM_SERVICES:'ga4,meta',GTM_PURPOSE_GATING_VERIFIED:'true',CHATGPT_PIXEL_ID:'test_pixel_12345'};
+ const rejected=browser(env);rejected.buttons.none.click();assert.equal(rejected.pixels.length,0);
+ const b=browser(env);b.choose(true,false);assert.equal(b.pixels.length,0);
+ b.choose(true,true);assert.equal(b.pixels.length,1);const url=new URL(b.pixels[0].src);assert.equal(url.searchParams.get('pid'),env.CHATGPT_PIXEL_ID);assert.equal(url.searchParams.get('event'),'page_viewed');
+ b.choose(true,true);assert.equal(b.pixels.length,1);b.window.ufsMeasurement.track('email_draft_open');assert.equal(b.pixels.length,1);
+ b.window.ufsMeasurement.track('cta_click',{email:'private@example.com'});assert.equal(new URL(b.pixels.at(-1).src).searchParams.get('custom_event_name'),'cta_click');assert.doesNotMatch(b.pixels.at(-1).src,/private|email/);assert.equal(b.pixels.at(-1).options.keepalive,true);assert.equal(b.pixels.at(-1).options.credentials,'omit');
+ b.choose(false,false);assert.equal(b.location.reloads,1);b.window.ufsMeasurement.track('cta_click');assert.equal(b.pixels.length,2);
+ const m=browser(env);m.choose(false,true);assert.equal(m.session.size,0);assert.equal(m.pixels.length,1);assert.equal(m.scripts.some(s=>s.src.includes('openai')),false);
 });

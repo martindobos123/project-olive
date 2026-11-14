@@ -34,7 +34,7 @@ A gyökérben lévő `index.html`, `*/index.html`, `assets/`, `images/projects/`
 
 A közös, hozzájáruláshoz kötött mérés leírása: [docs/measurement.md](docs/measurement.md).
 Azonosítók: [.env.example](.env.example), kizárólag buildkori környezeti változóként.
-ID nélkül nincs külső mérés és nincs hozzájárulás-sáv. Az OpenAI/GoatCounter régi betöltők tiltva maradnak.
+ID nélkül nincs külső mérés és nincs hozzájárulás-sáv. A régi betöltők tiltva maradnak. A ChatGPT Ads Pixel külön CHATGPT_PIXEL_ID változóval, minimális képpixelként, kizárólag marketing-hozzájárulás után aktiválható; GTM-ben nem szabad duplikálni.
 
 ## Kétnyelvűség
 
