@@ -430,3 +430,12 @@ ul,ol{margin:0;padding:0}
 .legal ul{padding-left:1.2rem;margin-bottom:1em}
 .legal code{font-size:.9em;background:var(--bg-alt);padding:.05em .3em}
 .subproject__thumbs>:only-child{grid-column:1/-1;aspect-ratio:16/9}
+
+/* Consent remains usable on small screens and at 200% zoom. */
+.consent{max-height:85dvh;overflow-y:auto;align-items:start}
+.consent h2{font-size:var(--fs-body);margin:0 0 .5rem}
+.consent fieldset{border:0;padding:0;margin:.75rem 0 0;display:flex;gap:1rem;flex-wrap:wrap}
+.consent label{display:flex;gap:.5rem;align-items:center;cursor:pointer}
+.consent input{width:1.2rem;height:1.2rem;accent-color:var(--on-dark)}
+.consent .btn-row{flex-wrap:wrap}
+@media(min-width:800px){.consent{grid-template-columns:1fr}.consent .btn-row{justify-content:flex-start}}

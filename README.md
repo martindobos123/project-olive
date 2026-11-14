@@ -30,20 +30,11 @@ scripts/image-sources.json  melyik forrásfájlból melyik webes kép készül
 
 A gyökérben lévő `index.html`, `*/index.html`, `assets/`, `images/projects/`, `sitemap.xml` stb.
 **generált kimenet** — ne kézzel szerkeszd, hanem a `src/`-t, majd buildelj.
-## ChatGPT Ads mérés (OpenAI Measurement Pixel)
+## Analitika és marketingmérés
 
-- `src/data/site.mjs` → `oaiPixelId`. **Üresen** semmi nem települ (nincs Pixel-script, nincs CSP-bővítés,
-  nincs hozzájárulás-sáv). Kitöltve a build legenerálja az `assets/oaiq-init.js`-t (a hivatalos betöltő +
-  `oaiq("consent", false)` az init előtt, ha nincs tárolt engedély), beteszi a `<head>`-be, bővíti a CSP-t a
-  dokumentált forrásokkal (`bzrcdn.openai.com`, `bzr.openai.com`) és minden oldalra kiteszi a hozzájárulás-sávot.
-- Kapcsolat-kattintás események (`src/assets/site.js`): `contact_phone_click` (tel:), `contact_whatsapp_click`
-  (wa.me / api.whatsapp.com / whatsapp:), `contact_email_click` (mailto:) — egy delegált click-figyelő,
-  `oaiq("measure", "custom", { type: "custom" }, { custom_event_name })`. Soha nem akadályozza a link működését.
-- Hozzájárulás: `localStorage['ufs-consent']` = `granted` | `denied`; a sáv gombjai `oaiq("consent", true|false)`-t
-  hívnak. Lábléc: „Mérési beállítások” újranyitja a sávot.
-- A régi `/project-olive/` átirányítás `assets/redirect.js`-sel megőrzi a query stringet (`?oppref=…`).
-- Lokális teszt valódi ID nélkül: `OAI_PIXEL_ID=test-local node scripts/build.mjs` (utána TISZTA build és az
-  `assets/oaiq-init.js` törlése, mielőtt commitolsz). Helyőrző ID-t SOHA ne commitolj.
+A közös, hozzájáruláshoz kötött mérés leírása: [docs/measurement.md](docs/measurement.md).
+Azonosítók: [.env.example](.env.example), kizárólag buildkori környezeti változóként.
+ID nélkül nincs külső mérés és nincs hozzájárulás-sáv. Az OpenAI/GoatCounter régi betöltők tiltva maradnak.
 
 ## Kétnyelvűség
 
