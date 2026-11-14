@@ -19,9 +19,10 @@ A korábbi OpenAI Pixel és GoatCounter kód inaktív volt, a build tiltja bekap
 | LINKEDIN_PARTNER_ID | Campaign Manager → Analyze → Insight Tag. A hirdetési fiókhoz megfelelő Campaign Manager jog |
 | LINKEDIN_LEAD_CONVERSION_ID | Külön event-specific igazolt lead konverzió ID |
 | TIKTOK_PIXEL_ID | Ads Manager → Events Manager → Web Pixel. Pixel- és hirdetési fiókhozzáférés |
+| GTM_PURPOSE_GATING_VERIFIED | true kizárólag a teljesen auditált, minden címkénél célonként védett Urbanflip-konténerhez |
 | MEASUREMENT_DEBUG | true csak ellenőrzéshez: GA4 debug_mode; élesben false |
 
-A GitHub és a Pages közzétételi beállításához már van repóhozzáférés. A marketingfiókokhoz ebben a munkában nem volt hozzáférés, ID-t nem találtunk és nem találtunk ki. API-token, Measurement Protocol secret, CAPI token és felhasználói hitelesítő adat SOHA nem kerülhet publikus JS-be. A fenti ID-k nyilvános azonosítók.
+A GitHub és a Pages közzétételi beállításához már van repóhozzáférés. A Google- és Meta-fiókok beállítását a tulajdonos által megnyitott, bejelentkezett böngészőben végeztük el. Az opcionális Google Ads, LinkedIn és TikTok követés még inaktív, saját fiókazonosítóik és konverzióbeállításaik szükségesek. API-token, Measurement Protocol secret, CAPI token és felhasználói hitelesítő adat SOHA nem kerülhet publikus JS-be. A fenti ID-k nyilvános azonosítók.
 
 A `.env.example` csak minta. Node 20.6+ esetén:
 
@@ -40,7 +41,7 @@ A build a környezetet olvassa; a Pages önmagában nem futtatja a buildet és n
 - Külön analitika és marketing, alapból üres jelölőnégyzetek. Egyformán megjelenő „Mindet elutasítom” és „Mindet elfogadom”, menthető részleges döntés. Az űrlap adatkezelési jelölőnégyzete nem tracking-hozzájárulás.
 - ufs-consent-v2: döntés, időpont, konfigurációverzió, 180 nap. Régi általános „granted” nem migrálódik. Szolgáltató/ID változása új engedélyt kér. Sérült, lejárt vagy jövőbeli rekord érvénytelen. Tárolási hibánál alapból tiltott; az aktuális munkamenetben adható engedély.
 - Láblécben és landing láblécben újranyitás, módosítás és visszavonás. Csökkentett engedélynél az alkalmazás rögtön leállítja eseményeit, törli az elérhető saját mérősütiket és attribúciót, újratölti az oldalt az SDK-k megszüntetéséhez. Másik lapfül döntése újratöltést vált ki. Már elküldött adatok és a külső domain sütijei nem törölhetők innen.
-- GTM-módban a deklarált célok engedélyével indul a konténer: csak GA4 esetén elég az analitikai hozzájárulás; analitikai ÉS marketingcímkéket tartalmazó konténernél mindkettő kell. Ez szándékosan szigorú: a repó nem tudja ellenőrizni a később módosított konténer összes címkéjét. Alapból vegyes célú GTM-konténernél a részleges engedély nem indítja a konténert; a közvetlen telepítési mód a két célt egymástól függetlenül kezeli.
+- GTM-módban az auditált Urbanflip-konténer célonként külön működik (GTM_PURPOSE_GATING_VERIFIED=true). A konténer bármelyik választott cél engedélyével betölthető, minden címke saját Additional Consent Checks feltétele kötelező. Ismeretlen/nem auditált vegyes konténer alapértelmezetten mindkét engedélyt igényli; a repó nem tudja ellenőrizni a később módosított konténer összes címkéjét.
 
 A technikai megoldás önmagában nem igazolja a teljes GDPR/ePrivacy-megfelelést. Élesítés előtt az adatkezelőnek ellenőriznie kell a szolgáltatói szerződéseket, szerepköröket, nemzetközi adattovábbítás garanciáit, valódi sütikészletet és megőrzési beállításokat. Tájékoztató/cél változtatásakor emelni kell a measurement-config.mjs noticeVersion értékét is, hogy új hozzájárulást kérjen. A HU/EN tájékoztató a buildben megadott szolgáltatókat sorolja fel; GTM_SERVICES-nek a közzétett konténerrel egyeznie kell. A tulajdonos 2026. november 14-i döntése szerint a GA4 eseményadatok megőrzése 2 hónap, a felhasználói adatoké 14 hónap, új aktivitáskor hosszabbítható. Ezeket az élő fiókban ellenőriztük és változatlanul hagytuk; a tájékoztató ezt tükrözi. GA4-süti: 180 nap, automatikus hosszabbítás nélkül. Marketingplatformok sütibeállításait a tájékoztatóval egyeztetni kell. A hozzájárulás bizonyíthatóságát és a banner/verziók nyilvántartását az adatkezelőnek külön rendeznie kell; nincs szerveroldali hozzájárulásnapló.
 
@@ -83,7 +84,7 @@ A betöltés előtt az SDK-k által olvasható oldal URL-jéből eltűnnek az is
 - Tiszta böngészőben, HU/EN és befektetői landing: választás előtt / elutasítás után nincs mérőscript vagy vendor hálózat, nincs attribúció; engedély nélkül működik a kapcsolatfelvétel.
 - Analitika-only: GA4 indul, egy page_view; Meta/Ads/LinkedIn/TikTok nem. Marketing-only: marketing indul, GA4/analitikai sessionStorage nem. Mindkettő: minden beállított szolgáltató egyszer. GTM: alapértelmezetten a vegyes célú konténer mindkét engedélyt igényli; a teljesen auditált Urbanflip-konténer GTM_PURPOSE_GATING_VERIFIED=true beállítással célonként külön működik.
 - Módosítás, visszavonás, lapváltás, új lapfül, sérült/lejárt/tárolhatatlan consent, 180 nap utáni hosszú ideig nyitva hagyott oldal. Mobil és billentyűzet/zoom: olvasható banner, fókusz elérhető, láblécből újranyitható.
-- Tag Assistant: default mind a négy v2 mező denied, majd megfelelő update; Basic módban előzetes ping sincs. GA4 Realtime/DebugView: egy oldalnézet, CTA és form esemény egyszer, query/mezőérték nélkül. Egyéni dimenziókhoz regisztráld a szükséges fix paramétereket (form_id, cta_id, calculator_id, language).
+- Tag Assistant: default mind a négy v2 mező denied, majd megfelelő update; Basic módban előzetes ping sincs. GA4 Realtime/DebugView: egy oldalnézet, CTA és form esemény egyszer, query/mezőérték nélkül. Egyéni dimenziókhoz a form_id, cta_id, calculator_id és language paramétereket már regisztráltuk eseményhatókörű egyéni dimenzióként.
 - Meta Test Events / Pixel Helper, LinkedIn Insight Tag diagnostics, TikTok Test Events / Pixel Helper és Ads konverziódiagnosztika a tényleges fiókokkal. Ellenőrizd a hálózatot és a CSP hibákat; szükség esetén konkrét vendor endpointot adj hozzá.
 - E-mail előkészítéskor email_draft_open látszik, generate_lead nem; backend bevezetésekor csak igazolt siker adhat konverziót, dupla beküldés ellen deduplikációval.
 - Üres env-vel új build után nincs külső ID vagy tesztkód; git diff ellenőrzése a generált fájlokkal együtt. Publish előtt a fenti fiók- és jogi ellenőrzések befejezése szükséges.
@@ -111,3 +112,12 @@ A Meta hivatalos v2.0.9 GTM-sablonja fbevents.js-t, valamint Meta paraméterseg�
 A GA4 alapcímke Initialization mellett ufs_page_view eseményre is aktiválható, oldalanként egyszer. Így akkor is inicializál, ha előbb csak marketing-, majd később analitikai engedély érkezik. send_page_view=false, a tényleges oldalnézetet kizárólag az eseménycímke küldi.
 
 2026. november 14-i ellenőrzés: 29 automatizált teszt sikeres. Helyi valódi GTM-betöltésnél engedély előtt és visszavonás után külső scriptlista üres; analitika-only mellett nincs Meta SDK; marketing-only mellett Meta betöltődik. Mindkét cél engedélyezésénél nem volt CSP- vagy böngészőhiba. A Google adatmegőrzési beállításai a tulajdonos döntése szerint változatlanok.
+
+## Élesítés és fiókellenőrzés eredménye
+
+- A GA4 és Meta módosításai élesek: [PR #13](https://github.com/martindobos123/project-olive/pull/13), [PR #14](https://github.com/martindobos123/project-olive/pull/14). A Meta-frissítés Pages közzététele sikeres (43593327923).
+- Az éles domainen is ellenőrizve: engedély előtt és visszavonás után nincs külső mérőscript; csak analitika mellett nincs Meta SDK; marketingengedély után a Meta SDK a helyes Pixel ID-val töltődik. A vizsgált oldalon nem volt CSP-/böngészőhiba.
+- A GA4 valós idejű jelentése tényleges page_view, cta_click és űrlapeseményeket fogadott. contact_phone_click, contact_email_click és contact_whatsapp_click kulcseseményként regisztrálva, munkamenetenként egyszer, alapértelmezett pénzérték nélkül. Ezek kattintások, nem igazolt leadek.
+- Négy eseményhatókörű egyéni dimenzió létrehozva: cta_id, form_id, calculator_id, language.
+- A Meta felületén a mai dátumra szűrve a feldolgozott események visszaigazolása az utolsó ellenőrzéskor még függőben volt. A Meta akár 30 perces késést jelez. A Pixel telepítése és engedélyhez kötött betöltése ellenőrizve; a Meta adatfogadása még nem tekinthető külön visszaigazoltnak.
+- A böngésző a telefonlink megnyitását biztonsági okból blokkolta; ezt nem kerültük meg. A kontaktkattintás-kezelést automatizált teszt ellenőrzi; éles hívás indítása nem történt.
