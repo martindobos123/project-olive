@@ -250,12 +250,12 @@ export function ConsentBanner() {
   <div><h2 id="consent-title">${t({hu:'Sütik és mérési beállítások',en:'Cookies and measurement settings'})}</h2>
   <p>${t({hu:'Az oldal mérés nélkül is használható. Az analitika a látogatásokat és az oldal használatát méri; a marketing a hirdetések eredményességét és célzását segíti. Külső szolgáltatók csak a választott hozzájárulás után töltődnek be. Döntését 180 napig tároljuk, és a láblécben bármikor módosíthatja vagy visszavonhatja.',en:'You can use the site without measurement. Analytics measures visits and site usage; marketing helps measure and target ads. External providers load only after your consent. We remember your choice for 180 days. Change or withdraw it anytime in the footer.'})}</p>
   <p>${t({hu:'Beállított szolgáltatók:',en:'Configured providers:'})} ${esc(measurement.providers.map(x => ({ga4:'Google Analytics 4',meta:'Meta Pixel',googleAds:'Google Ads',linkedin:'LinkedIn Insight Tag',tiktok:'TikTok Pixel'})[x]).join(', '))}${measurement.gtm ? ' (Google Tag Manager)' : ''}. <a href="${href('cookies')}">${t({hu:'Szolgáltatók, sütik és részletek',en:'Providers, cookies and details'})}</a></p>
-  ${measurement.gtm ? `<p>${t({hu:'A Tag Manager csak mindkét kategória engedélyezésekor indul el.',en:'Tag Manager loads only when both categories are allowed.'})}</p>` : ''}
+  ${measurement.gtm && measurement.providers.includes('ga4') && measurement.providers.length > 1 ? `<p>${t({hu:'A Tag Manager csak mindkét kategória engedélyezésekor indul el.',en:'Tag Manager loads only when both categories are allowed.'})}</p>` : ''}
   <fieldset><legend>${t({hu:'Választható célok',en:'Optional purposes'})}</legend>
-  <label><input type="checkbox" name="analytics"> ${t({hu:'Analitika',en:'Analytics'})}</label>
-  <label><input type="checkbox" name="marketing"> ${t({hu:'Marketing',en:'Marketing'})}</label></fieldset></div>
+  ${measurement.providers.includes('ga4') ? `<label><input type="checkbox" name="analytics"> ${t({hu:'Analitika',en:'Analytics'})}</label>` : ''}
+  ${measurement.providers.some(provider => provider !== 'ga4') ? `<label><input type="checkbox" name="marketing"> ${t({hu:'Marketing',en:'Marketing'})}</label>` : ''}</fieldset></div>
   <div class="btn-row"><button type="button" class="btn btn--line" data-consent="none">${t({hu:'Mindet elutasítom',en:'Reject all'})}</button><button type="button" class="btn btn--line" data-consent="all">${t({hu:'Mindet elfogadom',en:'Accept all'})}</button><button type="button" class="btn btn--line" data-consent="save">${t({hu:'Kiválasztás mentése',en:'Save selection'})}</button></div>
-</section>`;
+</section>`.replace(/^[ \t]+$/gm, '');
 }
 
 export function ContactForm({ services: opts }) {

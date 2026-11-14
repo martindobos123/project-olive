@@ -9,6 +9,9 @@
   var path = document.documentElement.getAttribute('data-measure-path') || '/404.html';
   var language = document.documentElement.lang === 'en' ? 'en' : 'hu';
   var attribution = null, attributionAt = 0, consentTimer;
+  var needsAnalytics = config.providers.includes('ga4');
+  var needsMarketing = config.providers.some(function (provider) { return provider !== 'ga4'; });
+  function gtmAllowed() { return (!needsAnalytics || state.analytics) && (!needsMarketing || state.marketing); }
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   function signal(command) {
@@ -95,8 +98,9 @@
     captureAttribution();
     cleanAddress();
     if (config.gtm) {
-      // An arbitrary container cannot be safely restricted by site code. Require BOTH purposes.
-      if (state.analytics && state.marketing && !loaded.gtm) {
+      // Only the declared purposes can authorize this audited container.
+      if (gtmAllowed() && !loaded.gtm) {
+        window.dataLayer.push({ measurement: { page_path: path, page_location: location.origin + path, page_referrer: origin(document.referrer), language: language } });
         window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
         script('gtm', 'https://www.googletagmanager.com/gtm.js?id=' + config.gtm);
       }
@@ -153,12 +157,12 @@
       if (closed || !config.active || !allowed.includes(name) || !(state.analytics || state.marketing)) return false;
       // Expired consent must never authorize events, even in a long-lived tab.
       if (consentAt && Date.now() - consentAt >= TTL) { apply({ analytics: false, marketing: false }, false); return false; }
-      if (config.gtm && !(state.analytics && state.marketing)) return false;
+      if (config.gtm && !gtmAllowed()) return false;
       if (state.analytics) {
         captureAttribution(); attributionAt = Date.now();
         try { sessionStorage.setItem(ATTR, JSON.stringify(Object.assign({ revision: config.revision, at: attributionAt }, attribution))); } catch (_) {}
       }
-      var data = { page_path: path, page_location: location.origin + path, page_referrer: origin(document.referrer), language: language };
+      var data = { event_name: name, page_path: path, page_location: location.origin + path, page_referrer: origin(document.referrer), language: language };
       ['form_id','cta_id','link_kind','error_kind','calculator_id'].forEach(function (key) { if (params && safeToken(params[key])) data[key] = safeToken(params[key]); });
       if (params && config.paths.includes(params.target_path)) data.target_path = params.target_path;
       if (state.analytics && attribution) Object.assign(data, attribution);
@@ -188,7 +192,7 @@
   function apply(next, persist, at) {
     var reduced = (state.analytics && !next.analytics) || (state.marketing && !next.marketing);
     var previous = { analytics: state.analytics, marketing: state.marketing };
-    state = { analytics: !!next.analytics, marketing: !!next.marketing };
+    state = { analytics: needsAnalytics && !!next.analytics, marketing: needsMarketing && !!next.marketing };
     consentAt = at || Date.now();
     if (persist) { try { localStorage.removeItem(KEY); localStorage.setItem(KEY, JSON.stringify({ revision: config.revision, at: consentAt, analytics: state.analytics, marketing: state.marketing })); } catch (_) {} }
     scheduleExpiry();
@@ -205,14 +209,14 @@
       location.reload(); return;
     }
     signal('update'); start();
-    if ((state.analytics && !previous.analytics) || (config.gtm && state.analytics && state.marketing && !previous.marketing)) track('page_view');
+    if ((state.analytics && !previous.analytics) || (config.gtm && gtmAllowed() && state.marketing && !previous.marketing)) track('page_view');
   }
   function show() {
     if (!bar) return;
     opener = document.activeElement;
     bar.hidden = false;
-    bar.querySelector('[name=analytics]').checked = state.analytics;
-    bar.querySelector('[name=marketing]').checked = state.marketing;
+    if (bar.querySelector('[name=analytics]')) bar.querySelector('[name=analytics]').checked = state.analytics;
+    if (bar.querySelector('[name=marketing]')) bar.querySelector('[name=marketing]').checked = state.marketing;
     bar.querySelector('button').focus();
   }
   window.ufsMeasurement = { track: track, openSettings: show };
@@ -224,7 +228,7 @@
     bar.querySelectorAll('[data-consent]').forEach(function (button) {
       button.addEventListener('click', function () {
         var action = button.dataset.consent;
-        var next = action === 'save' ? { analytics: bar.querySelector('[name=analytics]').checked, marketing: bar.querySelector('[name=marketing]').checked }
+        var next = action === 'save' ? { analytics: !!(bar.querySelector('[name=analytics]') && bar.querySelector('[name=analytics]').checked), marketing: !!(bar.querySelector('[name=marketing]') && bar.querySelector('[name=marketing]').checked) }
           : { analytics: action === 'all', marketing: action === 'all' };
         apply(next, true); bar.hidden = true;
         if (opener && opener.focus) opener.focus();

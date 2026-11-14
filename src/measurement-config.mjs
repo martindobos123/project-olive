@@ -13,7 +13,7 @@ export function measurementConfig(env = process.env) {
     tiktok: ['TIKTOK_PIXEL_ID', /^[A-Z0-9]{10,30}$/],
   };
   // Bump when the purposes or published consent notice changes.
-  const config = { noticeVersion: '2026-11-14' };
+  const config = { noticeVersion: '2026-11-14.2' };
   for (const [key, [name, pattern]] of Object.entries(fields)) {
     config[key] = (env[name] || '').trim();
     if (config[key] && !pattern.test(config[key])) throw new Error(`Invalid ${name}`);

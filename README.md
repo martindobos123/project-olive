@@ -85,7 +85,7 @@ telefon / WhatsApp: `+36 70 604 3807` · e-mail: `martindobos123@gmail.com` · d
 
 A `src/legal-pages.mjs` generálja a magyar és angol adatkezelési tájékoztatót, impresszumot, weboldali ÁSZF-et és sütitájékoztatót. Üzemeltető: a tulajdonos által megadott Dobos Martin, a cím a `site.mjs` fájlban. Az ÁSZF nem szolgáltatási vagy befektetési szerződés.
 
-Ez a kiadás FELÜLÍRJA a fenti FormSubmit- és pixel-aktiválási leírást: minden érdeklődő űrlap a látogató saját levelezőjében készít elő üzenetet, nem küld hálózati POST-ot. Küldéshez a látogatónak a levelezőjében kell elküldenie az üzenetet. Külső űrlap vagy mérés visszakapcsolását a build megállítja, amíg az adatkezelés és a hozzájárulási megoldás felülvizsgálata meg nem történik.
+Ez a kiadás FELÜLÍRJA a fenti FormSubmit- és pixel-aktiválási leírást: minden érdeklődő űrlap a látogató saját levelezőjében készít elő üzenetet, nem küld hálózati POST-ot. Küldéshez a látogatónak a levelezőjében kell elküldenie az üzenetet. A külső űrlapküldést és a régi mérőkódok visszakapcsolását a build továbbra is megállítja. A közös hozzájárulási rétegen keresztüli új mérés beállítását a docs/measurement.md ismerteti.
 
 A közzétett 12 hónapos megőrzést ténylegesen végre kell hajtani a levelezésben; a statikus honlap nem törli a Gmail-leveleket. A konkrét kivitelező/szolgáltató vállalkozás adatait és a fogyasztói szerződés feltételeit az egyedi megrendelés előtt rendezni kell. A weboldali szöveg ezt nem helyettesíti és nem igazolja a tevékenység adózási/engedélyezési megfelelését.
 

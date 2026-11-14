@@ -102,3 +102,12 @@ test('delegated contact and CTA clicks send fixed identifiers without exposing t
  assert.equal(sent.filter(c=>c[1]==='contact_whatsapp_click').length,1);
  assert.equal(sent.at(-1)[2].target_path,'/kapcsolat/');assert.doesNotMatch(JSON.stringify(sent),/private|secret|36701234567/);
 });
+
+test('GA4-only GTM needs analytics consent and never requests marketing consent',()=>{
+ const b=browser({GTM_CONTAINER_ID:'GTM-TEST123',GTM_SERVICES:'ga4'});
+ b.choose(false,true);assert.equal(b.scripts.length,0);
+ b.choose(true,false);assert.equal(b.scripts.length,1);
+ assert.equal(b.window.dataLayer.filter(x=>x.event==='ufs_page_view').length,1);
+ assert.equal(b.window.dataLayer.at(-1).measurement.event_name,'page_view');
+ const choice=JSON.parse(b.local.get('ufs-consent-v2'));assert.equal(choice.marketing,false);
+});
