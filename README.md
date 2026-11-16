@@ -79,7 +79,7 @@ a források a megadott Google Drive- és Google Fotók-albumokból származnak.
 
 ## Kapcsolati adatok
 
-telefon / WhatsApp: `+36 70 604 3807` · e-mail: `martindobos123@gmail.com` · domain a `CNAME`-ben.
+telefon / WhatsApp: `+36 70 604 3807` · e-mail: `martin@urbanflipstudio.com` · domain a `CNAME`-ben.
 
 ## Jogi oldalak – 2026. október 29.
 

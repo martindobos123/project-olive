@@ -44,7 +44,7 @@ test('both languages expose discoverable, indexable pages with matching FAQ and 
     assert.equal(faq.mainEntity.length,7);
     for(const q of faq.mainEntity){ assert.ok(html.includes(q.name));assert.ok(html.includes(q.acceptedAnswer.text)); }
     assert.ok(html.includes('data-preparation-form'));
-    assert.ok(html.includes('data-mailto="martindobos123@gmail.com"'));
+    assert.ok(html.includes('data-mailto="martin@urbanflipstudio.com"'));
     assert.ok(!html.includes('formsubmit.co'));
     for(const id of ['value-name','value-email','value-location','value-condition','value-consent']) {
       assert.match(html,new RegExp(`id="${id}"[^>]*required`));

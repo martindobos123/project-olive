@@ -11,7 +11,7 @@ export const site = {
   city: 'Budapest',
   phone: '+36 70 604 3807',
   phoneHref: 'tel:+36706043807',
-  email: 'martindobos123@gmail.com',
+  email: 'martin@urbanflipstudio.com',
   whatsapp: 'https://wa.me/36706043807',
   instagram: 'https://www.instagram.com/urbanflipstudio/',
   // Legacy providers remain disabled; use measurement-config.mjs and build-time env IDs.
